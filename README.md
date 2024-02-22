@@ -1,10 +1,10 @@
 # LCOM Project
 
-LCOM Project for group T&lt;m&gt;&lt;n&gt;G&lt;p&gt;&lt;q&gt;.
+LCOM Project for group T02-G06.
 
 Group members:
 
-1. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
-2. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
-3. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
-4. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
+1. Davide Teixeira     (up202109860@fe.up.pt)
+2. Eduardo Baltazar    (up202206313@fe.up.pt)
+3. Emanuel Maia        (up202107486@fe.up.pt)
+4. Joana Noites        (up202206284@fe.up.pt)

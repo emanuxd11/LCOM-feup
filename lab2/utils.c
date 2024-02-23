@@ -15,12 +15,18 @@ int(util_get_MSB)(uint16_t val, uint8_t *msb) {
   if (msb == NULL) return -1;
   *msb = val >> 8;
 
-  return 10;
+  return 0;
 }
 
 int (util_sys_inb)(int port, uint8_t *value) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
 
-  return 1;
+  if (value == NULL) return -1;
+  
+  uint32_t read_value;
+
+  sys_inb(port, &read_value);
+
+  *value = read_value;
+
+  return 0;
 }

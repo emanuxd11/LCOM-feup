@@ -35,13 +35,12 @@ int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
   uint16_t val = 0x1234;
   uint8_t lsb;
   uint8_t msb;
+  uint8_t config;
 
   util_get_LSB(val, &lsb);
   util_get_MSB(val, &msb);
-
-  printf("Value: 0x%x\n", val);
-  printf("LSB Value: 0x%x\n", lsb);
-  printf("MSB Value: 0x%x\n", msb);
+  util_sys_inb(0x40, &config);
+  
   printf("%s is not yet implemented!\n", __func__);
 
   return 1;

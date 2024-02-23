@@ -31,6 +31,17 @@ int main(int argc, char *argv[]) {
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
   /* To be implemented by the students */
+
+  uint16_t val = 0x1234;
+  uint8_t lsb;
+  uint8_t msb;
+
+  util_get_LSB(val, &lsb);
+  util_get_MSB(val, &msb);
+
+  printf("Value: 0x%x\n", val);
+  printf("LSB Value: 0x%x\n", lsb);
+  printf("MSB Value: 0x%x\n", msb);
   printf("%s is not yet implemented!\n", __func__);
 
   return 1;

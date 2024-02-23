@@ -30,20 +30,12 @@ int main(int argc, char *argv[]) {
 }
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
-  /* To be implemented by the students */
 
-  uint16_t val = 0x1234;
-  uint8_t lsb;
-  uint8_t msb;
   uint8_t config;
 
-  util_get_LSB(val, &lsb);
-  util_get_MSB(val, &msb);
-  util_sys_inb(0x40, &config);
-  
-  printf("%s is not yet implemented!\n", __func__);
+  if (timer_get_conf(timer, &config)) return -1;
 
-  return 1;
+  return timer_display_conf(timer, config, field);
 }
 
 int(timer_test_time_base)(uint8_t timer, uint32_t freq) {

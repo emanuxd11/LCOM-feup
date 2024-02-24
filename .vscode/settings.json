@@ -1,0 +1,31 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "*.s": "platformio-debug.asm",
+        "cstddef": "c",
+        "lcf.h": "c",
+        "lab2.h": "c",
+        "timer.h": "c",
+        "stdint.h": "c",
+        "i8254.h": "c",
+        "locale": "c",
+        "__bit_reference": "c",
+        "bitset": "c",
+        "__memory": "c",
+        "limits": "c",
+        "ratio": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "vector": "c",
+        "chrono": "c",
+        "__functional_base": "c",
+        "algorithm": "c",
+        "atomic": "c",
+        "functional": "c",
+        "iterator": "c",
+        "memory": "c",
+        "__node_handle": "c",
+        "optional": "c",
+        "system_error": "c"
+    }
+}

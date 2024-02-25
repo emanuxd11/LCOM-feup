@@ -13,7 +13,41 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 
   timer_get_conf(timer, &current_configuration);
 
-  return 1;
+  uint8_t lsb4_current_configuration = (BIT(3) | BIT(2) | BIT(1) | BIT(0)) & current_configuration; //stores 4 LSBs of current configuration (so as to not change them)
+  
+  uint8_t control_word;
+
+  switch (timer) //timer selection
+  {
+  case 0:
+    control_word = TIMER_SEL0;
+    break;
+  
+  case 1:
+    control_word = TIMER_SEL1;
+    break;
+
+  case 2:
+    control_word = TIMER_SEL2;
+    break;
+
+  }
+
+  control_word = control_word | TIMER_LSB_MSB | lsb4_current_configuration; //final composition of control word
+
+  if (sys_outb(TIMER_CTRL, control_word) != 0) return -1;
+  uint16_t base = (TIMER_FREQ/freq);
+
+  uint8_t base_lsb;
+  uint8_t base_msb;
+
+  if(util_get_LSB(base,&base_lsb)==-1)return -1;
+  if(util_get_MSB(base,&base_msb)==-1)return -1;
+
+  if (sys_outb(TIMER(timer), base_lsb) != 0) return -1;
+  if (sys_outb(TIMER(timer), base_msb) != 0) return -1;
+
+  return 0;
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {

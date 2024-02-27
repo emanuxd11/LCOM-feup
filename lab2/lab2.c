@@ -1,5 +1,6 @@
 #include <lcom/lcf.h>
 #include <lcom/lab2.h>
+#include <lcom/lcf.h>
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -44,8 +45,43 @@ int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
 }
 
 int(timer_test_int)(uint8_t time) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
 
-  return 1;
+
+  uint8_t irq_set;
+  timer_subscribe_int(&irq_set);
+
+  int ipc_status;
+  int r;
+  int count = 0;
+  int oscillations = 0;
+  message msg;
+
+  while(count < time) {
+
+      if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+          continue;
+      }
+      if (is_ipc_notify(ipc_status)) { /* received notification */
+          switch (_ENDPOINT_P(msg.m_source)) {
+              case HARDWARE: /* hardware interrupt notification */				
+                  if (msg.m_notify.interrupts & irq_set) { /* subscribed interrupt */
+                      oscillations++;
+                      if (oscillations == 60) {
+                        timer_print_elapsed_time();
+                        oscillations = 0;
+                        count++;  
+                      }
+
+
+                  }
+                  break;
+              default:
+                  break; /* no other notifications expected: do nothing */	
+          }
+      } else { /* received a standard message, not a notification */
+
+      }
+  }
+
+  return 0;
 }

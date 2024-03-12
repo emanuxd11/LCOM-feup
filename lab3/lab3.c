@@ -6,9 +6,14 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "keyboard.h"
+
+extern uint8_t scancode;
+extern bool isRead;
+
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
-  lcf_set_language("EN-US");
+  lcf_set_language("PT-PT");
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
@@ -31,10 +36,40 @@ int main(int argc, char *argv[]) {
 }
 
 int(kbd_test_scan)() {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t irq_set;
+  int ipc_status;
+  int r;
+  message msg;
 
-  return 1;
+  if(kbd_subscribe_int(&irq_set)) return -1;
+  
+  while(scancode != ESC_BREAK){
+
+      if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) { 
+          printf("Didn't received anything :(\n");
+          continue;
+      }
+      if (is_ipc_notify(ipc_status)){
+          switch (_ENDPOINT_P(msg.m_source)) {
+              case HARDWARE:		
+                  if (msg.m_notify.interrupts & irq_set) { 
+                    kbc_ih();
+                      kbd_print_scancode(is_make(scancode), scan_n_bytes(scancode), &scancode);
+                  }
+                  break;
+              default:
+                  break;	
+          }
+
+          if (scancode == ESC_BREAK){
+            break;
+          }
+      }
+    }
+  
+
+  if (kbd_unsubscribe_int()) return -1;
+  return 0;
 }
 
 int(kbd_test_poll)() {

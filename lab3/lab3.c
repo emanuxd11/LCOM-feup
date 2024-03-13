@@ -7,6 +7,7 @@
 #include <stdint.h>
 
 #include "keyboard.h"
+#include <lcom/lab2.h>
 
 extern uint8_t scancode;
 extern bool isRead;
@@ -89,8 +90,52 @@ int(kbd_test_poll)() {
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t irq_set_kbd;
+  uint8_t irq_set_timer;
+  int ipc_status;
+  message msg;
+  uint32_t cnt = 0;
 
-  return 1;
+  if (kbd_subscribe_int(&irq_set_kbd)) return 1;
+  if (timer_subscribe_int(&irq_set_timer)) return 1;
+  
+  while(scancode != ESC_BREAK && (cnt / 60.0) < n){
+
+      if ((driver_receive(ANY, &msg, &ipc_status)) != 0) { 
+          continue;
+      }
+      if (is_ipc_notify(ipc_status)){
+          switch (_ENDPOINT_P(msg.m_source)) {
+              case HARDWARE:		
+                  if (msg.m_notify.interrupts & irq_set_kbd) { 
+                    kbc_ih();
+                    kbd_print_scancode(is_make(scancode), scan_n_bytes(scancode), &scancode);
+                    cnt = 0;
+                    break;
+                  }
+
+                  else if (msg.m_notify.interrupts & irq_set_timer){
+                    cnt++;
+                    if (cnt % 60 == 0){
+                      printf("%d seconds without interrupts\n", cnt / 60);
+                    }
+                  }
+                  break;
+              default:
+                  break;	
+          }
+
+          if (scancode == ESC_BREAK){
+            break;
+          }
+      }
+    }
+  
+
+  if (kbd_unsubscribe_int()) return 1;
+
+  if (timer_unsubscribe_int()) return 1;
+
+  return (kbd_print_no_sysinb(0));
 }
+

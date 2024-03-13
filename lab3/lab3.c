@@ -13,7 +13,7 @@ extern bool isRead;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
-  lcf_set_language("PT-PT");
+  lcf_set_language("EN-US");
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
@@ -40,6 +40,7 @@ int(kbd_test_scan)() {
   int ipc_status;
   int r;
   message msg;
+  uint32_t cnt = 0;
 
   if(kbd_subscribe_int(&irq_set)) return -1;
   
@@ -54,7 +55,8 @@ int(kbd_test_scan)() {
               case HARDWARE:		
                   if (msg.m_notify.interrupts & irq_set) { 
                     kbc_ih();
-                      kbd_print_scancode(is_make(scancode), scan_n_bytes(scancode), &scancode);
+                    kbd_print_scancode(is_make(scancode), scan_n_bytes(scancode), &scancode);
+                    cnt++;
                   }
                   break;
               default:
@@ -69,14 +71,21 @@ int(kbd_test_scan)() {
   
 
   if (kbd_unsubscribe_int()) return -1;
-  return 0;
+
+  return (kbd_print_no_sysinb(0));
 }
 
 int(kbd_test_poll)() {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t code = 0;
+  while(code != ESC_BREAK){
+    if (read_keyboard_buffer(&code) == 0){
+      kbd_print_scancode(is_make(code), scan_n_bytes(code), &code);
+    }
+  }
 
-  return 1;
+  while(enable_interrupts()) continue;
+
+  return 0;
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {

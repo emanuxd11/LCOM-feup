@@ -11,4 +11,10 @@
 
 #define ESC_BREAK 0x81
 
+#define CODE_2_BYTES 0xE0
+
+#define KEYBOARD_READ_COM 0x20
+
+#define KEYBOARD_WRITE_COM 0x60
+
 #endif /* _LCOM_I8042_H */

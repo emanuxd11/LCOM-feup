@@ -16,3 +16,6 @@ bool (is_make)(uint8_t scancode);
 
 uint8_t (scan_n_bytes)(uint8_t scancode);
 
+int (read_keyboard_buffer)(uint8_t *code);
+
+int (enable_interrupts)();

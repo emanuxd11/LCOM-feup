@@ -24,7 +24,7 @@ int (util_sys_inb)(int port, uint8_t *value) {
   
   uint32_t read_value;
 
-  sys_inb(port, &read_value);
+  if (sys_inb(port, &read_value) != 0) return 1;
 
   *value = read_value;
 

@@ -31,6 +31,57 @@ void (mouse_ih)(){
     }
 }
 
+bool (verify_is_first_byte)(uint8_t byte){
+  return byte & BIT(3);
+}
+
+int (get_all_values(uint8_t x1, uint8_t *packet)){
+  if (packet == NULL) return 1;
+  packet[0] = x1;
+  uint8_t scancode1, scancode2;
+  if (util_sys_inb(KBD_OUT_BUF, &scancode1) != 0) return 1;
+  if (util_sys_inb(KBD_OUT_BUF, &scancode2) != 0) return 1;
+  packet[1] = scancode1;
+  packet[2] = scancode2;
+
+  printf("Byte 1:%d\nByte 2:%d\nByte 3:%d\n", x1, packet[1], packet[2]);
+  return 0;
+}
+
+int (parse_packet)(uint8_t *packet, struct packet* pp){
+  if (packet == NULL || pp == NULL) return 1;
+  pp->bytes[0] =packet[0];
+  pp->bytes[1] =packet[1];
+  pp->bytes[2] =packet[2];
+  pp->rb = packet[0] & BIT(1);
+  pp->mb = packet[0] & BIT(2);
+  pp->lb = packet[0] & BIT(0);
+  if ((packet[0] & BIT(4))){
+    printf("negative x\n");
+    pp->delta_x = packet[1];
+    pp->delta_x = - pp->delta_x;
+  }
+  else{
+    pp->delta_x = packet[1];
+  }
+
+  if ((packet[0] & BIT(5))){
+    printf("negative y\n");
+    pp->delta_y = packet[2];
+    pp->delta_y = -pp->delta_y;
+  }
+
+  else{
+    pp->delta_y = packet[2];
+  }
+
+  pp->x_ov = packet[0] & BIT(6);
+
+  pp->y_ov = packet[0] & BIT(7);
+
+  return 0;
+}
+
 
 int (verify_obf)(uint8_t status_reg){
   return status_reg & BIT(0);

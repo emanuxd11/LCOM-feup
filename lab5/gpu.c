@@ -106,3 +106,18 @@ int (draw_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint
 
     return 0;
 }
+
+
+int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
+    enum xpm_image_type type = XPM_INDEXED;
+    xpm_image_t img;
+    uint8_t *sprite = xpm_load(xpm, type, &img);
+
+    for (int i = 0; i < img.height; i++){
+        for (int j = 0; j < img.width; j++){
+            draw_pixel(0x105, x + j, y + i, *sprite);
+            sprite++;
+        }
+    }
+    return 0;
+}

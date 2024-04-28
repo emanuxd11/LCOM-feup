@@ -110,10 +110,52 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u): under construction\n", __func__, xpm, x, y);
 
-  return 1;
+  if (create_vram_buffer(0x105) != 0) return 1;
+
+  if (vg_enter(0x105) != 0) return 1;
+  
+  if (draw_xpm(xpm, x, y) != 0) return 1;
+
+    uint8_t irq_set;
+  int ipc_status;
+  int r;
+  message msg;
+  uint32_t cnt = 0;
+
+  if(kbd_subscribe_int(&irq_set)) return -1;
+
+
+    while(scancode != ESC_BREAK){
+
+      if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) { 
+          printf("Didn't received anything :(\n");
+          continue;
+      }
+      if (is_ipc_notify(ipc_status)){
+          switch (_ENDPOINT_P(msg.m_source)) {
+              case HARDWARE:		
+                  if (msg.m_notify.interrupts & irq_set) { 
+                    kbc_ih();
+                    kbd_print_scancode(is_make(scancode), scan_n_bytes(scancode), &scancode);
+                    cnt++;
+                  }
+                  break;
+              default:
+                  break;	
+          }
+
+          if (scancode == ESC_BREAK){
+            break;
+          }
+      }
+    }
+  
+  if (kbd_unsubscribe_int()) return -1;
+
+  if(vg_exit() != 0) return 1;
+
+  return 0;
 }
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,

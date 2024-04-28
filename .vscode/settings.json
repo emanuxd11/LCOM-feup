@@ -15,5 +15,18 @@
         "functional": "c",
         "system_error": "c",
         "lab3.h": "c"
+        "*.embeddedhtml": "html",
+        "*.s": "platformio-debug.asm",
+        "__bit_reference": "c",
+        "bitset": "c",
+        "map": "c",
+        "unordered_map": "c",
+        "chrono": "c",
+        "algorithm": "c",
+        "timer.h": "c",
+        "lcf.h": "c",
+        "keyboard.h": "c",
+        "stdint.h": "c",
+        "stdbool.h": "c"
     }
 }

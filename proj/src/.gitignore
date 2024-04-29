@@ -8,3 +8,5 @@ trace.txt
 proj
 .depend
 .clang-format
+.vscode
+.clang-*

@@ -4,7 +4,7 @@ PROG=proj
 .PATH: ${.CURDIR}/drivers
 
 # source code files to be compiled
-SRCS = main.c timer.c utils.c
+SRCS = timer.c utils.c main.c gpu.c keyboard.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

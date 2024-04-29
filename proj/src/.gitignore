@@ -10,3 +10,4 @@ proj
 .clang-format
 .vscode
 .clang-*
+core.*

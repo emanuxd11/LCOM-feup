@@ -10,6 +10,7 @@
 extern uint8_t scancode;
 int byte_order=0;
 extern bool finished;
+extern struct packet mouse_packet;
 
 
 int main(int argc, char *argv[]) {
@@ -36,36 +37,30 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int(proj_main_loop)() {
 
-<<<<<<< HEAD
 
 int (proj_main_loop)(){
 
   if (timer_set_frequency(0, 60) != 0) return 1;
   uint8_t irq_set_timer, irq_set_keyboard, irq_set_mouse;
   
-  if (timer_subscribe_int(&irq_set_timer) != 0) return 1;
-  if (kbd_subscribe_int(&irq_set_keyboard) != 0) return 1;
-  if(mouse_subscribe_int(&irq_set_mouse) != 0) return 1;
-  if (vg_enter(0x105) != 0) return 1;
-=======
-  if (timer_set_frequency(0, 60) != 0)
-    return 1;
-  uint8_t irq_set_timer;
-  uint8_t irq_set_keyboard;
-
   if (timer_subscribe_int(&irq_set_timer) != 0)
     return 1;
   if (kbd_subscribe_int(&irq_set_keyboard) != 0)
     return 1;
+  if(mouse_subscribe_int(&irq_set_mouse) != 0)
+    return 1;
   if (vg_enter(0x105) != 0)
     return 1;
+  if (timer_set_frequency(0, 60) != 0)
+    return 1;
+
+
+  
 
   if (create_vram_buffer(0x105) != 0) return 1;
 
   if (draw_rectangle(0x105, 100, 100, 100, 100, 0x20) != 0) return 1;
->>>>>>> a844e7454084ed87479b186390dd6ff38f62850d
 
   int ipc_status;
   int r;
@@ -111,15 +106,9 @@ int (proj_main_loop)(){
                   break;
           }
 
-          if (msg.m_notify.interrupts & irq_set_keyboard) {
-            kbc_ih();
-          }
-
-          break;
-        default:
-          break;
+          
       }
-    }
+    
     else {
     }
   }
@@ -137,3 +126,4 @@ int (proj_main_loop)(){
     return 1;
   return 0;
 }
+

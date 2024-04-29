@@ -32,24 +32,24 @@ int kbc_restore_mouse() {
 
 
 void(mouse_ih)() {
-  uint8t status_reg;
+  uint8_t status_reg;
 
   if(util_sys_inb(STATUS_PORT, &status_reg)){
-    printf("Error reading STATUS port !"\n);
+    printf("Error reading STATUS port !\n");
   }
 
   if(status_reg & BIT(0)){
-    if(status & BIT(6)){
-      printf("Timeout error!"\n);
+    if(status_reg & BIT(6)){
+      printf("Timeout error!\n");
       return;
     }
-    if(status & BIT(7)){
-      printf("Parity error!"\n);
+    if(status_reg & BIT(7)){
+      printf("Parity error!\n");
       return;
     }
 
     if(read_byte_to_mouse_packet()!=0){
-      printf("Error reading packet");
+      printf("Error reading packet\n");
     }
     return;
 
@@ -61,18 +61,18 @@ int issue_cmd_to_mouse(uint8_t cmd){
   uint8_t obf;
   int attempts=10;
   
-  issue_cmd_to_KBC(STATUS,(uint8_t)WRITE_B_TO_MOUSE);
+  issue_cmd_to_KBC(STATUS_PORT,(uint8_t)MOUSE_WRITE_COM);
   issue_cmd_to_KBC(KBD_OUT_BUF,cmd);
   
   while( attempts !=0 ) {
-    if(util_sys_inb(OUT_BUF, &obf)!=0)return 1;
+    if(util_sys_inb(KBD_OUT_BUF, &obf)!=0)return 1;
     /* loop while 8042 input buffer is not empty */
     if(obf == ACK ) {
-      sys_outb(STATUS, cmd); /* no args command */
+      sys_outb(STATUS_PORT, cmd); /* no args command */
       return 0;
     }
 
-    tickdelay(micros_to_ticks(WAIT_KBC));// e.g. tickdelay()
+    tickdelay(micros_to_ticks(2000));// e.g. tickdelay()
     attempts--;
   }
 
@@ -84,13 +84,13 @@ int read_data_from_KBC_mouse(uint8_t *data){
   int attempts=10;
 
   while( attempts!=0) {
-    if(util_sys_inb(STATUS, &stat)!=0){
+    if(util_sys_inb(STATUS_PORT, &stat)!=0){
       printf("Error reading statys reg!");
       return 1;
     }
     if( stat & (BIT(0))) {
        // see if OBF is full
-      util_sys_inb(OUT_BUF, data); /* ass. it returns OK */
+      util_sys_inb(KBD_OUT_BUF, data); /* ass. it returns OK */
       if ( (stat &(BIT(7)| BIT(6))) == 0 )
         return 0;
       if ( stat & BIT(5))
@@ -98,7 +98,7 @@ int read_data_from_KBC_mouse(uint8_t *data){
       else return 1;
     }
 
-    tickdelay(micros_to_ticks(WAIT_KBC));// e.g. tickdelay()
+    tickdelay(micros_to_ticks(2000));// e.g. tickdelay()
     attempts--;
   }
   return 1;
@@ -139,6 +139,23 @@ void array_to_packet(){
   mouse_packet.x_ov = mouse_packet.bytes[0] & BIT(6);
   mouse_packet.y_ov = mouse_packet.bytes[0] & BIT(7);
 }
+
+int issue_cmd_to_KBC(uint8_t port, uint8_t cmd){
+  uint8_t stat;
+  int attempts=10;
+  while( attempts!=0 ) {
+    if(util_sys_inb(STATUS_PORT, &stat)!=0)return 1;
+    /* loop while 8042 input buffer is not empty */
+    if( (stat & BIT(1)) == 0 ) {
+      sys_outb(port, cmd); /* no args command */
+      return 0;
+    } 
+    tickdelay(micros_to_ticks(2000));// e.g. tickdelay()
+    attempts--;
+  }
+  return 1; //ran out of attempts
+}
+
 
 
 

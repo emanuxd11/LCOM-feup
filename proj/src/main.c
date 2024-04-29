@@ -6,8 +6,12 @@
 #include <stdint.h>
 #include "drivers/gpu.h"
 #include "drivers/keyboard.h"
+#include "drivers/mouse.h"
 
 extern uint8_t scancode;
+int byte_order=0;
+extern bool finished;
+
 
 
 int main(int argc, char *argv[]) {
@@ -39,11 +43,11 @@ int main(int argc, char *argv[]) {
 int (proj_main_loop)(){
 
   if (timer_set_frequency(0, 60) != 0) return 1;
-  uint8_t irq_set_timer;
-  uint8_t irq_set_keyboard;
+  uint8_t irq_set_timer, irq_set_keyboard, irq_set_mouse;
   
   if (timer_subscribe_int(&irq_set_timer) != 0) return 1;
   if (kbd_subscribe_int(&irq_set_keyboard) != 0) return 1;
+  if(mouse_subscribe_int(&irq_set_mouse) != 0) return 1;
   if (vg_enter(0x105) != 0) return 1;
 
   int ipc_status;
@@ -73,6 +77,18 @@ int (proj_main_loop)(){
                     kbc_ih();
                   }
 
+                  if(msg.m_notify.interrupts & irq_set_mouse){
+                    mouse_ih();
+
+                    if(finished){
+                      count++;
+                      byte_order = 0;
+                      finished = false;
+                      mouse_print_packet(&mouse_packet);
+                    }
+
+                  }
+
                   break;
               default:
                   break;
@@ -84,6 +100,8 @@ int (proj_main_loop)(){
     printf("Hello, World!\n");
     if (timer_unsubscribe_int() != 0) return 1;
     if (kbd_unsubscribe_int() != 0) return 1;
+    if(mouse_unsubscribe_int() != 0) return 1;
+    if(kbc_restore_mouse() != 0) return 1;
     if(vg_exit() != 0) return 1;
     return 0;
 }

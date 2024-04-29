@@ -1,5 +1,20 @@
 {
     "files.associations": {
+        "mouse.h": "c",
+        "stdio.h": "c",
+        "lcf.h": "c",
+        "stdint.h": "c",
+        "__functional_base": "c",
+        "future": "c",
+        "locale": "c",
+        "memory": "c",
+        "thread": "c",
+        "tuple": "c",
+        "utility": "c",
+        "istream": "c",
+        "functional": "c",
+        "system_error": "c",
+        "lab3.h": "c"
         "*.embeddedhtml": "html",
         "*.s": "platformio-debug.asm",
         "cstddef": "c",

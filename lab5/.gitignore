@@ -1,0 +1,6 @@
+*.o
+.depend
+.gdbinit
+lab5
+*.txt
+*.d

@@ -1,17 +1,15 @@
 #include <lcom/lcf.h>
-#include <lcom/lcf.h>
 #include <lcom/timer.h>
 
-#include <stdbool.h>
-#include <stdint.h>
 #include "drivers/gpu.h"
 #include "drivers/keyboard.h"
 #include "drivers/mouse.h"
+#include <stdbool.h>
+#include <stdint.h>
 
 extern uint8_t scancode;
 int byte_order=0;
 extern bool finished;
-
 
 
 int main(int argc, char *argv[]) {
@@ -38,7 +36,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+int(proj_main_loop)() {
 
+<<<<<<< HEAD
 
 int (proj_main_loop)(){
 
@@ -49,6 +49,23 @@ int (proj_main_loop)(){
   if (kbd_subscribe_int(&irq_set_keyboard) != 0) return 1;
   if(mouse_subscribe_int(&irq_set_mouse) != 0) return 1;
   if (vg_enter(0x105) != 0) return 1;
+=======
+  if (timer_set_frequency(0, 60) != 0)
+    return 1;
+  uint8_t irq_set_timer;
+  uint8_t irq_set_keyboard;
+
+  if (timer_subscribe_int(&irq_set_timer) != 0)
+    return 1;
+  if (kbd_subscribe_int(&irq_set_keyboard) != 0)
+    return 1;
+  if (vg_enter(0x105) != 0)
+    return 1;
+
+  if (create_vram_buffer(0x105) != 0) return 1;
+
+  if (draw_rectangle(0x105, 100, 100, 100, 100, 0x20) != 0) return 1;
+>>>>>>> a844e7454084ed87479b186390dd6ff38f62850d
 
   int ipc_status;
   int r;
@@ -56,7 +73,7 @@ int (proj_main_loop)(){
   int oscillations = 0;
   message msg;
 
-  while(scancode != ESC_BREAK) {
+  while (scancode != ESC_BREAK) {
 
       if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
           continue;
@@ -93,16 +110,30 @@ int (proj_main_loop)(){
               default:
                   break;
           }
-      } else {
 
+          if (msg.m_notify.interrupts & irq_set_keyboard) {
+            kbc_ih();
+          }
+
+          break;
+        default:
+          break;
       }
+    }
+    else {
+    }
   }
-    printf("Hello, World!\n");
-    if (timer_unsubscribe_int() != 0) return 1;
-    if (kbd_unsubscribe_int() != 0) return 1;
-    if(mouse_unsubscribe_int() != 0) return 1;
-    if(kbc_restore_mouse() != 0) return 1;
-    if(vg_exit() != 0) return 1;
-    return 0;
+    
+  printf("Hello, World!\n");
+  if (timer_unsubscribe_int() != 0)
+    return 1;
+  if (kbd_unsubscribe_int() != 0)
+    return 1;
+  if(mouse_unsubscribe_int() != 0)
+    return 1;
+  if(kbc_restore_mouse() != 0)
+    return 1;
+  if (vg_exit() != 0)
+    return 1;
+  return 0;
 }
-

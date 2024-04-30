@@ -35,7 +35,6 @@ int (create_vram_buffer)(uint16_t mode){
     if (vbe_get_mode_info(mode, &modeInfo) != 0) return 1;
 
     uint8_t n_bits_per_pixel = modeInfo.BitsPerPixel;
-
     uint8_t n_bytes_per_pixel;
 
     if (n_bits_per_pixel == 15) n_bytes_per_pixel = 2;
@@ -59,7 +58,6 @@ int (create_vram_buffer)(uint16_t mode){
 }
 
 int (draw_pixel)(uint16_t mode, uint16_t x, uint16_t y, uint32_t color){
-    if (vbe_get_mode_info(mode, &modeInfo) != 0) return 0;
 
     if (x < 0 || y < 0 || x > modeInfo.XResolution || y > modeInfo.YResolution) return 0;
     uint8_t n_bytes_per_pixel = 0;
@@ -67,12 +65,7 @@ int (draw_pixel)(uint16_t mode, uint16_t x, uint16_t y, uint32_t color){
     if (modeInfo.BitsPerPixel == 15) n_bytes_per_pixel = 2;
     else n_bytes_per_pixel = modeInfo.BitsPerPixel / 8;
 
-
     uint32_t buffer_index = (y * modeInfo.XResolution + x) * n_bytes_per_pixel;
-
-
-    memcpy(&video_ram[buffer_index], &color, n_bytes_per_pixel);
-
 
     if (memcpy(&video_ram[buffer_index], &color, n_bytes_per_pixel) == NULL) return 1;
 

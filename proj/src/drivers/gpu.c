@@ -90,6 +90,14 @@ int (draw_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint
     return 0;
 }
 
+int (set_background_color)(uint16_t mode, uint32_t color){
+     for (int x = 0; x < modeInfo.XResolution; x++){
+        for (int y = 0; y < modeInfo.YResolution; y++){
+            if (draw_pixel(mode, x, y, color) != 0) return 1;
+        }
+     }
+     return 0;
+}
 
 int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
     enum xpm_image_type type = XPM_INDEXED;

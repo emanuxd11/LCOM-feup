@@ -5,6 +5,7 @@
 #include "drivers/keyboard.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include "images/cats/cat0.xpm"
 
 extern uint8_t scancode;
 
@@ -48,12 +49,12 @@ int(proj_main_loop)() {
 
   if (create_vram_buffer(0x105) != 0) return 1;
 
-  if (draw_rectangle(0x105, 100, 100, 100, 100, 0x20) != 0) return 1;
+  if (set_background_color(0x105, 63) != 0) return 1;
+
+  if (draw_rectangle(0x105, 100, 100, 100, 100, 0x10) != 0) return 1;
 
   int ipc_status;
   int r;
-  int count = 0;
-  int oscillations = 0;
   message msg;
 
   while (scancode != ESC_BREAK) {
@@ -65,12 +66,8 @@ int(proj_main_loop)() {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer) {
-            oscillations++;
-            if (oscillations == 60) {
-              timer_print_elapsed_time();
-              oscillations = 0;
-              count++;
-            }
+            if (draw_rectangle(0x105, 100, 100, 100, 100, 0x10) != 0) return 1;
+            //draw_xpm((xpm_map_t) cat0_xpm, 1, 1);
           }
 
           if (msg.m_notify.interrupts & irq_set_keyboard) {

@@ -6,7 +6,7 @@ typedef struct {
     Entity cats[10];
     Entity walls[4];
     uint8_t stage;
-    bool isDay;
+    //bool isDay;
 } Room;
 
 
@@ -20,3 +20,4 @@ int removeCat(Room* room ,Entity* cat);   //called if the specified cat is pet c
 int addCat(Room* room);   //called after a cooldown; cooldown is shorter in higher stages
 
 int advanceStage(Room* room);
+

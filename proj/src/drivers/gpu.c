@@ -104,9 +104,13 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
     xpm_image_t img;
     uint8_t *sprite = xpm_load(xpm, type, &img);
 
+    if (sprite == NULL) return 1;
+
+    printf("Here, now just need to draw the image!\n");
+
     for (int i = 0; i < img.height; i++){
         for (int j = 0; j < img.width; j++){
-            draw_pixel(0x105, x + j, y + i, *sprite);
+            if (draw_pixel(0x105, x + j, y + i, *sprite) != 0) return 1;
             sprite++;
         }
     }

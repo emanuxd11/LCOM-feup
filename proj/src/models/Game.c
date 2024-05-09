@@ -2,7 +2,26 @@
 
 Game* createNewGame(){
     Game *game = (Game*) malloc(sizeof(Game));
-    game->state = MENU_STATE;
-    //game->menu_sprite = create_sprite("../images/cat0.xpm", 0, 0, 0, 0);
+    game->state = GAME_STATE;
+    game->room = newRoom();
     return game;
+}
+
+Room* newRoom(){
+    Room *room = (Room*) malloc(sizeof(Room));
+    Position position;
+    position.x = 100;
+    position.y = 100;
+    Entity* player = newPlayer(position);
+    room->player = *player;
+    free(player);
+    return room;
+}
+
+Entity* newPlayer(Position Position){
+    Entity *entity = (Entity*) malloc(sizeof(Entity));
+    entity->position = Position;
+    entity->type = PLAYER;
+
+    return entity;
 }

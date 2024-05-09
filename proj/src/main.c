@@ -6,6 +6,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "images/cats/cat0.xpm"
+#include "viewer/gameView.h"
+#include "models/Game.h"
 
 extern uint8_t scancode;
 
@@ -35,6 +37,8 @@ int main(int argc, char *argv[]) {
 
 int(proj_main_loop)() {
 
+  Game* game = createNewGame();
+
   if (timer_set_frequency(0, 60) != 0)
     return 1;
   uint8_t irq_set_timer;
@@ -49,10 +53,6 @@ int(proj_main_loop)() {
 
   if (create_vram_buffer(0x105) != 0) return 1;
 
-  if (set_background_color(0x105, 63) != 0) return 1;
-
-  if (draw_rectangle(0x105, 100, 100, 100, 100, 0x10) != 0) return 1;
-
   int ipc_status;
   int r;
   message msg;
@@ -66,8 +66,7 @@ int(proj_main_loop)() {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_set_timer) {
-            if (draw_rectangle(0x105, 100, 100, 100, 100, 0x10) != 0) return 1;
-            //draw_xpm((xpm_map_t) cat0_xpm, 1, 1);
+            if (drawGame(game) != 0) return 1;
           }
 
           if (msg.m_notify.interrupts & irq_set_keyboard) {
@@ -89,5 +88,7 @@ int(proj_main_loop)() {
     return 1;
   if (vg_exit() != 0)
     return 1;
+  
+  free(game);
   return 0;
 }

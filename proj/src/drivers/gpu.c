@@ -35,7 +35,6 @@ int (create_vram_buffer)(uint16_t mode){
     if (vbe_get_mode_info(mode, &modeInfo) != 0) return 1;
 
     uint8_t n_bits_per_pixel = modeInfo.BitsPerPixel;
-
     uint8_t n_bytes_per_pixel;
 
     if (n_bits_per_pixel == 15) n_bytes_per_pixel = 2;
@@ -59,7 +58,6 @@ int (create_vram_buffer)(uint16_t mode){
 }
 
 int (draw_pixel)(uint16_t mode, uint16_t x, uint16_t y, uint32_t color){
-    if (vbe_get_mode_info(mode, &modeInfo) != 0) return 0;
 
     if (x < 0 || y < 0 || x > modeInfo.XResolution || y > modeInfo.YResolution) return 0;
     uint8_t n_bytes_per_pixel = 0;
@@ -67,12 +65,7 @@ int (draw_pixel)(uint16_t mode, uint16_t x, uint16_t y, uint32_t color){
     if (modeInfo.BitsPerPixel == 15) n_bytes_per_pixel = 2;
     else n_bytes_per_pixel = modeInfo.BitsPerPixel / 8;
 
-
     uint32_t buffer_index = (y * modeInfo.XResolution + x) * n_bytes_per_pixel;
-
-
-    memcpy(&video_ram[buffer_index], &color, n_bytes_per_pixel);
-
 
     if (memcpy(&video_ram[buffer_index], &color, n_bytes_per_pixel) == NULL) return 1;
 
@@ -97,15 +90,31 @@ int (draw_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint
     return 0;
 }
 
+int (set_background_color)(uint16_t mode, uint32_t color){
+     for (int x = 0; x < modeInfo.XResolution; x++){
+        for (int y = 0; y < modeInfo.YResolution; y++){
+            if (draw_pixel(mode, x, y, color) != 0) return 1;
+        }
+     }
+     return 0;
+}
 
 int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
     enum xpm_image_type type = XPM_INDEXED;
     xpm_image_t img;
     uint8_t *sprite = xpm_load(xpm, type, &img);
 
+    if (sprite == NULL) return 1;
+
+    printf("Here, now just need to draw the image!\n");
+
     for (int i = 0; i < img.height; i++){
         for (int j = 0; j < img.width; j++){
-            draw_pixel(0x105, x + j, y + i, *sprite);
+            if (*sprite == 255) {
+                sprite++;
+                continue;
+            }
+            if (draw_pixel(0x105, x + j, y + i, *sprite) != 0) return 1;
             sprite++;
         }
     }

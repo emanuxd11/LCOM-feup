@@ -6,109 +6,92 @@
 #include "drivers/mouse.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include "images/cats/cat0.xpm"
+#include "viewer/gameView.h"
+#include "models/Game.h"
+#include "controller/controllerKeyboard.h"
 
 extern uint8_t scancode;
-int byte_order=0;
-extern bool finished;
 extern struct packet mouse_packet;
+int byte_order_packet=0;
+extern bool finished;
+
 
 
 int main(int argc, char *argv[]) {
-  // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
-
-  // enables to log function invocations that are being "wrapped" by LCF
-  // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/labs/lab2/trace.txt");
-
-  // enables to save the output of printf function calls on a file
-  // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/lab2/output.txt");
-
-  // handles control over to LCF
-  // [LCF handles command line arguments and invokes the right function]
+  lcf_trace_calls("/home/lcom/labs/proj/src/trace.txt");
+  lcf_log_output("/home/lcom/labs/proj/src/output.txt");
   if (lcf_start(argc, argv))
     return 1;
-
-  // LCF clean up tasks
-  // [must be the last statement before return]
   lcf_cleanup();
-
   return 0;
 }
 
 
-
 int (proj_main_loop)(){
 
-  if (timer_set_frequency(0, 60) != 0) return 1;
-  uint8_t irq_set_timer, irq_set_keyboard, irq_set_mouse;
-  
+  Game* game = createNewGame();
+
+  if (timer_set_frequency(0, 60) != 0)
+    return 1;
+
+  uint8_t irq_set_timer;
+  uint8_t irq_set_keyboard;
+  uint8_t irq_set_mouse;
+
+
   if (timer_subscribe_int(&irq_set_timer) != 0)
     return 1;
   if (kbd_subscribe_int(&irq_set_keyboard) != 0)
     return 1;
-  if(mouse_subscribe_int(&irq_set_mouse) != 0)
+  if (mouse_subscribe_int(&irq_set_mouse) != 0)
     return 1;
+
   if (vg_enter(0x105) != 0)
     return 1;
-  if (timer_set_frequency(0, 60) != 0)
-    return 1;
-
-
-  
 
   if (create_vram_buffer(0x105) != 0) return 1;
 
-  if (draw_rectangle(0x105, 100, 100, 100, 100, 0x20) != 0) return 1;
-
   int ipc_status;
   int r;
-  int count = 0;
-  int oscillations = 0;
   message msg;
 
-  while (scancode != ESC_BREAK) {
+  while (game->state != LEAVE_STATE) {
 
-      if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
-          continue;
-      }
-      if (is_ipc_notify(ipc_status)) { 
-          switch (_ENDPOINT_P(msg.m_source)) {
-              case HARDWARE:		
-                  if (msg.m_notify.interrupts & irq_set_timer) {
-                      oscillations++;
-                      if (oscillations == 60) {
-                        timer_print_elapsed_time();
-                        oscillations = 0;
-                        count++;  
-                      }
-                  }
-
-                  if (msg.m_notify.interrupts & irq_set_keyboard){
-                    kbc_ih();
-                  }
-
-                  if(msg.m_notify.interrupts & irq_set_mouse){
-                    mouse_ih();
-
-                    if(finished){
-                      count++;
-                      byte_order = 0;
-                      finished = false;
-                      mouse_print_packet(&mouse_packet);
-                    }
-
-                  }
-
-                  break;
-              default:
-                  break;
+    if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          // processes the view -> for every interrupt of timer (60 Hz) draws the game
+          if (msg.m_notify.interrupts & irq_set_timer) {
+            if (drawGame(game) != 0) game->state = LEAVE_STATE;
           }
 
-          
+          // Keyboard Interrupts -> Go to the controller to check what to do with it
+          if (msg.m_notify.interrupts & irq_set_keyboard) {
+            kbc_ih();
+            if (controllGame(game, scancode) != 0) return 1;
+          }
+
+          if (msg.m_notify.interrupts & irq_set_mouse) {
+              mouse_ih();
+
+              if(finished){
+                byte_order_packet = 0;
+                finished = false;
+                mouse_print_packet(&mouse_packet);
+              }
+          }
+
+
+          break;
+        default:
+          break;
       }
-    
+    }
     else {
     }
   }
@@ -120,10 +103,12 @@ int (proj_main_loop)(){
     return 1;
   if(mouse_unsubscribe_int() != 0)
     return 1;
-  if(kbc_restore_mouse() != 0)
+  if(kbc_restore_mouse() != 0 ) //disable data rep
     return 1;
   if (vg_exit() != 0)
     return 1;
+  
+  free(game);
   return 0;
 }
 

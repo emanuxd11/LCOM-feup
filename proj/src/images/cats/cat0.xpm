@@ -1,8 +1,8 @@
 /* XPM */
-static char *_887f132688b4831bafe83929561adfeJLvkBURiyIrUUf5n[] = {
+static char *cat0[] = {
 /* columns rows colors chars-per-pixel */
 "289 257 256 2 ",
-"   c None",
+"   c #FFFFFE",
 ".  c #0C000C",
 "X  c #060009",
 "o  c #13010C",

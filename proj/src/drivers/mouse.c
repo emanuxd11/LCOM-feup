@@ -3,7 +3,7 @@
 struct packet mouse_packet;
 
 int hookid_mouse=3;
-extern int byte_order;
+extern int byte_order_packet;
 bool finished=false;
 
 
@@ -112,19 +112,19 @@ int read_byte_to_mouse_packet(){
         return 1;
     }
 
-    if(byte_order == 0 && !(byte & BIT(3))){ //first byte of the packet must have bit 3 set! 
+    if(byte_order_packet == 0 && !(byte & BIT(3))){ //first byte of the packet must have bit 3 set! 
       return 0; //skip
     }
 
-    mouse_packet.bytes[byte_order] = byte;
+    mouse_packet.bytes[byte_order_packet] = byte;
 
-    if(byte_order == 2){
+    if(byte_order_packet == 2){
       array_to_packet();
       finished = true;
       return 0;
     }
 
-    byte_order++;
+    byte_order_packet++;
     
     return 0;
 

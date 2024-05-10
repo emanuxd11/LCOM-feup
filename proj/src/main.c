@@ -8,6 +8,7 @@
 #include "images/cats/cat0.xpm"
 #include "viewer/gameView.h"
 #include "models/Game.h"
+#include "controller/controllerKeyboard.h"
 
 extern uint8_t scancode;
 
@@ -43,7 +44,7 @@ int(proj_main_loop)() {
   int r;
   message msg;
 
-  while (scancode != ESC_BREAK) {
+  while (game->state != LEAVE_STATE) {
 
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       continue;
@@ -51,12 +52,15 @@ int(proj_main_loop)() {
     if (is_ipc_notify(ipc_status)) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
+          // processes the view -> for every interrupt of timer (60 Hz) draws the game
           if (msg.m_notify.interrupts & irq_set_timer) {
-            if (drawGame(game) != 0) scancode = ESC_BREAK;
+            if (drawGame(game) != 0) game->state = LEAVE_STATE;
           }
 
+          // Keyboard Interrupts -> Go to the controller to check what to do with it
           if (msg.m_notify.interrupts & irq_set_keyboard) {
             kbc_ih();
+            if (controllGame(game, scancode) != 0) return 1;
           }
 
           break;

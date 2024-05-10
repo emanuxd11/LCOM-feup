@@ -110,6 +110,10 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
 
     for (int i = 0; i < img.height; i++){
         for (int j = 0; j < img.width; j++){
+            if (*sprite == 255) {
+                sprite++;
+                continue;
+            }
             if (draw_pixel(0x105, x + j, y + i, *sprite) != 0) return 1;
             sprite++;
         }

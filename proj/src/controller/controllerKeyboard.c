@@ -34,10 +34,10 @@ int controllPlayer(Entity* entity, uint8_t scan_code){
             entity->position.y += 10;
             break;
         case TILE_LEFT:
-            entity->position.x += 10;
+            entity->position.x -= 10;
             break;
         case TILE_RIGHT:
-            entity->position.x -= 10;
+            entity->position.x += 10;
             break;
     }
     return 0;

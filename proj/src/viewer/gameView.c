@@ -26,10 +26,7 @@ int drawMenu(Game* game){
     // Background color of the menu (YELLOW)
     if (set_background_color(0x105, YELLOW) != 0) return 1;
 
-    if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0){
-        printf("Error when drawing the logo\n");
-        return 1;
-    }
+    if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0) return 1;
 
     // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
     if (drawButton("hey", 512, 300, 200, 50, BLUE) != 0) return 1;

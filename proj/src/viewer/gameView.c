@@ -41,8 +41,6 @@ int drawGamePlaying(Game* game){
     if (draw_xpm((xpm_map_t) front, game->room->player.position.x, game->room->player.position.y) != 0) return 1;
 
     // TODO: Draw cats
-
-    // TODO: Draw Human
     return 0;
 }
 

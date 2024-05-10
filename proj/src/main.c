@@ -80,9 +80,10 @@ int (proj_main_loop)(){
               mouse_ih();
 
               if(finished){
+                //packet is read, can do stuff with it here
                 byte_order_packet = 0;
                 finished = false;
-                mouse_print_packet(&mouse_packet);
+                
               }
           }
 

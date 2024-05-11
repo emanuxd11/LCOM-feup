@@ -1,12 +1,14 @@
-#include "HurtBox.h"
-#include "Position.h"
+#include "../aux_structs/HurtBox.h"
+#include "../aux_structs/Position.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
-enum EntityType {
+typedef enum {
     PLAYER,
     CAT,
     WALL
-};
+} EntityType;
 
 typedef struct {
     Position position;
@@ -25,4 +27,5 @@ Entity* newWall(Position position, HurtBox hurtBox);
 
 int moveEntity(Entity* entity);
 
-bool checkCollision(Entity* entityA, Entity* entityB);   //true if entities will collide according to their current movements
+//bool checkCollision(Entity* entityA, Entity* entityB);   //true if entities will collide according to their current movements
+

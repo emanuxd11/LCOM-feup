@@ -30,6 +30,8 @@ Entity* newPlayer(Position Position);
 
 Entity* newWall(Position position, HurtBox hurtBox);
 
+void deleteEntity(Entity* entity);
+
 int moveEntity(Entity* entity);
 
 //bool checkCollision(Entity* entityA, Entity* entityB);   //true if entities will collide according to their current movements

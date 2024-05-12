@@ -1,4 +1,5 @@
 #include <Entity.h>
+#include <CatInfo.h>
 
 Entity* newPlayer(Position Position){
     Entity *entity = (Entity*) malloc(sizeof(Entity));
@@ -21,4 +22,12 @@ Entity* newCat(Position position) {
     cat->velocity = 0;
     cat->direction = 0;
     cat->type = CAT;
+    cat->typeInfo = newCatInfo();
+
+    return cat;
+}
+
+void deleteEntity(Entity* entity) {
+    free(entity->typeInfo);
+    free(entity);
 }

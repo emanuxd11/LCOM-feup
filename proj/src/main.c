@@ -16,6 +16,8 @@ extern struct packet mouse_packet;
 int byte_order_packet=0;
 extern bool finished;
 
+#define FRAME_RATE 60
+
 
 
 int main(int argc, char *argv[]) {
@@ -33,7 +35,7 @@ int (proj_main_loop)(){
 
   Game* game = createNewGame();
 
-  if (timer_set_frequency(0, 60) != 0)
+  if (timer_set_frequency(0, FRAME_RATE) != 0)
     return 1;
 
   uint8_t irq_set_timer;

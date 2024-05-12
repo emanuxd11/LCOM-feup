@@ -1,11 +1,12 @@
-#include "../aux_structs/HurtBox.h"
-#include "../aux_structs/Position.h"
+#include "../utils/aux_structs/HurtBox.h"
+#include "../utils/aux_structs/Position.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 
 typedef enum {
     PLAYER,
+    CAT,
     CAT0,
     CAT1,
     CAT2,
@@ -23,7 +24,7 @@ typedef struct {
     void* typeInfo;         //entity type specific info
 } Entity;
 
-Entity* newCat(Position position);
+Entity* newCat(Position position);  //returns pointer to new cat with random color
 
 Entity* newPlayer(Position Position);
 

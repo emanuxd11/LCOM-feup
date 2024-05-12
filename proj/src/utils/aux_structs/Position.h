@@ -3,4 +3,3 @@ typedef struct {
     int y;
 } Position;
 
-Position* newPosition(int x, int y);

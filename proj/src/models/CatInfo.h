@@ -1,4 +1,4 @@
-
+#include <stdbool.h>
 
 enum CatColor {
     ORANGE,
@@ -9,7 +9,10 @@ enum CatColor {
 };
 
 typedef struct {
-    CatColor color;
+    enum CatColor color;
     bool isPet;
     bool isAngry;
 } CatInfo;
+
+CatInfo* newCatInfo(); //returns new CatInfo with random color
+void deleteCatInfo(CatInfo* catInfo);

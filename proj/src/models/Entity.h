@@ -6,8 +6,11 @@
 
 typedef enum {
     PLAYER,
-    // TODO add various types of cats here
-    CAT,
+    CAT0,
+    CAT1,
+    CAT2,
+    CAT3,
+    CAT4,
     WALL
 } EntityType;
 

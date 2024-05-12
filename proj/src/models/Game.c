@@ -25,7 +25,8 @@ Room* newRoom(){
         catPosition.y = randomNumer(30, 700);
         Entity cat;
         cat.position = catPosition;
-        cat.type = CAT;
+        // TODO: Add random number to generate a random cat
+        cat.type = CAT0;
         room->cats[i] = cat;
     }
 

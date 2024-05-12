@@ -38,6 +38,8 @@ int drawMenu(Game* game){
 }
 
 int drawGamePlaying(Game* game){
+
+    // Background drawing
     if (set_background_color(0x105, GREEN_GRASS) != 0) return 1;
 
     // Cats drawing

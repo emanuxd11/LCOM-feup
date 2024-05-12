@@ -9,6 +9,7 @@
 #define YELLOW 62
 #define BLUE 9
 #define BROWN 20
+#define GREEN_GRASS 2
 
 
 int drawGame(Game* game){
@@ -37,7 +38,7 @@ int drawMenu(Game* game){
 }
 
 int drawGamePlaying(Game* game){
-    if (set_background_color(0x105, BROWN) != 0) return 1;
+    if (set_background_color(0x105, GREEN_GRASS) != 0) return 1;
 
     // Cats drawing
     for (int i = 0; i < 10; i++){

@@ -10,3 +10,4 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
 
 int drawGamePlaying(Game* game);
 
+int drawCat(Entity* entity);

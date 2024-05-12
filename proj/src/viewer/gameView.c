@@ -2,6 +2,7 @@
 #include "../models/Game.h"
 #include "drivers/gpu.h"
 #include "../images/character/front.xpm"
+#include "../images/cats/cat0.xpm"
 #include "../images/logo.xpm"
 #include "gameView.h"
 
@@ -38,10 +39,25 @@ int drawMenu(Game* game){
 int drawGamePlaying(Game* game){
     if (set_background_color(0x105, BROWN) != 0) return 1;
 
+    // Cats drawing
+    for (int i = 0; i < 10; i++){
+        if (drawCat(&game->room->cats[i]) != 0) return 1;
+    }
+
+    // Player drawing
     if (draw_xpm((xpm_map_t) front, game->room->player.position.x, game->room->player.position.y) != 0) return 1;
 
-    // TODO: Draw cats
     return 0;
+}
+
+
+int drawCat(Entity* entity){
+    // TODO switch case to get cat type
+
+    printf("X position: %d\n", entity->position.x);
+
+    printf("Y position: %d\n", entity->position.y);
+    return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
 }
 
 int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color){

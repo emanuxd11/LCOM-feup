@@ -6,6 +6,7 @@
 
 typedef enum {
     PLAYER,
+    // TODO add various types of cats here
     CAT,
     WALL
 } EntityType;

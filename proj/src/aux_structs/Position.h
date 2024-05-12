@@ -1,6 +1,6 @@
 typedef struct {
-    double x;
-    double y;
+    int x;
+    int y;
 } Position;
 
-Position* newPosition(double x, double y);
+Position* newPosition(int x, int y);

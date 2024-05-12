@@ -18,4 +18,6 @@ typedef struct {
 
 Game* createNewGame();
 
+int randomNumer(int lower_bound, int upper_bound);
+
 #endif /* GAME_H */

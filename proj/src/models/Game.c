@@ -23,7 +23,6 @@ Room* newRoom(){
         Position catPosition;
         catPosition.x = randomNumer(30, 1000);
         catPosition.y = randomNumer(30, 700);
-        printf("(%d, %d)\n", catPosition.x, catPosition.y);
         Entity cat;
         cat.position = catPosition;
         cat.type = CAT;

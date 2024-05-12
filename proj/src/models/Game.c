@@ -42,12 +42,16 @@ Entity* newPlayer(Position Position){
     return entity;
 }
 
-
-
 int randomNumer(int lower_bound, int upper_bound) {
-    srand(time(NULL));
+    int random_number;
 
-    int random_number = lower_bound + rand() % (upper_bound - lower_bound + 1);
+    static int seed_initialized = 0;
+    if (!seed_initialized) {
+        srand(time(NULL));
+        seed_initialized = 1;
+    }
+
+    random_number = lower_bound + rand() % (upper_bound - lower_bound + 1);
     
     return random_number;
 }

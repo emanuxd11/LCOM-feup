@@ -53,10 +53,6 @@ int drawGamePlaying(Game* game){
 
 int drawCat(Entity* entity){
     // TODO switch case to get cat type
-
-    printf("X position: %d\n", entity->position.x);
-
-    printf("Y position: %d\n", entity->position.y);
     return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
 }
 

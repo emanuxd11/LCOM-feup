@@ -113,6 +113,7 @@ int (set_background_color)(uint16_t mode, uint32_t color) {
 			}
     }
   }
+
   return 0;
 }
 

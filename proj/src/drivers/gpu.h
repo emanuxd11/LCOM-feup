@@ -3,6 +3,7 @@
 
 #define INTNO 0x10
 
+
 int (vg_enter)(uint16_t mode);
 
 int (create_vram_buffer)(uint16_t mode);

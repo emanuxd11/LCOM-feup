@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 }
 
 
-int (proj_main_loop)(){
+int (proj_main_loop)() {
 
   Game* game = createNewGame();
 
@@ -79,7 +79,7 @@ int (proj_main_loop)(){
           if (msg.m_notify.interrupts & irq_set_mouse) {
               mouse_ih();
 
-              if(finished){
+              if(finished) {
                 //packet is read, can do stuff with it here
                 byte_order_packet = 0;
                 finished = false;

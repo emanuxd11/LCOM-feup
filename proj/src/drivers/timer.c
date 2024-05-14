@@ -74,7 +74,7 @@ void (timer_int_handler)() {
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
-  if (timer < 0 || timer > 2 || st == NULL){
+  if (timer < 0 || timer > 2 || st == NULL) {
     return 1;
   }
 
@@ -94,7 +94,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
 
   union timer_status_field_val value;
 
-  switch(field){
+  switch(field) {
     case tsf_all:
       value.byte = st;
       break;
@@ -105,7 +105,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
     }
     case tsf_mode:{
         uint8_t bits = (st & (BIT(1) | BIT(2) | BIT(3))) >> 1;
-        if (bits >= 6){
+        if (bits >= 6) {
           value.count_mode = bits - 4;
         }
         else{

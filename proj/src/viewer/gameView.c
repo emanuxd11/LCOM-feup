@@ -16,8 +16,8 @@
 #define GREEN_GRASS 2
 
 
-int drawGame(Game* game){
-    if (game->state == MENU_STATE){
+int drawGame(Game* game) {
+    if (game->state == MENU_STATE) {
         if (drawMenu(game) != 0) return 1;
     } else {
         if (drawGamePlaying(game) != 0) return 1;
@@ -27,7 +27,7 @@ int drawGame(Game* game){
 }
 
 
-int drawMenu(Game* game){
+int drawMenu(Game* game) {
     // Background color of the menu (YELLOW)
     if (set_background_color(0x105, YELLOW) != 0) return 1;
 
@@ -40,13 +40,13 @@ int drawMenu(Game* game){
     return 0;
 }
 
-int drawGamePlaying(Game* game){
+int drawGamePlaying(Game* game) {
 
     // Background drawing
     if (set_background_color(0x105, GREEN_GRASS) != 0) return 1;
 
     // Cats drawing
-    for (int i = 0; i < 10; i++){
+    for (int i = 0; i < 10; i++) {
         if (drawCat(&game->room->cats[i]) != 0) return 1;
     }
 
@@ -62,12 +62,12 @@ int drawGamePlaying(Game* game){
 }
 
 
-int drawCat(Entity* entity){
+int drawCat(Entity* entity) {
     // TODO switch case to get cat type
     return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
 }
 
-int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color){
+int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color) {
     int x_init = x_center - width / 2;
 
     int y_init = y_center - height / 2;

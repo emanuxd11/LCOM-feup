@@ -2,8 +2,8 @@
 
 
 int control_game(Game *game, uint8_t scan_code) {
-    if (scan_code == ESC_BREAK){
-        switch(game->state){
+    if (scan_code == ESC_BREAK) {
+        switch(game->state) {
             case MENU_STATE:
                 game->state = LEAVE_STATE;
                 break;
@@ -16,7 +16,7 @@ int control_game(Game *game, uint8_t scan_code) {
     }
 
     if (game->state == GAME_STATE) {
-        if (scan_code == TILE_UP || scan_code == TILE_DOWN || scan_code == TILE_LEFT || scan_code == TILE_RIGHT){
+        if (scan_code == TILE_UP || scan_code == TILE_DOWN || scan_code == TILE_LEFT || scan_code == TILE_RIGHT) {
             return control_player(&game->room->player, scan_code);
         }
     }
@@ -25,7 +25,7 @@ int control_game(Game *game, uint8_t scan_code) {
 }
 
 
-int control_player(Entity *entity, uint8_t scan_code){
+int control_player(Entity *entity, uint8_t scan_code) {
 
     switch(scan_code) {
         case TILE_UP:

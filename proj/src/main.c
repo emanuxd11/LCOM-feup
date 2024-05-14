@@ -79,7 +79,7 @@ int (proj_main_loop)() {
           if (msg.m_notify.interrupts & irq_set_mouse) {
               mouse_ih();
 
-              if(finished) {
+              if (finished) {
                 //packet is read, can do stuff with it here
                 byte_order_packet = 0;
                 finished = false;
@@ -102,9 +102,9 @@ int (proj_main_loop)() {
     return 1;
   if (kbd_unsubscribe_int() != 0)
     return 1;
-  if(mouse_unsubscribe_int() != 0)
+  if (mouse_unsubscribe_int() != 0)
     return 1;
-  if(kbc_restore_mouse() != 0 ) //disable data rep
+  if (kbc_restore_mouse() != 0 ) //disable data rep
     return 1;
   if (vg_exit() != 0)
     return 1;

@@ -3,9 +3,9 @@
 
 struct packet mouse_packet;
 
-int hookid_mouse=3;
+int hookid_mouse = 3;
 extern int byte_order_packet;
-bool finished=false;
+bool finished = false;
 
 
 int mouse_subscribe_int(uint8_t *bit_no) {
@@ -13,13 +13,13 @@ int mouse_subscribe_int(uint8_t *bit_no) {
 
   *bit_no = BIT(hookid_mouse);
 
-  if (sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE | IRQ_EXCLUSIVE, &hookid_mouse)!=0) return 1;
+  if (sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE | IRQ_EXCLUSIVE, &hookid_mouse) != 0) return 1;
 
   return 0;
 }
 
 int mouse_unsubscribe_int() {
-  if(sys_irqrmpolicy(&hookid_mouse)!=0)return 1;
+  if (sys_irqrmpolicy(&hookid_mouse) != 0) return 1;
 
   return 0;
 }
@@ -38,35 +38,33 @@ void (mouse_ih)() {
   }
 
   if (status_reg & BIT(0)) {
-    if(status_reg & BIT(6)) {
+    if (status_reg & BIT(6)) {
       printf("Timeout error!\n");
       return;
     }
-    if(status_reg & BIT(7)) {
+    if (status_reg & BIT(7)) {
       printf("Parity error!\n");
       return;
     }
-
-    if(read_byte_to_mouse_packet()!=0) {
+    if (read_byte_to_mouse_packet() != 0) {
       printf("Error reading packet\n");
     }
+
     return;
-
   }
-
 }
 
 int issue_cmd_to_mouse(uint8_t cmd) {
   uint8_t obf;
-  int attempts=10;
+  int attempts = 10;
   
   issue_cmd_to_KBC(STATUS_PORT,(uint8_t)MOUSE_WRITE_COM);
   issue_cmd_to_KBC(KBD_OUT_BUF,cmd);
   
-  while( attempts !=0 ) {
-    if(util_sys_inb(KBD_OUT_BUF, &obf)!=0)return 1;
+  while (attempts != 0) {
+    if (util_sys_inb(KBD_OUT_BUF, &obf) != 0) return 1;
     /* loop while 8042 input buffer is not empty */
-    if(obf == ACK ) {
+    if (obf == ACK) {
       sys_outb(STATUS_PORT, cmd); /* no args command */
       return 0;
     }
@@ -80,20 +78,22 @@ int issue_cmd_to_mouse(uint8_t cmd) {
 
 int read_data_from_KBC_mouse(uint8_t *data) {
   uint8_t stat;
-  int attempts=10;
+  int attempts = 10;
 
-  while( attempts!=0) {
-    if(util_sys_inb(STATUS_PORT, &stat)!=0) {
+  while( attempts != 0) {
+    if (util_sys_inb(STATUS_PORT, &stat) != 0) {
       printf("Error reading statys reg!");
       return 1;
     }
-    if( stat & (BIT(0))) {
+    if (stat & (BIT(0))) {
        // see if OBF is full
       util_sys_inb(KBD_OUT_BUF, data); /* ass. it returns OK */
-      if ( (stat &(BIT(7)| BIT(6))) == 0 )
+      if ((stat &(BIT(7)| BIT(6))) == 0) {
         return 0;
-      if ( stat & BIT(5))
+      }
+      if (stat & BIT(5)) {
         return 0;
+      }
       else return 1;
     }
 
@@ -104,29 +104,28 @@ int read_data_from_KBC_mouse(uint8_t *data) {
 }
 
 int read_byte_to_mouse_packet() {
-  uint8_t byte=0;
+  uint8_t byte = 0;
 
-    if(read_data_from_KBC_mouse(&byte)) {
-        printf("Error reading packet bytes");
-        return 1;
-    }
+  if (read_data_from_KBC_mouse(&byte)) {
+    printf("Error reading packet bytes");
+    return 1;
+  }
 
-    if(byte_order_packet == 0 && !(byte & BIT(3))) { //first byte of the packet must have bit 3 set! 
-      return 0; //skip
-    }
+  if (byte_order_packet == 0 && !(byte & BIT(3))) { // first byte of the packet must have bit 3 set!
+    return 0;                                       // skip
+  }
 
-    mouse_packet.bytes[byte_order_packet] = byte;
+  mouse_packet.bytes[byte_order_packet] = byte;
 
-    if(byte_order_packet == 2) {
-      array_to_packet();
-      finished = true;
-      return 0;
-    }
-
-    byte_order_packet++;
-    
+  if (byte_order_packet == 2) {
+    array_to_packet();
+    finished = true;
     return 0;
+  }
 
+  byte_order_packet++;
+
+  return 0;
 }
 
 void array_to_packet() {
@@ -141,22 +140,18 @@ void array_to_packet() {
 
 int issue_cmd_to_KBC(uint8_t port, uint8_t cmd) {
   uint8_t stat;
-  int attempts=10;
-  while( attempts!=0 ) {
-    if(util_sys_inb(STATUS_PORT, &stat)!=0)return 1;
+  int attempts = 10;
+  while (attempts != 0) {
+    if (util_sys_inb(STATUS_PORT, &stat) != 0) {
+      return 1;
+    }
     /* loop while 8042 input buffer is not empty */
-    if( (stat & BIT(1)) == 0 ) {
+    if ((stat & BIT(1)) == 0) {
       sys_outb(port, cmd); /* no args command */
       return 0;
-    } 
-    tickdelay(micros_to_ticks(2000));// e.g. tickdelay()
+    }
+    tickdelay(micros_to_ticks(2000)); // e.g. tickdelay()
     attempts--;
   }
-  return 1; //ran out of attempts
+  return 1; // ran out of attempts
 }
-
-
-
-
-
-

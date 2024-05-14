@@ -1,10 +1,14 @@
 #include <lcom/lcf.h>
-#include "../models/Game.h"
+
+#include "gameView.h"
 #include "drivers/gpu.h"
+
+#include "../models/Game.h"
+
 #include "../images/character/front.xpm"
 #include "../images/cats/cat0.xpm"
 #include "../images/logo.xpm"
-#include "gameView.h"
+
 
 #define YELLOW 62
 #define BLUE 9
@@ -15,8 +19,7 @@
 int drawGame(Game* game){
     if (game->state == MENU_STATE){
         if (drawMenu(game) != 0) return 1;
-    }
-    else{
+    } else {
         if (drawGamePlaying(game) != 0) return 1;
     }
 
@@ -49,6 +52,11 @@ int drawGamePlaying(Game* game){
 
     // Player drawing
     if (draw_xpm((xpm_map_t) front, game->room->player.position.x, game->room->player.position.y) != 0) return 1;
+
+    // copy image to main buffer
+    if (update_front_buffer() != 0) {
+        return 1;
+    }
 
     return 0;
 }

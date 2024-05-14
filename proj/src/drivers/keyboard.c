@@ -29,7 +29,6 @@ void (kbc_ih)() {
     if (verify_obf(status_reg)){
       int res = util_sys_inb(KBD_OUT_BUF, &scancode);
       if (verify_timeout(status_reg) && verify_parity(status_reg)){
-        printf("Condition verified\n");
         if (res == 0){
           isRead = true;
           return;

@@ -1,5 +1,7 @@
-#define INTNO 0x10
+#ifndef _GPU_H_
+#define _GPU_H_
 
+#define INTNO 0x10
 
 int (vg_enter)(uint16_t mode);
 
@@ -15,3 +17,6 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
 int (set_background_color)(uint16_t mode, uint32_t color);
 
+int (update_front_buffer)();
+
+#endif

@@ -1,5 +1,4 @@
 
-
 enum CatColor {
     ORANGE,
     WHITE,

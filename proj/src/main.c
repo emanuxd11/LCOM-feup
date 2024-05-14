@@ -73,7 +73,7 @@ int (proj_main_loop)(){
           // Keyboard Interrupts -> Go to the controller to check what to do with it
           if (msg.m_notify.interrupts & irq_set_keyboard) {
             kbc_ih();
-            if (controllGame(game, scancode) != 0) return 1;
+            if (control_game(game, scancode) != 0) return 1;
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {

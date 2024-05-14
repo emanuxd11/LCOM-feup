@@ -1,3 +1,6 @@
+#ifndef _GAMEVIEW_H_
+#define _GAMEVIEW_H_
+
 #include <lcom/lcf.h>
 #include "../models/Game.h"
 #include "drivers/gpu.h"
@@ -11,3 +14,5 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
 int drawGamePlaying(Game* game);
 
 int drawCat(Entity* entity);
+
+#endif

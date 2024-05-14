@@ -9,7 +9,7 @@
 static char *front_buffer;
 static char *back_buffer;
 uint8_t bypp;
-vbe_vbe_mode_info_t modeInfo;
+vbe_mode_info_t vbe_mode_info;
 
 
 int (vg_enter)(uint16_t mode) {
@@ -31,11 +31,11 @@ int (vg_enter)(uint16_t mode) {
 }
 
 int (create_vram_buffer)(uint16_t mode) {
-  if (vbe_get_vbe_mode_info(mode, &modeInfo) != 0) {
+  if (vbe_get_mode_info(mode, &vbe_mode_info) != 0) {
     return 1;
   }
 
-  uint8_t n_bits_per_pixel = modeInfo.BitsPerPixel;
+  uint8_t n_bits_per_pixel = vbe_mode_info.BitsPerPixel;
 
   if (n_bits_per_pixel == 15) {
     bypp = 2;
@@ -43,17 +43,17 @@ int (create_vram_buffer)(uint16_t mode) {
     bypp = n_bits_per_pixel / 8;
   }
 
-  uint32_t buffer_size = bypp * modeInfo.XResolution * modeInfo.YResolution;
+  uint32_t buffer_size = bypp * vbe_mode_info.XResolution * vbe_mode_info.YResolution;
   struct minix_mem_range buffer;
-  buffer.mr_base = modeInfo.PhysBasePtr;
-  buffer.mr_limit = modeInfo.PhysBasePtr + buffer_size;
+  buffer.mr_base = vbe_mode_info.PhysBasePtr;
+  buffer.mr_limit = vbe_mode_info.PhysBasePtr + buffer_size;
 
   if (sys_privctl(SELF, SYS_PRIV_ADD_MEM, &buffer) != 0) {
     return 1;
   }
 
   front_buffer = vm_map_phys(SELF, (void *) buffer.mr_base, buffer_size);
-	back_buffer = malloc(bypp * modeInfo.XResolution * modeInfo.YResolution);
+	back_buffer = malloc(bypp * vbe_mode_info.XResolution * vbe_mode_info.YResolution);
 
   if (front_buffer == NULL) {
     return 1;
@@ -63,19 +63,19 @@ int (create_vram_buffer)(uint16_t mode) {
 }
 
 int (draw_pixel)(uint16_t mode, uint16_t x, uint16_t y, uint32_t color) {
-  if (x < 0 || y < 0 || x > modeInfo.XResolution || y > modeInfo.YResolution) {
+  if (x < 0 || y < 0 || x > vbe_mode_info.XResolution || y > vbe_mode_info.YResolution) {
     return 0;
   }
 
   uint8_t bypp = 0;
 
-  if (modeInfo.BitsPerPixel == 15) {
+  if (vbe_mode_info.BitsPerPixel == 15) {
     bypp = 2;
   } else {
-    bypp = modeInfo.BitsPerPixel / 8;
+    bypp = vbe_mode_info.BitsPerPixel / 8;
   }
 
-  uint32_t buffer_index = (y * modeInfo.XResolution + x) * bypp;
+  uint32_t buffer_index = (y * vbe_mode_info.XResolution + x) * bypp;
 
   if (memcpy(&back_buffer[buffer_index], &color, bypp) == NULL) {
 		printf("draw_pixel(): error drawing pixel\n");
@@ -106,8 +106,8 @@ int (draw_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint
 }
 
 int (set_background_color)(uint16_t mode, uint32_t color) {
-  for (int x = 0; x < modeInfo.XResolution; x++) {
-    for (int y = 0; y < modeInfo.YResolution; y++) {
+  for (int x = 0; x < vbe_mode_info.XResolution; x++) {
+    for (int y = 0; y < vbe_mode_info.YResolution; y++) {
       if (draw_pixel(mode, x, y, color) != 0) {
         return 1;
 			}
@@ -143,7 +143,7 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 }
 
 int (update_front_buffer)() {
-	if (!memcpy(front_buffer, back_buffer, modeInfo.XResolution * modeInfo.YResolution * bypp)) {
+	if (!memcpy(front_buffer, back_buffer, vbe_mode_info.XResolution * vbe_mode_info.YResolution * bypp)) {
 		printf("update_front_buffer(): error copying memory from second buffer to main buffer\n");
 		return 1;
 	}

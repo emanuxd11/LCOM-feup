@@ -3,6 +3,10 @@
 
 #include <lcom/lcf.h>
 
+#include "utils.h"
+
+#include "../models/Datetime.h"
+
 
 #define RTC_IRQ 8
 #define RTC_ADDR_REG 0x70
@@ -19,6 +23,6 @@
 
 int (rtc_get_out)(uint8_t value_idx, uint8_t *output);
 int (rtc_write)(uint8_t data);
-int (rtc_read_time)();
+Datetime (rtc_read_datetime)();
 
 #endif

@@ -41,17 +41,19 @@ int main(int argc, char *argv[]) {
 
 int (proj_main_loop)() {
 
-  rtc_read_time();
-
   Game *game = createNewGame();
-
-  if (timer_set_frequency(0, 60) != 0) {
-    return 1;
-  }
 
   uint8_t irq_set_timer;
   uint8_t irq_set_keyboard;
   uint8_t irq_set_mouse;
+
+  message msg;
+  int ipc_status;
+  int r;
+
+  if (timer_set_frequency(0, 60) != 0) {
+    return 1;
+  }
 
   if (timer_subscribe_int(&irq_set_timer) != 0) {
     return 1;
@@ -73,10 +75,6 @@ int (proj_main_loop)() {
     return 1;
   }
 
-  int ipc_status;
-  int r;
-  message msg;
-
   while (game->state != LEAVE_STATE) {
 
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -88,15 +86,18 @@ int (proj_main_loop)() {
         case HARDWARE:
           // processes the view -> for every interrupt of timer (60 Hz) draws the game
           if (msg.m_notify.interrupts & irq_set_timer) {
-            if (drawGame(game) != 0)
+            if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;
+            }
           }
 
           // Keyboard Interrupts -> Go to the controller to check what to do with it
           if (msg.m_notify.interrupts & irq_set_keyboard) {
             kbc_ih();
-            if (control_game(game, scancode) != 0)
+
+            if (control_game(game, scancode) != 0) {
               return 1;
+            }
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {

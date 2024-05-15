@@ -1,10 +1,12 @@
 #include "keyboard.h"
 
+
 #define DELAY_US 20000
 
 int hook_id_kbd = 1;
 uint8_t scancode = 42;
 bool isRead = false;
+
 
 int (kbd_subscribe_int)(uint8_t *bit_no) {
   if (bit_no == NULL) {
@@ -44,6 +46,7 @@ int (read_keyboard_buffer)(uint8_t *code) {
   }
 
   uint8_t status_reg;
+
   if (util_sys_inb(STATUS_PORT, &status_reg)) {
     return 1;
   }
@@ -56,12 +59,13 @@ int (read_keyboard_buffer)(uint8_t *code) {
       return 0;
     }
   }
+
   return 1;
 }
 
 int (enable_interrupts)() {
-
   uint8_t read_conf;
+
   if (sys_outb(STATUS_PORT, KEYBOARD_READ_COM)) {
     return 1;
   }
@@ -80,6 +84,7 @@ int (enable_interrupts)() {
 
 int able_to_read() {
   uint8_t status_reg;
+
   if (util_sys_inb(STATUS_PORT, &status_reg)) {
     return 1;
   }

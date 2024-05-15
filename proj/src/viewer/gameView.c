@@ -17,6 +17,7 @@
 
 
 int drawGame(Game *game) {
+
     if (game->state == MENU_STATE) {
         if (drawMenu(game) != 0) return 1;
     } else {
@@ -60,7 +61,6 @@ int drawGamePlaying(Game *game) {
 
     return 0;
 }
-
 
 int drawCat(Entity *entity) {
     // TODO switch case to get cat type

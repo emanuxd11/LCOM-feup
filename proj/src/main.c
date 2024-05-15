@@ -4,13 +4,16 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "controller/controllerKeyboard.h"
 #include "drivers/gpu.h"
 #include "drivers/keyboard.h"
 #include "drivers/mouse.h"
-#include "images/cats/cat0.xpm"
+#include "drivers/rtclock.h"
+
 #include "models/Game.h"
+#include "controller/controllerKeyboard.h"
 #include "viewer/gameView.h"
+
+#include "images/cats/cat0.xpm"
 
 
 extern uint8_t scancode;
@@ -37,6 +40,8 @@ int main(int argc, char *argv[]) {
 }
 
 int (proj_main_loop)() {
+
+  rtc_read_time();
 
   Game *game = createNewGame();
 

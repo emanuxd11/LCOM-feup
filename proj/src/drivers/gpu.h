@@ -4,7 +4,9 @@
 #define INTNO 0x10
 
 
-int (vg_enter)(uint16_t mode);
+int (enter_video_mode)(uint16_t mode);
+
+int (exit_video_mode)();
 
 int (create_vram_buffer)(uint16_t mode);
 

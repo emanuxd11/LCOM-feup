@@ -12,9 +12,8 @@ uint8_t bypp;
 vbe_mode_info_t vbe_mode_info;
 
 
-int (vg_enter)(uint16_t mode) {
+int (enter_video_mode)(uint16_t mode) {
   reg86_t r86;
-
   memset(&r86, 0, sizeof(r86));
 
   r86.intno = INTNO;
@@ -23,7 +22,20 @@ int (vg_enter)(uint16_t mode) {
   r86.bx = mode | BIT(14);
 
   if (sys_int86(&r86) != OK) {
-    printf("vg_enter(): error in sys_int86()\n");
+    printf("enter_video_mode(): error in sys_int86()\n");
+    return 1;
+  }
+
+  return 0;
+}
+
+int (exit_video_mode)() { // wrapper for vg_exit() that also frees the memory of back_buffer
+  if (back_buffer != NULL) {
+    free(back_buffer);
+  }
+
+  if (vg_exit() != 0) {
+    printf("exit_video_mode(): error in vg_exit()\n");
     return 1;
   }
 
@@ -136,6 +148,7 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
       if (draw_pixel(0x105, x + j, y + i, *sprite) != 0) {
         return 1;
       }
+
       sprite++;
     }
   }

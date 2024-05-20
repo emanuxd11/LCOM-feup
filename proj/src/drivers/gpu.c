@@ -106,7 +106,6 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
 
     if (sprite == NULL) return 1;
 
-    printf("Here, now just need to draw the image!\n");
 
     for (int i = 0; i < img.height; i++){
         for (int j = 0; j < img.width; j++){

@@ -10,6 +10,7 @@
 #include "viewer/gameView.h"
 #include "models/Game.h"
 #include "controller/controllerKeyboard.h"
+#include "controller/controllerMouse.h"
 
 extern uint8_t scancode;
 extern struct packet mouse_packet;
@@ -78,11 +79,18 @@ int (proj_main_loop)(){
 
           if (msg.m_notify.interrupts & irq_set_mouse) {
               mouse_ih();
+              printf("mouse interruption\ns");
 
               if(finished){
                 //packet is read, can do stuff with it here
                 byte_order_packet = 0;
                 finished = false;
+                if(stateMachineV(100,100)){
+                  printf("Gesture finished\n");
+                }
+
+
+                
                 
               }
           }

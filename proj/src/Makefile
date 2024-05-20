@@ -8,7 +8,7 @@ PROG=proj
 
 
 # source code files to be compiled
-SRCS = timer.c utils.c gpu.c keyboard.c mouse.c Game.c gameView.c controllerKeyboard.c main.c 
+SRCS = timer.c utils.c gpu.c keyboard.c mouse.c Game.c gameView.c controllerKeyboard.c main.c controllerMouse.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

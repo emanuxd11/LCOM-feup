@@ -1,4 +1,5 @@
-
+#ifndef _CATINFO_H_
+#define _CATINFO_H_
 
 enum CatColor {
     ORANGE,
@@ -13,3 +14,5 @@ typedef struct {
     bool isPet;
     bool isAngry;
 } CatInfo;
+
+#endif

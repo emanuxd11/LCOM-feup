@@ -7,6 +7,11 @@
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 100,
   "files.associations": {
+<<<<<<< HEAD
     "game.h": "c"
+=======
+    "lcf.h": "c",
+    "i8042.h": "c"
+>>>>>>> main
   },
 }

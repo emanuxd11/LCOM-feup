@@ -21,20 +21,18 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   
   uint8_t control_word;
 
-  switch (timer) //timer selection
-  {
-  case 0:
-    control_word = TIMER_SEL0;
-    break;
-  
-  case 1:
-    control_word = TIMER_SEL1;
-    break;
+  switch (timer) { //timer selection
+    case 0:
+      control_word = TIMER_SEL0;
+      break;
+    
+    case 1:
+      control_word = TIMER_SEL1;
+      break;
 
-  case 2:
-    control_word = TIMER_SEL2;
-    break;
-
+    case 2:
+      control_word = TIMER_SEL2;
+      break;
   }
 
   control_word = control_word | TIMER_LSB_MSB | lsb4_current_configuration; //final composition of control word
@@ -45,8 +43,8 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   uint8_t base_lsb;
   uint8_t base_msb;
 
-  if(util_get_LSB(base,&base_lsb)==1)return 1;
-  if(util_get_MSB(base,&base_msb)==1)return 1;
+  if (util_get_LSB(base,&base_lsb)==1) return 1;
+  if (util_get_MSB(base,&base_msb)==1) return 1;
 
   if (sys_outb(TIMER(timer), base_lsb) != 0) return 1;
   if (sys_outb(TIMER(timer), base_msb) != 0) return 1;
@@ -74,7 +72,7 @@ void (timer_int_handler)() {
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
-  if (timer < 0 || timer > 2 || st == NULL){
+  if (timer < 0 || timer > 2 || st == NULL) {
     return 1;
   }
 
@@ -94,7 +92,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
 
   union timer_status_field_val value;
 
-  switch(field){
+  switch(field) {
     case tsf_all:
       value.byte = st;
       break;
@@ -105,7 +103,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
     }
     case tsf_mode:{
         uint8_t bits = (st & (BIT(1) | BIT(2) | BIT(3))) >> 1;
-        if (bits >= 6){
+        if (bits >= 6) {
           value.count_mode = bits - 4;
         }
         else{
@@ -121,5 +119,4 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
   }
 
   return timer_print_config(timer, field, value);
-
 }

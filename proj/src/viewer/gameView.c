@@ -5,6 +5,7 @@
 
 #include "../models/Game.h"
 
+// #include "../images/room/large_room_view_formatted.xpm"
 #include "../images/character/front.xpm"
 #include "../images/cats/cat0.xpm"
 #include "../images/logo.xpm"
@@ -38,13 +39,15 @@ int drawMenu(Game *game) {
     if (drawButton("hey", 512, 300, 200, 50, BLUE) != 0) return 1;
 
     if (drawButton("hey", 512, 400, 200, 50, BLUE) != 0) return 1;
+
     return 0;
 }
 
 int drawGamePlaying(Game *game) {
-
     // Background drawing
     if (set_background_color(0x105, GREEN_GRASS) != 0) return 1;
+
+    // if (draw_background() != 0) return 1;
 
     // Cats drawing
     for (int i = 0; i < 10; i++) {
@@ -61,6 +64,10 @@ int drawGamePlaying(Game *game) {
 
     return 0;
 }
+
+// int draw_background() {
+//     return draw_xpm((xpm_map_t) room_view, 0, 0) != 0;
+// }
 
 int drawCat(Entity *entity) {
     // TODO switch case to get cat type

@@ -1,3 +1,6 @@
+#ifndef _ROOM_H_
+#define _ROOM_H_
+
 #include "Entity.h"
 
 
@@ -21,3 +24,4 @@ int addCat(Room* room);   //called after a cooldown; cooldown is shorter in high
 
 int advanceStage(Room* room);
 
+#endif

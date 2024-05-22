@@ -1,3 +1,6 @@
+#ifndef _MOUSE_H_
+#define _MOUSE_H_
+
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include "i8042.h"
@@ -20,3 +23,4 @@ void array_to_packet();
 
 int issue_cmd_to_KBC(uint8_t port, uint8_t cmd);
 
+#endif

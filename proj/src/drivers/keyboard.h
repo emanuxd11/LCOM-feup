@@ -1,3 +1,6 @@
+#ifndef _KEYBOARD_H_
+#define _KEYBOARD_H_
+
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include "i8042.h"
@@ -19,3 +22,5 @@ uint8_t (scan_n_bytes)(uint8_t scancode);
 int (read_keyboard_buffer)(uint8_t *code);
 
 int (enable_interrupts)();
+
+#endif

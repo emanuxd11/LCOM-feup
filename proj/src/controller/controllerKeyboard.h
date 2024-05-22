@@ -1,3 +1,6 @@
+#ifndef _CONTROLLERKEYBOARD_H_
+#define _CONTROLLERKEYBOARD_H_
+
 #include "../models/Game.h"
 
 #define TILE_UP 0x11
@@ -7,9 +10,8 @@
 #define ESC_BREAK 0x81
 
 
+int control_game(Game *game, uint8_t scan_code);
 
-int controllGame(Game* game, uint8_t scan_code);
+int control_player(Entity *entity, uint8_t scan_code);
 
-
-int controllPlayer(Entity* entity, uint8_t scan_code);
-
+#endif

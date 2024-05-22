@@ -28,5 +28,7 @@ bool mouseAscending(uint8_t tolerance);
 
 bool stateMachineV(uint8_t tolerance, uint8_t x_len);
 
+void moveMouse(int *mouse_x_pos, int *mouse_y_pos);
+
 
 

@@ -138,7 +138,24 @@ bool stateMachineV(uint8_t tolerance, uint8_t x_len){
 }
 
 
+void moveMouse(int *mouse_pos_x, int *mouse_pos_y){
+  *mouse_pos_x+=mouse_packet.delta_x;
+  *mouse_pos_y-=mouse_packet.delta_y;
 
+  if(*mouse_pos_x<0){
+    *mouse_pos_x=0;
+  }
+  if(*mouse_pos_x>1024){
+    *mouse_pos_x=1024;
+  }
+  if(*mouse_pos_y<0){
+    *mouse_pos_y=0;
+  }
+  if(*mouse_pos_y>768){
+    *mouse_pos_y=768;
+  }
+
+}
 
 
 

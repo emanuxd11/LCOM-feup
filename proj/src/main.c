@@ -21,6 +21,7 @@ extern uint8_t scancode;
 extern struct packet mouse_packet;
 int byte_order_packet = 0;
 extern bool finished;
+int mouse_pos_x=0, mouse_pos_y=0;
 
 
 int main(int argc, char *argv[]) {
@@ -96,6 +97,7 @@ int (proj_main_loop)() {
             if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;
             }
+            
           }
 
           // Keyboard Interrupts -> Go to the controller to check what to do with it
@@ -110,13 +112,15 @@ int (proj_main_loop)() {
           if (msg.m_notify.interrupts & irq_set_mouse) {
 
               mouse_ih();
-              printf("mouse interruption\ns");
 
               if(finished){
-                //packet is read, can do stuff with it here
+                //packet is read
                 byte_order_packet = 0;
                 finished = false;
               }
+              
+              moveMouse(&mouse_pos_x, &mouse_pos_y);
+
           }
 
           break;

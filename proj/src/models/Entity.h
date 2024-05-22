@@ -18,10 +18,10 @@ typedef enum {
 typedef struct {
     Position position;
     HurtBox hurtBox;
-    double velocity;
-    uint16_t direction;
+    double velocity;        // pixels/s
+    uint16_t direction;     // [0,360[, 0 being right
     EntityType type;  
-    void* typeInfo;         //entity type specific info
+    void* typeInfo;         // entity type specific info
 } Entity;
 
 Entity* newCat(Position position);  //returns pointer to new cat with random color
@@ -32,7 +32,9 @@ Entity* newWall(Position position, HurtBox hurtBox);
 
 void deleteEntity(Entity* entity);
 
-int moveEntity(Entity* entity);
+Position candidatePos(Entity* entity);  // returns next position according to velocity and direction
+
+void moveEntity(Entity* Entity);        //will move entity according to candidatePos and collisions
 
 //bool checkCollision(Entity* entityA, Entity* entityB);   //true if entities will collide according to their current movements
 

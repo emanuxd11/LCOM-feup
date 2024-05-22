@@ -10,13 +10,12 @@
 #include "viewer/gameView.h"
 #include "models/Game.h"
 #include "controller/controllerKeyboard.h"
+#include "utils/utils.h"
 
 extern uint8_t scancode;
 extern struct packet mouse_packet;
 int byte_order_packet=0;
 extern bool finished;
-
-#define FRAME_RATE 60
 
 
 
@@ -111,7 +110,7 @@ int (proj_main_loop)(){
   if (vg_exit() != 0)
     return 1;
   
-  free(game);
+  deleteGame(game);
   return 0;
 }
 

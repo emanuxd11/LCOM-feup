@@ -10,6 +10,11 @@ Game* createNewGame(){
     return game;
 }
 
+void deleteGame(Game* game) {
+    deleteRoom(game->room);
+    free(game);
+}
+
 
 
 

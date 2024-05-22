@@ -1,5 +1,7 @@
-#include <Entity.h>
-#include <CatInfo.h>
+#include "../models/Entity.h"
+#include "CatInfo.h"
+#include <math.h>
+#include "../utils/utils.h"
 
 Entity* newPlayer(Position Position){
     Entity *entity = (Entity*) malloc(sizeof(Entity));
@@ -31,3 +33,23 @@ void deleteEntity(Entity* entity) {
     free(entity->typeInfo);
     free(entity);
 }
+
+Position candidatePos(Entity* entity) {
+    Position candidatePos;
+
+    candidatePos.x = entity->position.x + ((entity->velocity / FRAME_RATE) * cos(degToRad(entity->direction)));
+    candidatePos.y = entity->position.y - ((entity->velocity / FRAME_RATE) * sin(degToRad(entity->direction)));
+
+    printf("\n x: %d; y : %d", candidatePos.x, candidatePos.y);
+
+    return candidatePos;
+}
+
+void moveEntity(Entity* entity) {
+    Position cPos = candidatePos(entity);
+
+    //add collision checks
+
+    entity->position = cPos;
+}
+

@@ -1,5 +1,7 @@
 #include <stdlib.h>
-#include <utils.h>
+#include "utils.h"
+#include <time.h>
+#include <math.h>
 
 int randomNumer(int lower_bound, int upper_bound) {
     int random_number;
@@ -13,4 +15,8 @@ int randomNumer(int lower_bound, int upper_bound) {
     random_number = lower_bound + rand() % (upper_bound - lower_bound + 1);
     
     return random_number;
+}
+
+double degToRad(double angleInDegrees) {
+    return angleInDegrees * (M_PI / 180.0);
 }

@@ -44,11 +44,11 @@ int drawGamePlaying(Game* game){
 
     // Cats drawing
     for (int i = 0; i < 10; i++){
-        if (drawCat(&game->room->cats[i]) != 0) return 1;
+        if (drawCat(game->room->cats[i]) != 0) return 1;
     }
 
     // Player drawing
-    if (draw_xpm((xpm_map_t) front, game->room->player.position.x, game->room->player.position.y) != 0) return 1;
+    if (draw_xpm((xpm_map_t) front, game->room->player->position.x, game->room->player->position.y) != 0) return 1;
 
     return 0;
 }

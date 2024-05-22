@@ -1,5 +1,6 @@
-#include <CatInfo.h>
-#include <utils.h>
+#include "CatInfo.h"
+#include "../utils/utils.h"
+#include <stdlib.h>
 
 CatInfo* newCatInfo() {
     CatInfo* catInfo = (CatInfo*) malloc(sizeof(CatInfo));

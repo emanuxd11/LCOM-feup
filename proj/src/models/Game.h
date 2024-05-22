@@ -1,9 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Room.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "../models/Room.h"
 
 typedef enum {
     MENU_STATE,
@@ -18,6 +18,6 @@ typedef struct {
 
 Game* createNewGame();
 
-int randomNumer(int lower_bound, int upper_bound);
+void deleteGame(Game* game);
 
 #endif /* GAME_H */

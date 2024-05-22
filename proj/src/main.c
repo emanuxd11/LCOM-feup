@@ -54,7 +54,7 @@ int (proj_main_loop)() {
   int ipc_status;
   int r;
 
-  if (timer_set_frequency(0, 60) != 0) {
+  if (timer_set_frequency(0, FRAME_RATE) != 0) {
     return 1;
   }
 

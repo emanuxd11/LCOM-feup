@@ -10,4 +10,6 @@
 
 uint8_t (bcd_to_binary)(uint8_t bcd);
 
+int getRandomInt(int lower_bound, int upper_bound);
+
 #endif

@@ -1,9 +1,14 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Room.h"
+#include <lcom/lcf.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+#include "../drivers/utils.h"
+#include "Room.h"
+
 
 typedef enum {
     MENU_STATE,
@@ -17,7 +22,5 @@ typedef struct {
 } Game;
 
 Game* createNewGame();
-
-int randomNumer(int lower_bound, int upper_bound);
 
 #endif /* GAME_H */

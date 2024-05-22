@@ -40,3 +40,13 @@ uint8_t (bcd_to_binary)(uint8_t bcd) {
   
   return tens * 10 + ones;
 }
+
+int getRandomInt(int lower_bound, int upper_bound) {
+  static int seed_initialized = 0;
+  if (!seed_initialized) {
+    srand(time(NULL));
+    seed_initialized = 1;
+  }
+
+  return lower_bound + rand() % (upper_bound - lower_bound + 1);
+}

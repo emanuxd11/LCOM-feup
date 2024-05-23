@@ -139,7 +139,7 @@ int (proj_main_loop)() {
 
   if (exit_video_mode() != 0) {
     return 1;
-  
+  }
   deleteGame(game);
 
   return 0;

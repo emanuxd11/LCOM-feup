@@ -52,7 +52,7 @@ int drawGamePlaying(Game *game) {
     // Cats drawing
 
     for (int i = 0; i < 10; i++) {
-        if (drawCat(&game->room->cats[i]) != 0) return 1;
+        if (drawCat(game->room->cats[i]) != 0) return 1;
     }
 
     // Player drawing

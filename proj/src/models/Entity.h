@@ -1,7 +1,12 @@
-#include "../utils/aux_structs/HurtBox.h"
-#include "../utils/aux_structs/Position.h"
+
+#ifndef _ENTITY_H_
+#define _ENTITY_H_
+
 #include <stdio.h>
 #include <stdlib.h>
+#include "../utils/aux_structs/HurtBox.h"
+#include "../utils/aux_structs/Position.h"
+
 
 
 typedef enum {
@@ -38,3 +43,4 @@ void moveEntity(Entity* Entity);        //will move entity according to candidat
 
 //bool checkCollision(Entity* entityA, Entity* entityB);   //true if entities will collide according to their current movements
 
+#endif

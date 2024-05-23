@@ -4,6 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../models/Room.h"
+#include <lcom/lcf.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#include "../drivers/utils.h"
+#include "Room.h"
+
 
 typedef enum {
     MENU_STATE,
@@ -19,5 +27,6 @@ typedef struct {
 Game* createNewGame();
 
 void deleteGame(Game* game);
+
 
 #endif /* GAME_H */

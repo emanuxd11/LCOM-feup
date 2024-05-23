@@ -1,6 +1,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+
 #include "Entity.h"
 
 typedef struct {
@@ -24,4 +25,3 @@ int addCat(Room* room);   //called after a cooldown; cooldown is shorter in high
 int advanceStage(Room* room);
 
 #endif /* ROOM_H */
-

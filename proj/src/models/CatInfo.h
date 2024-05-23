@@ -1,4 +1,8 @@
+#ifndef _CATINFO_H_
+#define _CATINFO_H_
+
 #include <stdbool.h>
+
 
 enum CatColor {
     ORANGE,
@@ -16,3 +20,5 @@ typedef struct {
 
 CatInfo* newCatInfo(); //returns new CatInfo with random color
 void deleteCatInfo(CatInfo* catInfo);
+
+#endif

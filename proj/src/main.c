@@ -53,7 +53,7 @@ int (proj_main_loop)() {
   int ipc_status;
   int r;
 
-  if (timer_set_frequency(0, 60) != 0) {
+  if (timer_set_frequency(0, 30) != 0) {
     return 1;
   }
 
@@ -120,6 +120,8 @@ int (proj_main_loop)() {
               }
               
               moveMouse(&mouse_pos_x, &mouse_pos_y);
+              
+              stateMachineInvertedV(10, 10);
 
           }
 

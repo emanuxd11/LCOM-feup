@@ -10,8 +10,8 @@ typedef enum {
   INIT,
   DUP,
   DDOWN,
-  
   VERTEX,
+  FAIL,
   END
 } mouseState;
 
@@ -22,11 +22,11 @@ bool leftButtonPressed();
 
 bool rightButtonPressed();
 
-bool mouseDescending(uint8_t tolerance);
+bool mouse_is_descending(uint8_t tolerance);
 
-bool mouseAscending(uint8_t tolerance);
+bool mouse_is_ascending(uint8_t tolerance);
 
-bool stateMachineV(uint8_t tolerance, uint8_t x_len);
+void stateMachineInvertedV(uint8_t tolerance, uint8_t x_len);
 
 void moveMouse(int *mouse_x_pos, int *mouse_y_pos);
 

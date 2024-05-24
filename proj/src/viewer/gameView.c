@@ -9,12 +9,15 @@
 #include "../images/character/front.xpm"
 #include "../images/cats/cat0.xpm"
 #include "../images/logo.xpm"
+#include "../images/mouse.xpm"
 
 
 #define YELLOW 62
 #define BLUE 9
 #define BROWN 20
 #define GREEN_GRASS 2
+
+extern int mouse_pos_x,mouse_pos_y;
 
 
 int drawGame(Game *game) {
@@ -57,6 +60,10 @@ int drawGamePlaying(Game *game) {
     // Player drawing
     if (draw_xpm((xpm_map_t) front, game->room->player.position.x, game->room->player.position.y) != 0) return 1;
 
+    if(drawMouse(mouse_pos_x, mouse_pos_y) != 0){
+                printf("Error drawing mouse");
+                return 1;              }
+
     // copy image to main buffer
     if (update_front_buffer() != 0) {
         return 1;
@@ -82,4 +89,9 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
     if (draw_rectangle(0x105, x_init, y_init, width, height, color) != 0) return 1;
 
     return 0;
+}
+
+
+int drawMouse(int x, int y){
+    return draw_xpm((xpm_map_t) mouse,x,y);
 }

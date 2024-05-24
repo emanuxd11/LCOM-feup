@@ -11,6 +11,7 @@
 
 #include "models/Game.h"
 #include "controller/controllerKeyboard.h"
+#include "controller/controllerMouse.h"
 #include "viewer/gameView.h"
 
 #include "images/cats/cat0.xpm"
@@ -20,6 +21,7 @@ extern uint8_t scancode;
 extern struct packet mouse_packet;
 int byte_order_packet = 0;
 extern bool finished;
+int mouse_pos_x=0, mouse_pos_y=0;
 
 #define FRAME_RATE 60
 
@@ -70,6 +72,12 @@ int (proj_main_loop)() {
     return 1;
   }
 
+  if(issue_cmd_to_mouse(ENABLE_DATA_REP)!=0){ //enable data report
+      printf("Error enabling data report\n");
+      return 1;
+  }
+
+
   if (enter_video_mode(0x105) != 0) {
     return 1;
   }
@@ -92,6 +100,7 @@ int (proj_main_loop)() {
             if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;
             }
+            
           }
 
           // Keyboard Interrupts -> Go to the controller to check what to do with it
@@ -104,13 +113,17 @@ int (proj_main_loop)() {
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {
-            mouse_ih();
 
-            if (finished) {
-              // packet is read, can do stuff with it here
-              byte_order_packet = 0;
-              finished = false;
-            }
+              mouse_ih();
+
+              if(finished){
+                //packet is read
+                byte_order_packet = 0;
+                finished = false;
+              }
+              
+              moveMouse(&mouse_pos_x, &mouse_pos_y);
+
           }
 
           break;

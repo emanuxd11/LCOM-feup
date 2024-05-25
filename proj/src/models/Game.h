@@ -23,4 +23,8 @@ typedef struct {
 
 Game* createNewGame();
 
+int control_game(Game *game);
+int control_player(Entity *entity);
+
+
 #endif /* GAME_H */

@@ -97,6 +97,10 @@ int (proj_main_loop)() {
         case HARDWARE:
           // processes the view -> for every interrupt of timer (60 Hz) draws the game
           if (msg.m_notify.interrupts & irq_set_timer) {
+            
+            if (control_game(game) != 0) {
+              return 1;
+            }
             if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;
             }
@@ -106,10 +110,8 @@ int (proj_main_loop)() {
           // Keyboard Interrupts -> Go to the controller to check what to do with it
           if (msg.m_notify.interrupts & irq_set_keyboard) {
             kbc_ih();
-
-            if (control_game(game, scancode) != 0) {
-              return 1;
-            }
+            update_keys(scancode);
+            
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {

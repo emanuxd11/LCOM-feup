@@ -20,8 +20,6 @@
 
 int update_keys(uint8_t scan_code);
 
-int control_game(Game *game, uint8_t scan_code);
 
-int control_player(Entity *entity, uint8_t scan_code);
 
 #endif

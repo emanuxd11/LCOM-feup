@@ -72,13 +72,14 @@ switch(state){
           if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
             state = VERTEX;
             if(delta_x_sum < x_len || delta_y_sum/delta_x_sum < 1){
-                state = FAIL;
+              printf("a");
+                state = INIT;
             }
           }
         }
         
         else{
-          state = FAIL;
+          state = INIT;
         }
 
         break;
@@ -90,11 +91,11 @@ switch(state){
         delta_y_sum = 0;
       
         if(mouse_packet.lb || mouse_packet.mb ){
-          state = FAIL;
+          state = INIT;
         }
 
         if(abs(mouse_packet.delta_x) > tolerance || abs(mouse_packet.delta_y) > tolerance){
-          state = FAIL;
+          state = INIT;
         }
 
 
@@ -108,7 +109,7 @@ switch(state){
       case DDOWN:
       printf("Mouse descending\n");
         if(mouse_packet.rb || mouse_packet.mb){
-          state = FAIL;
+          state = INIT;
         }
         if(mouse_is_descending(tolerance)){
 
@@ -119,12 +120,12 @@ switch(state){
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
 
-              state = FAIL;
+              state = INIT;
             }
           }
         }
         else{
-          state = FAIL;
+          state = INIT;
         }
 
         break;

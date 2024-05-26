@@ -6,11 +6,12 @@ PROG=proj
 .PATH: ${.CURDIR}/viewer
 .PATH: ${.CURDIR}/controller
 .PATH: ${.CURDIR}/utils
+.PATH: ${.CURDIR}/utils/aux_structs
 
 
 
 # source code files to be compiled
-SRCS = timer.c utils_drivers.c gpu.c rtclock.c keyboard.c mouse.c Game.c gameView.c controllerKeyboard.c main.c CatInfo.c Entity.c Room.c utils.c
+SRCS = timer.c utils_drivers.c gpu.c rtclock.c keyboard.c mouse.c Game.c gameView.c controllerKeyboard.c main.c CatInfo.c Entity.c Room.c utils.c controllerMouse.c Position.c HurtBox.c
 
 
 # additional compilation flags

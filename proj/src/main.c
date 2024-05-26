@@ -110,7 +110,6 @@ int (proj_main_loop)() {
           if (msg.m_notify.interrupts & irq_set_keyboard) {
             kbc_ih();
             update_keys(scancode);
-            
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {
@@ -121,9 +120,9 @@ int (proj_main_loop)() {
                 //packet is read
                 byte_order_packet = 0;
                 finished = false;
+                moveMouse(&mouse_pos_x, &mouse_pos_y);
               }
               
-              moveMouse(&mouse_pos_x, &mouse_pos_y);
 
           }
 

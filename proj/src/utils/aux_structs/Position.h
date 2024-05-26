@@ -8,5 +8,6 @@ typedef struct {
 
 
 Position *newPosition(int x, int y);
+void deletePosition(Position* position);
 
 #endif

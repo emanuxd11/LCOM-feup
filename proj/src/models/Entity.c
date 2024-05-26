@@ -3,23 +3,22 @@
 #include <math.h>
 #include "../utils/utils.h"
 
-Entity* newPlayer(Position Position){
+Entity* newPlayer(int x, int y){
     Entity *entity = (Entity*) malloc(sizeof(Entity));
-    entity->position = Position;
+    entity->position = newPosition(x, y);
     entity->type = PLAYER;
 
     return entity;
 }
 
-Entity* newCat(Position position) {
+Entity* newCat(int x, int y) {
     Entity* cat = (Entity*) malloc(sizeof(Entity));
 
-    cat->position = position;
+    printf("BEFORE: %d, %d\n", x, y);
+    cat->position = newPosition(x, y);
+    printf("AFTER: %d, %d\n\n", cat->position->x, cat->position->y);
     
-    HurtBox hurtBox;
-    hurtBox.deltaX = 20;
-    hurtBox.deltaY = 20;
-    cat->hurtBox = hurtBox;
+    cat->hurtBox = newHurtBox(20, 20);
 
     cat->velocity = 0;
     cat->direction = 0;
@@ -30,19 +29,22 @@ Entity* newCat(Position position) {
 }
 
 void deleteEntity(Entity* entity) {
+    deleteHurtBox(entity->hurtBox);
+    deletePosition(entity->position);
     free(entity->typeInfo);
     free(entity);
 }
 
 Position candidatePos(Entity* entity) {
-    Position candidatePos;
 
-    candidatePos.x = entity->position.x + ((entity->velocity / FRAME_RATE) * cos(degToRad(entity->direction)));
-    candidatePos.y = entity->position.y - ((entity->velocity / FRAME_RATE) * sin(degToRad(entity->direction)));
+    Position cPos;
 
-    printf("\n x: %d; y : %d", candidatePos.x, candidatePos.y);
+    cPos.x = entity->position->x + ((entity->velocity / FRAME_RATE) * cos(degToRad(entity->direction)));
+    cPos.y = entity->position->y - ((entity->velocity / FRAME_RATE) * sin(degToRad(entity->direction)));
 
-    return candidatePos;
+    printf("\n x: %d; y : %d", cPos.x, cPos.y);
+
+    return cPos;
 }
 
 void moveEntity(Entity* entity) {
@@ -50,6 +52,8 @@ void moveEntity(Entity* entity) {
 
     //add collision checks
 
-    entity->position = cPos;
+    entity->position->x = cPos.x;
+    entity->position->y = cPos.y;
+
 }
 

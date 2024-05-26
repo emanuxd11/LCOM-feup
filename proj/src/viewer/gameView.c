@@ -59,7 +59,7 @@ int drawGamePlaying(Game *game) {
     }
 
     // Player drawing
-    if (draw_xpm((xpm_map_t) front, game->room->player->position.x, game->room->player->position.y) != 0) return 1;
+    if (draw_xpm((xpm_map_t) front, game->room->player->position->x, game->room->player->position->y) != 0) return 1;
 
     if(drawMouse(mouse_pos_x, mouse_pos_y) != 0){
                 printf("Error drawing mouse");
@@ -79,7 +79,7 @@ int drawGamePlaying(Game *game) {
 
 int drawCat(Entity *entity) {
     // TODO switch case to get cat type
-    return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
+    return draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0;
 }
 
 int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color) {

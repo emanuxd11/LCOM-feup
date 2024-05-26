@@ -21,19 +21,19 @@ typedef enum {
 } EntityType;
 
 typedef struct {
-    Position position;
-    HurtBox hurtBox;
+    Position* position;
+    HurtBox* hurtBox;
     double velocity;        // pixels/s
     uint16_t direction;     // [0,360[, 0 being right
     EntityType type;  
     void* typeInfo;         // entity type specific info
 } Entity;
 
-Entity* newCat(Position position);  //returns pointer to new cat with random color
+Entity* newCat(int x, int y);  //returns pointer to new cat with random color
 
-Entity* newPlayer(Position Position);
+Entity* newPlayer(int x, int y);
 
-Entity* newWall(Position position, HurtBox hurtBox);
+Entity* newWall(int x, int y);
 
 void deleteEntity(Entity* entity);
 

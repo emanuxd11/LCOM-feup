@@ -1,4 +1,6 @@
 #include "../models/Game.h"
+#include "../models/Room.h"
+#include "../utils/utils.h"
 
 // keys
 extern bool wIsDown;
@@ -37,62 +39,40 @@ int control_game(Game *game) {
 
     if (game->state == GAME_STATE) {
         
-        if (control_player(&game->room->player)) return 1;
+        if (control_player(game->room->player)) return 1;
         
     }
 
     return 0;
 }
 
-int control_player(Entity *entity) {
+int control_player(Entity *player) {
 
-    entity->velocity = 0;
+    player->velocity = 0;
 
     if (wIsDown) {
-        entity->direction = 90;
-        entity->velocity = PLAYER_V;
+        player->direction = 90;
+        player->velocity = PLAYER_V;
     }
 
     if (sIsDown) {
-        entity->direction = 270;
-        entity->velocity = PLAYER_V;
+        player->direction = 270;
+        player->velocity = PLAYER_V;
     }
 
     if (aIsDown) {
-        entity->position.x = 180;
-        entity->velocity = PLAYER_V;
+        player->direction = 180;
+        player->velocity = PLAYER_V;
     }
 
     if (dIsDown) {
-        entity->position.x = 0;
-        entity->velocity = PLAYER_V;
+        player->direction = 0;
+        player->velocity = PLAYER_V;
     }
+
+    moveEntity(player);
 
     return 0;
-}
-
-
-Room *newRoom() {
-    Room *room = (Room*) malloc(sizeof(Room));
-    Position position;
-    position.x = 100;
-    position.y = 100;
-    Entity *player = newPlayer(position);
-    room->player = *player;
-    free(player);
-
-    for (int i = 0; i < 10; i++) {
-        Position catPosition;
-        catPosition.x = getRandomInt(30, 1000);
-        catPosition.y = getRandomInt(30, 700);
-        Entity cat;
-        cat.position = catPosition;
-        // TODO: Add random number to generate a random cat
-        cat.type = CAT0;
-        room->cats[i] = cat;
-    }
-
-    return room;
 }
 
 

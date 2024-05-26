@@ -3,15 +3,23 @@
 
 #include "../models/Game.h"
 
-#define TILE_UP 0x11
-#define TILE_DOWN 0x1f
-#define TILE_LEFT 0x1e
-#define TILE_RIGHT 0x20
+#define W_MAKE 0x11
+#define W_BREAK 0x91
+
+#define S_MAKE 0x1f
+#define S_BREAK 0x9f
+
+#define A_MAKE 0x1e
+#define A_BREAK 0x9e
+
+#define D_MAKE 0x20
+#define D_BREAK 0xa0
+
 #define ESC_BREAK 0x81
 
 
-int control_game(Game *game, uint8_t scan_code);
+int update_keys(uint8_t scan_code);
 
-int control_player(Entity *entity, uint8_t scan_code);
+
 
 #endif

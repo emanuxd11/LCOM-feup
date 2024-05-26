@@ -13,7 +13,9 @@ int mouse_subscribe_int(uint8_t *bit_no) {
 
   *bit_no = BIT(hookid_mouse);
 
-  if (sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE | IRQ_EXCLUSIVE, &hookid_mouse) != 0) return 1;
+  if (sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE | IRQ_EXCLUSIVE, &hookid_mouse) != 0) {
+    printf("Error subscribing\n");
+  }
 
   return 0;
 }

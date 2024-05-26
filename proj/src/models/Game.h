@@ -25,8 +25,10 @@ typedef struct {
 } Game;
 
 Game* createNewGame();
-
 void deleteGame(Game* game);
+
+int control_game(Game *game);
+int control_player(Entity *entity);
 
 
 #endif /* GAME_H */

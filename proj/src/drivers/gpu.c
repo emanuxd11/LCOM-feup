@@ -10,6 +10,7 @@ static char *front_buffer;
 static char *back_buffer;
 uint8_t bypp;
 vbe_mode_info_t vbe_mode_info;
+uint16_t x_res, y_res;
 
 
 int (enter_video_mode)(uint16_t mode) {
@@ -46,6 +47,9 @@ int (create_vram_buffer)(uint16_t mode) {
   if (vbe_get_mode_info(mode, &vbe_mode_info) != 0) {
     return 1;
   }
+
+  x_res = vbe_mode_info.XResolution;
+  y_res = vbe_mode_info.YResolution;
 
   uint8_t n_bits_per_pixel = vbe_mode_info.BitsPerPixel;
 

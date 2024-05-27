@@ -7,6 +7,9 @@
 #include <time.h>
 
 #include "../drivers/utils.h"
+#include "../drivers/rtclock.h"
+
+#include "Datetime.h"
 #include "Room.h"
 
 
@@ -22,5 +25,7 @@ typedef struct {
 } Game;
 
 Game* createNewGame();
+
+void updateGameTime();
 
 #endif /* GAME_H */

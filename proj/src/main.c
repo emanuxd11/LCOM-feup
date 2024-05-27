@@ -17,6 +17,8 @@
 #include "images/cats/cat0.xpm"
 
 
+#define FPS 60
+
 extern uint8_t scancode;
 extern struct packet mouse_packet;
 int byte_order_packet = 0;
@@ -70,10 +72,9 @@ int (proj_main_loop)() {
   }
 
   if(issue_cmd_to_mouse(ENABLE_DATA_REP)!=0){ //enable data report
-      printf("Error enabling data report\n");
-      return 1;
+    printf("Error enabling data report\n");
+    return 1;
   }
-
 
   if (enter_video_mode(0x105) != 0) {
     return 1;
@@ -83,6 +84,8 @@ int (proj_main_loop)() {
     return 1;
   }
 
+  int frame_counter = 0;
+  updateGameTime();
   while (game->state != LEAVE_STATE) {
 
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -97,7 +100,12 @@ int (proj_main_loop)() {
             if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;
             }
-            
+
+            frame_counter++;
+            if (frame_counter == 60 * FPS) {
+              frame_counter = 0;
+              updateGameTime();
+            }
           }
 
           // Keyboard Interrupts -> Go to the controller to check what to do with it
@@ -110,28 +118,23 @@ int (proj_main_loop)() {
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {
+            mouse_ih();
 
-              mouse_ih();
-
-              if(finished){
-                //packet is read
-                byte_order_packet = 0;
-                finished = false;
-              }
-              
-              moveMouse(&mouse_pos_x, &mouse_pos_y);
-
+            if(finished){
+              //packet is read
+              byte_order_packet = 0;
+              finished = false;
+            }
+            
+            moveMouse(&mouse_pos_x, &mouse_pos_y);
           }
-
           break;
-        default:
-          break;
+        default: break;
       }
     }
     else { }
   }
 
-  printf("Hello, World!\n");
   if (timer_unsubscribe_int() != 0) {
     return 1;
   }

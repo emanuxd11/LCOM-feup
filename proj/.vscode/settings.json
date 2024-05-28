@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "gpu.h": "c",
+    "game.h": "c"
+  }
+}

@@ -26,11 +26,11 @@ typedef struct {
     void* typeInfo;         //entity type specific info
 } Entity;
 
-Entity* newCat(Position position);
+Entity *newCat(Position position);
 
-Entity* newPlayer(Position Position);
+Entity *newPlayer(Position Position);
 
-Entity* newWall(Position position, HurtBox hurtBox);
+Entity *newWall(Position position, HurtBox hurtBox);
 
 int moveEntity(Entity* entity);
 

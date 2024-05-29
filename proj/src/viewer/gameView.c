@@ -52,6 +52,7 @@ int drawMenu(Game *game) {
         if (drawButton("Play Game", 512, 300, 300, 100, BLUE + 1) != 0) return 1;
     }
 
+    /*
     if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 400 - 25 && mouse_pos_y <= 400 + 25){
         if (drawButton("Instructions", 512, 500, 300, 100, BLUE) != 0) return 1;
     }
@@ -59,6 +60,7 @@ int drawMenu(Game *game) {
     else{
         if (drawButton("Instructions", 512, 500, 300, 100, BLUE + 1) != 0) return 1;
     }
+    */
 
     if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
         printf("Error drawing mouse");

@@ -1,5 +1,6 @@
 #include "controllerMouse.h"
 uint8_t delta_x_sum=0,delta_y_sum=0;
+bool hasLeftClick;
 mouseState state = INIT;
 
 

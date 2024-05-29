@@ -16,6 +16,7 @@
 
 extern int mouse_pos_x, mouse_pos_y;
 extern uint16_t x_res, y_res;
+extern bool hasLeftClick;
 extern Datetime datetime;
 
 
@@ -46,6 +47,9 @@ int drawMenu(Game *game) {
     //drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color)
     if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 300 - 25 && mouse_pos_y <= 300 + 25){
         if (drawButton("Play Game", 512, 300, 300, 100, BLUE) != 0) return 1;
+        if (hasLeftClick){
+            game->state = GAME_STATE;
+        }
     }
 
     else{

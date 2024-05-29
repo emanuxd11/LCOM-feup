@@ -1,6 +1,7 @@
 #include "../models/Game.h"
 #include "../models/Room.h"
 #include "../utils/utils.h"
+#include <math.h>
 
 // keys
 extern bool wIsDown;
@@ -48,27 +49,29 @@ int control_game(Game *game) {
 
 int control_player(Entity *player) {
 
-    player->velocity = 0;
+    // x and y coords of player velocity vector
+    int xDir = 0;
+    int yDir = 0;
 
-    if (wIsDown) {
-        player->direction = 90;
-        player->velocity = PLAYER_V;
-    }
+    if (wIsDown) yDir+=1;
 
-    if (sIsDown) {
-        player->direction = 270;
-        player->velocity = PLAYER_V;
-    }
+    if (sIsDown) yDir-=1;
 
-    if (aIsDown) {
-        player->direction = 180;
-        player->velocity = PLAYER_V;
-    }
+    if (aIsDown) xDir-=1;
 
-    if (dIsDown) {
-        player->direction = 0;
-        player->velocity = PLAYER_V;
-    }
+    if (dIsDown) xDir+=1;
+
+    player->velocity = PLAYER_V;
+
+    if (xDir == 0 && yDir == 0) player->velocity = 0;  // no movement key down
+    // very hardcoded and ugly yes but do not fret! it is also very localized
+    else if (xDir == 0) player->direction = 90 * yDir;
+    else if (yDir == 0) player->direction = xDir == 1 ? 0 : -180;
+    else if (xDir == 1 && yDir == 1) player->direction = 45;
+    else if (xDir == -1 && yDir == 1) player->direction = 135;
+    else if (xDir == 1 && yDir == -1) player->direction = -45;
+    else if (xDir == -1 && yDir == -1) player->direction = -135;
+    
 
     moveEntity(player);
 

@@ -20,3 +20,8 @@ int randomNumer(int lower_bound, int upper_bound) {
 double degToRad(double angleInDegrees) {
     return angleInDegrees * (M_PI / 180.0);
 }
+
+double radToDeg(double angleInRad) {
+    return angleInRad / (M_PI / 180);
+}
+

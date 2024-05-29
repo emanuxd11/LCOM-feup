@@ -14,9 +14,7 @@ Entity* newPlayer(int x, int y){
 Entity* newCat(int x, int y) {
     Entity* cat = (Entity*) malloc(sizeof(Entity));
 
-    printf("BEFORE: %d, %d\n", x, y);
     cat->position = newPosition(x, y);
-    printf("AFTER: %d, %d\n\n", cat->position->x, cat->position->y);
     
     cat->hurtBox = newHurtBox(20, 20);
 
@@ -42,7 +40,6 @@ Position candidatePos(Entity* entity) {
     cPos.x = entity->position->x + ((entity->velocity / FRAME_RATE) * cos(degToRad(entity->direction)));
     cPos.y = entity->position->y - ((entity->velocity / FRAME_RATE) * sin(degToRad(entity->direction)));
 
-    printf("\n x: %d; y : %d", cPos.x, cPos.y);
 
     return cPos;
 }

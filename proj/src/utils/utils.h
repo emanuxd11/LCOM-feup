@@ -6,4 +6,4 @@
 int randomNumer(int lower_bound, int upper_bound);
 
 double degToRad(double angleInDegrees);
-
+double radToDeg(double angleInRad);

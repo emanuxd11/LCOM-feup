@@ -24,7 +24,7 @@ typedef struct {
     Position* position;
     HurtBox* hurtBox;
     double velocity;        // pixels/s
-    uint16_t direction;     // [0,360[, 0 being right
+    int direction;     // [0,360[, 0 being right
     EntityType type;  
     void* typeInfo;         // entity type specific info
 } Entity;

@@ -26,7 +26,7 @@ bool mouse_is_descending(uint8_t tolerance);
 
 bool mouse_is_ascending(uint8_t tolerance);
 
-void stateMachineInvertedV(uint8_t tolerance, uint8_t x_len);
+void stateMachineInvertedV(int tolerance, int x_len);
 
 void moveMouse(int *mouse_x_pos, int *mouse_y_pos);
 

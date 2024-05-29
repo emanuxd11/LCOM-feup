@@ -1,5 +1,5 @@
 #include "controllerMouse.h"
-uint8_t delta_x_sum=0,delta_y_sum=0;
+int delta_x_sum=0,delta_y_sum=0;
 mouseState state = INIT;
 
 
@@ -50,10 +50,12 @@ bool mouse_is_ascending(uint8_t tolerance){
 
 
 
-void stateMachineInvertedV(uint8_t tolerance, uint8_t x_len){
+void stateMachineInvertedV(int tolerance, int x_len){
 switch(state){
 
       case INIT:
+      delta_x_sum=0;
+            delta_y_sum=0;
       printf("begin state machine\n");
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
           state = DUP;
@@ -72,14 +74,15 @@ switch(state){
           if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
             state = VERTEX;
             if(delta_x_sum < x_len || delta_y_sum/delta_x_sum < 1){
-              printf("a");
-                state = INIT;
+              state = FAIL;
             }
+            delta_x_sum=0;
+            delta_y_sum=0;
           }
         }
         
         else{
-          state = INIT;
+          state = FAIL;
         }
 
         break;
@@ -87,19 +90,15 @@ switch(state){
       case VERTEX:
       printf("Mouse vertex\n");
 
-        delta_x_sum= 0;
-        delta_y_sum = 0;
-      
-        if(mouse_packet.lb || mouse_packet.mb ){
-          state = INIT;
-        }
 
-        if(abs(mouse_packet.delta_x) > tolerance || abs(mouse_packet.delta_y) > tolerance){
-          state = INIT;
-        }
+      if(delta_x_sum > tolerance || delta_y_sum > tolerance){
+              state = FAIL;
+            }
 
 
-        if(mouse_packet.lb){ //if right button is pressed
+        if(mouse_packet.lb){
+          delta_x_sum= 0;
+          delta_y_sum = 0;
           state = DDOWN;
         }
       
@@ -109,7 +108,7 @@ switch(state){
       case DDOWN:
       printf("Mouse descending\n");
         if(mouse_packet.rb || mouse_packet.mb){
-          state = INIT;
+          state =  FAIL;
         }
         if(mouse_is_descending(tolerance)){
 
@@ -119,13 +118,12 @@ switch(state){
             state = END;
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
-
-              state = INIT;
+              state = FAIL;
             }
           }
         }
         else{
-          state = INIT;
+          state = FAIL;
         }
 
         break;

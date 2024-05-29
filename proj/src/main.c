@@ -131,7 +131,6 @@ int (proj_main_loop)() {
                 byte_order_packet = 0;
                 finished = false;
                 moveMouse(&mouse_pos_x, &mouse_pos_y);
-              
               }
 
               

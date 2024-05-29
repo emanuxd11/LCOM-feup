@@ -1,11 +1,5 @@
-#include <lcom/lcf.h>
-
 #include "gameView.h"
-#include "drivers/gpu.h"
 
-#include "../models/Game.h"
-
-// #include "../images/room/large_room_view_formatted.xpm"
 #include "../images/character/front.xpm"
 #include "../images/cats/cat0.xpm"
 #include "../images/logo.xpm"
@@ -14,10 +8,14 @@
 
 #define YELLOW 62
 #define BLUE 9
+#define SKY_DAY 27
+#define SKY_NIGHT 8
 #define BROWN 20
 #define GREEN_GRASS 2
 
-extern int mouse_pos_x,mouse_pos_y;
+extern int mouse_pos_x, mouse_pos_y;
+extern uint16_t x_res, y_res;
+extern Datetime datetime;
 
 
 int drawGame(Game *game) {
@@ -48,7 +46,8 @@ int drawMenu(Game *game) {
 
 int drawGamePlaying(Game *game) {
     // Background drawing
-    if (set_background_color(0x105, GREEN_GRASS) != 0) return 1;
+    if (drawGrass()) return 1;
+    if (drawSky()) return 1;
 
     // if (draw_background() != 0) return 1;
 
@@ -60,9 +59,10 @@ int drawGamePlaying(Game *game) {
     // Player drawing
     if (draw_xpm((xpm_map_t) front, game->room->player.position.x, game->room->player.position.y) != 0) return 1;
 
-    if(drawMouse(mouse_pos_x, mouse_pos_y) != 0){
-                printf("Error drawing mouse");
-                return 1;              }
+    if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
+        printf("Error drawing mouse");
+        return 1;
+    }
 
     // copy image to main buffer
     if (update_front_buffer() != 0) {
@@ -72,26 +72,45 @@ int drawGamePlaying(Game *game) {
     return 0;
 }
 
-// int draw_background() {
-//     return draw_xpm((xpm_map_t) room_view, 0, 0) != 0;
-// }
-
 int drawCat(Entity *entity) {
     // TODO switch case to get cat type
     return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
 }
 
-int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color) {
-    int x_init = x_center - width / 2;
-
-    int y_init = y_center - height / 2;
-
-    if (draw_rectangle(0x105, x_init, y_init, width, height, color) != 0) return 1;
+int drawGrass() {
+    if (draw_rectangle(0x105, 0, y_res * SKY_SPLIT, x_res, y_res * (1 - SKY_SPLIT), GREEN_GRASS) != 0) {
+        return 1;
+    }
 
     return 0;
 }
 
+int drawSky() {
+    uint16_t sky_color;
+    if (datetime.hours >= 21 && datetime.hours < 7) {
+        sky_color = SKY_DAY;
+    } else {
+        sky_color = SKY_NIGHT;
+    }
+
+    if (draw_rectangle(0x105, 0, 0, x_res, y_res * SKY_SPLIT, sky_color) != 0) {
+        return 1;
+    }
+
+    return 0;
+}
+
+int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color) {
+    int x_init = x_center - width / 2;
+    int y_init = y_center - height / 2;
+
+    if (draw_rectangle(0x105, x_init, y_init, width, height, color) != 0) {
+        return 1;
+    }
+
+    return 0;
+}
 
 int drawMouse(int x, int y){
-    return draw_xpm((xpm_map_t) mouse,x,y);
+    return draw_xpm((xpm_map_t) mouse, x, y);
 }

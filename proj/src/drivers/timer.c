@@ -7,6 +7,7 @@
 
 #define TIMER(n) (0x40 + n)
 
+
 int hook_id_timer = 0;
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
@@ -43,8 +44,8 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   uint8_t base_lsb;
   uint8_t base_msb;
 
-  if (util_get_LSB(base,&base_lsb)==1) return 1;
-  if (util_get_MSB(base,&base_msb)==1) return 1;
+  if (util_get_LSB(base,&base_lsb) == 1) return 1;
+  if (util_get_MSB(base,&base_msb) == 1) return 1;
 
   if (sys_outb(TIMER(timer), base_lsb) != 0) return 1;
   if (sys_outb(TIMER(timer), base_msb) != 0) return 1;
@@ -85,8 +86,7 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   return 0;
 }
 
-int (timer_display_conf)(uint8_t timer, uint8_t st,
-                        enum timer_status_field field) {
+int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
 
   if (timer < 0 || timer > 2) return 1;
 
@@ -105,8 +105,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
         uint8_t bits = (st & (BIT(1) | BIT(2) | BIT(3))) >> 1;
         if (bits >= 6) {
           value.count_mode = bits - 4;
-        }
-        else{
+        } else {
           value.count_mode = bits;
         }
         break;

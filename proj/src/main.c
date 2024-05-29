@@ -17,11 +17,15 @@
 #include "images/cats/cat0.xpm"
 
 
+#define FPS 60
+
 extern uint8_t scancode;
 extern struct packet mouse_packet;
 int byte_order_packet = 0;
 extern bool finished;
 int mouse_pos_x=0, mouse_pos_y=0;
+
+#define FRAME_RATE 60
 
 
 int main(int argc, char *argv[]) {
@@ -43,6 +47,7 @@ int main(int argc, char *argv[]) {
 
 int (proj_main_loop)() {
 
+
   Game *game = createNewGame();
 
   uint8_t irq_set_timer;
@@ -53,7 +58,7 @@ int (proj_main_loop)() {
   int ipc_status;
   int r;
 
-  if (timer_set_frequency(0, 30) != 0) {
+  if (timer_set_frequency(0, FRAME_RATE) != 0) {
     return 1;
   }
 
@@ -70,10 +75,9 @@ int (proj_main_loop)() {
   }
 
   if(issue_cmd_to_mouse(ENABLE_DATA_REP)!=0){ //enable data report
-      printf("Error enabling data report\n");
-      return 1;
+    printf("Error enabling data report\n");
+    return 1;
   }
-
 
   if (enter_video_mode(0x105) != 0) {
     return 1;
@@ -83,6 +87,8 @@ int (proj_main_loop)() {
     return 1;
   }
 
+  int frame_counter = 0;
+  updateGameTime();
   while (game->state != LEAVE_STATE) {
 
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -94,46 +100,51 @@ int (proj_main_loop)() {
         case HARDWARE:
           // processes the view -> for every interrupt of timer (60 Hz) draws the game
           if (msg.m_notify.interrupts & irq_set_timer) {
+            
+            if (control_game(game) != 0) {
+              return 1;
+            }
             if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;
             }
-            
+
+            frame_counter++;
+            if (frame_counter == 60 * FPS) {
+              frame_counter = 0;
+              updateGameTime();
+            }
           }
 
           // Keyboard Interrupts -> Go to the controller to check what to do with it
           if (msg.m_notify.interrupts & irq_set_keyboard) {
             kbc_ih();
-
-            if (control_game(game, scancode) != 0) {
-              return 1;
-            }
+            update_keys(scancode);
+            
           }
 
           if (msg.m_notify.interrupts & irq_set_mouse) {
+            mouse_ih();
 
-              mouse_ih();
 
               if(finished){
                 //packet is read
                 byte_order_packet = 0;
                 finished = false;
+                moveMouse(&mouse_pos_x, &mouse_pos_y);
+              
               }
+
               
-              moveMouse(&mouse_pos_x, &mouse_pos_y);
               
-              stateMachineInvertedV(10, 10);
 
           }
-
           break;
-        default:
-          break;
+          default: break;
       }
     }
     else { }
   }
 
-  printf("Hello, World!\n");
   if (timer_unsubscribe_int() != 0) {
     return 1;
   }

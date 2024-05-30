@@ -8,6 +8,7 @@
 #include "drivers/gpu.h"
 #include "../models/Game.h"
 #include "../models/Datetime.h"
+#include "../models/Cloud.h"
 
 #define SKY_SPLIT 0.5
 
@@ -20,11 +21,12 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
 
 // int draw_background();
 
-int drawGrass();
-
-int drawCloud();
-
 int drawSky();
+int drawGrass();
+int drawScenery();
+
+int drawClouds(Cloud clouds[]);
+int drawCloud(Cloud *cloud);
 
 int drawGamePlaying(Game *game);
 

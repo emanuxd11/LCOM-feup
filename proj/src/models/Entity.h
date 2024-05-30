@@ -14,7 +14,8 @@ typedef enum {
     CAT2,
     CAT3,
     CAT4,
-    WALL
+    WALL,
+    CLOUD,
 } EntityType;
 
 typedef struct {
@@ -31,6 +32,8 @@ Entity *newCat(Position position);
 Entity *newPlayer(Position Position);
 
 Entity *newWall(Position position, HurtBox hurtBox);
+
+Entity *newCloud(int x, int y, double velocity);
 
 int moveEntity(Entity* entity);
 

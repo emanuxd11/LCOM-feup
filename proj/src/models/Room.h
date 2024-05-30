@@ -8,8 +8,8 @@ typedef struct {
     Entity player;
     Entity cats[10];
     Entity walls[4];
+    Cloud clouds[5];
     uint8_t stage;
-    //bool isDay;
 } Room;
 
 

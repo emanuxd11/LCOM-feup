@@ -46,7 +46,7 @@ int drawGamePlaying(Game *game) {
   // Background drawing
   if (drawGrass()) return 1;
   if (drawSky()) return 1;
-  if (drawCloud()) return 1;
+  if (drawClouds(game->room->clouds)) return 1;
 
   // if (draw_background() != 0) return 1;
 
@@ -76,8 +76,25 @@ int drawCat(Entity *entity) {
   return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
 }
 
-int drawCloud() {
-  draw_xpm((xpm_map_t) cloud, 250, 250);
+int drawClouds(Cloud clouds[]) {
+  for (int i = 0; i < 5; i++) {
+    drawCloud(&clouds[i]);
+  }
+
+  return 0;
+}
+
+int drawCloud(Cloud *cloud) {
+  draw_xpm((xpm_map_t) cloud0, cloud->x, cloud->y);
+  if (cloud->x + cloud_width > x_res) {
+    draw_xpm((xpm_map_t) cloud0, cloud->x - x_res, cloud->y);
+  }
+  if (cloud->x > x_res) {
+    cloud->x = 0;
+  }
+  cloud->x++;
+
+  printf("current cloud position: x = %d, y = %d\n", cloud->x, cloud->y);
 
   return 0;
 }

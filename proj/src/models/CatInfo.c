@@ -6,7 +6,7 @@ CatInfo* newCatInfo() {
     CatInfo* catInfo = (CatInfo*) malloc(sizeof(CatInfo));
 
     catInfo->isPet = false;
-    catInfo->isAngry = false;
+    catInfo->petCooldown = 0;
 
     enum CatColor color;
 

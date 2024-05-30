@@ -32,6 +32,7 @@ void deleteGame(Game* game);
 
 int control_game(Game *game);
 int control_player(Entity *entity);
+int control_cat(Entity* cat);
 void updateGameTime();
 
 #endif /* GAME_H */

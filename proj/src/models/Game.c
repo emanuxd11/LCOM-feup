@@ -80,6 +80,11 @@ int control_player(Entity *player) {
     return 0;
 }
 
+int control_cat(Entity* cat) {
+
+    return 0;
+}
+
 void updateGameTime() {
     datetime = rtc_read_datetime();
 }

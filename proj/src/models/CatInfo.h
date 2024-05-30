@@ -2,6 +2,7 @@
 #define _CATINFO_H_
 
 #include <stdbool.h>
+#include <lcom/lcf.h>
 
 
 enum CatColor {
@@ -15,7 +16,7 @@ enum CatColor {
 typedef struct {
     enum CatColor color;
     bool isPet;
-    bool isAngry;
+    uint8_t petCooldown;
 } CatInfo;
 
 CatInfo* newCatInfo(); //returns new CatInfo with random color

@@ -2,13 +2,15 @@
 #include "utils.h"
 #include <time.h>
 #include <math.h>
+#include "../drivers/rtclock.h"
 
 int randomNumer(int lower_bound, int upper_bound) {
     int random_number;
+    Datetime datetime = rtc_read_datetime();
 
     static int seed_initialized = 0;
     if (!seed_initialized) {
-        srand(time(NULL));
+        srand(datetime.minutes + datetime.seconds);
         seed_initialized = 1;
     }
 

@@ -4,7 +4,7 @@
 struct packet mouse_packet;
 
 int hookid_mouse = 3;
-extern int byte_order_packet;
+int byte_order_packet;
 bool finished = false;
 
 
@@ -122,6 +122,7 @@ int read_byte_to_mouse_packet() {
   if (byte_order_packet == 2) {
     array_to_packet();
     finished = true;
+    byte_order_packet = 0;
     return 0;
   }
 

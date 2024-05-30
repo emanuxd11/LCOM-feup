@@ -146,6 +146,108 @@ switch(state){
 }
 
 
+void stateMachineV(int tolerance, int x_len){
+switch(state){
+
+      case INIT:
+      delta_x_sum=0;
+            delta_y_sum=0;
+      printf("begin state machine\n");
+        if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
+          state = DDOWN;
+        }
+
+        break;
+
+      case DUP:
+      printf("Mouse ascending\n");
+        if(mouse_packet.rb || mouse_packet.mb){
+          state = FAIL;
+        }
+        if(mouse_is_ascending(tolerance)){
+          state = DUP;
+
+          if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
+            state = END;
+
+            if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
+              state = INIT;
+            }
+          }
+
+          
+        }
+        
+        else{
+          state = INIT;
+        }
+
+        break;
+      
+      case VERTEX:
+      printf("Mouse vertex\n");
+
+
+      if(delta_x_sum > tolerance || delta_y_sum > tolerance){
+              state = FAIL;
+            }
+
+
+        if(mouse_packet.lb){
+          delta_x_sum= 0;
+          delta_y_sum = 0;
+          state = DDOWN;
+        }
+      
+
+        break;
+
+      case DDOWN:
+      printf("Mouse descending\n");
+        if(mouse_packet.rb || mouse_packet.mb){
+          state =  INIT;
+        }
+        if(mouse_is_descending(tolerance)){
+
+          state = DDOWN;
+
+          if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
+            state = VERTEX;
+            if(delta_x_sum < x_len || delta_y_sum/delta_x_sum < 1){
+              state = INIT;
+            }
+            delta_x_sum=0;
+            delta_y_sum=0;
+          }
+
+          
+        }
+        else{
+          state = INIT;
+        }
+
+        break;
+
+      case FAIL:
+      printf("Gesture failed\n");
+      break;
+
+      case END:
+      printf("Gesture complete\n");
+      break;
+        
+    }
+
+    delta_x_sum += mouse_packet.delta_x;
+    delta_y_sum += mouse_packet.delta_y;
+
+
+}
+
+
+
+
+
 void moveMouse(int *mouse_pos_x, int *mouse_pos_y){
 
   if (mouse_packet.lb){

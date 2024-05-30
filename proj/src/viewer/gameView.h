@@ -10,7 +10,7 @@
 #include "../models/Datetime.h"
 #include "../models/Cloud.h"
 
-#define SKY_SPLIT 0.5
+#define SKY_SPLIT 0.40
 
 
 int drawGame(Game *game);

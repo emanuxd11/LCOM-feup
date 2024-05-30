@@ -92,9 +92,7 @@ int drawCloud(Cloud *cloud) {
   if (cloud->x > x_res) {
     cloud->x = 0;
   }
-  cloud->x++;
-
-  // printf("current cloud position: x = %d, y = %d\n", cloud->x, cloud->y);
+  cloud->x += cloud->velocity/5;
 
   return 0;
 }

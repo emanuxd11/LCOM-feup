@@ -7,7 +7,7 @@
 
 
 typedef struct {
-  int x, y;
+  double x, y;
   double velocity;
 } Cloud;
 

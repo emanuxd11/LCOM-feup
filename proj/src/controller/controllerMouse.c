@@ -150,8 +150,8 @@ void moveMouse(int *mouse_pos_x, int *mouse_pos_y){
   }
 
 
-  *mouse_pos_x+=mouse_packet.delta_x / 10;
-  *mouse_pos_y-=mouse_packet.delta_y / 10;
+  *mouse_pos_x+=mouse_packet.delta_x;
+  *mouse_pos_y-=mouse_packet.delta_y;
 
   if(*mouse_pos_x<0){
     *mouse_pos_x=0;

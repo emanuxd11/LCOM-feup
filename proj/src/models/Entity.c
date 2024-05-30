@@ -5,8 +5,15 @@
 
 Entity* newPlayer(int x, int y){
     Entity *entity = (Entity*) malloc(sizeof(Entity));
+
     entity->position = newPosition(x, y);
+    entity->hurtBox = newHurtBox(20, 40);
+
+    entity->velocity = 0;
+    entity->direction = 0;
+
     entity->type = PLAYER;
+    entity->typeInfo = NULL;
 
     return entity;
 }
@@ -20,6 +27,7 @@ Entity* newCat(int x, int y) {
 
     cat->velocity = 0;
     cat->direction = 0;
+
     cat->type = CAT;
     cat->typeInfo = newCatInfo();
 
@@ -27,9 +35,9 @@ Entity* newCat(int x, int y) {
 }
 
 void deleteEntity(Entity* entity) {
-    deleteHurtBox(entity->hurtBox);
-    deletePosition(entity->position);
-    free(entity->typeInfo);
+    if (entity->hurtBox != NULL) deleteHurtBox(entity->hurtBox);
+    if (entity->position != NULL) deletePosition(entity->position);
+    if (entity->typeInfo != NULL) free(entity->typeInfo);
     free(entity);
 }
 

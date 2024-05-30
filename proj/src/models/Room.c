@@ -28,16 +28,13 @@ void deleteRoom(Room* room) {
         if (room->cats[i] == NULL) continue;
         deleteEntity(room->cats[i]);
     }
-    
-    free(room->cats);
 
     
     for (int i = 0; i < 4; i++) {
         if (room->walls[i] == NULL) continue;
         deleteEntity(room->walls[i]);
     }
-    
-    free(room->walls);
+
 
     free(room);
 }

@@ -11,6 +11,8 @@ extern bool dIsDown;
 extern bool escWasPressed;
 
 
+Datetime datetime;
+
 Game *createNewGame() {
     Game *game = (Game *) malloc(sizeof(Game));
     game->state = GAME_STATE;
@@ -78,10 +80,6 @@ int control_player(Entity *player) {
     return 0;
 }
 
-
-
-
-
-
-
-
+void updateGameTime() {
+    datetime = rtc_read_datetime();
+}

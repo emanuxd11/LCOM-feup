@@ -10,6 +10,9 @@
 #include <time.h>
 
 #include "../drivers/utils.h"
+#include "../drivers/rtclock.h"
+
+#include "Datetime.h"
 #include "Room.h"
 
 
@@ -29,6 +32,6 @@ void deleteGame(Game* game);
 
 int control_game(Game *game);
 int control_player(Entity *entity);
-
+void updateGameTime();
 
 #endif /* GAME_H */

@@ -35,6 +35,7 @@ Entity* newPlayer(int x, int y);
 
 Entity* newWall(int x, int y);
 
+
 void deleteEntity(Entity* entity);
 
 Position candidatePos(Entity* entity);  // returns next position according to velocity and direction

@@ -5,6 +5,7 @@
 #include "../images/scenery/cloud.xpm"
 #include "../images/logo.xpm"
 #include "../images/mouse.xpm"
+#include "../images/play_game.xpm"
 
 #define YELLOW 62
 #define BLUE 9
@@ -15,6 +16,7 @@
 
 extern int mouse_pos_x, mouse_pos_y;
 extern uint16_t x_res, y_res;
+extern bool hasLeftClick;
 extern Datetime datetime;
 
 int drawGame(Game *game) {
@@ -35,10 +37,37 @@ int drawMenu(Game *game) {
   if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0) return 1;
 
   // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
-  if (drawButton("hey", 512, 300, 200, 50, BLUE) != 0) return 1;
 
-  if (drawButton("hey", 512, 400, 200, 50, BLUE) != 0) return 1;
+  //drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color)
+  if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 300 - 25 && mouse_pos_y <= 300 + 25){
+    if (drawButton("Play Game", 512, 300, 300, 100, BLUE) != 0) return 1;
+    if (hasLeftClick){
+      game->state = GAME_STATE;
+    }
+  } else{
+    if (drawButton("Play Game", 512, 300, 300, 100, BLUE + 1) != 0) return 1;
+  }
 
+  /*
+  if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 400 - 25 && mouse_pos_y <= 400 + 25){
+    if (drawButton("Instructions", 512, 500, 300, 100, BLUE) != 0) return 1;
+  }
+
+  else{
+    if (drawButton("Instructions", 512, 500, 300, 100, BLUE + 1) != 0) return 1;
+  }
+  */
+
+  if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
+    printf("Error drawing mouse");
+    return 1;
+  }
+
+  if (update_front_buffer() != 0) {
+    return 1;
+  }
+
+  // printf("Successfully drew menu\n");
   return 0;
 }
 
@@ -128,6 +157,8 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
   if (draw_rectangle(0x105, x_init, y_init, width, height, color) != 0) {
     return 1;
   }
+
+  if (draw_xpm((xpm_map_t) play_game, x_init, y_init) != 0) return 1;
 
   return 0;
 }

@@ -11,3 +11,5 @@ proj
 .vscode
 .clang-*
 core.*
+proj/.minix-src/
+proj/src/.minix-src/

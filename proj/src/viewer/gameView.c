@@ -94,7 +94,7 @@ int drawCloud(Cloud *cloud) {
   }
   cloud->x++;
 
-  printf("current cloud position: x = %d, y = %d\n", cloud->x, cloud->y);
+  // printf("current cloud position: x = %d, y = %d\n", cloud->x, cloud->y);
 
   return 0;
 }

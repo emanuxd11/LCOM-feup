@@ -69,15 +69,15 @@ Room *newRoom() {
     room->cats[i] = cat;
   }
 
+  int cloud_x_offset = 0;
   for (int i = 0; i < 5; i++) {
     Cloud cloud = {
-      .x = 0 + getRandomInt(0, 500),
-      .y = 150 + getRandomInt(-20, 20),
-      // .x = 0,
-      // .y = 150,
+      .x = cloud_x_offset,
+      .y = 100 + getRandomInt(-50, 30),
       .velocity = (float)getRandomInt(1, 1),
     };
     room->clouds[i] = cloud;
+    cloud_x_offset += getRandomInt(50, 300);
   }
 
   return room;

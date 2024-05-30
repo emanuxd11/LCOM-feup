@@ -71,11 +71,6 @@ int drawGamePlaying(Game *game) {
   return 0;
 }
 
-int drawCat(Entity *entity) {
-  // TODO switch case to get cat type
-  return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
-}
-
 int drawClouds(Cloud clouds[]) {
   for (int i = 0; i < CLOUD_QNT; i++) {
     drawCloud(&clouds[i]);
@@ -119,6 +114,11 @@ int drawSky() {
   }
 
   return 0;
+}
+
+int drawCat(Entity *entity) {
+  // TODO switch case to get cat type
+  return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
 }
 
 int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color) {

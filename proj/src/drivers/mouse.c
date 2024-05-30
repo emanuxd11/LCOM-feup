@@ -90,8 +90,8 @@ int read_data_from_KBC_mouse(uint8_t *data) {
     if (stat & (BIT(0))) {
        // see if OBF is full
       util_sys_inb(KBD_OUT_BUF, data); /* ass. it returns OK */
-      if ((stat &(BIT(7)| BIT(6))) == 0) {
-        return 0;
+      if ((stat &(BIT(7)| BIT(6))) != 0) {
+        return 1;
       }
       if (stat & BIT(5)) {
         return 0;

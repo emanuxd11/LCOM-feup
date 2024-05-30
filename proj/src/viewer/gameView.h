@@ -3,6 +3,8 @@
 
 #include <lcom/lcf.h>
 
+#include <math.h>
+
 #include "drivers/gpu.h"
 #include "../models/Game.h"
 #include "../models/Datetime.h"
@@ -19,6 +21,8 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
 // int draw_background();
 
 int drawGrass();
+
+int drawCloud();
 
 int drawSky();
 

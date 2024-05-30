@@ -77,7 +77,7 @@ int drawCat(Entity *entity) {
 }
 
 int drawClouds(Cloud clouds[]) {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < CLOUD_QNT; i++) {
     drawCloud(&clouds[i]);
   }
 

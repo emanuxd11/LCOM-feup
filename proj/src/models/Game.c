@@ -70,7 +70,7 @@ Room *newRoom() {
   }
 
   int cloud_x_offset = 0;
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < CLOUD_QNT; i++) {
     Cloud cloud = {
       .x = cloud_x_offset,
       .y = 80 + getRandomInt(-50, 30),

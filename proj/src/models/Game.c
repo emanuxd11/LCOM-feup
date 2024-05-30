@@ -11,7 +11,7 @@ Datetime datetime;
 
 Game *createNewGame() {
   Game *game = (Game *) malloc(sizeof(Game));
-  game->state = GAME_STATE;
+  game->state = MENU_STATE;
   game->room = newRoom();
   return game;
 }

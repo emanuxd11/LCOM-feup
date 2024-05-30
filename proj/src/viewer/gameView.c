@@ -23,7 +23,6 @@ extern Datetime datetime;
 int drawGame(Game *game) {
 
     if (game->state == MENU_STATE) {
-        printf("it is a menu\n");
         if (drawMenu(game) != 0) return 1;
     } else {
         if (drawGamePlaying(game) != 0) return 1;
@@ -35,7 +34,6 @@ int drawGame(Game *game) {
 
 int drawMenu(Game *game) {
 
-    printf("Draw Menu Function called!\n");
 
     // Background color of the menu (YELLOW)
     if (set_background_color(0x105, YELLOW) != 0) return 1;
@@ -76,7 +74,6 @@ int drawMenu(Game *game) {
     }
 
 
-    printf("Successfully drew menu\n");
     return 0;
 }
 

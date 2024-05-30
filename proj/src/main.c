@@ -133,9 +133,6 @@ int (proj_main_loop)() {
                 moveMouse(&mouse_pos_x, &mouse_pos_y);
               }
 
-              
-              
-
           }
           break;
           default: break;

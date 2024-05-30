@@ -4,7 +4,7 @@ bool hasLeftClick = false;
 mouseState state = INIT;
 
 
-bool mouse_is_descending(uint8_t tolerance){
+bool mouse_is_descending(int16_t tolerance){
   if(mouse_packet.delta_x <= 0 && mouse_packet.delta_y <= 0){
     return true;
   }
@@ -150,17 +150,21 @@ void stateMachineV(int tolerance, int x_len){
 switch(state){
 
       case INIT:
-      delta_x_sum=0;
-            delta_y_sum=0;
-      printf("begin state machine\n");
+
+        delta_x_sum=0;
+        delta_y_sum=0;
+
+        printf("begin state machine\n");
+
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
           state = DDOWN;
         }
 
-        break;
+      break;
 
       case DUP:
-      printf("Mouse ascending\n");
+        printf("Mouse ascending\n");
+
         if(mouse_packet.rb || mouse_packet.mb){
           state = FAIL;
         }
@@ -171,7 +175,7 @@ switch(state){
             state = END;
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
-              state = INIT;
+              state = FAIL;
             }
           }
 
@@ -179,24 +183,24 @@ switch(state){
         }
         
         else{
-          state = INIT;
+          state = FAIL;
         }
 
         break;
       
       case VERTEX:
-      printf("Mouse vertex\n");
+        printf("Mouse vertex\n");
 
 
-      if(delta_x_sum > tolerance || delta_y_sum > tolerance){
-              state = FAIL;
-            }
+        if(delta_x_sum > tolerance || delta_y_sum > tolerance){
+          state = FAIL;
+        }
 
 
         if(mouse_packet.lb){
           delta_x_sum= 0;
           delta_y_sum = 0;
-          state = DDOWN;
+          state = DUP;
         }
       
 
@@ -205,7 +209,7 @@ switch(state){
       case DDOWN:
       printf("Mouse descending\n");
         if(mouse_packet.rb || mouse_packet.mb){
-          state =  INIT;
+          state =  FAIL;
         }
         if(mouse_is_descending(tolerance)){
 
@@ -213,8 +217,10 @@ switch(state){
 
           if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
             state = VERTEX;
-            if(delta_x_sum < x_len || delta_y_sum/delta_x_sum < 1){
-              state = INIT;
+
+            if(delta_x_sum < x_len || abs(delta_y_sum)/abs(delta_x_sum) < 1){
+              printf("%d\n%d\n",delta_x_sum,delta_y_sum);
+              state = FAIL;
             }
             delta_x_sum=0;
             delta_y_sum=0;
@@ -222,8 +228,10 @@ switch(state){
 
           
         }
+
         else{
-          state = INIT;
+
+          state = FAIL;
         }
 
         break;

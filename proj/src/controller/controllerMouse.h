@@ -22,7 +22,7 @@ bool leftButtonPressed();
 
 bool rightButtonPressed();
 
-bool mouse_is_descending(uint8_t tolerance);
+bool mouse_is_descending(int16_t tolerance);
 
 bool mouse_is_ascending(uint8_t tolerance);
 

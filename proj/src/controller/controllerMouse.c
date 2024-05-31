@@ -51,17 +51,18 @@ bool mouse_is_ascending(uint8_t tolerance){
 
 
 void stateMachineInvertedV(int tolerance, int x_len){
-switch(state){
-
-      case INIT:
+  switch(state){
+    case INIT:
       delta_x_sum=0;
-            delta_y_sum=0;
-      printf("begin state machine\n");
-        if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
-          state = DUP;
-        }
+      delta_y_sum=0;
 
-        break;
+      printf("begin state machine\n");
+
+      if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
+        state = DUP;
+      }
+
+      break;
 
       case DUP:
       printf("Mouse ascending\n");
@@ -130,10 +131,12 @@ switch(state){
 
       case FAIL:
       printf("Gesture failed\n");
+      state = INIT;
       break;
 
       case END:
       printf("Gesture complete\n");
+      state = INIT;
       break;
 
       default:break;
@@ -148,23 +151,52 @@ switch(state){
 
 
 void stateMachineV(int tolerance, int x_len){
-switch(state){
-
+  switch(state){
       case INIT:
-
         delta_x_sum=0;
         delta_y_sum=0;
 
-        printf("begin state machine\n");
 
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
           state = DDOWN;
         }
 
-      break;
+        break;
+
+      case DDOWN:
+        if(mouse_packet.rb || mouse_packet.mb){
+          state = FAIL;
+        }
+
+        if(mouse_is_descending(tolerance)){
+          state = DDOWN;
+
+          if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
+            
+            state = VERTEX;
+            if(delta_x_sum < x_len || (float) abs(delta_y_sum)/(float) abs(delta_x_sum) < 0.5 || delta_y_sum> 0){
+              
+              if( delta_x_sum==0 && delta_y_sum==0){ //when cats are clicked, avoid failing
+                state = INIT;
+               }
+
+              else{
+              state = FAIL;
+              }
+            }
+            delta_x_sum=0;
+            delta_y_sum=0;
+          }
+        }
+
+        else{
+
+          state = FAIL;
+        }
+
+        break;
 
       case DUP:
-        printf("Mouse ascending\n");
 
         if(mouse_packet.rb || mouse_packet.mb){
           state = FAIL;
@@ -190,7 +222,6 @@ switch(state){
         break;
       
       case VERTEX:
-        printf("Mouse vertex\n");
 
 
         if(delta_x_sum > tolerance || delta_y_sum > tolerance){
@@ -207,42 +238,12 @@ switch(state){
 
         break;
 
-      case DDOWN:
-      printf("Mouse descending\n");
-        if(mouse_packet.rb || mouse_packet.mb){
-          state =  FAIL;
-        }
-        if(mouse_is_descending(tolerance)){
-
-          state = DDOWN;
-
-          if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
-            state = VERTEX;
-
-            if(delta_x_sum < x_len || abs(delta_y_sum)/abs(delta_x_sum) < 1){
-              printf("%d\n%d\n",delta_x_sum,delta_y_sum);
-              state = FAIL;
-            }
-            delta_x_sum=0;
-            delta_y_sum=0;
-          }
-
-          
-        }
-
-        else{
-
-          state = FAIL;
-        }
-
-        break;
+      
 
       case FAIL:
-      printf("Gesture failed\n");
       break;
 
       case END:
-      printf("Gesture complete\n");
       break;
 
       default:break;

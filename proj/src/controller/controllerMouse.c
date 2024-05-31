@@ -264,8 +264,6 @@ void stateMachineVLine(int tolerance, int y_len){
         delta_x_sum=0;
         delta_y_sum=0;
 
-        printf("begin state machine\n");
-
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
           state = DUP;
         }
@@ -273,7 +271,6 @@ void stateMachineVLine(int tolerance, int y_len){
     break;
 
     case DUP:
-      printf("Mouse ascending\n");
 
       if(mouse_packet.rb || mouse_packet.mb){
         state = FAIL;
@@ -284,9 +281,6 @@ void stateMachineVLine(int tolerance, int y_len){
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
           state = END;
-          printf("%d\n%d\n",delta_x_sum,delta_y_sum);
-          if(delta_y_sum!=0)
-          printf("f%\n",abs(delta_x_sum)/abs(delta_y_sum));
 
           if(abs(delta_y_sum) < y_len || ((float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 0.1) ){
             
@@ -303,14 +297,9 @@ void stateMachineVLine(int tolerance, int y_len){
     break;
 
     case FAIL:
-      printf("Gesture failed\n");
-            state = INIT;
-
     break;
 
     case END:
-    
-      state = INIT;
     break;
 
     default:

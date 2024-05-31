@@ -286,28 +286,30 @@ void stateMachineVLine(int tolerance, int y_len){
           state = END;
           printf("%d\n%d\n",delta_x_sum,delta_y_sum);
           if(delta_y_sum!=0)
-          printf("%d\n",delta_x_sum/delta_y_sum);
+          printf("f%\n",abs(delta_x_sum)/abs(delta_y_sum));
 
-          if(delta_y_sum < y_len || (abs(delta_x_sum)/delta_y_sum >= 0.1) ){
+          if(abs(delta_y_sum) < y_len || ((float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 0.1) ){
             
-            state = INIT;
+            state = FAIL;
           }
         }
 
       }
 
       else{
-        state = INIT;
+        state = FAIL;
       }
 
     break;
 
     case FAIL:
       printf("Gesture failed\n");
+            state = INIT;
+
     break;
 
     case END:
-      printf("Gesture complete\n");
+    
       state = INIT;
     break;
 
@@ -346,7 +348,7 @@ void stateMachineHLine (int tolerance, int x_len){
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
           state = END;
 
-          if(abs(delta_x_sum) < x_len || (abs(delta_y_sum)/abs(delta_x_sum) >= 0.1 )){
+          if(abs(delta_x_sum) < x_len || ((float) abs(delta_y_sum)/(float) abs(delta_x_sum) >= 0.1 )){
             state = INIT;
           }
         }
@@ -360,11 +362,10 @@ void stateMachineHLine (int tolerance, int x_len){
     break;
 
     case FAIL:
-      state = INIT;
+      state = FAIL;
     break;
 
     case END:
-      state = INIT;
     break;
 
     default:

@@ -78,7 +78,7 @@ int drawGamePlaying(Game *game) {
   if (drawSky()) return 1;
   if (drawClouds(game->room->clouds)) return 1;
 
-  if (draw_text("abc", 1, 1) != 0) return 1;
+  if (draw_text("0123456789\n\n0 1 2 3 4 5 6 7 8 9\n\nexample score 99", 80, 200, 0) != 0) return 1;
 
   // if (draw_background() != 0) return 1;
 

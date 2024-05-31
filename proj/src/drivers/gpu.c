@@ -160,10 +160,36 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   return 0;
 }
 
+int (draw_xpm_single_color)(xpm_map_t xpm, uint16_t x, uint16_t y, uint32_t color) {
+  enum xpm_image_type type = XPM_INDEXED;
+  xpm_image_t img;
+  uint8_t *sprite = xpm_load(xpm, type, &img);
+
+  if (sprite == NULL) {
+    return 1;
+  }
+
+  for (int i = 0; i < img.height; i++) {
+    for (int j = 0; j < img.width; j++) {
+      if (*sprite == 255) {
+        sprite++;
+        continue;
+      }
+
+      if (draw_pixel(0x105, x + j, y + i, color) != 0) {
+        return 1;
+      }
+
+      sprite++;
+    }
+  }
+
+  return 0;
+}
+
 int (get_char_xpm_idx)(char ch) {
-  if (ch >= 48 && ch <= 9) {
-    // numbers not yet implemented
-    return 0;
+  if (ch >= 48 && ch <= 57) {
+    return ch - 47 + 26;
   }
 
   if (ch >= 65 && ch <= 90) {
@@ -177,20 +203,22 @@ int (get_char_xpm_idx)(char ch) {
   return 0;
 }
 
-int (draw_text)(const char *text, uint16_t x, uint16_t y) {
+int (draw_text)(const char *text, uint16_t x, uint16_t y, uint32_t color) {
   if (text == NULL) {
     return 1;
   }
 
   int length = strlen(text);
-  int y_diff = 0;
+  int x_diff = 0, y_diff = 0;
   for (int i = 0; i < length; i++) {
     if (text[i] == '\n') {
+      x_diff = 0;
       y_diff += character_height;
       continue;
     }
 
-    draw_xpm((xpm_map_t) characters[get_char_xpm_idx(text[i])], x + i * character_width, y + y_diff);
+    draw_xpm_single_color((xpm_map_t) characters[get_char_xpm_idx(text[i])], x + x_diff, y + y_diff, color);
+    x_diff += character_width;
   }
 
   return 0;

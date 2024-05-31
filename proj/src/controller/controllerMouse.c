@@ -1,5 +1,5 @@
 #include "controllerMouse.h"
-uint8_t delta_x_sum=0,delta_y_sum=0;
+int delta_x_sum=0,delta_y_sum=0;
 bool hasLeftClick = false;
 mouseState state = INIT;
 
@@ -47,7 +47,6 @@ bool mouse_is_ascending(uint8_t tolerance){
     return false;
   }
 }
-
 
 
 
@@ -136,6 +135,8 @@ switch(state){
       case END:
       printf("Gesture complete\n");
       break;
+
+      default:break;
         
     }
 
@@ -243,6 +244,9 @@ switch(state){
       case END:
       printf("Gesture complete\n");
       break;
+
+      default:break;
+
         
     }
 
@@ -253,10 +257,142 @@ switch(state){
 }
 
 
+void stateMachineVLine(int tolerance, int y_len){
+  switch(state){
+    case INIT:
+
+        delta_x_sum=0;
+        delta_y_sum=0;
+
+        printf("begin state machine\n");
+
+        if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
+          state = DUP;
+        }
+
+    break;
+
+    case DUP:
+      printf("Mouse ascending\n");
+
+      if(mouse_packet.rb || mouse_packet.mb){
+        state = FAIL;
+      }
+
+      if(mouse_is_ascending(tolerance)){
+        state = DUP;
+
+        if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
+          state = END;
+          printf("%d\n%d\n",delta_x_sum,delta_y_sum);
+          if(delta_y_sum!=0)
+          printf("%d\n",delta_x_sum/delta_y_sum);
+
+          if(delta_y_sum < y_len || (abs(delta_x_sum)/delta_y_sum >= 0.1) ){
+            
+            state = INIT;
+          }
+        }
+
+      }
+
+      else{
+        state = INIT;
+      }
+
+    break;
+
+    case FAIL:
+      printf("Gesture failed\n");
+    break;
+
+    case END:
+      printf("Gesture complete\n");
+      state = INIT;
+    break;
+
+    default:
+    break;
+
+  }
+
+  delta_x_sum += mouse_packet.delta_x;
+  delta_y_sum += mouse_packet.delta_y;
+
+}
+
+void stateMachineHLine (int tolerance, int x_len){
+  switch(state){
+    case INIT:
+
+        delta_x_sum=0;
+        delta_y_sum=0;
+
+        printf("begin state machine\n");
+
+        if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
+          state = DSIDE;
+        }
+
+    break;
+
+    case DSIDE:
+      printf("Mouse drawing side\n");
+
+      if(mouse_packet.rb || mouse_packet.mb){
+        state = FAIL;
+      }
+
+      if(mouse_is_ascending(tolerance) || mouse_is_descending(tolerance)){
+        state = DSIDE;
+
+        if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
+          state = END;
+
+          if(delta_y_sum < x_len || (abs(delta_y_sum)/delta_x_sum <= 0.5 && delta_x_sum>0 && delta_y_sum < tolerance )){
+            printf("%d\n%d\n",delta_x_sum,delta_y_sum);
+            state = INIT;
+          }
+        }
+
+      }
+
+      else{
+        state = INIT;
+      }
+
+    break;
+
+    case FAIL:
+      printf("Gesture failed\n");
+    break;
+
+    case END:
+      printf("Gesture complete\n");
+    break;
+
+    default:
+    break;
+
+  }
+
+  delta_x_sum += mouse_packet.delta_x;
+  delta_y_sum += mouse_packet.delta_y;
+
+}
+
+
 
 
 
 void moveMouse(int *mouse_pos_x, int *mouse_pos_y){
+
+  if(mouse_packet.x_ov || mouse_packet.y_ov){
+    printf("x:%d\ny:%d\n",mouse_packet.delta_x,mouse_packet.delta_y);
+    printf("a\n");
+    return;
+  }
+
 
   if (mouse_packet.lb){
     hasLeftClick = true;

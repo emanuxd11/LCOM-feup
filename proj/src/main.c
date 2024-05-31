@@ -132,6 +132,9 @@ int (proj_main_loop)() {
                 finished = false;
                 moveMouse(&mouse_pos_x, &mouse_pos_y);
               }
+              if(game->state == GAME_STATE){
+                stateMachineVLine(10,90);
+              }
 
           }
           break;

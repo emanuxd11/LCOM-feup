@@ -11,7 +11,7 @@ Datetime datetime;
 
 Game *createNewGame() {
   Game *game = (Game *) malloc(sizeof(Game));
-  game->state = GAME_STATE;
+  game->state = INSTRUCTIONS_STATE;
   game->room = newRoom();
   return game;
 }
@@ -25,6 +25,10 @@ int control_game(Game *game) {
         break;
       case GAME_STATE:
         game->state = MENU_STATE;
+        break;
+      case INSTRUCTIONS_STATE:
+        game->state = MENU_STATE;
+        break;
       default:
         game->state = LEAVE_STATE;
     }

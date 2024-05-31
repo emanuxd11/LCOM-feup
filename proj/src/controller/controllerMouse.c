@@ -328,8 +328,6 @@ void stateMachineHLine (int tolerance, int x_len){
         delta_x_sum=0;
         delta_y_sum=0;
 
-        printf("begin state machine\n");
-
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
           state = DSIDE;
         }
@@ -337,7 +335,6 @@ void stateMachineHLine (int tolerance, int x_len){
     break;
 
     case DSIDE:
-      printf("Mouse drawing side\n");
 
       if(mouse_packet.rb || mouse_packet.mb){
         state = FAIL;
@@ -349,8 +346,7 @@ void stateMachineHLine (int tolerance, int x_len){
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
           state = END;
 
-          if(delta_y_sum < x_len || (abs(delta_y_sum)/delta_x_sum <= 0.5 && delta_x_sum>0 && delta_y_sum < tolerance )){
-            printf("%d\n%d\n",delta_x_sum,delta_y_sum);
+          if(abs(delta_x_sum) < x_len || (abs(delta_y_sum)/abs(delta_x_sum) >= 0.1 )){
             state = INIT;
           }
         }
@@ -364,11 +360,11 @@ void stateMachineHLine (int tolerance, int x_len){
     break;
 
     case FAIL:
-      printf("Gesture failed\n");
+      state = INIT;
     break;
 
     case END:
-      printf("Gesture complete\n");
+      state = INIT;
     break;
 
     default:

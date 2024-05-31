@@ -11,7 +11,7 @@ Datetime datetime;
 
 Game *createNewGame() {
   Game *game = (Game *) malloc(sizeof(Game));
-  game->state = MENU_STATE;
+  game->state = GAME_STATE;
   game->room = newRoom();
   return game;
 }
@@ -65,7 +65,8 @@ Room *newRoom() {
     Entity cat;
     cat.position = catPosition;
     // TODO: Add random number to generate a random cat
-    cat.type = CAT0;
+    int random_component = getRandomInt(0, 4);
+    cat.type = CAT0 + random_component;
     room->cats[i] = cat;
   }
 

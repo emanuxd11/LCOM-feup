@@ -1,6 +1,10 @@
 #include "gameView.h"
 
 #include "../images/cats/cat0.xpm"
+#include "../images/cats/cat1.xpm"
+#include "../images/cats/cat2.xpm"
+#include "../images/cats/cat3.xpm"
+#include "../images/cats/cat4.xpm"
 #include "../images/character/front.xpm"
 #include "../images/scenery/cloud.xpm"
 #include "../images/logo.xpm"
@@ -147,7 +151,28 @@ int drawSky() {
 
 int drawCat(Entity *entity) {
   // TODO switch case to get cat type
-  return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y) != 0;
+
+  switch (entity->type)
+  {
+  case CAT0:
+    return draw_xpm((xpm_map_t) cat0, entity->position.x, entity->position.y);
+
+  case CAT1:
+    return draw_xpm((xpm_map_t) cat1, entity->position.x, entity->position.y);
+
+  case CAT2:
+    return draw_xpm((xpm_map_t) cat2, entity->position.x, entity->position.y);
+  
+  case CAT3:
+    return draw_xpm((xpm_map_t) cat3, entity->position.x, entity->position.y);
+  
+  case CAT4:
+    return draw_xpm((xpm_map_t) cat4, entity->position.x, entity->position.y);
+  
+  default:
+    return 1;
+  }
+
 }
 
 int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color) {

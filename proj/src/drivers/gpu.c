@@ -160,6 +160,42 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   return 0;
 }
 
+int (get_char_xpm_idx)(char ch) {
+  if (ch >= 48 && ch <= 9) {
+    // numbers not yet implemented
+    return 0;
+  }
+
+  if (ch >= 65 && ch <= 90) {
+    return ch - 64;
+  }
+
+  if (ch >= 97 && ch <= 122) {
+    return ch - 96;
+  }
+
+  return 0;
+}
+
+int (draw_text)(const char *text, uint16_t x, uint16_t y) {
+  if (text == NULL) {
+    return 1;
+  }
+
+  int length = strlen(text);
+  int y_diff = 0;
+  for (int i = 0; i < length; i++) {
+    if (text[i] == '\n') {
+      y_diff += character_height;
+      continue;
+    }
+
+    draw_xpm((xpm_map_t) characters[get_char_xpm_idx(text[i])], x + i * character_width, y + y_diff);
+  }
+
+  return 0;
+}
+
 int (update_front_buffer)() {
 	if (!memcpy(front_buffer, back_buffer, vbe_mode_info.XResolution * vbe_mode_info.YResolution * bypp)) {
 		printf("update_front_buffer(): error copying memory from second buffer to main buffer\n");

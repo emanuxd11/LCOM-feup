@@ -19,6 +19,7 @@ extern uint16_t x_res, y_res;
 extern bool hasLeftClick;
 extern Datetime datetime;
 
+
 int drawGame(Game *game) {
 
   if (game->state == MENU_STATE) {
@@ -76,6 +77,8 @@ int drawGamePlaying(Game *game) {
   if (drawGrass()) return 1;
   if (drawSky()) return 1;
   if (drawClouds(game->room->clouds)) return 1;
+
+  if (draw_text("abc", 1, 1) != 0) return 1;
 
   // if (draw_background() != 0) return 1;
 

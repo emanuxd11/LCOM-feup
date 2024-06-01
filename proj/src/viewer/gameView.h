@@ -17,6 +17,8 @@ int drawGame(Game *game);
 
 int drawMenu(Game *game);
 
+int drawInstructions();
+
 int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color);
 
 // int draw_background();

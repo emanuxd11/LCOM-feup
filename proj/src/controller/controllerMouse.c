@@ -1,5 +1,6 @@
 #include "controllerMouse.h"
-int delta_x_sum=0,delta_y_sum=0;
+uint8_t delta_x_sum=0,delta_y_sum=0;
+bool hasLeftClick = false;
 mouseState state = INIT;
 
 
@@ -146,6 +147,16 @@ switch(state){
 
 
 void moveMouse(int *mouse_pos_x, int *mouse_pos_y){
+
+  if (mouse_packet.lb){
+    hasLeftClick = true;
+  }
+
+  else{
+    hasLeftClick = false;
+  }
+
+
   *mouse_pos_x+=mouse_packet.delta_x;
   *mouse_pos_y-=mouse_packet.delta_y;
 

@@ -11,14 +11,14 @@ extern bool sIsDown;
 extern bool dIsDown;
 extern bool escWasPressed;
 
-
 Datetime datetime;
 
 Game *createNewGame() {
-    Game *game = (Game *) malloc(sizeof(Game));
-    game->state = GAME_STATE;
-    game->room = newRoom();
-    return game;
+  Game *game = (Game *) malloc(sizeof(Game));
+  // game->state = MENU_STATE;
+  game->state = GAME_STATE;
+  game->room = newRoom();
+  return game;
 }
 
 void deleteGame(Game* game) {
@@ -27,18 +27,16 @@ void deleteGame(Game* game) {
 }
     
 int control_game(Game *game) {
-    if (escWasPressed) {
-        escWasPressed = false;
-        switch(game->state) {
-            case MENU_STATE:
-                game->state = LEAVE_STATE;
-                break;
-            case GAME_STATE:
-                game->state = MENU_STATE;
-            default:
-                game->state = LEAVE_STATE;
-        }
-        return 0;
+  if (escWasPressed) {
+    escWasPressed = false;
+    switch (game->state) {
+      case MENU_STATE:
+        game->state = LEAVE_STATE;
+        break;
+      case GAME_STATE:
+        game->state = MENU_STATE;
+      default:
+        game->state = LEAVE_STATE;
     }
 
     if (game->state == GAME_STATE) {
@@ -50,8 +48,9 @@ int control_game(Game *game) {
         }
         
     }
+  }
 
-    return 0;
+  return 0;
 }
 
 int control_player(Game* game) {
@@ -82,7 +81,6 @@ int control_player(Game* game) {
     
 
     moveEntity(player, game->room);
-
     return 0;
 }
 
@@ -110,7 +108,7 @@ int control_cat(Game* game, Entity* cat) {
 }
 
 void updateGameTime() {
-    datetime = rtc_read_datetime();
+  datetime = rtc_read_datetime();
 }
 
 Position candidatePos(Entity* entity, Room* room) {

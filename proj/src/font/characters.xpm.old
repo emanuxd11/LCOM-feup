@@ -1,0 +1,59 @@
+static unsigned short character_width  = 10;
+static unsigned short character_height = 10;
+
+/* A */
+static char *letter_A[] = {
+/* columns rows colors chars-per-pixel */
+"10 10 2",
+"  255",
+". 0",
+/* pixels */
+"    ..    ",
+"   ....   ",
+"  ..  ..  ",
+" ..    .. ",
+" ..    .. ",
+" ........ ",
+" ..    .. ",
+" ..    .. ",
+" ..    .. ",
+" ..    .. "
+};
+
+/* B */
+static char *letter_B[] = {
+/* columns rows colors chars-per-pixel */
+"10 10 2",
+"  255",
+". 0",
+/* pixels */
+" ......   ",
+" ..   ..  ",
+" ..    .. ",
+" ..   ..  ",
+" ......   ",
+" ..   ..  ",
+" ..    .. ",
+" ..    .. ",
+" ..   ..  ",
+" ......   "
+};
+
+/* C */
+static char *letter_C[] = {
+/* columns rows colors chars-per-pixel */
+"10 10 2",
+"  255",
+". 0",
+/* pixels */
+"   ....   ",
+"  ..  ..  ",
+" ..    .. ",
+" ..       ",
+" ..       ",
+" ..       ",
+" ..     . ",
+" ..    .. ",
+"  ..  ..  ",
+"   ....   "
+};

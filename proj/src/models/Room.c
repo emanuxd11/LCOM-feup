@@ -1,5 +1,6 @@
 #include "Room.h"
 #include "../utils/utils.h"
+#include "../drivers/utils_drivers.h"
 
 Room* newRoom(){
     Room *room = (Room*) malloc(sizeof(Room));
@@ -15,6 +16,17 @@ Room* newRoom(){
         
         room->cats[i] = newCat(catX, catY);
    
+    }
+
+    int cloud_x_offset = 0;
+    for (int i = 0; i < CLOUD_QNT; i++) {
+        Cloud cloud = {
+          .x = cloud_x_offset,
+          .y = 80 + getRandomInt(-50, 30),
+          .velocity = getRandomFloat(1.3, 1.7),
+        };
+        room->clouds[i] = cloud;
+        cloud_x_offset += getRandomInt(50, 300);
     }
 
 

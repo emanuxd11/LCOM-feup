@@ -16,7 +16,8 @@ typedef enum {
     CAT2,
     CAT3,
     CAT4,
-    WALL
+    WALL,
+    CLOUD,
 } EntityType;
 
 typedef enum {
@@ -39,6 +40,8 @@ Entity* newCat(int x, int y);  //returns pointer to new cat with random color
 Entity* newPlayer(int x, int y);
 
 Entity* newWall(int x, int y);
+
+Entity *newCloud(int x, int y, double velocity);
 
 
 void deleteEntity(Entity* entity);

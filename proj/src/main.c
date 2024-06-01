@@ -101,7 +101,8 @@ int (proj_main_loop)() {
           if (msg.m_notify.interrupts & irq_set_timer) {
             
             if (control_game(game) != 0) {
-              return 1;
+              game->state = LEAVE_STATE;
+              //return 1;
             }
             if (drawGame(game) != 0) {
               game->state = LEAVE_STATE;

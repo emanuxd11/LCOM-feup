@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-#include "utils.h"
+#include "utils_drivers.h"
 
 
 int (util_get_LSB)(uint16_t val, uint8_t *lsb) {
@@ -50,3 +50,15 @@ int getRandomInt(int lower_bound, int upper_bound) {
 
   return lower_bound + rand() % (upper_bound - lower_bound + 1);
 }
+
+float getRandomFloat(float lower_bound, float upper_bound) {
+  static int seed_initialized = 0;
+  if (!seed_initialized) {
+    srand(time(NULL));
+    seed_initialized = 1;
+  }
+
+  float random = ((float)rand()) / RAND_MAX;
+  return lower_bound + random * (upper_bound - lower_bound);
+}
+

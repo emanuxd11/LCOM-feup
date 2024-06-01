@@ -9,9 +9,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "../drivers/utils.h"
+#include "../drivers/utils_drivers.h"
 #include "../drivers/rtclock.h"
 
+#include "Cloud.h"
 #include "Datetime.h"
 
 
@@ -22,7 +23,7 @@ typedef enum {
 } GameState;
 
 typedef struct {
-    Room* room;
+    Room *room;
     GameState state;
 } Game;
 
@@ -32,6 +33,7 @@ void deleteGame(Game* game);
 int control_game(Game *game);
 int control_player(Game* game);
 int control_cat(Game* game, Entity* cat);
+
 void updateGameTime();
 
 #endif /* GAME_H */

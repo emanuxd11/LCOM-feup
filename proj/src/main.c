@@ -22,7 +22,6 @@
 
 extern uint8_t scancode;
 extern struct packet mouse_packet;
-int byte_order_packet = 0;
 extern bool finished;
 int mouse_pos_x=0, mouse_pos_y=0;
 
@@ -69,14 +68,15 @@ int (proj_main_loop)() {
     return 1;
   }
 
-  if (mouse_subscribe_int(&irq_set_mouse) != 0) {
-    return 1;
-  }
-
   if(issue_cmd_to_mouse(ENABLE_DATA_REP)!=0){ //enable data report
     printf("Error enabling data report\n");
     return 1;
   }
+
+  if (mouse_subscribe_int(&irq_set_mouse) != 0) {
+    return 1;
+  }
+
 
   if (enter_video_mode(0x105) != 0) {
     return 1;
@@ -127,13 +127,12 @@ int (proj_main_loop)() {
 
               if(finished){
                 //packet is read
-                byte_order_packet = 0;
                 finished = false;
                 moveMouse(&mouse_pos_x, &mouse_pos_y);
               }
-
-              
-              
+              if(game->state == GAME_STATE){
+                stateMachineDLine(30,90);
+              }
 
           }
           break;

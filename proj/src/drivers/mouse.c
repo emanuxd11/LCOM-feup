@@ -4,8 +4,9 @@
 struct packet mouse_packet;
 
 int hookid_mouse = 3;
-extern int byte_order_packet;
+int byte_order_packet;
 bool finished = false;
+
 
 
 int mouse_subscribe_int(uint8_t *bit_no) {
@@ -90,8 +91,8 @@ int read_data_from_KBC_mouse(uint8_t *data) {
     if (stat & (BIT(0))) {
        // see if OBF is full
       util_sys_inb(KBD_OUT_BUF, data); /* ass. it returns OK */
-      if ((stat &(BIT(7)| BIT(6))) == 0) {
-        return 0;
+      if ((stat &(BIT(7)| BIT(6))) != 0) {
+        return 1;
       }
       if (stat & BIT(5)) {
         return 0;
@@ -122,6 +123,7 @@ int read_byte_to_mouse_packet() {
   if (byte_order_packet == 2) {
     array_to_packet();
     finished = true;
+    byte_order_packet = 0;
     return 0;
   }
 

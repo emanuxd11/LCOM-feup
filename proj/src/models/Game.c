@@ -143,6 +143,11 @@ Position candidatePos(Entity* entity, Room* room) {
                 cPos.y = entity->position->y;
                 break;
                 
+            case XY_COLLISION:
+                cPos.x = entity->position->x;
+                cPos.y = entity->position->y;
+                break;
+                
             case NO_COLLISION:
                 break;
         }

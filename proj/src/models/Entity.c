@@ -61,9 +61,10 @@ CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB) {
 
         if (xOverlapAmount < yOverlapAmount) {
             return X_COLLISION;
-        } else {
+        } else if (yOverlapAmount < xOverlapAmount){
             return Y_COLLISION;
         }
+        return XY_COLLISION;
     }
 
     return NO_COLLISION;

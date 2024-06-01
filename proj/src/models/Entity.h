@@ -23,6 +23,7 @@ typedef enum {
 typedef enum {
     X_COLLISION,
     Y_COLLISION,
+    XY_COLLISION,
     NO_COLLISION
 } CollisionType;
 

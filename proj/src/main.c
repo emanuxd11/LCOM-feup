@@ -133,7 +133,7 @@ int (proj_main_loop)() {
                 moveMouse(&mouse_pos_x, &mouse_pos_y);
               }
               if(game->state == GAME_STATE){
-                stateMachineInvertedV(30,90);
+                stateMachineDLine(30,90);
               }
 
           }

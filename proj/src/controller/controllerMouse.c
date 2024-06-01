@@ -366,6 +366,64 @@ void stateMachineHLine (int tolerance, int x_len){
 
 }
 
+void stateMachineDLine(int tolerance, int y_len){
+  switch(state){
+    case INIT:
+
+        delta_x_sum=0;
+        delta_y_sum=0;
+
+        if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
+          state = DUP;
+        }
+
+    break;
+
+    case DUP:
+
+      if(mouse_packet.rb || mouse_packet.mb){
+        state = FAIL;
+      }
+
+      if(mouse_is_ascending(tolerance)){
+        state = DUP;
+
+        if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
+          state = END;
+
+          if(abs(delta_y_sum) < y_len || (float) abs(delta_x_sum)/(float) abs(delta_y_sum) <= 0.8 || (float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 1.5 ) {
+            
+            state = FAIL;
+          }
+        }
+
+      }
+
+      else{
+        state = FAIL;
+      }
+
+    break;
+
+    case FAIL:
+
+    break;
+
+    case END:
+
+    break;
+
+    default:
+    
+    break;
+
+  }
+
+  delta_x_sum += mouse_packet.delta_x;
+  delta_y_sum += mouse_packet.delta_y;
+
+}
+
 
 
 

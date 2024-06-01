@@ -35,6 +35,8 @@ void stateMachineVLine(int tolerance, int y_len);
 
 void stateMachineHLine(int tolerance, int y_len);
 
+void stateMachineDLine(int tolerance, int y_len);
+
 void moveMouse(int *mouse_x_pos, int *mouse_y_pos);
 
 

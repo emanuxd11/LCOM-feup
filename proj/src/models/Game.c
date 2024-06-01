@@ -38,17 +38,17 @@ int control_game(Game *game) {
       default:
         game->state = LEAVE_STATE;
     }
-
-    if (game->state == GAME_STATE) {
-        
-        control_player(game);
-        
-        for (int i = 0; i < 10; i++) {
-            control_cat(game, game->room->cats[i]);
-        }
-        
-    }
   }
+  if (game->state == GAME_STATE) {
+      
+      control_player(game);
+      
+      for (int i = 0; i < 10; i++) {
+          control_cat(game, game->room->cats[i]);
+      }
+      
+  }
+  
 
   return 0;
 }
@@ -79,7 +79,6 @@ int control_player(Game* game) {
     else if (xDir == 1 && yDir == -1) player->direction = -45;
     else if (xDir == -1 && yDir == -1) player->direction = -135;
     
-
     moveEntity(player, game->room);
     return 0;
 }
@@ -160,6 +159,10 @@ Position candidatePos(Entity* entity, Room* room) {
                 cPos.x = entity->position->x;
                 break;
             case Y_COLLISION:
+                cPos.y = entity->position->y;
+                break;
+            case XY_COLLISION:
+                cPos.x = entity->position->x;
                 cPos.y = entity->position->y;
                 break;
             case NO_COLLISION:

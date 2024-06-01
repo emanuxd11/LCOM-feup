@@ -11,6 +11,7 @@
 #include "../images/mouse.xpm"
 #include "../images/play_game.xpm"
 #include "../images/instructions.xpm"
+#include "../images/quit.xpm"
 #include "../images/state_machines/state_machine0.xpm"
 #include "../images/state_machines/state_machine1.xpm"
 #include "../images/state_machines/state_machine2.xpm"
@@ -52,7 +53,7 @@ int drawMenu(Game *game) {
   // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
 
   //drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color)
-  if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 300 - 25 && mouse_pos_y <= 300 + 25){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 40 && mouse_pos_y <= 300 + 40){
     if (drawButton("Play Game", 512, 300, 300, 100, BLUE) != 0) return 1;
     if (hasLeftClick){
       game->state = GAME_STATE;
@@ -63,7 +64,7 @@ int drawMenu(Game *game) {
 
 
 
-  if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 300 - 40 && mouse_pos_y <= 300 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 40 && mouse_pos_y <= 300 + 40){
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE) != 0) return 1;
     if (hasLeftClick){
       game->state = INSTRUCTIONS_STATE;
@@ -74,18 +75,18 @@ int drawMenu(Game *game) {
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE + 1) != 0) return 1;
   }
 
-  /*
-  if (mouse_pos_x >= 512 - 100 && mouse_pos_x <= 512 + 100 && mouse_pos_y >= 400 - 40 && mouse_pos_y <= 400 + 40){
-    if (drawButton("Quit", 512, 400, 400, 80, BLUE) != 0) return 1;
+
+
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 500 - 40 && mouse_pos_y <= 500 + 40){
+    if (drawButton("Quit", 512, 500, 300, 80, BLUE) != 0) return 1;
     if (hasLeftClick){
       game->state = LEAVE_STATE;
     }
   }
 
   else{
-    if (drawButton("Quit", 512, 400, 400, 80, BLUE + 1) != 0) return 1;
+    if (drawButton("Quit", 512, 500, 300, 80, BLUE + 1) != 0) return 1;
   }
-  */
 
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
@@ -240,6 +241,10 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
   
   else if (text[0] == 'I'){
     if (draw_xpm((xpm_map_t) instructions, x_init, y_init) != 0) return 1;
+  }
+
+  else if (text[0] == 'Q'){
+    if (draw_xpm((xpm_map_t) quit, x_init + 100, y_init) != 0) return 1;
   }
 
   return 0;

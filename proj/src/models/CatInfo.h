@@ -6,11 +6,11 @@
 
 
 enum CatColor {
-    ORANGE,
-    WHITE,
-    BLACK,
-    GRAY,
-    BROWN
+    ORANGE_CAT,
+    WHITE_CAT,
+    BLACK_CAT,
+    GRAY_CAT,
+    BROWN_CAT
 };
 
 typedef struct {

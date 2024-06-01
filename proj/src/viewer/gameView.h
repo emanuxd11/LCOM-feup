@@ -9,6 +9,7 @@
 #include "../models/Game.h"
 #include "../models/Datetime.h"
 #include "../models/Cloud.h"
+#include "../models/CatInfo.h"
 
 #define SKY_SPLIT 0.40
 
@@ -16,6 +17,8 @@
 int drawGame(Game *game);
 
 int drawMenu(Game *game);
+
+int drawInstructions();
 
 int drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color);
 

@@ -35,6 +35,10 @@ int control_game(Game *game) {
         break;
       case GAME_STATE:
         game->state = MENU_STATE;
+        break;
+      case INSTRUCTIONS_STATE:
+        game->state = MENU_STATE;
+        break;
       default:
         game->state = LEAVE_STATE;
     }

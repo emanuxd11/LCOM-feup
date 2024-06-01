@@ -26,6 +26,10 @@ int control_game(Game *game) {
         break;
       case GAME_STATE:
         game->state = MENU_STATE;
+        break;
+      case INSTRUCTIONS_STATE:
+        game->state = MENU_STATE;
+        break;
       default:
         game->state = LEAVE_STATE;
     }
@@ -66,7 +70,8 @@ Room *newRoom() {
     Entity cat;
     cat.position = catPosition;
     // TODO: Add random number to generate a random cat
-    cat.type = CAT0;
+    int random_component = getRandomInt(0, 4);
+    cat.type = CAT0 + random_component;
     room->cats[i] = cat;
   }
 

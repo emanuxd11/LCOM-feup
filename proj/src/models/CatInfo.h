@@ -17,6 +17,8 @@ typedef struct {
     enum CatColor color;
     bool isPet;
     uint8_t petCooldown;
+    uint16_t moveCountdown;
+    bool isIdle;
 } CatInfo;
 
 CatInfo* newCatInfo(); //returns new CatInfo with random color

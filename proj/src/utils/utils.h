@@ -1,5 +1,6 @@
 #define FRAME_RATE 60
-#define PLAYER_V 300
+#define PLAYER_V 200
+#define CAT_V 30
 
 
 

@@ -7,6 +7,8 @@ CatInfo* newCatInfo() {
 
     catInfo->isPet = false;
     catInfo->petCooldown = 0;
+    catInfo->moveCountdown = 0;
+    catInfo->isIdle = true;
 
     enum CatColor color;
 

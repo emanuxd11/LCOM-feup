@@ -7,7 +7,7 @@ Entity* newPlayer(int x, int y){
     Entity *entity = (Entity*) malloc(sizeof(Entity));
 
     entity->position = newPosition(x, y);
-    entity->hurtBox = newHurtBox(20, 40);
+    entity->hurtBox = newHurtBox(30, 30);
 
     entity->velocity = 0;
     entity->direction = 0;
@@ -23,7 +23,7 @@ Entity* newCat(int x, int y) {
 
     cat->position = newPosition(x, y);
     
-    cat->hurtBox = newHurtBox(20, 20);
+    cat->hurtBox = newHurtBox(30, 30);
 
     cat->velocity = 0;
     cat->direction = 0;
@@ -41,24 +41,50 @@ void deleteEntity(Entity* entity) {
     free(entity);
 }
 
-Position candidatePos(Entity* entity) {
+CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB) {
+    double leftA = cPosA.x;
+    double rightA = cPosA.x + entityA->hurtBox->deltaX;
+    double topA = cPosA.y;
+    double bottomA = cPosA.y + entityA->hurtBox->deltaY;
 
-    Position cPos;
+    double leftB = entityB->position->x;
+    double rightB = entityB->position->x + entityB->hurtBox->deltaX;
+    double topB = entityB->position->y;
+    double bottomB = entityB->position->y + entityB->hurtBox->deltaY;
 
-    cPos.x = entity->position->x + ((entity->velocity / FRAME_RATE) * cos(degToRad(entity->direction)));
-    cPos.y = entity->position->y - ((entity->velocity / FRAME_RATE) * sin(degToRad(entity->direction)));
+    bool xOverlap = (leftA < rightB) && (rightA > leftB);
+    bool yOverlap = (topA < bottomB) && (bottomA > topB);
 
+    if (xOverlap && yOverlap) {
+        double xOverlapAmount = fmin(rightA, rightB) - fmax(leftA, leftB);
+        double yOverlapAmount = fmin(bottomA, bottomB) - fmax(topA, topB);
 
-    return cPos;
+        if (xOverlapAmount < yOverlapAmount) {
+            return X_COLLISION;
+        } else {
+            return Y_COLLISION;
+        }
+    }
+
+    return NO_COLLISION;
 }
+/*
+CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB) {
 
-void moveEntity(Entity* entity) {
-    Position cPos = candidatePos(entity);
+    if ((cPosA.x + entityA->hurtBox->deltaX
+        >= entityB->position->x - entityB->hurtBox->deltaX)
+        || (cPosA.x - entityA->hurtBox->deltaX
+        <= entityB->position->x + entityB->hurtBox->deltaX)) {
+        return X_COLLISION;
+    }
 
-    //add collision checks
-
-    entity->position->x = cPos.x;
-    entity->position->y = cPos.y;
-
+    if ((cPosA.y + entityA->hurtBox->deltaY
+        >= entityB->position->y - entityB->hurtBox->deltaY)
+        || (cPosA.y - entityA->hurtBox->deltaY
+        <= entityB->position->y + entityB->hurtBox->deltaY)) return Y_COLLISION;
+    
+    return NO_COLLISION;
 }
+*/
+
 

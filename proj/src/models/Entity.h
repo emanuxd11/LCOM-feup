@@ -8,7 +8,6 @@
 #include "../utils/aux_structs/Position.h"
 
 
-
 typedef enum {
     PLAYER,
     CAT,
@@ -20,11 +19,17 @@ typedef enum {
     WALL
 } EntityType;
 
+typedef enum {
+    X_COLLISION,
+    Y_COLLISION,
+    NO_COLLISION
+} CollisionType;
+
 typedef struct {
     Position* position;
     HurtBox* hurtBox;
     double velocity;        // pixels/s
-    int direction;     // [0,360[, 0 being right
+    int direction;     // angle, 0 being right
     EntityType type;  
     void* typeInfo;         // entity type specific info
 } Entity;
@@ -38,10 +43,7 @@ Entity* newWall(int x, int y);
 
 void deleteEntity(Entity* entity);
 
-Position candidatePos(Entity* entity);  // returns next position according to velocity and direction
+CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB);
 
-void moveEntity(Entity* Entity);        //will move entity according to candidatePos and collisions
-
-//bool checkCollision(Entity* entityA, Entity* entityB);   //true if entities will collide according to their current movements
 
 #endif

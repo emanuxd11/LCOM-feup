@@ -4,6 +4,7 @@
 Room* newRoom(){
     Room *room = (Room*) malloc(sizeof(Room));
     room->player = newPlayer(100, 100);
+    room->center = newPosition(512, 371);
 
     int catX, catY;
 

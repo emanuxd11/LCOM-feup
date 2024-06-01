@@ -6,11 +6,10 @@
 
 int randomNumer(int lower_bound, int upper_bound) {
     int random_number;
-    Datetime datetime = rtc_read_datetime();
-
+    
     static int seed_initialized = 0;
     if (!seed_initialized) {
-        srand(datetime.minutes + datetime.seconds);
+        srand(time(NULL));
         seed_initialized = 1;
     }
 

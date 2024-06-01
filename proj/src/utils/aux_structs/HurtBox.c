@@ -14,3 +14,5 @@ HurtBox *newHurtBox(uint16_t deltaX, uint16_t deltaY) {
 void deleteHurtBox(HurtBox* hurtBox) {
     free(hurtBox);
 }
+
+

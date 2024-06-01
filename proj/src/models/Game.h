@@ -13,7 +13,6 @@
 #include "../drivers/rtclock.h"
 
 #include "Datetime.h"
-#include "Room.h"
 
 
 typedef enum {
@@ -31,8 +30,8 @@ Game* createNewGame();
 void deleteGame(Game* game);
 
 int control_game(Game *game);
-int control_player(Entity *entity);
-int control_cat(Entity* cat);
+int control_player(Game* game);
+int control_cat(Game* game, Entity* cat);
 void updateGameTime();
 
 #endif /* GAME_H */

@@ -2,6 +2,7 @@
 #include "../models/Room.h"
 #include "../utils/utils.h"
 #include <math.h>
+#include "CatInfo.h"
 
 // keys
 extern bool wIsDown;
@@ -42,14 +43,19 @@ int control_game(Game *game) {
 
     if (game->state == GAME_STATE) {
         
-        if (control_player(game->room->player)) return 1;
+        control_player(game);
+        
+        for (int i = 0; i < 10; i++) {
+            control_cat(game, game->room->cats[i]);
+        }
         
     }
 
     return 0;
 }
 
-int control_player(Entity *player) {
+int control_player(Game* game) {
+    Entity* player = game->room->player;
 
     // x and y coords of player velocity vector
     int xDir = 0;
@@ -75,16 +81,99 @@ int control_player(Entity *player) {
     else if (xDir == -1 && yDir == -1) player->direction = -135;
     
 
-    moveEntity(player);
+    moveEntity(player, game->room);
 
     return 0;
 }
 
-int control_cat(Entity* cat) {
+int control_cat(Game* game, Entity* cat) {
+    CatInfo* catInfo = (CatInfo*) cat->typeInfo;
+    
+    
+    if (catInfo->moveCountdown == 0) {
+        catInfo->isIdle = !catInfo->isIdle;
+        cat->velocity = CAT_V;
+
+        cat->direction = randomNumer(1, 360);
+
+        catInfo->moveCountdown = randomNumer(100, 300);
+    }
+
+    if (catInfo->isIdle) {
+        cat->velocity = 0;
+    }
+
+    catInfo->moveCountdown--;
+    moveEntity(cat, game->room);
 
     return 0;
 }
 
 void updateGameTime() {
     datetime = rtc_read_datetime();
+}
+
+Position candidatePos(Entity* entity, Room* room) {
+
+    Position cPos;
+
+    double distance = entity->velocity / FRAME_RATE;
+
+    cPos.x = entity->position->x + (distance * cos(degToRad(entity->direction)));
+    cPos.y = entity->position->y - (distance * sin(degToRad(entity->direction)));
+
+    // check border
+    if (cPos.x > 1024 || cPos.x < 0) cPos.x = entity->position->x;
+    if (cPos.y > 768 || cPos.y < 0) cPos.y = entity->position->y;
+
+    Entity* otherEntity;
+
+    // check collisions with cats
+    for (int i = 0; i < 10; i++) {
+        otherEntity = room->cats[i];
+        
+        if (otherEntity == NULL
+            || (entity->position->x == otherEntity->position->x && entity->position->y == otherEntity->position->y)) continue;
+
+        switch (checkCollision(cPos, entity, otherEntity)) {
+            
+            case X_COLLISION:
+                cPos.x = entity->position->x;
+                break;
+
+            case Y_COLLISION:
+                cPos.y = entity->position->y;
+                break;
+                
+            case NO_COLLISION:
+                break;
+        }
+
+    }
+
+    if (entity->type != PLAYER) {
+        switch (checkCollision(cPos, entity, room->player)) {
+            case X_COLLISION:
+                cPos.x = entity->position->x;
+                break;
+            case Y_COLLISION:
+                cPos.y = entity->position->y;
+                break;
+            case NO_COLLISION:
+                break;
+        }
+
+    }
+
+    return cPos;
+}
+
+void moveEntity(Entity* entity, Room* room) {
+    Position cPos = candidatePos(entity, room);
+
+    //add collision checks
+
+    entity->position->x = cPos.x;
+    entity->position->y = cPos.y;
+
 }

@@ -66,17 +66,16 @@ int issue_cmd_to_mouse(uint8_t cmd) {
   
   while (attempts != 0) {
     if (util_sys_inb(KBD_OUT_BUF, &obf) != 0) return 1;
-    /* loop while 8042 input buffer is not empty */
+
     if (obf == ACK) {
-      sys_outb(STATUS_PORT, cmd); /* no args command */
       return 0;
     }
 
-    tickdelay(micros_to_ticks(2000));// e.g. tickdelay()
+    tickdelay(micros_to_ticks(2000));
     attempts--;
   }
 
-  return 1; //ran out of attempts
+  return 1;
 }
 
 int read_data_from_KBC_mouse(uint8_t *data) {
@@ -90,7 +89,7 @@ int read_data_from_KBC_mouse(uint8_t *data) {
     }
     if (stat & (BIT(0))) {
        // see if OBF is full
-      util_sys_inb(KBD_OUT_BUF, data); /* ass. it returns OK */
+      util_sys_inb(KBD_OUT_BUF, data);
       if ((stat &(BIT(7)| BIT(6))) != 0) {
         return 1;
       }
@@ -100,7 +99,7 @@ int read_data_from_KBC_mouse(uint8_t *data) {
       else return 1;
     }
 
-    tickdelay(micros_to_ticks(2000));// e.g. tickdelay()
+    tickdelay(micros_to_ticks(2000));
     attempts--;
   }
   return 1;

@@ -13,7 +13,7 @@ typedef enum {
   VERTEX,
   DSIDE,
   FAIL,
-  END
+  SUCCESS
 } mouseState;
 
 

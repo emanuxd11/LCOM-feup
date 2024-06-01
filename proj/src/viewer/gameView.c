@@ -53,7 +53,7 @@ int drawMenu(Game *game) {
   // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
 
   //drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color)
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 40 && mouse_pos_y <= 300 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 50 && mouse_pos_y <= 300 + 50){
     if (drawButton("Play Game", 512, 300, 300, 100, BLUE) != 0) return 1;
     if (hasLeftClick){
       game->state = GAME_STATE;
@@ -64,7 +64,7 @@ int drawMenu(Game *game) {
 
 
 
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 40 && mouse_pos_y <= 300 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 400 - 40 && mouse_pos_y <= 400 + 40){
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE) != 0) return 1;
     if (hasLeftClick){
       game->state = INSTRUCTIONS_STATE;

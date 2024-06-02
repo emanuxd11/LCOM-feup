@@ -1,5 +1,5 @@
 /**
- * @file mouse.h.h
+ * @file mouse.h
  * @brief This file contains the necessary functions to process interrupts, parse
  * mouse packets and sending of commands to the KBC
  * @date 2024-06-02
@@ -13,9 +13,9 @@
 #include <stdint.h>
 #include "i8042.h"
 /**
- * @brief Subscribes mouse interrupts, using irq_reenable and irq_exclusive policy
+ * @brief Subscribes mouse interrupts using irq_reenable and irq_exclusive policy
  * 
- * @param bit_no hook id bit position of timer
+ * @param bit_no hook id bit position of mouse
  * @return 0 in case of success, 1 otherwise
  * 
  */

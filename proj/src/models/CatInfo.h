@@ -16,7 +16,7 @@ enum CatColor {
 typedef struct {
     enum CatColor color;
     bool isPet;
-    uint8_t petCooldown;
+    uint8_t petCountdown;
     uint16_t moveCountdown;
     bool isIdle;
     bool isSelected;

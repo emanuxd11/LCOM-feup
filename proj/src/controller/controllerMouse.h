@@ -33,7 +33,7 @@ void stateMachineV(int tolerance, int x_len);
 
 void stateMachineVLine(int tolerance, int y_len);
 
-void stateMachineHLine(int tolerance, int y_len);
+void stateMachineHLine(int tolerance, int x_len);
 
 void stateMachineDLine(int tolerance, int y_len);
 

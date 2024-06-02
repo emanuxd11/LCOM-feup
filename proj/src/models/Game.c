@@ -4,6 +4,7 @@
 #include <math.h>
 #include "CatInfo.h"
 #include "PlayerInfo.h"
+#include "../controller/controllerMouse.h"
 
 // keys
 extern bool wIsDown;
@@ -13,7 +14,11 @@ extern bool dIsDown;
 extern bool escWasPressed;
 extern bool eWasPressed;
 
+extern mouseState cat_petting_state;
+
 Datetime datetime;
+Entity* selectedCat;
+enum CatColor selectedCatType;
 
 Game *createNewGame() {
   Game *game = (Game *) malloc(sizeof(Game));
@@ -28,7 +33,7 @@ void deleteGame(Game* game) {
     free(game);
 }
     
-Entity* selectedCat;
+
 
 int control_game(Game *game) {
   if (escWasPressed) {
@@ -60,8 +65,13 @@ int control_game(Game *game) {
 
     if (eWasPressed) {
         eWasPressed = false;
-        if (selectedCat != NULL) ((PlayerInfo*)game->room->player->typeInfo)->isPetting = true;
+        if (selectedCat != NULL) {
+          ((PlayerInfo*)game->room->player->typeInfo)->isPetting = true;
+          selectedCatType = ((CatInfo*)selectedCat->typeInfo)->color;
+        }
     }
+
+    if (((PlayerInfo*)game->room->player->typeInfo)->isPetting) petting_helper_on_timer_int(game);
       
   }
   
@@ -175,10 +185,64 @@ void moveEntity(Entity* entity, Room* room) {
 
 }
 
-void petting_helper(Game* game) {
-  if (!((PlayerInfo*)game->room->player->typeInfo)->isPetting) return;
+int petting_helper_on_mouse_int(Game* game) {
+  if (!((PlayerInfo*)game->room->player->typeInfo)->isPetting) return 0;
 
+  switch (selectedCatType)
+  {
+  case RED_CAT:
+    stateMachineV(PET_TOLERANCE, PET_X_LEN);
+    break;
+  
+  case BROWN_CAT:
+    stateMachineInvertedV(PET_TOLERANCE, PET_X_LEN);
+    break;
 
+  case BLUE_CAT:
+    stateMachineHLine(PET_TOLERANCE, PET_X_LEN);
+    break;
+
+  case GRAY_CAT:
+    stateMachineVLine(PET_TOLERANCE, PET_Y_LEN);
+    break;
+
+  case ORANGE_CAT:
+    stateMachineDLine(PET_TOLERANCE, PET_Y_LEN);
+    break;
+
+  default:
+    return 1;
+    break;
+  }
+
+  return 0;
+}
+
+int petting_helper_on_timer_int(Game* game) {
+  
+  switch (cat_petting_state) {
+
+    case SUCCESS:
+      cat_petting_state = INIT;
+      //removeCat(game->room, selectedCat);
+      selectedCat = NULL;
+      // add 1 to score
+      printf("SUCESS\n");
+      break;
+
+    case FAIL:
+      cat_petting_state = INIT;
+      // start petCountdown
+      printf("FAIL\n");
+      break;
+
+    default:
+      return 0;
+  }
+
+  ((PlayerInfo*)game->room->player->typeInfo)->isPetting = false;
+
+  return 0;
 }
 
 

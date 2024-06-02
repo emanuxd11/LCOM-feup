@@ -35,8 +35,10 @@ int control_game(Game *game);
 int control_player(Game* game);
 int control_cat(Game* game, Entity* cat);
 
-void petting_helper(Game* game);
+int petting_helper_on_mouse_int(Game* game);
+int petting_helper_on_timer_int(Game* game);
 
+Position futurePos(Entity* entity, Room* room);
 void moveEntity(Entity* entity, Room* room);
 
 void updateGameTime();

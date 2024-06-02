@@ -115,6 +115,10 @@ int drawGamePlaying(Game *game) {
 
   if (((PlayerInfo*) game->room->player->typeInfo)->isPetting) {
     if (drawPetting(game) != 0) return 1;
+    if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
+      printf("Error drawing mouse");
+      return 1;
+    }
     return update_front_buffer();
   }
 

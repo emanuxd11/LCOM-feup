@@ -1,0 +1,19 @@
+<map id="randomNumer" name="randomNumer">
+<area shape="rect" id="Node000001" title="Generates a random number between lower_bound and upper_bound." alt="" coords="776,56,892,81"/>
+<area shape="rect" id="Node000002" href="$Game_8c.html#a1ae134faab2ad00f9b5d83a36ed0fa2d" title=" " alt="" coords="633,7,727,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="780,54,720,35,722,30,781,49"/>
+<area shape="rect" id="Node000005" href="$CatInfo_8c.html#aad66c52414a337c6d440cec838083a33" title="Creates a new CatInfo with a random color." alt="" coords="632,56,728,81"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="762,71,728,71,728,66,762,66"/>
+<area shape="rect" id="Node000007" href="$Room_8c.html#ae2f7d4e103acadefa2543377b57c8b84" title="Creates a new room." alt="" coords="367,56,453,81"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="774,87,728,95,621,103,513,95,453,84,454,78,514,90,621,98,728,90,773,82"/>
+<area shape="rect" id="Node000003" href="$Game_8c.html#a8c8dad7e3909c74db13e96e4223f7320" title="Manages game states and calls entity control functions." alt="" coords="355,5,465,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="618,22,466,21,466,16,618,16"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,31,128,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="341,26,129,41,128,36,341,20"/>
+<area shape="rect" id="Node000006" href="$Entity_8c.html#a4df3940ece29f088092f780035e908a8" title="Creates a cat with a random color in chosen position." alt="" coords="513,56,584,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="618,71,584,71,584,66,618,66"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="499,71,453,71,453,66,499,66"/>
+<area shape="rect" id="Node000008" href="$Game_8c.html#a2e2c951a9633896ad4506f9e69475e5b" title="Creates a new game." alt="" coords="176,56,307,81"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="353,71,307,71,307,66,353,66"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="162,60,128,55,129,50,163,55"/>
+</map>

@@ -1,0 +1,271 @@
+\doxysection{controller/controller\+Mouse.h File Reference}
+\hypertarget{controllerMouse_8h}{}\label{controllerMouse_8h}\index{controller/controllerMouse.h@{controller/controllerMouse.h}}
+
+
+Contains all state machines functions and other functions to monitor the mouse\textquotesingle{}s movement.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+Include dependency graph for controller\+Mouse.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{controllerMouse_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{controllerMouse_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3d}{mouse\+State}} \{ \newline
+\mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da0cb1b2c6a7db1f1084886c98909a3f36}{INIT}}
+, \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da94ec660291079916623355f9d9231077}{DUP}}
+, \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da1d92bb4d86226cb474963357ac146ba5}{DDOWN}}
+, \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da2e4d5495bd9d476f78962cebe074ebbd}{VERTEX}}
+, \newline
+\mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da181eb299a839b43fa70c4588357ba494}{DSIDE}}
+, \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da936c4a5547a9360243178f726f6b2715}{FAIL}}
+, \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3dac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Mouse state enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{controllerMouse_8h_a75f1acde9dc97cecc347348df8b855b6}{mouse\+\_\+is\+\_\+descending}} (int16\+\_\+t \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}})
+\begin{DoxyCompactList}\small\item\em Checks if mouse is moving with negative displacements in the mouse packets, allowing a certain tolerance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{controllerMouse_8h_a40e32ed3f4a4d6d632f8739325b19831}{mouse\+\_\+is\+\_\+ascending}} (uint8\+\_\+t \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}})
+\begin{DoxyCompactList}\small\item\em Checks if mouse is moving with positive displacements in the mouse packets, allowing a certain tolerance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controllerMouse_8h_a7116455861cb4c1fabd1200f8dbf0764}{state\+Machine\+InvertedV}} (int \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}}, int x\+\_\+len)
+\begin{DoxyCompactList}\small\item\em When called, a state machine is initiated and verifies if the movement made with the mouse constitutes an inverted \textquotesingle{}V\textquotesingle{} shape, the user can choose a movement tolerance and a minimum length for each of the two diagonal lines in the inverted \textquotesingle{}V\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controllerMouse_8h_a141c010a0817b09588a6cfbd9781febb}{state\+MachineV}} (int \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}}, int x\+\_\+len)
+\begin{DoxyCompactList}\small\item\em When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a \textquotesingle{}V\textquotesingle{} shape, the user can choose a movement tolerance and a minimum length for each of the two diagonal lines in the \textquotesingle{}V\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controllerMouse_8h_aaaa02f183c013cec09c80b81b2de27c3}{state\+Machine\+VLine}} (int \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}}, int y\+\_\+len)
+\begin{DoxyCompactList}\small\item\em When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a vertical line, the user can choose a movement tolerance and a minimum length for the line, there is no difference between a up-\/\texorpdfstring{$>$}{>}down movement or a down-\/\texorpdfstring{$>$}{>}up movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controllerMouse_8h_abf9aca74f5a9d4328a1c635f0518ade6}{state\+Machine\+HLine}} (int \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}}, int y\+\_\+len)
+\begin{DoxyCompactList}\small\item\em When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a horizontal line, the user can choose a movement tolerance and a minimum length for the line, there is no difference between a left-\/\texorpdfstring{$>$}{>}right movement or a right-\/\texorpdfstring{$>$}{>}left movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controllerMouse_8h_a669ae41ccf5404189652fda0728f6564}{state\+Machine\+DLine}} (int \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}}, int y\+\_\+len)
+\begin{DoxyCompactList}\small\item\em When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a diagonal line with a slope of (approximately) one, the user can choose a movement tolerance and a minimum length for the line, there is no difference between a left-\/\texorpdfstring{$>$}{>}right movement or a right-\/\texorpdfstring{$>$}{>}left movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controllerMouse_8h_a7ea19b6c28d84dbed1738006f2d1bd07}{move\+Mouse}} (int \texorpdfstring{$\ast$}{*}mouse\+\_\+x\+\_\+pos, int \texorpdfstring{$\ast$}{*}mouse\+\_\+y\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Adds the packet\textquotesingle{}s delta\+\_\+y and delta\+\_\+x displacements upon an interrupt, checks if the mouse\textquotesingle{}s x and y positions are out of bounds, if so it doesn\textquotesingle{}t let it pass. Also checks for delta\+\_\+x and delta\+\_\+y overflow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct packet \mbox{\hyperlink{controllerMouse_8h_a3b2e64ffb96c650d6525c99be01c7331}{mouse\+\_\+packet}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains all state machines functions and other functions to monitor the mouse\textquotesingle{}s movement. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3d}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3d} 
+\index{controllerMouse.h@{controllerMouse.h}!mouseState@{mouseState}}
+\index{mouseState@{mouseState}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{mouseState}{mouseState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3d}{mouse\+State}}}
+
+
+
+Mouse state enum. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INIT@{INIT}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!INIT@{INIT}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da0cb1b2c6a7db1f1084886c98909a3f36}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da0cb1b2c6a7db1f1084886c98909a3f36} 
+INIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUP@{DUP}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!DUP@{DUP}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da94ec660291079916623355f9d9231077}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da94ec660291079916623355f9d9231077} 
+DUP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DDOWN@{DDOWN}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!DDOWN@{DDOWN}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da1d92bb4d86226cb474963357ac146ba5}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da1d92bb4d86226cb474963357ac146ba5} 
+DDOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERTEX@{VERTEX}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!VERTEX@{VERTEX}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da2e4d5495bd9d476f78962cebe074ebbd}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da2e4d5495bd9d476f78962cebe074ebbd} 
+VERTEX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DSIDE@{DSIDE}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!DSIDE@{DSIDE}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da181eb299a839b43fa70c4588357ba494}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da181eb299a839b43fa70c4588357ba494} 
+DSIDE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAIL@{FAIL}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!FAIL@{FAIL}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da936c4a5547a9360243178f726f6b2715}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da936c4a5547a9360243178f726f6b2715} 
+FAIL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCCESS@{SUCCESS}!controllerMouse.h@{controllerMouse.h}}\index{controllerMouse.h@{controllerMouse.h}!SUCCESS@{SUCCESS}}}\Hypertarget{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3dac7f69f7c9e5aea9b8f54cf02870e2bf8}\label{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3dac7f69f7c9e5aea9b8f54cf02870e2bf8} 
+SUCCESS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{controllerMouse_8h_a40e32ed3f4a4d6d632f8739325b19831}\label{controllerMouse_8h_a40e32ed3f4a4d6d632f8739325b19831} 
+\index{controllerMouse.h@{controllerMouse.h}!mouse\_is\_ascending@{mouse\_is\_ascending}}
+\index{mouse\_is\_ascending@{mouse\_is\_ascending}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_is\_ascending()}{mouse\_is\_ascending()}}
+{\footnotesize\ttfamily bool mouse\+\_\+is\+\_\+ascending (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{tolerance }\end{DoxyParamCaption})}
+
+
+
+Checks if mouse is moving with positive displacements in the mouse packets, allowing a certain tolerance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is moving, false if not 
+\end{DoxyReturn}
+\Hypertarget{controllerMouse_8h_a75f1acde9dc97cecc347348df8b855b6}\label{controllerMouse_8h_a75f1acde9dc97cecc347348df8b855b6} 
+\index{controllerMouse.h@{controllerMouse.h}!mouse\_is\_descending@{mouse\_is\_descending}}
+\index{mouse\_is\_descending@{mouse\_is\_descending}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_is\_descending()}{mouse\_is\_descending()}}
+{\footnotesize\ttfamily bool mouse\+\_\+is\+\_\+descending (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{tolerance }\end{DoxyParamCaption})}
+
+
+
+Checks if mouse is moving with negative displacements in the mouse packets, allowing a certain tolerance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is moving, false if not 
+\end{DoxyReturn}
+\Hypertarget{controllerMouse_8h_a7ea19b6c28d84dbed1738006f2d1bd07}\label{controllerMouse_8h_a7ea19b6c28d84dbed1738006f2d1bd07} 
+\index{controllerMouse.h@{controllerMouse.h}!moveMouse@{moveMouse}}
+\index{moveMouse@{moveMouse}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{moveMouse()}{moveMouse()}}
+{\footnotesize\ttfamily void move\+Mouse (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{mouse\+\_\+x\+\_\+pos,  }\item[{int \texorpdfstring{$\ast$}{*}}]{mouse\+\_\+y\+\_\+pos }\end{DoxyParamCaption})}
+
+
+
+Adds the packet\textquotesingle{}s delta\+\_\+y and delta\+\_\+x displacements upon an interrupt, checks if the mouse\textquotesingle{}s x and y positions are out of bounds, if so it doesn\textquotesingle{}t let it pass. Also checks for delta\+\_\+x and delta\+\_\+y overflow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+x\+\_\+pos} & mouse\textquotesingle{}s x axis position \\
+\hline
+{\em mouse\+\_\+y\+\_\+pos} & mouse\textquotesingle{}s y axis position \\
+\hline
+\end{DoxyParams}
+\Hypertarget{controllerMouse_8h_a669ae41ccf5404189652fda0728f6564}\label{controllerMouse_8h_a669ae41ccf5404189652fda0728f6564} 
+\index{controllerMouse.h@{controllerMouse.h}!stateMachineDLine@{stateMachineDLine}}
+\index{stateMachineDLine@{stateMachineDLine}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{stateMachineDLine()}{stateMachineDLine()}}
+{\footnotesize\ttfamily void state\+Machine\+DLine (\begin{DoxyParamCaption}\item[{int}]{tolerance,  }\item[{int}]{y\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a diagonal line with a slope of (approximately) one, the user can choose a movement tolerance and a minimum length for the line, there is no difference between a left-\/\texorpdfstring{$>$}{>}right movement or a right-\/\texorpdfstring{$>$}{>}left movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+{\em x\+\_\+len} & minimum line length \\
+\hline
+\end{DoxyParams}
+\Hypertarget{controllerMouse_8h_abf9aca74f5a9d4328a1c635f0518ade6}\label{controllerMouse_8h_abf9aca74f5a9d4328a1c635f0518ade6} 
+\index{controllerMouse.h@{controllerMouse.h}!stateMachineHLine@{stateMachineHLine}}
+\index{stateMachineHLine@{stateMachineHLine}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{stateMachineHLine()}{stateMachineHLine()}}
+{\footnotesize\ttfamily void state\+Machine\+HLine (\begin{DoxyParamCaption}\item[{int}]{tolerance,  }\item[{int}]{y\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a horizontal line, the user can choose a movement tolerance and a minimum length for the line, there is no difference between a left-\/\texorpdfstring{$>$}{>}right movement or a right-\/\texorpdfstring{$>$}{>}left movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+{\em x\+\_\+len} & minimum line length \\
+\hline
+\end{DoxyParams}
+\Hypertarget{controllerMouse_8h_a7116455861cb4c1fabd1200f8dbf0764}\label{controllerMouse_8h_a7116455861cb4c1fabd1200f8dbf0764} 
+\index{controllerMouse.h@{controllerMouse.h}!stateMachineInvertedV@{stateMachineInvertedV}}
+\index{stateMachineInvertedV@{stateMachineInvertedV}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{stateMachineInvertedV()}{stateMachineInvertedV()}}
+{\footnotesize\ttfamily void state\+Machine\+InvertedV (\begin{DoxyParamCaption}\item[{int}]{tolerance,  }\item[{int}]{x\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+When called, a state machine is initiated and verifies if the movement made with the mouse constitutes an inverted \textquotesingle{}V\textquotesingle{} shape, the user can choose a movement tolerance and a minimum length for each of the two diagonal lines in the inverted \textquotesingle{}V\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+{\em x\+\_\+len} & minimum line length \\
+\hline
+\end{DoxyParams}
+\Hypertarget{controllerMouse_8h_a141c010a0817b09588a6cfbd9781febb}\label{controllerMouse_8h_a141c010a0817b09588a6cfbd9781febb} 
+\index{controllerMouse.h@{controllerMouse.h}!stateMachineV@{stateMachineV}}
+\index{stateMachineV@{stateMachineV}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{stateMachineV()}{stateMachineV()}}
+{\footnotesize\ttfamily void state\+MachineV (\begin{DoxyParamCaption}\item[{int}]{tolerance,  }\item[{int}]{x\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a \textquotesingle{}V\textquotesingle{} shape, the user can choose a movement tolerance and a minimum length for each of the two diagonal lines in the \textquotesingle{}V\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+{\em x\+\_\+len} & minimum line length \\
+\hline
+\end{DoxyParams}
+\Hypertarget{controllerMouse_8h_aaaa02f183c013cec09c80b81b2de27c3}\label{controllerMouse_8h_aaaa02f183c013cec09c80b81b2de27c3} 
+\index{controllerMouse.h@{controllerMouse.h}!stateMachineVLine@{stateMachineVLine}}
+\index{stateMachineVLine@{stateMachineVLine}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{stateMachineVLine()}{stateMachineVLine()}}
+{\footnotesize\ttfamily void state\+Machine\+VLine (\begin{DoxyParamCaption}\item[{int}]{tolerance,  }\item[{int}]{y\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+When called, a state machine is initiated and verifies if the movement made with the mouse constitutes a vertical line, the user can choose a movement tolerance and a minimum length for the line, there is no difference between a up-\/\texorpdfstring{$>$}{>}down movement or a down-\/\texorpdfstring{$>$}{>}up movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & chosen tolerance \\
+\hline
+{\em x\+\_\+len} & minimum line length \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{controllerMouse_8h_a3b2e64ffb96c650d6525c99be01c7331}\label{controllerMouse_8h_a3b2e64ffb96c650d6525c99be01c7331} 
+\index{controllerMouse.h@{controllerMouse.h}!mouse\_packet@{mouse\_packet}}
+\index{mouse\_packet@{mouse\_packet}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_packet}{mouse\_packet}}
+{\footnotesize\ttfamily struct packet mouse\+\_\+packet\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{controllerMouse_8h_a4831ade858b375681259613b70f164a1}\label{controllerMouse_8h_a4831ade858b375681259613b70f164a1} 
+\index{controllerMouse.h@{controllerMouse.h}!tolerance@{tolerance}}
+\index{tolerance@{tolerance}!controllerMouse.h@{controllerMouse.h}}
+\doxysubsubsection{\texorpdfstring{tolerance}{tolerance}}
+{\footnotesize\ttfamily uint8\+\_\+t tolerance\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,38 @@
+<map id="drawGamePlaying" name="drawGamePlaying">
+<area shape="rect" id="Node000001" title="Draw all elements needed for gameplay." alt="" coords="5,181,147,207"/>
+<area shape="rect" id="Node000002" href="$gpu_8c.html#a6ebd4c503698eabfdb297f0b60cd9a7e" title="Draws text on the screen." alt="" coords="227,8,313,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,180,123,115,155,76,193,42,212,32,215,37,196,47,159,80,127,118,86,183"/>
+<area shape="rect" id="Node000006" href="$gpu_8c.html#a8dc3b64d819195e41495b03be84f9db5" title="Draws a xpm map." alt="" coords="625,208,715,233"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="89,205,132,251,162,274,196,292,288,319,326,324,363,325,439,315,534,291,563,282,592,268,640,239,642,244,594,273,565,286,535,297,440,320,363,330,326,329,286,324,194,296,159,278,128,254,85,209"/>
+<area shape="rect" id="Node000007" href="$gameView_8c.html#afcba2750e7b09117775b267d87bd72dd" title="Draws a cat." alt="" coords="232,156,308,181"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="147,182,218,173,218,178,147,187"/>
+<area shape="rect" id="Node000010" href="$gameView_8c.html#a7e3bedebe5ff46a14b705ebea4ae5ea6" title="Draws all the clouds." alt="" coords="221,257,319,283"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="110,204,225,250,223,255,108,209"/>
+<area shape="rect" id="Node000012" href="$gameView_8c.html#a4af7e3fe279c33eb25f51f7a6539fe09" title="Draws the game&#39;s grass." alt="" coords="225,57,315,83"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="87,179,131,137,161,113,193,92,210,84,213,88,196,96,164,117,135,141,91,183"/>
+<area shape="rect" id="Node000013" href="$gameView_8c.html#a2cd64dc0cda879296c1af673277325f8" title="Draws the mouse." alt="" coords="415,208,513,233"/>
+<area shape="poly" id="edge17_Node000001_Node000013" title=" " alt="" coords="147,196,402,214,401,219,146,201"/>
+<area shape="rect" id="Node000014" href="$gameView_8c.html#a500f0c839b86947f33bf610de02c30f8" title="Draws the game&#39;s sky." alt="" coords="231,107,309,132"/>
+<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="104,179,194,141,217,133,219,138,196,146,106,184"/>
+<area shape="rect" id="Node000015" href="$gpu_8c.html#a2072f81f024b952bc79d3c50a4837af8" title="Updates front buffer." alt="" coords="195,359,345,384"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="87,206,129,267,160,304,196,337,218,351,216,355,193,341,156,308,125,271,83,209"/>
+<area shape="rect" id="Node000003" href="$gpu_8c.html#a34acbdecb2579068868f8fae55cdca8f" title="Draws a xpm map that&#39;s only one color." alt="" coords="583,57,757,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="314,26,394,39,569,59,569,64,393,45,313,31"/>
+<area shape="rect" id="Node000005" href="$gpu_8c.html#aa680181e61a8510be11ceb2834cc55c7" title="Get the index of a character sprite." alt="" coords="393,5,535,31"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="314,17,379,16,379,22,314,23"/>
+<area shape="rect" id="Node000004" href="$gpu_8c.html#ad57866c076e7a5fd1a8706005d2676e2" title="Draws a pixel on the screen." alt="" coords="805,107,897,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="718,80,792,101,791,106,717,85"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="693,206,814,136,817,141,695,210"/>
+<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="308,169,411,178,535,193,611,206,610,211,534,198,410,183,308,174"/>
+<area shape="rect" id="Node000008" href="$gpu_8c.html#a0e0a5c15e07b25745d105cf0cc2f89bb" title="Draws a rectangle on the screen." alt="" coords="403,107,525,132"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="308,157,399,133,401,138,309,162"/>
+<area shape="rect" id="Node000009" href="$gpu_8c.html#a15cccee9bb5a2c9f05720adab00ea63c" title="Draws a line on the screen." alt="" coords="627,107,713,132"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="526,117,613,117,613,122,526,122"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="713,117,792,117,792,122,713,122"/>
+<area shape="rect" id="Node000011" href="$gameView_8c.html#a378c893495b1aad2e9fb8d4949a740af" title="Draws a singular cloud." alt="" coords="419,257,509,283"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="320,267,405,267,405,273,320,273"/>
+<area shape="poly" id="edge14_Node000011_Node000006" title=" " alt="" coords="509,257,611,232,612,237,510,262"/>
+<area shape="poly" id="edge16_Node000012_Node000008" title=" " alt="" coords="316,79,401,101,400,106,315,84"/>
+<area shape="poly" id="edge18_Node000013_Node000006" title=" " alt="" coords="513,218,611,218,611,223,513,223"/>
+<area shape="poly" id="edge20_Node000014_Node000008" title=" " alt="" coords="309,117,389,117,389,122,309,122"/>
+</map>

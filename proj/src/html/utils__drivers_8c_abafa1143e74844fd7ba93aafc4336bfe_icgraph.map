@@ -1,0 +1,9 @@
+<map id="bcd_to_binary" name="bcd_to_binary">
+<area shape="rect" id="Node000001" title="Turns a binary coded decimal to binary." alt="" coords="552,5,665,31"/>
+<area shape="rect" id="Node000002" href="$rtclock_8c.html#ac72d03e3f3dd28ef271d17f47ea0ff63" title="Returns the current date in datetime format." alt="" coords="363,5,504,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="538,21,504,21,504,15,538,15"/>
+<area shape="rect" id="Node000003" href="$Game_8c.html#af575de97af74ae3a94cf06746ed5db45" title="updates game time with RTC&#39;s time" alt="" coords="176,5,315,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,21,315,21,315,15,349,15"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="163,21,128,21,128,15,163,15"/>
+</map>

@@ -1,0 +1,292 @@
+\doxysection{models/\+Entity.h File Reference}
+\hypertarget{Entity_8h}{}\label{Entity_8h}\index{models/Entity.h@{models/Entity.h}}
+
+
+This file contains functions regarding the creation and collisions between game entities.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}../utils/aux\+\_\+structs/\+Hurt\+Box.\+h"{}}\newline
+{\ttfamily \#include "{}../utils/aux\+\_\+structs/\+Position.\+h"{}}\newline
+Include dependency graph for Entity.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Entity_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Entity_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEntity}{Entity}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}} \{ \newline
+\mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ade5dc3e0dbd007d995ed3e37bde5ce7e}{PLAYER}}
+, \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a19d74fe444beb57a4d2b820c496317ed}{CAT}}
+, \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac3d7a3e628a4b2be181d8841fcc1402c}{CAT0}}
+, \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a41b75c6ab85dcdbba2c517e3532b5534}{CAT1}}
+, \newline
+\mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a89c866beb850e889c293ba95b36a2c4d}{CAT2}}
+, \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a22ef808e447dce75abc11340717984ae}{CAT3}}
+, \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a5ae70d217e757329e2e17c4e6688b612}{CAT4}}
+, \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44afca2faad41310c7e71ec303ef789c53a}{WALL}}
+, \newline
+\mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a8557c95af3cc59c931d6d130dd2f42a4}{CLOUD}}
+ \}
+\item 
+enum \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44}{Collision\+Type}} \{ \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44a6272384d30da429b9f2fcd997ed87e3f}{X\+\_\+\+COLLISION}}
+, \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44a9386a8a7ff1e288969f1eba8bd5f4bb9}{Y\+\_\+\+COLLISION}}
+, \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44acb221202af4179d4b13f11aa9937d5d8}{XY\+\_\+\+COLLISION}}
+, \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44acf5d7dd131a91e32ed8f8a26f8156046}{NO\+\_\+\+COLLISION}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Entity_8h_a4df3940ece29f088092f780035e908a8}{new\+Cat}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Creates a cat with a random color in chosen position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Entity_8h_ac0ac4a8002e4044c03d3c49c7712d4df}{new\+Player}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Creates a player in chosen position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Entity_8h_a0dc0264f2e9ed04bbf986ebbf0a39051}{new\+Wall}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Creates a wall in chosen position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Entity_8h_aa42a38854abd6f909e33f50ea4c3ed18}{new\+Cloud}} (int x, int y, double velocity)
+\begin{DoxyCompactList}\small\item\em Creates a cloud in chosen position, with chosen velocity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Entity_8h_ad252cb5db4278ee82d5d532dbec93899}{delete\+Entity}} (\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated to entity. \end{DoxyCompactList}\item 
+Position \mbox{\hyperlink{Entity_8h_aeac4ea4e057b4b88c1965010d32b36cb}{candidate\+Pos}} (\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+\begin{DoxyCompactList}\small\item\em Calculates a future position based on the entity\textquotesingle{}s speed without collisions in mind. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44}{Collision\+Type}} \mbox{\hyperlink{Entity_8h_aad5d1aecce31825fa995df516eb3a476}{check\+Collision}} (Position c\+PosA, \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entityA, \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entityB)
+\begin{DoxyCompactList}\small\item\em Checks if entityA in cposA (candidate position) would collide with entity B. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains functions regarding the creation and collisions between game entities. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{Entity_8h_aa884075f403706dceea29a61771a0d44}\label{Entity_8h_aa884075f403706dceea29a61771a0d44} 
+\index{Entity.h@{Entity.h}!CollisionType@{CollisionType}}
+\index{CollisionType@{CollisionType}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{CollisionType}{CollisionType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44}{Collision\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X\_COLLISION@{X\_COLLISION}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!X\_COLLISION@{X\_COLLISION}}}\Hypertarget{Entity_8h_aa884075f403706dceea29a61771a0d44a6272384d30da429b9f2fcd997ed87e3f}\label{Entity_8h_aa884075f403706dceea29a61771a0d44a6272384d30da429b9f2fcd997ed87e3f} 
+X\+\_\+\+COLLISION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Y\_COLLISION@{Y\_COLLISION}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!Y\_COLLISION@{Y\_COLLISION}}}\Hypertarget{Entity_8h_aa884075f403706dceea29a61771a0d44a9386a8a7ff1e288969f1eba8bd5f4bb9}\label{Entity_8h_aa884075f403706dceea29a61771a0d44a9386a8a7ff1e288969f1eba8bd5f4bb9} 
+Y\+\_\+\+COLLISION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XY\_COLLISION@{XY\_COLLISION}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!XY\_COLLISION@{XY\_COLLISION}}}\Hypertarget{Entity_8h_aa884075f403706dceea29a61771a0d44acb221202af4179d4b13f11aa9937d5d8}\label{Entity_8h_aa884075f403706dceea29a61771a0d44acb221202af4179d4b13f11aa9937d5d8} 
+XY\+\_\+\+COLLISION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_COLLISION@{NO\_COLLISION}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!NO\_COLLISION@{NO\_COLLISION}}}\Hypertarget{Entity_8h_aa884075f403706dceea29a61771a0d44acf5d7dd131a91e32ed8f8a26f8156046}\label{Entity_8h_aa884075f403706dceea29a61771a0d44acf5d7dd131a91e32ed8f8a26f8156046} 
+NO\+\_\+\+COLLISION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44} 
+\index{Entity.h@{Entity.h}!EntityType@{EntityType}}
+\index{EntityType@{EntityType}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{EntityType}{EntityType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44}{Entity\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYER@{PLAYER}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!PLAYER@{PLAYER}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ade5dc3e0dbd007d995ed3e37bde5ce7e}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ade5dc3e0dbd007d995ed3e37bde5ce7e} 
+PLAYER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAT@{CAT}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CAT@{CAT}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a19d74fe444beb57a4d2b820c496317ed}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a19d74fe444beb57a4d2b820c496317ed} 
+CAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAT0@{CAT0}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CAT0@{CAT0}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac3d7a3e628a4b2be181d8841fcc1402c}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44ac3d7a3e628a4b2be181d8841fcc1402c} 
+CAT0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAT1@{CAT1}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CAT1@{CAT1}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a41b75c6ab85dcdbba2c517e3532b5534}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a41b75c6ab85dcdbba2c517e3532b5534} 
+CAT1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAT2@{CAT2}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CAT2@{CAT2}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a89c866beb850e889c293ba95b36a2c4d}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a89c866beb850e889c293ba95b36a2c4d} 
+CAT2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAT3@{CAT3}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CAT3@{CAT3}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a22ef808e447dce75abc11340717984ae}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a22ef808e447dce75abc11340717984ae} 
+CAT3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAT4@{CAT4}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CAT4@{CAT4}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a5ae70d217e757329e2e17c4e6688b612}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a5ae70d217e757329e2e17c4e6688b612} 
+CAT4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WALL@{WALL}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!WALL@{WALL}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44afca2faad41310c7e71ec303ef789c53a}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44afca2faad41310c7e71ec303ef789c53a} 
+WALL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOUD@{CLOUD}!Entity.h@{Entity.h}}\index{Entity.h@{Entity.h}!CLOUD@{CLOUD}}}\Hypertarget{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a8557c95af3cc59c931d6d130dd2f42a4}\label{Entity_8h_ad79a57ed3105eb60d991a1aeb4a9dc44a8557c95af3cc59c931d6d130dd2f42a4} 
+CLOUD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Entity_8h_aeac4ea4e057b4b88c1965010d32b36cb}\label{Entity_8h_aeac4ea4e057b4b88c1965010d32b36cb} 
+\index{Entity.h@{Entity.h}!candidatePos@{candidatePos}}
+\index{candidatePos@{candidatePos}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{candidatePos()}{candidatePos()}}
+{\footnotesize\ttfamily Position candidate\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity }\end{DoxyParamCaption})}
+
+
+
+Calculates a future position based on the entity\textquotesingle{}s speed without collisions in mind. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+future position 
+\end{DoxyReturn}
+\Hypertarget{Entity_8h_aad5d1aecce31825fa995df516eb3a476}\label{Entity_8h_aad5d1aecce31825fa995df516eb3a476} 
+\index{Entity.h@{Entity.h}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Entity_8h_aa884075f403706dceea29a61771a0d44}{Collision\+Type}} check\+Collision (\begin{DoxyParamCaption}\item[{Position}]{c\+PosA,  }\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entityA,  }\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entityB }\end{DoxyParamCaption})}
+
+
+
+Checks if entityA in cposA (candidate position) would collide with entity B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+PosA} & candidate position \\
+\hline
+{\em entityA} & entity a \\
+\hline
+{\em entityB} & entity b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the type of collision 
+\end{DoxyReturn}
+\Hypertarget{Entity_8h_ad252cb5db4278ee82d5d532dbec93899}\label{Entity_8h_ad252cb5db4278ee82d5d532dbec93899} 
+\index{Entity.h@{Entity.h}!deleteEntity@{deleteEntity}}
+\index{deleteEntity@{deleteEntity}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{deleteEntity()}{deleteEntity()}}
+{\footnotesize\ttfamily void delete\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated to entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & entity to delete \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Entity_8h_a4df3940ece29f088092f780035e908a8}\label{Entity_8h_a4df3940ece29f088092f780035e908a8} 
+\index{Entity.h@{Entity.h}!newCat@{newCat}}
+\index{newCat@{newCat}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{newCat()}{newCat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} new\+Cat (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Creates a cat with a random color in chosen position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & chosen x axis position \\
+\hline
+{\em y} & chosen y axis position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to new cat 
+\end{DoxyReturn}
+\Hypertarget{Entity_8h_aa42a38854abd6f909e33f50ea4c3ed18}\label{Entity_8h_aa42a38854abd6f909e33f50ea4c3ed18} 
+\index{Entity.h@{Entity.h}!newCloud@{newCloud}}
+\index{newCloud@{newCloud}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{newCloud()}{newCloud()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} new\+Cloud (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{velocity }\end{DoxyParamCaption})}
+
+
+
+Creates a cloud in chosen position, with chosen velocity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & chosen x axis position \\
+\hline
+{\em y} & chosen y axis position \\
+\hline
+{\em velocity} & chosen velocity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to new cloud 
+\end{DoxyReturn}
+\Hypertarget{Entity_8h_ac0ac4a8002e4044c03d3c49c7712d4df}\label{Entity_8h_ac0ac4a8002e4044c03d3c49c7712d4df} 
+\index{Entity.h@{Entity.h}!newPlayer@{newPlayer}}
+\index{newPlayer@{newPlayer}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{newPlayer()}{newPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} new\+Player (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Creates a player in chosen position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & chosen x axis position \\
+\hline
+{\em y} & chosen y axis position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to new player 
+\end{DoxyReturn}
+\Hypertarget{Entity_8h_a0dc0264f2e9ed04bbf986ebbf0a39051}\label{Entity_8h_a0dc0264f2e9ed04bbf986ebbf0a39051} 
+\index{Entity.h@{Entity.h}!newWall@{newWall}}
+\index{newWall@{newWall}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{newWall()}{newWall()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} new\+Wall (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Creates a wall in chosen position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & chosen x axis position \\
+\hline
+{\em y} & chosen y axis position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to new wall 
+\end{DoxyReturn}

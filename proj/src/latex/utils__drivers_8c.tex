@@ -1,0 +1,106 @@
+\doxysection{drivers/utils\+\_\+drivers.c File Reference}
+\hypertarget{utils__drivers_8c}{}\label{utils__drivers_8c}\index{drivers/utils\_drivers.c@{drivers/utils\_drivers.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}utils\+\_\+drivers.\+h"{}}\newline
+Include dependency graph for utils\+\_\+drivers.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{utils__drivers_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{utils__drivers_8c_a81621440b3d65680979425e39aa8c789}{util\+\_\+get\+\_\+\+LSB}} (uint16\+\_\+t val, uint8\+\_\+t \texorpdfstring{$\ast$}{*}lsb)
+\item 
+int() \mbox{\hyperlink{utils__drivers_8c_a6a880076cd2ec468834438b6e0c58836}{util\+\_\+get\+\_\+\+MSB}} (uint16\+\_\+t val, uint8\+\_\+t \texorpdfstring{$\ast$}{*}msb)
+\item 
+int() \mbox{\hyperlink{utils__drivers_8c_a79a031a8611f5b2d6afa4158e92b0fb4}{util\+\_\+sys\+\_\+inb}} (int port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}value)
+\item 
+uint8\+\_\+t() \mbox{\hyperlink{utils__drivers_8c_abafa1143e74844fd7ba93aafc4336bfe}{bcd\+\_\+to\+\_\+binary}} (uint8\+\_\+t bcd)
+\begin{DoxyCompactList}\small\item\em Turns a binary coded decimal to binary. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils__drivers_8c_afdbf08e1b6d820edb9ea19a167061110}{get\+Random\+Int}} (int lower\+\_\+bound, int upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Generates a random integer between lower\+\_\+bound and upper bound. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{utils__drivers_8c_af7da9411225515a9dd227658dc8dbc44}{get\+Random\+Float}} (float lower\+\_\+bound, float upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Generates a random float between lower\+\_\+bound and upper\+\_\+bound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils__drivers_8c_abafa1143e74844fd7ba93aafc4336bfe}\label{utils__drivers_8c_abafa1143e74844fd7ba93aafc4336bfe} 
+\index{utils\_drivers.c@{utils\_drivers.c}!bcd\_to\_binary@{bcd\_to\_binary}}
+\index{bcd\_to\_binary@{bcd\_to\_binary}!utils\_drivers.c@{utils\_drivers.c}}
+\doxysubsubsection{\texorpdfstring{bcd\_to\_binary()}{bcd\_to\_binary()}}
+{\footnotesize\ttfamily uint8\+\_\+t() bcd\+\_\+to\+\_\+binary (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bcd }\end{DoxyParamCaption})}
+
+
+
+Turns a binary coded decimal to binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bcd} & binary coded decimal to transform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the binary number 
+\end{DoxyReturn}
+\Hypertarget{utils__drivers_8c_af7da9411225515a9dd227658dc8dbc44}\label{utils__drivers_8c_af7da9411225515a9dd227658dc8dbc44} 
+\index{utils\_drivers.c@{utils\_drivers.c}!getRandomFloat@{getRandomFloat}}
+\index{getRandomFloat@{getRandomFloat}!utils\_drivers.c@{utils\_drivers.c}}
+\doxysubsubsection{\texorpdfstring{getRandomFloat()}{getRandomFloat()}}
+{\footnotesize\ttfamily float get\+Random\+Float (\begin{DoxyParamCaption}\item[{float}]{lower\+\_\+bound,  }\item[{float}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+Generates a random float between lower\+\_\+bound and upper\+\_\+bound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+\_\+bound} & lower bound \\
+\hline
+{\em upper\+\_\+bound} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random float 
+\end{DoxyReturn}
+\Hypertarget{utils__drivers_8c_afdbf08e1b6d820edb9ea19a167061110}\label{utils__drivers_8c_afdbf08e1b6d820edb9ea19a167061110} 
+\index{utils\_drivers.c@{utils\_drivers.c}!getRandomInt@{getRandomInt}}
+\index{getRandomInt@{getRandomInt}!utils\_drivers.c@{utils\_drivers.c}}
+\doxysubsubsection{\texorpdfstring{getRandomInt()}{getRandomInt()}}
+{\footnotesize\ttfamily int get\+Random\+Int (\begin{DoxyParamCaption}\item[{int}]{lower\+\_\+bound,  }\item[{int}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+Generates a random integer between lower\+\_\+bound and upper bound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+\_\+bound} & lower bound \\
+\hline
+{\em upper\+\_\+bound} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random integer 
+\end{DoxyReturn}
+\Hypertarget{utils__drivers_8c_a81621440b3d65680979425e39aa8c789}\label{utils__drivers_8c_a81621440b3d65680979425e39aa8c789} 
+\index{utils\_drivers.c@{utils\_drivers.c}!util\_get\_LSB@{util\_get\_LSB}}
+\index{util\_get\_LSB@{util\_get\_LSB}!utils\_drivers.c@{utils\_drivers.c}}
+\doxysubsubsection{\texorpdfstring{util\_get\_LSB()}{util\_get\_LSB()}}
+{\footnotesize\ttfamily int() util\+\_\+get\+\_\+\+LSB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{lsb }\end{DoxyParamCaption})}
+
+\Hypertarget{utils__drivers_8c_a6a880076cd2ec468834438b6e0c58836}\label{utils__drivers_8c_a6a880076cd2ec468834438b6e0c58836} 
+\index{utils\_drivers.c@{utils\_drivers.c}!util\_get\_MSB@{util\_get\_MSB}}
+\index{util\_get\_MSB@{util\_get\_MSB}!utils\_drivers.c@{utils\_drivers.c}}
+\doxysubsubsection{\texorpdfstring{util\_get\_MSB()}{util\_get\_MSB()}}
+{\footnotesize\ttfamily int() util\+\_\+get\+\_\+\+MSB (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{msb }\end{DoxyParamCaption})}
+
+\Hypertarget{utils__drivers_8c_a79a031a8611f5b2d6afa4158e92b0fb4}\label{utils__drivers_8c_a79a031a8611f5b2d6afa4158e92b0fb4} 
+\index{utils\_drivers.c@{utils\_drivers.c}!util\_sys\_inb@{util\_sys\_inb}}
+\index{util\_sys\_inb@{util\_sys\_inb}!utils\_drivers.c@{utils\_drivers.c}}
+\doxysubsubsection{\texorpdfstring{util\_sys\_inb()}{util\_sys\_inb()}}
+{\footnotesize\ttfamily int() util\+\_\+sys\+\_\+inb (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+

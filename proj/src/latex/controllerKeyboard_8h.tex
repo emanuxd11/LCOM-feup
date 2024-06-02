@@ -1,0 +1,142 @@
+\doxysection{controller/controller\+Keyboard.h File Reference}
+\hypertarget{controllerKeyboard_8h}{}\label{controllerKeyboard_8h}\index{controller/controllerKeyboard.h@{controller/controllerKeyboard.h}}
+
+
+This file contains make and break code macros for the keys used in the project and a function to parse a scan code.  
+
+
+{\ttfamily \#include "{}../models/\+Game.\+h"{}}\newline
+Include dependency graph for controller\+Keyboard.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{controllerKeyboard_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{controllerKeyboard_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_ac822a3953d90207e64b58f480454a8d8}{W\+\_\+\+MAKE}}~0x11
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_a32d11f9abffe8bb3df11feef5ca5213d}{W\+\_\+\+BREAK}}~0x91
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_ac2c2b345d42f2a5b5a028028eb8c5680}{S\+\_\+\+MAKE}}~0x1f
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_a85b3c65b8b6c952e08c252e9737b74f9}{S\+\_\+\+BREAK}}~0x9f
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_a0f76fe84c649e8cf3a4114d0d9bf085a}{A\+\_\+\+MAKE}}~0x1e
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_a05826112c5acf959ee58dcacd8e9d065}{A\+\_\+\+BREAK}}~0x9e
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_a629b0c93e278a4bf1e1678af58fbea95}{D\+\_\+\+MAKE}}~0x20
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_ad2db9242348c43c781cc14746060470b}{D\+\_\+\+BREAK}}~0xa0
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_a343f44cb034d2d2ff3438b3d45dcde1f}{ESC\+\_\+\+BREAK}}~0x81
+\item 
+\#define \mbox{\hyperlink{controllerKeyboard_8h_ac311aa1d8ee6267fad12d4a8569e2ce9}{E\+\_\+\+BREAK}}~0x92
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{controllerKeyboard_8h_a1f1c5d2aa1b1507eb3550ae3363722f5}{update\+\_\+keys}} (uint8\+\_\+t scan\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Parses a scan code and determines which key is currently pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains make and break code macros for the keys used in the project and a function to parse a scan code. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{controllerKeyboard_8h_a05826112c5acf959ee58dcacd8e9d065}\label{controllerKeyboard_8h_a05826112c5acf959ee58dcacd8e9d065} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!A\_BREAK@{A\_BREAK}}
+\index{A\_BREAK@{A\_BREAK}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{A\_BREAK}{A\_BREAK}}
+{\footnotesize\ttfamily \#define A\+\_\+\+BREAK~0x9e}
+
+\Hypertarget{controllerKeyboard_8h_a0f76fe84c649e8cf3a4114d0d9bf085a}\label{controllerKeyboard_8h_a0f76fe84c649e8cf3a4114d0d9bf085a} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!A\_MAKE@{A\_MAKE}}
+\index{A\_MAKE@{A\_MAKE}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{A\_MAKE}{A\_MAKE}}
+{\footnotesize\ttfamily \#define A\+\_\+\+MAKE~0x1e}
+
+\Hypertarget{controllerKeyboard_8h_ad2db9242348c43c781cc14746060470b}\label{controllerKeyboard_8h_ad2db9242348c43c781cc14746060470b} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!D\_BREAK@{D\_BREAK}}
+\index{D\_BREAK@{D\_BREAK}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{D\_BREAK}{D\_BREAK}}
+{\footnotesize\ttfamily \#define D\+\_\+\+BREAK~0xa0}
+
+\Hypertarget{controllerKeyboard_8h_a629b0c93e278a4bf1e1678af58fbea95}\label{controllerKeyboard_8h_a629b0c93e278a4bf1e1678af58fbea95} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!D\_MAKE@{D\_MAKE}}
+\index{D\_MAKE@{D\_MAKE}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{D\_MAKE}{D\_MAKE}}
+{\footnotesize\ttfamily \#define D\+\_\+\+MAKE~0x20}
+
+\Hypertarget{controllerKeyboard_8h_ac311aa1d8ee6267fad12d4a8569e2ce9}\label{controllerKeyboard_8h_ac311aa1d8ee6267fad12d4a8569e2ce9} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!E\_BREAK@{E\_BREAK}}
+\index{E\_BREAK@{E\_BREAK}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{E\_BREAK}{E\_BREAK}}
+{\footnotesize\ttfamily \#define E\+\_\+\+BREAK~0x92}
+
+\Hypertarget{controllerKeyboard_8h_a343f44cb034d2d2ff3438b3d45dcde1f}\label{controllerKeyboard_8h_a343f44cb034d2d2ff3438b3d45dcde1f} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!ESC\_BREAK@{ESC\_BREAK}}
+\index{ESC\_BREAK@{ESC\_BREAK}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{ESC\_BREAK}{ESC\_BREAK}}
+{\footnotesize\ttfamily \#define ESC\+\_\+\+BREAK~0x81}
+
+\Hypertarget{controllerKeyboard_8h_a85b3c65b8b6c952e08c252e9737b74f9}\label{controllerKeyboard_8h_a85b3c65b8b6c952e08c252e9737b74f9} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!S\_BREAK@{S\_BREAK}}
+\index{S\_BREAK@{S\_BREAK}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{S\_BREAK}{S\_BREAK}}
+{\footnotesize\ttfamily \#define S\+\_\+\+BREAK~0x9f}
+
+\Hypertarget{controllerKeyboard_8h_ac2c2b345d42f2a5b5a028028eb8c5680}\label{controllerKeyboard_8h_ac2c2b345d42f2a5b5a028028eb8c5680} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!S\_MAKE@{S\_MAKE}}
+\index{S\_MAKE@{S\_MAKE}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{S\_MAKE}{S\_MAKE}}
+{\footnotesize\ttfamily \#define S\+\_\+\+MAKE~0x1f}
+
+\Hypertarget{controllerKeyboard_8h_a32d11f9abffe8bb3df11feef5ca5213d}\label{controllerKeyboard_8h_a32d11f9abffe8bb3df11feef5ca5213d} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!W\_BREAK@{W\_BREAK}}
+\index{W\_BREAK@{W\_BREAK}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{W\_BREAK}{W\_BREAK}}
+{\footnotesize\ttfamily \#define W\+\_\+\+BREAK~0x91}
+
+\Hypertarget{controllerKeyboard_8h_ac822a3953d90207e64b58f480454a8d8}\label{controllerKeyboard_8h_ac822a3953d90207e64b58f480454a8d8} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!W\_MAKE@{W\_MAKE}}
+\index{W\_MAKE@{W\_MAKE}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{W\_MAKE}{W\_MAKE}}
+{\footnotesize\ttfamily \#define W\+\_\+\+MAKE~0x11}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{controllerKeyboard_8h_a1f1c5d2aa1b1507eb3550ae3363722f5}\label{controllerKeyboard_8h_a1f1c5d2aa1b1507eb3550ae3363722f5} 
+\index{controllerKeyboard.h@{controllerKeyboard.h}!update\_keys@{update\_keys}}
+\index{update\_keys@{update\_keys}!controllerKeyboard.h@{controllerKeyboard.h}}
+\doxysubsubsection{\texorpdfstring{update\_keys()}{update\_keys()}}
+{\footnotesize\ttfamily int update\+\_\+keys (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scan\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Parses a scan code and determines which key is currently pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+\_\+code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns 0 
+\end{DoxyReturn}

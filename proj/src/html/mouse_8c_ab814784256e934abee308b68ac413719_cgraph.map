@@ -1,0 +1,10 @@
+<map id="kbc_restore_mouse" name="kbc_restore_mouse">
+<area shape="rect" id="Node000001" title="Disables data reporting from the mouse." alt="" coords="5,31,155,56"/>
+<area shape="rect" id="Node000002" href="$mouse_8c.html#a1bf906cc319e1b099f92b7c622f494fb" title="First the 0xD4 command is issued to the status port of the kbc, then command cmd is sent to the kbc o..." alt="" coords="203,31,365,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,41,189,41,189,46,155,46"/>
+<area shape="rect" id="Node000003" href="$mouse_8c.html#adfa7d6c9b92a1a2a14cb567591204033" title="Reads the KBC status bit and checks if output buffer is empty, if so this function issues a command &#39;..." alt="" coords="413,5,559,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,30,399,26,400,31,366,36"/>
+<area shape="rect" id="Node000004" href="$utils__drivers_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="607,31,705,56"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="365,41,593,41,593,46,365,46"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="559,26,594,31,593,37,558,31"/>
+</map>

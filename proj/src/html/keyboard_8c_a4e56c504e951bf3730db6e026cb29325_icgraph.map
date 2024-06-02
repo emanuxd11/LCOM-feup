@@ -1,0 +1,9 @@
+<map id="verify_timeout" name="verify_timeout">
+<area shape="rect" id="Node000001" title="Verifies if there was a timeout error." alt="" coords="387,31,504,56"/>
+<area shape="rect" id="Node000002" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title=" " alt="" coords="225,5,289,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="373,36,289,25,290,20,373,31"/>
+<area shape="rect" id="Node000004" href="$keyboard_8c.html#a47a14ca3f1f28d95f047df9bc622c11e" title="Reads status register to check for erros and if OBF is full, then a scan code is read and placed in c..." alt="" coords="176,55,339,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="373,55,339,60,338,54,373,50"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,21,128,21,128,15,212,15"/>
+</map>

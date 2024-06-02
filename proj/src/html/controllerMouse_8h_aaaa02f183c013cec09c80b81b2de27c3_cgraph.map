@@ -1,0 +1,5 @@
+<map id="stateMachineVLine" name="stateMachineVLine">
+<area shape="rect" id="Node000001" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="5,5,152,31"/>
+<area shape="rect" id="Node000002" href="$controllerMouse_8c.html#a40e32ed3f4a4d6d632f8739325b19831" title="Checks if mouse is moving with positive displacements in the mouse packets, allowing a certain tolera..." alt="" coords="200,5,357,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,15,186,15,186,21,152,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="rtc_get_out" name="rtc_get_out">
+<area shape="rect" id="Node000001" title="Writes value_idx (year, month, day hours, seconds, or minutes selector) to the RTC address register,..." alt="" coords="5,5,100,31"/>
+<area shape="rect" id="Node000002" href="$utils__drivers_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="148,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,15,134,15,134,21,100,21"/>
+</map>

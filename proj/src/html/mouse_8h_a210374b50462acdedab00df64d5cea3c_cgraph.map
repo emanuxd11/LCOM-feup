@@ -1,0 +1,12 @@
+<map id="mouse_ih" name="mouse_ih">
+<area shape="rect" id="Node000001" title="Reads status register when an interrupt occurs and checks for timeout and parity errors,..." alt="" coords="5,92,91,117"/>
+<area shape="rect" id="Node000002" href="$mouse_8c.html#a7740bd988610d35f2a3c2c1c0c7fb798" title="Upon an interrupt this function is called, it reads a byte from the KBC and then places it in the mou..." alt="" coords="139,55,297,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,95,125,89,126,94,91,100"/>
+<area shape="rect" id="Node000005" href="$utils__drivers_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="552,92,651,117"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="91,103,139,105,504,105,538,104,538,109,504,110,139,110,91,109"/>
+<area shape="rect" id="Node000003" href="$mouse_8c.html#afee51d28c7388082c76862f11f44fedc" title="Buids the mouse packet." alt="" coords="361,5,488,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,53,364,32,365,37,291,58"/>
+<area shape="rect" id="Node000004" href="$mouse_8c.html#addafa059c296f73e62410c2c60e11aa4" title="Reads the KBC&#39;s status byte to check if KBC&#39;S output buffer is full, if so, its contents are placed i..." alt="" coords="345,55,504,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="298,73,332,73,332,78,298,78"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="505,86,539,92,538,97,504,91"/>
+</map>

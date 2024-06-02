@@ -1,0 +1,5 @@
+<map id="draw_xpm_single_color" name="draw_xpm_single_color">
+<area shape="rect" id="Node000001" title="Draws a xpm map that&#39;s only one color." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" href="$gpu_8c.html#ad57866c076e7a5fd1a8706005d2676e2" title="Draws a pixel on the screen." alt="" coords="228,5,320,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>

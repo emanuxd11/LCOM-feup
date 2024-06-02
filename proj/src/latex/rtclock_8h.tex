@@ -1,0 +1,164 @@
+\doxysection{drivers/rtclock.h File Reference}
+\hypertarget{rtclock_8h}{}\label{rtclock_8h}\index{drivers/rtclock.h@{drivers/rtclock.h}}
+
+
+Contains some functions to operate the Real Time Clock.  
+
+
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}utils\+\_\+drivers.\+h"{}}\newline
+{\ttfamily \#include "{}../models/\+Datetime.\+h"{}}\newline
+Include dependency graph for rtclock.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{rtclock_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtclock_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a4e22feb6ffbc1cda32fadff5c740dc51}{RTC\+\_\+\+IRQ}}~8
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a710b98232df2c563009e6f8a6cd18220}{RTC\+\_\+\+ADDR\+\_\+\+REG}}~0x70
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a2f258a00c59c3f347c8d2d4a75471ce0}{RTC\+\_\+\+DATA\+\_\+\+REG}}~0x71
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a43f6540c6d3a78b930f9adad56cf7fac}{RTC\+\_\+\+SECONDS}}~0
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_aabc0725ac27ea93c913a2a4d7cd51ac7}{RTC\+\_\+\+MINUTES}}~2
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a4d74cdb9a956c4f1783ad5aff00dc2b8}{RTC\+\_\+\+HOURS}}~4
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a6e0882c70e42da514c015d45620cf63f}{RTC\+\_\+\+WEEKDAY}}~6
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_aedb8cfecdb23157b441ca0118f2dff78}{RTC\+\_\+\+MONTHDAY}}~7
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_abda0c877ee1a02b8351c0cfe72838088}{RTC\+\_\+\+MONTH}}~8
+\item 
+\#define \mbox{\hyperlink{rtclock_8h_a1df5568e6774b73aa4c6e59fc40e9147}{RTC\+\_\+\+YEAR}}~9
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rtclock_8h_ac8236405d80516068c4654e96d73188a}{rtc\+\_\+get\+\_\+out}} (uint8\+\_\+t value\+\_\+idx, uint8\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em Writes value\+\_\+idx (year, month, day hours, seconds, or minutes selector) to the RTC address register, then the RTC\textquotesingle{}s output is placed in output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structDatetime}{Datetime}}() \mbox{\hyperlink{rtclock_8h_ac72d03e3f3dd28ef271d17f47ea0ff63}{rtc\+\_\+read\+\_\+datetime}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current date in datetime format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains some functions to operate the Real Time Clock. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{rtclock_8h_a710b98232df2c563009e6f8a6cd18220}\label{rtclock_8h_a710b98232df2c563009e6f8a6cd18220} 
+\index{rtclock.h@{rtclock.h}!RTC\_ADDR\_REG@{RTC\_ADDR\_REG}}
+\index{RTC\_ADDR\_REG@{RTC\_ADDR\_REG}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_ADDR\_REG}{RTC\_ADDR\_REG}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+ADDR\+\_\+\+REG~0x70}
+
+\Hypertarget{rtclock_8h_a2f258a00c59c3f347c8d2d4a75471ce0}\label{rtclock_8h_a2f258a00c59c3f347c8d2d4a75471ce0} 
+\index{rtclock.h@{rtclock.h}!RTC\_DATA\_REG@{RTC\_DATA\_REG}}
+\index{RTC\_DATA\_REG@{RTC\_DATA\_REG}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_DATA\_REG}{RTC\_DATA\_REG}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+DATA\+\_\+\+REG~0x71}
+
+\Hypertarget{rtclock_8h_a4d74cdb9a956c4f1783ad5aff00dc2b8}\label{rtclock_8h_a4d74cdb9a956c4f1783ad5aff00dc2b8} 
+\index{rtclock.h@{rtclock.h}!RTC\_HOURS@{RTC\_HOURS}}
+\index{RTC\_HOURS@{RTC\_HOURS}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_HOURS}{RTC\_HOURS}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+HOURS~4}
+
+\Hypertarget{rtclock_8h_a4e22feb6ffbc1cda32fadff5c740dc51}\label{rtclock_8h_a4e22feb6ffbc1cda32fadff5c740dc51} 
+\index{rtclock.h@{rtclock.h}!RTC\_IRQ@{RTC\_IRQ}}
+\index{RTC\_IRQ@{RTC\_IRQ}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_IRQ}{RTC\_IRQ}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+IRQ~8}
+
+\Hypertarget{rtclock_8h_aabc0725ac27ea93c913a2a4d7cd51ac7}\label{rtclock_8h_aabc0725ac27ea93c913a2a4d7cd51ac7} 
+\index{rtclock.h@{rtclock.h}!RTC\_MINUTES@{RTC\_MINUTES}}
+\index{RTC\_MINUTES@{RTC\_MINUTES}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_MINUTES}{RTC\_MINUTES}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+MINUTES~2}
+
+\Hypertarget{rtclock_8h_abda0c877ee1a02b8351c0cfe72838088}\label{rtclock_8h_abda0c877ee1a02b8351c0cfe72838088} 
+\index{rtclock.h@{rtclock.h}!RTC\_MONTH@{RTC\_MONTH}}
+\index{RTC\_MONTH@{RTC\_MONTH}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_MONTH}{RTC\_MONTH}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+MONTH~8}
+
+\Hypertarget{rtclock_8h_aedb8cfecdb23157b441ca0118f2dff78}\label{rtclock_8h_aedb8cfecdb23157b441ca0118f2dff78} 
+\index{rtclock.h@{rtclock.h}!RTC\_MONTHDAY@{RTC\_MONTHDAY}}
+\index{RTC\_MONTHDAY@{RTC\_MONTHDAY}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_MONTHDAY}{RTC\_MONTHDAY}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+MONTHDAY~7}
+
+\Hypertarget{rtclock_8h_a43f6540c6d3a78b930f9adad56cf7fac}\label{rtclock_8h_a43f6540c6d3a78b930f9adad56cf7fac} 
+\index{rtclock.h@{rtclock.h}!RTC\_SECONDS@{RTC\_SECONDS}}
+\index{RTC\_SECONDS@{RTC\_SECONDS}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_SECONDS}{RTC\_SECONDS}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+SECONDS~0}
+
+\Hypertarget{rtclock_8h_a6e0882c70e42da514c015d45620cf63f}\label{rtclock_8h_a6e0882c70e42da514c015d45620cf63f} 
+\index{rtclock.h@{rtclock.h}!RTC\_WEEKDAY@{RTC\_WEEKDAY}}
+\index{RTC\_WEEKDAY@{RTC\_WEEKDAY}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_WEEKDAY}{RTC\_WEEKDAY}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+WEEKDAY~6}
+
+\Hypertarget{rtclock_8h_a1df5568e6774b73aa4c6e59fc40e9147}\label{rtclock_8h_a1df5568e6774b73aa4c6e59fc40e9147} 
+\index{rtclock.h@{rtclock.h}!RTC\_YEAR@{RTC\_YEAR}}
+\index{RTC\_YEAR@{RTC\_YEAR}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_YEAR}{RTC\_YEAR}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+YEAR~9}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rtclock_8h_ac8236405d80516068c4654e96d73188a}\label{rtclock_8h_ac8236405d80516068c4654e96d73188a} 
+\index{rtclock.h@{rtclock.h}!rtc\_get\_out@{rtc\_get\_out}}
+\index{rtc\_get\_out@{rtc\_get\_out}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_get\_out()}{rtc\_get\_out()}}
+{\footnotesize\ttfamily int rtc\+\_\+get\+\_\+out (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value\+\_\+idx,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{output }\end{DoxyParamCaption})}
+
+
+
+Writes value\+\_\+idx (year, month, day hours, seconds, or minutes selector) to the RTC address register, then the RTC\textquotesingle{}s output is placed in output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value\+\_\+idx} & selector \\
+\hline
+{\em output} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{rtclock_8h_ac72d03e3f3dd28ef271d17f47ea0ff63}\label{rtclock_8h_ac72d03e3f3dd28ef271d17f47ea0ff63} 
+\index{rtclock.h@{rtclock.h}!rtc\_read\_datetime@{rtc\_read\_datetime}}
+\index{rtc\_read\_datetime@{rtc\_read\_datetime}!rtclock.h@{rtclock.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_read\_datetime()}{rtc\_read\_datetime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDatetime}{Datetime}}() rtc\+\_\+read\+\_\+datetime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current date in datetime format. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{structDatetime}{Datetime} 
+\end{DoxyReturn}

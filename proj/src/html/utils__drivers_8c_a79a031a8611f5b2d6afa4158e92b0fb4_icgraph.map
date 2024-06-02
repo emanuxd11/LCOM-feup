@@ -1,0 +1,42 @@
+<map id="util_sys_inb" name="util_sys_inb">
+<area shape="rect" id="Node000001" title=" " alt="" coords="795,231,893,256"/>
+<area shape="rect" id="Node000002" href="$keyboard_8c.html#ad1aea13bf0ea62bbb9cfdd92461572c1" title=" " alt="" coords="612,5,719,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="835,218,824,179,806,132,780,85,745,44,718,29,720,25,748,40,785,82,811,130,829,177,840,216"/>
+<area shape="rect" id="Node000003" href="$keyboard_8c.html#a9ca8ff761d6f9da3a1d1a99dcda26d49" title="Enables keyboard interrupts." alt="" coords="597,55,733,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="831,219,799,156,775,122,745,93,725,82,728,78,748,89,779,119,803,153,836,217"/>
+<area shape="rect" id="Node000004" href="$mouse_8c.html#adfa7d6c9b92a1a2a14cb567591204033" title="Reads the KBC status bit and checks if output buffer is empty, if so this function issues a command &#39;..." alt="" coords="593,104,738,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="821,221,788,186,745,151,707,132,709,127,748,146,791,182,825,218"/>
+<area shape="rect" id="Node000005" href="$mouse_8c.html#a1bf906cc319e1b099f92b7c622f494fb" title="First the 0xD4 command is issued to the status port of the kbc, then command cmd is sent to the kbc o..." alt="" coords="373,155,536,180"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="807,227,746,202,692,190,637,181,536,172,536,167,638,176,693,184,747,197,809,222"/>
+<area shape="rect" id="Node000008" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title=" " alt="" coords="219,256,283,281"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="781,244,598,243,486,246,374,253,283,265,282,260,373,247,486,241,598,238,781,239"/>
+<area shape="rect" id="Node000009" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title="Reads status register when an interrupt occurs and checks for timeout and parity errors,..." alt="" coords="208,305,293,331"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="781,251,598,268,374,297,294,311,293,306,373,291,598,263,781,246"/>
+<area shape="rect" id="Node000010" href="$mouse_8c.html#addafa059c296f73e62410c2c60e11aa4" title="Reads the KBC&#39;s status byte to check if KBC&#39;S output buffer is full, if so, its contents are placed i..." alt="" coords="586,306,745,346"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="804,264,711,308,708,303,802,259"/>
+<area shape="rect" id="Node000012" href="$keyboard_8c.html#a47a14ca3f1f28d95f047df9bc622c11e" title="Reads status register to check for erros and if OBF is full, then a scan code is read and placed in c..." alt="" coords="584,371,747,396"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="831,269,797,315,774,339,748,360,723,373,720,368,745,356,770,335,793,312,826,266"/>
+<area shape="rect" id="Node000013" href="$rtclock_8c.html#a05e4bc7b0a1d6a1f938e245f31f886fc" title="Writes value_idx (year, month, day hours, seconds, or minutes selector) to the RTC address register,..." alt="" coords="618,420,713,445"/>
+<area shape="poly" id="edge17_Node000001_Node000013" title=" " alt="" coords="837,270,805,339,780,377,748,409,714,427,712,422,745,405,776,374,801,336,832,268"/>
+<area shape="rect" id="Node000016" href="$timer_8c.html#a703c60b40c8c49607d6ecb6fef82d27a" title=" " alt="" coords="605,469,725,495"/>
+<area shape="poly" id="edge21_Node000001_Node000016" title=" " alt="" coords="841,270,831,312,813,363,786,415,769,439,748,460,727,473,724,468,745,456,765,435,782,412,808,361,826,310,836,269"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="599,135,509,157,507,152,598,130"/>
+<area shape="rect" id="Node000006" href="$mouse_8c.html#ab814784256e934abee308b68ac413719" title="Disables data reporting from the mouse." alt="" coords="176,155,325,180"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="360,170,325,170,325,165,360,165"/>
+<area shape="rect" id="Node000007" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,281,128,307"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="383,186,284,211,177,246,93,284,91,279,175,241,283,206,382,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="203,188,177,202,123,244,82,283,78,279,119,240,175,197,200,183"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="205,278,129,288,128,283,205,272"/>
+<area shape="poly" id="edge12_Node000009_Node000007" title=" " alt="" coords="194,313,128,305,129,299,195,308"/>
+<area shape="rect" id="Node000011" href="$mouse_8c.html#a7740bd988610d35f2a3c2c1c0c7fb798" title="Upon an interrupt this function is called, it reads a byte from the KBC and then places it in the mou..." alt="" coords="375,306,534,346"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="572,329,534,329,534,323,572,323"/>
+<area shape="poly" id="edge15_Node000011_Node000009" title=" " alt="" coords="361,325,293,322,293,317,361,320"/>
+<area shape="rect" id="Node000014" href="$rtclock_8c.html#ac72d03e3f3dd28ef271d17f47ea0ff63" title="Returns the current date in datetime format." alt="" coords="384,383,525,408"/>
+<area shape="poly" id="edge18_Node000013_Node000014" title=" " alt="" coords="604,425,525,410,526,405,605,419"/>
+<area shape="rect" id="Node000015" href="$Game_8c.html#af575de97af74ae3a94cf06746ed5db45" title="updates game time with RTC&#39;s time" alt="" coords="181,359,320,384"/>
+<area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="369,388,320,382,320,377,370,383"/>
+<area shape="poly" id="edge20_Node000015_Node000007" title=" " alt="" coords="203,356,175,344,95,309,97,304,177,340,205,351"/>
+<area shape="rect" id="Node000017" href="$timer_8c.html#af2c04fa8e97ffa748fd3f612886a92a7" title=" " alt="" coords="377,456,533,481"/>
+<area shape="poly" id="edge22_Node000016_Node000017" title=" " alt="" coords="591,480,533,476,533,471,592,475"/>
+<area shape="poly" id="edge23_Node000017_Node000007" title=" " alt="" coords="363,459,270,437,221,419,175,398,144,377,116,352,76,308,80,305,119,348,147,373,177,393,223,415,271,432,364,454"/>
+</map>

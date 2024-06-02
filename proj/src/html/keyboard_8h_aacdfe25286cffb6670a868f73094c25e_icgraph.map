@@ -1,0 +1,11 @@
+<map id="verify_obf" name="verify_obf">
+<area shape="rect" id="Node000001" title="Verifies if output buffer is full." alt="" coords="387,55,473,80"/>
+<area shape="rect" id="Node000002" href="$keyboard_8c.html#ad1aea13bf0ea62bbb9cfdd92461572c1" title=" " alt="" coords="204,5,311,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="373,54,302,33,303,28,374,49"/>
+<area shape="rect" id="Node000003" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title=" " alt="" coords="225,55,289,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="373,70,290,70,290,65,373,65"/>
+<area shape="rect" id="Node000005" href="$keyboard_8c.html#a47a14ca3f1f28d95f047df9bc622c11e" title="Reads status register to check for erros and if OBF is full, then a scan code is read and placed in c..." alt="" coords="176,104,339,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="374,86,303,106,302,101,373,81"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,55,128,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="212,70,128,70,128,65,212,65"/>
+</map>

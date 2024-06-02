@@ -37,4 +37,6 @@ int drawCat(Entity *entity);
 
 int drawMouse(int x, int y);
 
+int drawPetting(Game* game);
+
 #endif

@@ -15,23 +15,20 @@ CatInfo* newCatInfo() {
     switch (randomNumer(0, 4))
     {
     case 0:
-        color = ORANGE_CAT;
+        color = RED_CAT;
         break;
 
     case 1:
-        color = WHITE_CAT;
+        color = BROWN_CAT;
         break;
 
     case 2:
-        color = BLACK_CAT;
+        color = BLUE_CAT;
         break;
 
     case 3:
         color = GRAY_CAT;
         break;
-
-    case 4:
-        color = BROWN_CAT;
 
     default:
         color = ORANGE_CAT;

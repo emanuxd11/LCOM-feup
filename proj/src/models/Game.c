@@ -227,13 +227,11 @@ int petting_helper_on_timer_int(Game* game) {
       //removeCat(game->room, selectedCat);
       selectedCat = NULL;
       // add 1 to score
-      printf("SUCESS\n");
       break;
 
     case FAIL:
       cat_petting_state = INIT;
       // start petCountdown
-      printf("FAIL\n");
       break;
 
     default:

@@ -1,7 +1,7 @@
 #include "controllerMouse.h"
 int delta_x_sum=0,delta_y_sum=0;
 bool hasLeftClick = false;
-mouseState state = INIT;
+mouseState cat_petting_state = INIT;
 
 
 bool mouse_is_descending(int16_t tolerance){
@@ -51,34 +51,34 @@ bool mouse_is_ascending(uint8_t tolerance){
 
 
 void stateMachineInvertedV(int tolerance, int x_len){
-  switch(state){
+  switch(cat_petting_state){
     case INIT:
       delta_x_sum=0;
       delta_y_sum=0;
 
 
       if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
-        state = DUP;
+        cat_petting_state = DUP;
       }
 
       break;
 
       case DUP:
         if(mouse_packet.rb || mouse_packet.mb){
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
         if(mouse_is_ascending(tolerance)){
-          state = DUP;
+          cat_petting_state = DUP;
 
           if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
-            state = VERTEX;
+            cat_petting_state = VERTEX;
             if(delta_x_sum < x_len || (float) abs(delta_y_sum)/(float) abs(delta_x_sum) < 0.5 || delta_y_sum< 0){
               if( delta_x_sum==0 && delta_y_sum==0){ //when cats are clicked, avoid failing
-                state = INIT;
+                cat_petting_state = INIT;
                }
 
               else{
-              state = FAIL;
+              cat_petting_state = FAIL;
               }
             }
             delta_x_sum=0;
@@ -87,7 +87,7 @@ void stateMachineInvertedV(int tolerance, int x_len){
         }
         
         else{
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
 
         break;
@@ -96,14 +96,14 @@ void stateMachineInvertedV(int tolerance, int x_len){
 
 
       if(delta_x_sum > tolerance || delta_y_sum > tolerance){
-              state = FAIL;
+              cat_petting_state = FAIL;
             }
 
 
         if(mouse_packet.lb){
           delta_x_sum= 0;
           delta_y_sum = 0;
-          state = DDOWN;
+          cat_petting_state = DDOWN;
         }
       
 
@@ -111,22 +111,22 @@ void stateMachineInvertedV(int tolerance, int x_len){
 
       case DDOWN:
         if(mouse_packet.rb || mouse_packet.mb){
-          state =  FAIL;
+          cat_petting_state =  FAIL;
         }
         if(mouse_is_descending(tolerance)){
 
-          state = DDOWN;
+          cat_petting_state = DDOWN;
 
           if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-            state = SUCCESS;
+            cat_petting_state = SUCCESS;
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
-              state = FAIL;
+              cat_petting_state = FAIL;
             }
           }
         }
         else{
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
 
         break;
@@ -149,37 +149,37 @@ void stateMachineInvertedV(int tolerance, int x_len){
 
 
 void stateMachineV(int tolerance, int x_len){
-  switch(state){
+  switch(cat_petting_state){
       case INIT:
         delta_x_sum=0;
         delta_y_sum=0;
 
 
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
-          state = DDOWN;
+          cat_petting_state = DDOWN;
         }
 
         break;
 
       case DDOWN:
         if(mouse_packet.rb || mouse_packet.mb){
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
 
         if(mouse_is_descending(tolerance)){
-          state = DDOWN;
+          cat_petting_state = DDOWN;
 
           if(!mouse_packet.rb && !mouse_packet.mb && !mouse_packet.lb){
             
-            state = VERTEX;
+            cat_petting_state = VERTEX;
             if(delta_x_sum < x_len || (float) abs(delta_y_sum)/(float) abs(delta_x_sum) < 0.5 || delta_y_sum> 0){
               
               if( delta_x_sum==0 && delta_y_sum==0){ //when cats are clicked, avoid failing
-                state = INIT;
+                cat_petting_state = INIT;
                }
 
               else{
-              state = FAIL;
+              cat_petting_state = FAIL;
               }
             }
             delta_x_sum=0;
@@ -189,7 +189,7 @@ void stateMachineV(int tolerance, int x_len){
 
         else{
 
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
 
         break;
@@ -197,16 +197,16 @@ void stateMachineV(int tolerance, int x_len){
       case DUP:
 
         if(mouse_packet.rb || mouse_packet.mb){
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
         if(mouse_is_ascending(tolerance)){
-          state = DUP;
+          cat_petting_state = DUP;
 
           if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-            state = SUCCESS;
+            cat_petting_state = SUCCESS;
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
-              state = FAIL;
+              cat_petting_state = FAIL;
             }
           }
 
@@ -214,7 +214,7 @@ void stateMachineV(int tolerance, int x_len){
         }
         
         else{
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
 
         break;
@@ -223,14 +223,14 @@ void stateMachineV(int tolerance, int x_len){
 
 
         if(delta_x_sum > tolerance || delta_y_sum > tolerance){
-          state = FAIL;
+          cat_petting_state = FAIL;
         }
 
 
         if(mouse_packet.lb){
           delta_x_sum= 0;
           delta_y_sum = 0;
-          state = DUP;
+          cat_petting_state = DUP;
         }
       
 
@@ -257,14 +257,14 @@ void stateMachineV(int tolerance, int x_len){
 
 
 void stateMachineVLine(int tolerance, int y_len){
-  switch(state){
+  switch(cat_petting_state){
     case INIT:
 
         delta_x_sum=0;
         delta_y_sum=0;
 
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
-          state = DUP;
+          cat_petting_state = DUP;
         }
 
     break;
@@ -272,25 +272,25 @@ void stateMachineVLine(int tolerance, int y_len){
     case DUP:
 
       if(mouse_packet.rb || mouse_packet.mb){
-        state = FAIL;
+        cat_petting_state = FAIL;
       }
 
       if(mouse_is_ascending(tolerance)){
-        state = DUP;
+        cat_petting_state = DUP;
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-          state = SUCCESS;
+          cat_petting_state = SUCCESS;
 
           if(abs(delta_y_sum) < y_len || ((float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 0.1) ){
             
-            state = FAIL;
+            cat_petting_state = FAIL;
           }
         }
 
       }
 
       else{
-        state = FAIL;
+        cat_petting_state = FAIL;
       }
 
     break;
@@ -312,14 +312,14 @@ void stateMachineVLine(int tolerance, int y_len){
 }
 
 void stateMachineHLine (int tolerance, int x_len){
-  switch(state){
+  switch(cat_petting_state){
     case INIT:
 
         delta_x_sum=0;
         delta_y_sum=0;
 
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
-          state = DSIDE;
+          cat_petting_state = DSIDE;
         }
 
     break;
@@ -327,30 +327,30 @@ void stateMachineHLine (int tolerance, int x_len){
     case DSIDE:
 
       if(mouse_packet.rb || mouse_packet.mb){
-        state = FAIL;
+        cat_petting_state = FAIL;
       }
 
       if(mouse_is_ascending(tolerance) || mouse_is_descending(tolerance)){
-        state = DSIDE;
+        cat_petting_state = DSIDE;
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-          state = SUCCESS;
+          cat_petting_state = SUCCESS;
 
           if(abs(delta_x_sum) < x_len || ((float) abs(delta_y_sum)/(float) abs(delta_x_sum) >= 0.1 )){
-            state = INIT;
+            cat_petting_state = INIT;
           }
         }
 
       }
 
       else{
-        state = INIT;
+        cat_petting_state = INIT;
       }
 
     break;
 
     case FAIL:
-      state = FAIL;
+      cat_petting_state = FAIL;
     break;
 
     case SUCCESS:
@@ -367,14 +367,14 @@ void stateMachineHLine (int tolerance, int x_len){
 }
 
 void stateMachineDLine(int tolerance, int y_len){
-  switch(state){
+  switch(cat_petting_state){
     case INIT:
 
         delta_x_sum=0;
         delta_y_sum=0;
 
         if(mouse_packet.lb && !mouse_packet.rb && !mouse_packet.mb){ 
-          state = DUP;
+          cat_petting_state = DUP;
         }
 
     break;
@@ -382,25 +382,25 @@ void stateMachineDLine(int tolerance, int y_len){
     case DUP:
 
       if(mouse_packet.rb || mouse_packet.mb){
-        state = FAIL;
+        cat_petting_state = FAIL;
       }
 
       if(mouse_is_ascending(tolerance)){
-        state = DUP;
+        cat_petting_state = DUP;
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-          state = SUCCESS;
+          cat_petting_state = SUCCESS;
 
           if(abs(delta_y_sum) < y_len || (float) abs(delta_x_sum)/(float) abs(delta_y_sum) <= 0.8 || (float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 1.5 ) {
             
-            state = FAIL;
+            cat_petting_state = FAIL;
           }
         }
 
       }
 
       else{
-        state = FAIL;
+        cat_petting_state = FAIL;
       }
 
     break;

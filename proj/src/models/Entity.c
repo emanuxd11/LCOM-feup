@@ -2,6 +2,7 @@
 #include "CatInfo.h"
 #include <math.h>
 #include "../utils/utils.h"
+#include "PlayerInfo.h"
 
 Entity* newPlayer(int x, int y){
     Entity *entity = (Entity*) malloc(sizeof(Entity));
@@ -13,7 +14,7 @@ Entity* newPlayer(int x, int y){
     entity->direction = 0;
 
     entity->type = PLAYER;
-    entity->typeInfo = NULL;
+    entity->typeInfo = newPlayerInfo();
 
     return entity;
 }

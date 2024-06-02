@@ -13,10 +13,6 @@ int (rtc_get_out)(uint8_t value_idx, uint8_t *output) {
   return 0;
 }
 
-int (rtc_write)(uint8_t data) {
-  // not implemented for now
-  return 1;
-}
 
 /*
   Bug estranho, por algum motivo, se suspender o PC, quando voltar a abrir, a hora que vem do RTC

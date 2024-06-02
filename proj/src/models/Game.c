@@ -25,6 +25,7 @@ Game *createNewGame() {
   // game->state = MENU_STATE;
   game->state = GAME_STATE;
   game->room = newRoom();
+  game->counter = 0;
   return game;
 }
 

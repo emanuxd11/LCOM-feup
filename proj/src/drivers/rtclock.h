@@ -1,3 +1,11 @@
+/**
+ * @file rtclock.h
+ * @brief Contains some functions to operate the Real Time Clock
+ * @date 2024-06-02
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #ifndef _RTCLOCK_H_
 #define _RTCLOCK_H_
 
@@ -20,9 +28,19 @@
 #define RTC_MONTH 8
 #define RTC_YEAR 9
 
-
-int (rtc_get_out)(uint8_t value_idx, uint8_t *output);
-int (rtc_write)(uint8_t data);
+/**
+ * @brief Writes value_idx (year, month, day hours, seconds, or minutes selector) to the RTC address register, then the RTC's output is placed in output
+ * 
+ * @param value_idx selector
+ * @param output 
+ * @return 0 upon success, 1 otherwise 
+ */
+int rtc_get_out(uint8_t value_idx, uint8_t *output);
+/**
+ * @brief Returns the current date in datetime format
+ * 
+ * @return Datetime 
+ */
 Datetime (rtc_read_datetime)();
 
 #endif

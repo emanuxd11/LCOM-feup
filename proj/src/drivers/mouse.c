@@ -84,7 +84,6 @@ int read_data_from_KBC_mouse(uint8_t *data) {
 
   while( attempts != 0) {
     if (util_sys_inb(STATUS_PORT, &stat) != 0) {
-      printf("Error reading statys reg!");
       return 1;
     }
     if (stat & (BIT(0))) {

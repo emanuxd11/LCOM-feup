@@ -126,8 +126,6 @@ int drawGamePlaying(Game *game) {
   if (drawSky()) return 1;
   if (drawClouds(game->room->clouds)) return 1;
 
-  if (draw_text("0123456789\n\n0 1 2 3 4 5 6 7 8 9\n\nexample score 99", 80, 200, 0) != 0) return 1;
-
     // Cats drawing
 
     for (int i = 0; i < 10; i++) {
@@ -136,6 +134,11 @@ int drawGamePlaying(Game *game) {
 
   // Player drawing
   if (draw_xpm((xpm_map_t) front, game->room->player->position->x, game->room->player->position->y) != 0) return 1;
+
+  char f_str[5];
+  sprintf(f_str, "%d", game->counter);
+
+  if (draw_text(f_str, 0, 0, 0));
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
     printf("Error drawing mouse");

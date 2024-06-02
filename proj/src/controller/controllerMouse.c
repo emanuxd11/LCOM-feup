@@ -118,7 +118,7 @@ void stateMachineInvertedV(int tolerance, int x_len){
           state = DDOWN;
 
           if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-            state = END;
+            state = SUCCESS;
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
               state = FAIL;
@@ -134,7 +134,7 @@ void stateMachineInvertedV(int tolerance, int x_len){
       case FAIL:
       break;
 
-      case END:
+      case SUCCESS:
       break;
 
       default:break;
@@ -203,7 +203,7 @@ void stateMachineV(int tolerance, int x_len){
           state = DUP;
 
           if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-            state = END;
+            state = SUCCESS;
 
             if(delta_x_sum < x_len || (abs(delta_y_sum) / abs(delta_x_sum)) < 1){
               state = FAIL;
@@ -241,7 +241,7 @@ void stateMachineV(int tolerance, int x_len){
       case FAIL:
       break;
 
-      case END:
+      case SUCCESS:
       break;
 
       default:break;
@@ -279,7 +279,7 @@ void stateMachineVLine(int tolerance, int y_len){
         state = DUP;
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-          state = END;
+          state = SUCCESS;
 
           if(abs(delta_y_sum) < y_len || ((float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 0.1) ){
             
@@ -298,7 +298,7 @@ void stateMachineVLine(int tolerance, int y_len){
     case FAIL:
     break;
 
-    case END:
+    case SUCCESS:
     break;
 
     default:
@@ -334,7 +334,7 @@ void stateMachineHLine (int tolerance, int x_len){
         state = DSIDE;
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-          state = END;
+          state = SUCCESS;
 
           if(abs(delta_x_sum) < x_len || ((float) abs(delta_y_sum)/(float) abs(delta_x_sum) >= 0.1 )){
             state = INIT;
@@ -353,7 +353,7 @@ void stateMachineHLine (int tolerance, int x_len){
       state = FAIL;
     break;
 
-    case END:
+    case SUCCESS:
     break;
 
     default:
@@ -389,7 +389,7 @@ void stateMachineDLine(int tolerance, int y_len){
         state = DUP;
 
         if(!mouse_packet.lb && !mouse_packet.mb && !mouse_packet.rb){
-          state = END;
+          state = SUCCESS;
 
           if(abs(delta_y_sum) < y_len || (float) abs(delta_x_sum)/(float) abs(delta_y_sum) <= 0.8 || (float) abs(delta_x_sum)/(float) abs(delta_y_sum) >= 1.5 ) {
             
@@ -409,7 +409,7 @@ void stateMachineDLine(int tolerance, int y_len){
 
     break;
 
-    case END:
+    case SUCCESS:
 
     break;
 

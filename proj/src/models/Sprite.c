@@ -5,31 +5,10 @@
 
 Sprite characters[CHAR_COUNT];
 
-Sprite mc_back;
-Sprite mc_front;
-Sprite mc_left;
-Sprite mc_right;
-
 Sprite menu_instructions;
 Sprite menu_logo;
 Sprite menu_play_game;
 Sprite menu_quit;
-
-Sprite cat0_sprite;
-Sprite cat1_sprite;
-Sprite cat2_sprite;
-Sprite cat3_sprite;
-Sprite cat4_sprite;
-
-Sprite mouse_sprite;
-
-Sprite cloud_sprite;
-
-Sprite state_machine0_sprite;
-Sprite state_machine1_sprite;
-Sprite state_machine2_sprite;
-Sprite state_machine3_sprite;
-Sprite state_machine4_sprite;
 
 
 Sprite load_generic_sprite(xpm_map_t xpm_map) {
@@ -43,7 +22,6 @@ Sprite load_generic_sprite(xpm_map_t xpm_map) {
 
   sprite.width = img.width;
   sprite.height = img.height;
-  // sprite.sprite = sprite;
 
   return sprite;
 }
@@ -51,16 +29,6 @@ Sprite load_generic_sprite(xpm_map_t xpm_map) {
 int load_char_sprites() {
 
   for (int i = 0; i < character_count; i++) {
-    // xpm_image_t img; 
-    // uint8_t *sprite = xpm_load(xpm_map_characters[i], XPM_INDEXED, &img);
-    // if (sprite == NULL) {
-    //   printf("load_chars(): error loading character xpms\n");
-    //   return 1;
-    // }
-
-    // characters[i].width = img.width;
-    // characters[i].height = img.height;
-    // characters[i].sprite = sprite;
     characters[i] = load_generic_sprite(xpm_map_characters[i]);
     if (characters[i].sprite == NULL) {
       printf("load_char_sprites(): error loading character sprite\n");
@@ -97,29 +65,5 @@ int load_menu_sprites() {
     return 1;
   }
 
-  return 0;
-}
-
-int load_state_machine_sprites() {
-  return 0;
-}
-
-int load_cloud_sprites() {
-  return 0;
-}
-
-int load_cat_sprites() {
-  return 0;
-}
-
-int load_mouse_sprites() {
-  return 0;
-}
-
-int load_main_character_sprites() {
-  return 0;
-}
-
-int load_all_sprites() {
   return 0;
 }

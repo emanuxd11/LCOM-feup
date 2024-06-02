@@ -88,10 +88,10 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
  */
 int (draw_xpm_single_color)(xpm_map_t xpm, uint16_t x, uint16_t y, uint32_t color);
 /**
- * @brief Get the char xpm idx object
+ * @brief Get the index of a character sprite
  * 
- * @param ch 
- * @return int 
+ * @param ch selected character
+ * @return the index if found, 0 if not found 
  */
 int (get_char_xpm_idx)(char ch);
 /**

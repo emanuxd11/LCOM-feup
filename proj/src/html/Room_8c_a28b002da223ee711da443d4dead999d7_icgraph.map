@@ -1,0 +1,7 @@
+<map id="deleteRoom" name="deleteRoom">
+<area shape="rect" id="Node000001" title="Deletes a previously created room." alt="" coords="327,5,428,31"/>
+<area shape="rect" id="Node000002" href="$Game_8c.html#ac6f1c791e766ba56f4c4df48cdaa28b7" title="Deletes allocated memory space for previously created game." alt="" coords="176,5,279,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,21,279,21,279,15,313,15"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="162,21,128,21,128,15,162,15"/>
+</map>

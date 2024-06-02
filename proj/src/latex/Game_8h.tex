@@ -1,0 +1,213 @@
+\doxysection{models/\+Game.h File Reference}
+\hypertarget{Game_8h}{}\label{Game_8h}\index{models/Game.h@{models/Game.h}}
+
+
+This file contains functions to control the movement of every game entity.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}../models/\+Room.\+h"{}}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}../drivers/utils\+\_\+drivers.\+h"{}}\newline
+{\ttfamily \#include "{}../drivers/rtclock.\+h"{}}\newline
+{\ttfamily \#include "{}Cloud.\+h"{}}\newline
+{\ttfamily \#include "{}Datetime.\+h"{}}\newline
+Include dependency graph for Game.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGame}{Game}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \{ \newline
+\mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a2c2c87fb79768cd6e3d922df6f500cac}{MENU\+\_\+\+STATE}}
+, \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285ae07d0fb3d06a8c0fe90def87455acb2d}{GAME\+\_\+\+STATE}}
+, \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a8f7c27d86416781b338db5e83e5bc98e}{PET\+\_\+\+STATE}}
+, \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a636f2948e51dd85e1cbbb6503ad6bbf5}{INSTRUCTIONS\+\_\+\+STATE}}
+, \newline
+\mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a340ef8f4b595ca5849dc26e6f45b44d1}{LEAVE\+\_\+\+STATE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Game_8h_a2e2c951a9633896ad4506f9e69475e5b}{create\+New\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Game_8h_ac6f1c791e766ba56f4c4df48cdaa28b7}{delete\+Game}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Deletes allocated memory space for previously created game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8h_a8c8dad7e3909c74db13e96e4223f7320}{control\+\_\+game}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Manages game states and calls entity control functions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8h_a739492ba70d531d18b0e5080efd959f5}{control\+\_\+player}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Controls player\textquotesingle{}s movement direction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8h_a1ae134faab2ad00f9b5d83a36ed0fa2d}{control\+\_\+cat}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}cat)
+\item 
+void \mbox{\hyperlink{Game_8h_ad8412320b3fd3f1ce9e63fb41d895ce9}{move\+Entity}} (\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity, \mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}room)
+\begin{DoxyCompactList}\small\item\em Moves entity to previously defined (future)position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Game_8h_af575de97af74ae3a94cf06746ed5db45}{update\+Game\+Time}} ()
+\begin{DoxyCompactList}\small\item\em updates game time with RTC\textquotesingle{}s time \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains functions to control the movement of every game entity. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285}\label{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285} 
+\index{Game.h@{Game.h}!GameState@{GameState}}
+\index{GameState@{GameState}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MENU\_STATE@{MENU\_STATE}!Game.h@{Game.h}}\index{Game.h@{Game.h}!MENU\_STATE@{MENU\_STATE}}}\Hypertarget{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a2c2c87fb79768cd6e3d922df6f500cac}\label{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a2c2c87fb79768cd6e3d922df6f500cac} 
+MENU\+\_\+\+STATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAME\_STATE@{GAME\_STATE}!Game.h@{Game.h}}\index{Game.h@{Game.h}!GAME\_STATE@{GAME\_STATE}}}\Hypertarget{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285ae07d0fb3d06a8c0fe90def87455acb2d}\label{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285ae07d0fb3d06a8c0fe90def87455acb2d} 
+GAME\+\_\+\+STATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PET\_STATE@{PET\_STATE}!Game.h@{Game.h}}\index{Game.h@{Game.h}!PET\_STATE@{PET\_STATE}}}\Hypertarget{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a8f7c27d86416781b338db5e83e5bc98e}\label{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a8f7c27d86416781b338db5e83e5bc98e} 
+PET\+\_\+\+STATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSTRUCTIONS\_STATE@{INSTRUCTIONS\_STATE}!Game.h@{Game.h}}\index{Game.h@{Game.h}!INSTRUCTIONS\_STATE@{INSTRUCTIONS\_STATE}}}\Hypertarget{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a636f2948e51dd85e1cbbb6503ad6bbf5}\label{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a636f2948e51dd85e1cbbb6503ad6bbf5} 
+INSTRUCTIONS\+\_\+\+STATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEAVE\_STATE@{LEAVE\_STATE}!Game.h@{Game.h}}\index{Game.h@{Game.h}!LEAVE\_STATE@{LEAVE\_STATE}}}\Hypertarget{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a340ef8f4b595ca5849dc26e6f45b44d1}\label{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a340ef8f4b595ca5849dc26e6f45b44d1} 
+LEAVE\+\_\+\+STATE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Game_8h_a1ae134faab2ad00f9b5d83a36ed0fa2d}\label{Game_8h_a1ae134faab2ad00f9b5d83a36ed0fa2d} 
+\index{Game.h@{Game.h}!control\_cat@{control\_cat}}
+\index{control\_cat@{control\_cat}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{control\_cat()}{control\_cat()}}
+{\footnotesize\ttfamily int control\+\_\+cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{cat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+{\em cat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{Game_8h_a8c8dad7e3909c74db13e96e4223f7320}\label{Game_8h_a8c8dad7e3909c74db13e96e4223f7320} 
+\index{Game.h@{Game.h}!control\_game@{control\_game}}
+\index{control\_game@{control\_game}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{control\_game()}{control\_game()}}
+{\footnotesize\ttfamily int control\+\_\+game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Manages game states and calls entity control functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & current game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns 0 
+\end{DoxyReturn}
+\Hypertarget{Game_8h_a739492ba70d531d18b0e5080efd959f5}\label{Game_8h_a739492ba70d531d18b0e5080efd959f5} 
+\index{Game.h@{Game.h}!control\_player@{control\_player}}
+\index{control\_player@{control\_player}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{control\_player()}{control\_player()}}
+{\footnotesize\ttfamily int control\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Controls player\textquotesingle{}s movement direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & current game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns 0 
+\end{DoxyReturn}
+\Hypertarget{Game_8h_a2e2c951a9633896ad4506f9e69475e5b}\label{Game_8h_a2e2c951a9633896ad4506f9e69475e5b} 
+\index{Game.h@{Game.h}!createNewGame@{createNewGame}}
+\index{createNewGame@{createNewGame}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{createNewGame()}{createNewGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*} create\+New\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new game. 
+
+\begin{DoxyReturn}{Returns}
+pointer to game 
+\end{DoxyReturn}
+\Hypertarget{Game_8h_ac6f1c791e766ba56f4c4df48cdaa28b7}\label{Game_8h_ac6f1c791e766ba56f4c4df48cdaa28b7} 
+\index{Game.h@{Game.h}!deleteGame@{deleteGame}}
+\index{deleteGame@{deleteGame}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{deleteGame()}{deleteGame()}}
+{\footnotesize\ttfamily void delete\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Deletes allocated memory space for previously created game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & pointer to game to be deleted \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Game_8h_ad8412320b3fd3f1ce9e63fb41d895ce9}\label{Game_8h_ad8412320b3fd3f1ce9e63fb41d895ce9} 
+\index{Game.h@{Game.h}!moveEntity@{moveEntity}}
+\index{moveEntity@{moveEntity}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{moveEntity()}{moveEntity()}}
+{\footnotesize\ttfamily void move\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity,  }\item[{\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}}]{room }\end{DoxyParamCaption})}
+
+
+
+Moves entity to previously defined (future)position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & entity to move \\
+\hline
+{\em room} & current room \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Game_8h_af575de97af74ae3a94cf06746ed5db45}\label{Game_8h_af575de97af74ae3a94cf06746ed5db45} 
+\index{Game.h@{Game.h}!updateGameTime@{updateGameTime}}
+\index{updateGameTime@{updateGameTime}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{updateGameTime()}{updateGameTime()}}
+{\footnotesize\ttfamily void update\+Game\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+updates game time with RTC\textquotesingle{}s time 
+

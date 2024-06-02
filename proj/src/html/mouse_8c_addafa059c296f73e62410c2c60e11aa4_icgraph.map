@@ -1,0 +1,9 @@
+<map id="read_data_from_KBC_mouse" name="read_data_from_KBC_mouse">
+<area shape="rect" id="Node000001" title="Reads the KBC&#39;s status byte to check if KBC&#39;S output buffer is full, if so, its contents are placed i..." alt="" coords="516,5,675,45"/>
+<area shape="rect" id="Node000002" href="$mouse_8c.html#a7740bd988610d35f2a3c2c1c0c7fb798" title="Upon an interrupt this function is called, it reads a byte from the KBC and then places it in the mou..." alt="" coords="309,5,468,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="502,28,468,28,468,23,502,23"/>
+<area shape="rect" id="Node000003" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title="Reads status register when an interrupt occurs and checks for timeout and parity errors,..." alt="" coords="176,13,261,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,28,262,28,262,23,296,23"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,13,128,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="162,28,128,28,128,23,162,23"/>
+</map>

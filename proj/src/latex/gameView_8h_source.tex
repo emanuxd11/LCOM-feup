@@ -1,0 +1,40 @@
+\doxysection{game\+View.\+h}
+\hypertarget{gameView_8h_source}{}\label{gameView_8h_source}\index{viewer/gameView.h@{viewer/gameView.h}}
+\mbox{\hyperlink{gameView_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_GAMEVIEW\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_GAMEVIEW\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpu_8h}{drivers/gpu.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../models/Game.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../models/Datetime.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../models/Cloud.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../models/CatInfo.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ SKY\_SPLIT\ 0.40}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a604509f0b9e88021a72d4b8a6e1870bb}{drawGame}}(\mbox{\hyperlink{structGame}{Game}}\ *game);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_adce0325d21dde68eaaad2a2df4817eae}{drawMenu}}(\mbox{\hyperlink{structGame}{Game}}\ *game);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_afb080b065468eb6c4415f60db741f8f8}{drawInstructions}}();}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a6ef35efc9ab8c5f9bff21094b4c318de}{drawButton}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ text[],\ \textcolor{keywordtype}{int}\ x\_center,\ \textcolor{keywordtype}{int}\ y\_center,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ uint8\_t\ color);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ int\ draw\_background();}}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a500f0c839b86947f33bf610de02c30f8}{drawSky}}();}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a4af7e3fe279c33eb25f51f7a6539fe09}{drawGrass}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a49e08e92052171a5706628e9357a59e9}{drawScenery}}();}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a7e3bedebe5ff46a14b705ebea4ae5ea6}{drawClouds}}(\mbox{\hyperlink{structCloud}{Cloud}}\ clouds[]);}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a378c893495b1aad2e9fb8d4949a740af}{drawCloud}}(\mbox{\hyperlink{structCloud}{Cloud}}\ *cloud);}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a8adb5e586a102b3d2b152ebcf77ec411}{drawGamePlaying}}(\mbox{\hyperlink{structGame}{Game}}\ *game);}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_afcba2750e7b09117775b267d87bd72dd}{drawCat}}(\mbox{\hyperlink{structEntity}{Entity}}\ *entity);}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gameView_8h_a2cd64dc0cda879296c1af673277325f8}{drawMouse}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

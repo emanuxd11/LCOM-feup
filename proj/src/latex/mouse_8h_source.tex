@@ -1,0 +1,24 @@
+\doxysection{mouse.\+h}
+\hypertarget{mouse_8h_source}{}\label{mouse_8h_source}\index{drivers/mouse.h@{drivers/mouse.h}}
+\mbox{\hyperlink{mouse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ \_MOUSE\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_MOUSE\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{i8042_8h}{i8042.h}}"{}}}
+\DoxyCodeLine{00022\ int\ (\mbox{\hyperlink{mouse_8h_a20285aed4b3ef45812cd967532dd09db}{mouse\_subscribe\_int}})(uint8\_t\ *bit\_no);}
+\DoxyCodeLine{00029\ int\ (\mbox{\hyperlink{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\_unsubscribe\_int}})();}
+\DoxyCodeLine{00034\ void\ (\mbox{\hyperlink{mouse_8h_a210374b50462acdedab00df64d5cea3c}{mouse\_ih}})();}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{mouse_8h_ab814784256e934abee308b68ac413719}{kbc\_restore\_mouse}}();}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{mouse_8h_a1bf906cc319e1b099f92b7c622f494fb}{issue\_cmd\_to\_mouse}}(uint8\_t\ cmd);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{mouse_8h_addafa059c296f73e62410c2c60e11aa4}{read\_data\_from\_KBC\_mouse}}(uint8\_t\ *data);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{mouse_8h_a7740bd988610d35f2a3c2c1c0c7fb798}{read\_byte\_to\_mouse\_packet}}();}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{mouse_8h_afee51d28c7388082c76862f11f44fedc}{array\_to\_packet}}();}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{mouse_8h_adfa7d6c9b92a1a2a14cb567591204033}{issue\_cmd\_to\_KBC}}(uint8\_t\ port,\ uint8\_t\ cmd);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

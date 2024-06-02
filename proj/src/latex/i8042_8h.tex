@@ -1,0 +1,119 @@
+\doxysection{drivers/i8042.h File Reference}
+\hypertarget{i8042_8h}{}\label{i8042_8h}\index{drivers/i8042.h@{drivers/i8042.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+Include dependency graph for i8042.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{i8042_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i8042_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a2d17911b50c0aeebb2e3325c5b36d4f2}{KEYBOARD\+\_\+\+IRQ}}~1
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a85964cb90343bb1a029b1d1b4229f910}{MOUSE\+\_\+\+IRQ}}~12
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a923231d2e45aaea2dbab3532b06c2311}{STATUS\+\_\+\+PORT}}~0x64
+\item 
+\#define \mbox{\hyperlink{i8042_8h_aeff3162e464a9081f73e3765f199d7c1}{KBD\+\_\+\+OUT\+\_\+\+BUF}}~0x60
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a343f44cb034d2d2ff3438b3d45dcde1f}{ESC\+\_\+\+BREAK}}~0x81
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a552bcd24ccb64b9f143100e099092966}{CODE\+\_\+2\+\_\+\+BYTES}}~0x\+E0
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a00de18fbe862b12d0411f196e82a3a15}{KEYBOARD\+\_\+\+READ\+\_\+\+COM}}~0x20
+\item 
+\#define \mbox{\hyperlink{i8042_8h_af8d94064f6a2e887ec25db08114d32bb}{KEYBOARD\+\_\+\+WRITE\+\_\+\+COM}}~0x60
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a6f6489887e08bff4887d0bc5dcf214d8}{ACK}}~0xfa
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a11ac9dd8788aa45cd9d8d0646fcae0a7}{MOUSE\+\_\+\+WRITE\+\_\+\+COM}}~0xd4
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a9af5d13c82861055e08073b5a9935973}{DISABLE\+\_\+\+DATA\+\_\+\+REP}}~0xf5
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a0be5107de1323fcc692f8a2e6002e41e}{ENABLE\+\_\+\+DATA\+\_\+\+REP}}~0xf4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{i8042_8h_a6f6489887e08bff4887d0bc5dcf214d8}\label{i8042_8h_a6f6489887e08bff4887d0bc5dcf214d8} 
+\index{i8042.h@{i8042.h}!ACK@{ACK}}
+\index{ACK@{ACK}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ACK}{ACK}}
+{\footnotesize\ttfamily \#define ACK~0xfa}
+
+\Hypertarget{i8042_8h_a552bcd24ccb64b9f143100e099092966}\label{i8042_8h_a552bcd24ccb64b9f143100e099092966} 
+\index{i8042.h@{i8042.h}!CODE\_2\_BYTES@{CODE\_2\_BYTES}}
+\index{CODE\_2\_BYTES@{CODE\_2\_BYTES}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{CODE\_2\_BYTES}{CODE\_2\_BYTES}}
+{\footnotesize\ttfamily \#define CODE\+\_\+2\+\_\+\+BYTES~0x\+E0}
+
+\Hypertarget{i8042_8h_a9af5d13c82861055e08073b5a9935973}\label{i8042_8h_a9af5d13c82861055e08073b5a9935973} 
+\index{i8042.h@{i8042.h}!DISABLE\_DATA\_REP@{DISABLE\_DATA\_REP}}
+\index{DISABLE\_DATA\_REP@{DISABLE\_DATA\_REP}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{DISABLE\_DATA\_REP}{DISABLE\_DATA\_REP}}
+{\footnotesize\ttfamily \#define DISABLE\+\_\+\+DATA\+\_\+\+REP~0xf5}
+
+\Hypertarget{i8042_8h_a0be5107de1323fcc692f8a2e6002e41e}\label{i8042_8h_a0be5107de1323fcc692f8a2e6002e41e} 
+\index{i8042.h@{i8042.h}!ENABLE\_DATA\_REP@{ENABLE\_DATA\_REP}}
+\index{ENABLE\_DATA\_REP@{ENABLE\_DATA\_REP}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_DATA\_REP}{ENABLE\_DATA\_REP}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+DATA\+\_\+\+REP~0xf4}
+
+\Hypertarget{i8042_8h_a343f44cb034d2d2ff3438b3d45dcde1f}\label{i8042_8h_a343f44cb034d2d2ff3438b3d45dcde1f} 
+\index{i8042.h@{i8042.h}!ESC\_BREAK@{ESC\_BREAK}}
+\index{ESC\_BREAK@{ESC\_BREAK}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ESC\_BREAK}{ESC\_BREAK}}
+{\footnotesize\ttfamily \#define ESC\+\_\+\+BREAK~0x81}
+
+\Hypertarget{i8042_8h_aeff3162e464a9081f73e3765f199d7c1}\label{i8042_8h_aeff3162e464a9081f73e3765f199d7c1} 
+\index{i8042.h@{i8042.h}!KBD\_OUT\_BUF@{KBD\_OUT\_BUF}}
+\index{KBD\_OUT\_BUF@{KBD\_OUT\_BUF}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{KBD\_OUT\_BUF}{KBD\_OUT\_BUF}}
+{\footnotesize\ttfamily \#define KBD\+\_\+\+OUT\+\_\+\+BUF~0x60}
+
+\Hypertarget{i8042_8h_a2d17911b50c0aeebb2e3325c5b36d4f2}\label{i8042_8h_a2d17911b50c0aeebb2e3325c5b36d4f2} 
+\index{i8042.h@{i8042.h}!KEYBOARD\_IRQ@{KEYBOARD\_IRQ}}
+\index{KEYBOARD\_IRQ@{KEYBOARD\_IRQ}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{KEYBOARD\_IRQ}{KEYBOARD\_IRQ}}
+{\footnotesize\ttfamily \#define KEYBOARD\+\_\+\+IRQ~1}
+
+\Hypertarget{i8042_8h_a00de18fbe862b12d0411f196e82a3a15}\label{i8042_8h_a00de18fbe862b12d0411f196e82a3a15} 
+\index{i8042.h@{i8042.h}!KEYBOARD\_READ\_COM@{KEYBOARD\_READ\_COM}}
+\index{KEYBOARD\_READ\_COM@{KEYBOARD\_READ\_COM}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{KEYBOARD\_READ\_COM}{KEYBOARD\_READ\_COM}}
+{\footnotesize\ttfamily \#define KEYBOARD\+\_\+\+READ\+\_\+\+COM~0x20}
+
+\Hypertarget{i8042_8h_af8d94064f6a2e887ec25db08114d32bb}\label{i8042_8h_af8d94064f6a2e887ec25db08114d32bb} 
+\index{i8042.h@{i8042.h}!KEYBOARD\_WRITE\_COM@{KEYBOARD\_WRITE\_COM}}
+\index{KEYBOARD\_WRITE\_COM@{KEYBOARD\_WRITE\_COM}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{KEYBOARD\_WRITE\_COM}{KEYBOARD\_WRITE\_COM}}
+{\footnotesize\ttfamily \#define KEYBOARD\+\_\+\+WRITE\+\_\+\+COM~0x60}
+
+\Hypertarget{i8042_8h_a85964cb90343bb1a029b1d1b4229f910}\label{i8042_8h_a85964cb90343bb1a029b1d1b4229f910} 
+\index{i8042.h@{i8042.h}!MOUSE\_IRQ@{MOUSE\_IRQ}}
+\index{MOUSE\_IRQ@{MOUSE\_IRQ}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_IRQ}{MOUSE\_IRQ}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+IRQ~12}
+
+\Hypertarget{i8042_8h_a11ac9dd8788aa45cd9d8d0646fcae0a7}\label{i8042_8h_a11ac9dd8788aa45cd9d8d0646fcae0a7} 
+\index{i8042.h@{i8042.h}!MOUSE\_WRITE\_COM@{MOUSE\_WRITE\_COM}}
+\index{MOUSE\_WRITE\_COM@{MOUSE\_WRITE\_COM}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_WRITE\_COM}{MOUSE\_WRITE\_COM}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+WRITE\+\_\+\+COM~0xd4}
+
+\Hypertarget{i8042_8h_a923231d2e45aaea2dbab3532b06c2311}\label{i8042_8h_a923231d2e45aaea2dbab3532b06c2311} 
+\index{i8042.h@{i8042.h}!STATUS\_PORT@{STATUS\_PORT}}
+\index{STATUS\_PORT@{STATUS\_PORT}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_PORT}{STATUS\_PORT}}
+{\footnotesize\ttfamily \#define STATUS\+\_\+\+PORT~0x64}
+

@@ -1,0 +1,9 @@
+<map id="read_byte_to_mouse_packet" name="read_byte_to_mouse_packet">
+<area shape="rect" id="Node000001" title="Upon an interrupt this function is called, it reads a byte from the KBC and then places it in the mou..." alt="" coords="5,27,164,67"/>
+<area shape="rect" id="Node000002" href="$mouse_8c.html#afee51d28c7388082c76862f11f44fedc" title="Buids the mouse packet." alt="" coords="228,5,355,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,33,214,26,214,32,165,39"/>
+<area shape="rect" id="Node000003" href="$mouse_8c.html#addafa059c296f73e62410c2c60e11aa4" title="Reads the KBC&#39;s status byte to check if KBC&#39;S output buffer is full, if so, its contents are placed i..." alt="" coords="212,55,371,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,55,199,60,198,65,164,61"/>
+<area shape="rect" id="Node000004" href="$utils__drivers_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="419,63,517,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="371,73,405,73,405,78,371,78"/>
+</map>

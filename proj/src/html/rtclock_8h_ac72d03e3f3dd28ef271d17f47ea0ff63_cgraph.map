@@ -1,0 +1,9 @@
+<map id="rtc_read_datetime" name="rtc_read_datetime">
+<area shape="rect" id="Node000001" title="Returns the current date in datetime format." alt="" coords="5,31,147,56"/>
+<area shape="rect" id="Node000002" href="$utils__drivers_8c.html#abafa1143e74844fd7ba93aafc4336bfe" title="Turns a binary coded decimal to binary." alt="" coords="195,5,308,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,30,181,25,181,31,147,36"/>
+<area shape="rect" id="Node000003" href="$rtclock_8c.html#a05e4bc7b0a1d6a1f938e245f31f886fc" title="Writes value_idx (year, month, day hours, seconds, or minutes selector) to the RTC address register,..." alt="" coords="204,55,299,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,50,191,56,190,62,147,56"/>
+<area shape="rect" id="Node000004" href="$utils__drivers_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="356,55,455,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="299,65,342,65,342,70,299,70"/>
+</map>

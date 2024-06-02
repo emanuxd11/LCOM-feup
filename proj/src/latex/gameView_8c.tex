@@ -1,0 +1,355 @@
+\doxysection{viewer/game\+View.c File Reference}
+\hypertarget{gameView_8c}{}\label{gameView_8c}\index{viewer/gameView.c@{viewer/gameView.c}}
+{\ttfamily \#include "{}game\+View.\+h"{}}\newline
+{\ttfamily \#include "{}../images/cats/cat0.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/cats/cat1.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/cats/cat2.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/cats/cat3.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/cats/cat4.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/character/front.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/scenery/cloud.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/logo.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/mouse.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/play\+\_\+game.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/instructions.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/quit.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/state\+\_\+machines/state\+\_\+machine0.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/state\+\_\+machines/state\+\_\+machine1.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/state\+\_\+machines/state\+\_\+machine2.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/state\+\_\+machines/state\+\_\+machine3.\+xpm"{}}\newline
+{\ttfamily \#include "{}../images/state\+\_\+machines/state\+\_\+machine4.\+xpm"{}}\newline
+Include dependency graph for game\+View.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameView_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{gameView_8c_abf681265909adf3d3e8116c93c0ba179}{YELLOW}}~62
+\item 
+\#define \mbox{\hyperlink{gameView_8c_a79d10e672abb49ad63eeaa8aaef57c38}{BLUE}}~9
+\item 
+\#define \mbox{\hyperlink{gameView_8c_a662b69b7c154680673e5a39f513c99ce}{SKY\+\_\+\+DAY}}~27
+\item 
+\#define \mbox{\hyperlink{gameView_8c_ac618629de1879aea67e7ff4327ec0d1e}{SKY\+\_\+\+NIGHT}}~8
+\item 
+\#define \mbox{\hyperlink{gameView_8c_ab2baea56ece91306020afd6d77fd19f9}{BROWN}}~20
+\item 
+\#define \mbox{\hyperlink{gameView_8c_ab71de883612b35a4bf813336dacaf4e4}{GREEN\+\_\+\+GRASS}}~2
+\item 
+\#define \mbox{\hyperlink{gameView_8c_a959d1249a76cfbd90fc6d96e2a9744e9}{LIGHT\+\_\+\+BLUE}}~11
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gameView_8c_a604509f0b9e88021a72d4b8a6e1870bb}{draw\+Game}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\item 
+int \mbox{\hyperlink{gameView_8c_adce0325d21dde68eaaad2a2df4817eae}{draw\+Menu}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Draws the game\textquotesingle{}s menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a8adb5e586a102b3d2b152ebcf77ec411}{draw\+Game\+Playing}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Draw all elements needed for gameplay. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a7e3bedebe5ff46a14b705ebea4ae5ea6}{draw\+Clouds}} (\mbox{\hyperlink{structCloud}{Cloud}} clouds\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Draws all the clouds. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a378c893495b1aad2e9fb8d4949a740af}{draw\+Cloud}} (\mbox{\hyperlink{structCloud}{Cloud}} \texorpdfstring{$\ast$}{*}cloud)
+\begin{DoxyCompactList}\small\item\em Draws a singular cloud. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a4af7e3fe279c33eb25f51f7a6539fe09}{draw\+Grass}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game\textquotesingle{}s grass. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a500f0c839b86947f33bf610de02c30f8}{draw\+Sky}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game\textquotesingle{}s sky. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_afcba2750e7b09117775b267d87bd72dd}{draw\+Cat}} (\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+\begin{DoxyCompactList}\small\item\em Draws a cat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_afb080b065468eb6c4415f60db741f8f8}{draw\+Instructions}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game\textquotesingle{}s instructions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a6ef35efc9ab8c5f9bff21094b4c318de}{draw\+Button}} (const char text\mbox{[}$\,$\mbox{]}, int x\+\_\+center, int y\+\_\+center, int width, int height, uint8\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws a button in chosen position with chosen text inside. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gameView_8c_a2cd64dc0cda879296c1af673277325f8}{draw\+Mouse}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Draws the mouse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gameView_8c_aa67e8d07bcd4acc14f9a1b7a4dfc252c}{mouse\+\_\+pos\+\_\+x}}
+\item 
+int \mbox{\hyperlink{gameView_8c_ac827681d3bc82ad20c22c21132afe04a}{mouse\+\_\+pos\+\_\+y}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{gameView_8c_a8c698380dc32cd8b5a19a84da1ab2ad9}{x\+\_\+res}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{gameView_8c_a1188c1e5fe37db7b55bdad91f71e26c0}{y\+\_\+res}}
+\item 
+bool \mbox{\hyperlink{gameView_8c_a7226a6c7e29d62f313d11c832e2cb63d}{has\+Left\+Click}}
+\item 
+\mbox{\hyperlink{structDatetime}{Datetime}} \mbox{\hyperlink{gameView_8c_aff34686e06f0ba7f22cb72b479293534}{datetime}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{gameView_8c_a79d10e672abb49ad63eeaa8aaef57c38}\label{gameView_8c_a79d10e672abb49ad63eeaa8aaef57c38} 
+\index{gameView.c@{gameView.c}!BLUE@{BLUE}}
+\index{BLUE@{BLUE}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{BLUE}{BLUE}}
+{\footnotesize\ttfamily \#define BLUE~9}
+
+\Hypertarget{gameView_8c_ab2baea56ece91306020afd6d77fd19f9}\label{gameView_8c_ab2baea56ece91306020afd6d77fd19f9} 
+\index{gameView.c@{gameView.c}!BROWN@{BROWN}}
+\index{BROWN@{BROWN}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{BROWN}{BROWN}}
+{\footnotesize\ttfamily \#define BROWN~20}
+
+\Hypertarget{gameView_8c_ab71de883612b35a4bf813336dacaf4e4}\label{gameView_8c_ab71de883612b35a4bf813336dacaf4e4} 
+\index{gameView.c@{gameView.c}!GREEN\_GRASS@{GREEN\_GRASS}}
+\index{GREEN\_GRASS@{GREEN\_GRASS}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{GREEN\_GRASS}{GREEN\_GRASS}}
+{\footnotesize\ttfamily \#define GREEN\+\_\+\+GRASS~2}
+
+\Hypertarget{gameView_8c_a959d1249a76cfbd90fc6d96e2a9744e9}\label{gameView_8c_a959d1249a76cfbd90fc6d96e2a9744e9} 
+\index{gameView.c@{gameView.c}!LIGHT\_BLUE@{LIGHT\_BLUE}}
+\index{LIGHT\_BLUE@{LIGHT\_BLUE}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{LIGHT\_BLUE}{LIGHT\_BLUE}}
+{\footnotesize\ttfamily \#define LIGHT\+\_\+\+BLUE~11}
+
+\Hypertarget{gameView_8c_a662b69b7c154680673e5a39f513c99ce}\label{gameView_8c_a662b69b7c154680673e5a39f513c99ce} 
+\index{gameView.c@{gameView.c}!SKY\_DAY@{SKY\_DAY}}
+\index{SKY\_DAY@{SKY\_DAY}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{SKY\_DAY}{SKY\_DAY}}
+{\footnotesize\ttfamily \#define SKY\+\_\+\+DAY~27}
+
+\Hypertarget{gameView_8c_ac618629de1879aea67e7ff4327ec0d1e}\label{gameView_8c_ac618629de1879aea67e7ff4327ec0d1e} 
+\index{gameView.c@{gameView.c}!SKY\_NIGHT@{SKY\_NIGHT}}
+\index{SKY\_NIGHT@{SKY\_NIGHT}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{SKY\_NIGHT}{SKY\_NIGHT}}
+{\footnotesize\ttfamily \#define SKY\+\_\+\+NIGHT~8}
+
+\Hypertarget{gameView_8c_abf681265909adf3d3e8116c93c0ba179}\label{gameView_8c_abf681265909adf3d3e8116c93c0ba179} 
+\index{gameView.c@{gameView.c}!YELLOW@{YELLOW}}
+\index{YELLOW@{YELLOW}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{YELLOW}{YELLOW}}
+{\footnotesize\ttfamily \#define YELLOW~62}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gameView_8c_a6ef35efc9ab8c5f9bff21094b4c318de}\label{gameView_8c_a6ef35efc9ab8c5f9bff21094b4c318de} 
+\index{gameView.c@{gameView.c}!drawButton@{drawButton}}
+\index{drawButton@{drawButton}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawButton()}{drawButton()}}
+{\footnotesize\ttfamily int draw\+Button (\begin{DoxyParamCaption}\item[{const char}]{text\mbox{[}$\,$\mbox{]},  }\item[{int}]{x\+\_\+center,  }\item[{int}]{y\+\_\+center,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{uint8\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a button in chosen position with chosen text inside. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & chosen text \\
+\hline
+{\em x\+\_\+center} & chosen x axis center position \\
+\hline
+{\em y\+\_\+center} & chosen y axis center position \\
+\hline
+{\em width} & chosen width \\
+\hline
+{\em height} & chosen height \\
+\hline
+{\em color} & chosen color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_afcba2750e7b09117775b267d87bd72dd}\label{gameView_8c_afcba2750e7b09117775b267d87bd72dd} 
+\index{gameView.c@{gameView.c}!drawCat@{drawCat}}
+\index{drawCat@{drawCat}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawCat()}{drawCat()}}
+{\footnotesize\ttfamily int draw\+Cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity }\end{DoxyParamCaption})}
+
+
+
+Draws a cat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_a378c893495b1aad2e9fb8d4949a740af}\label{gameView_8c_a378c893495b1aad2e9fb8d4949a740af} 
+\index{gameView.c@{gameView.c}!drawCloud@{drawCloud}}
+\index{drawCloud@{drawCloud}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawCloud()}{drawCloud()}}
+{\footnotesize\ttfamily int draw\+Cloud (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCloud}{Cloud}} \texorpdfstring{$\ast$}{*}}]{cloud }\end{DoxyParamCaption})}
+
+
+
+Draws a singular cloud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cloud} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_a7e3bedebe5ff46a14b705ebea4ae5ea6}\label{gameView_8c_a7e3bedebe5ff46a14b705ebea4ae5ea6} 
+\index{gameView.c@{gameView.c}!drawClouds@{drawClouds}}
+\index{drawClouds@{drawClouds}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawClouds()}{drawClouds()}}
+{\footnotesize\ttfamily int draw\+Clouds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCloud}{Cloud}}}]{clouds\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Draws all the clouds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clouds} & array of clouds to be drawn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_a604509f0b9e88021a72d4b8a6e1870bb}\label{gameView_8c_a604509f0b9e88021a72d4b8a6e1870bb} 
+\index{gameView.c@{gameView.c}!drawGame@{drawGame}}
+\index{drawGame@{drawGame}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawGame()}{drawGame()}}
+{\footnotesize\ttfamily int draw\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+\Hypertarget{gameView_8c_a8adb5e586a102b3d2b152ebcf77ec411}\label{gameView_8c_a8adb5e586a102b3d2b152ebcf77ec411} 
+\index{gameView.c@{gameView.c}!drawGamePlaying@{drawGamePlaying}}
+\index{drawGamePlaying@{drawGamePlaying}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawGamePlaying()}{drawGamePlaying()}}
+{\footnotesize\ttfamily int draw\+Game\+Playing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Draw all elements needed for gameplay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_a4af7e3fe279c33eb25f51f7a6539fe09}\label{gameView_8c_a4af7e3fe279c33eb25f51f7a6539fe09} 
+\index{gameView.c@{gameView.c}!drawGrass@{drawGrass}}
+\index{drawGrass@{drawGrass}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawGrass()}{drawGrass()}}
+{\footnotesize\ttfamily int draw\+Grass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the game\textquotesingle{}s grass. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_afb080b065468eb6c4415f60db741f8f8}\label{gameView_8c_afb080b065468eb6c4415f60db741f8f8} 
+\index{gameView.c@{gameView.c}!drawInstructions@{drawInstructions}}
+\index{drawInstructions@{drawInstructions}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawInstructions()}{drawInstructions()}}
+{\footnotesize\ttfamily int draw\+Instructions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the game\textquotesingle{}s instructions. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_adce0325d21dde68eaaad2a2df4817eae}\label{gameView_8c_adce0325d21dde68eaaad2a2df4817eae} 
+\index{gameView.c@{gameView.c}!drawMenu@{drawMenu}}
+\index{drawMenu@{drawMenu}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawMenu()}{drawMenu()}}
+{\footnotesize\ttfamily int draw\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Draws the game\textquotesingle{}s menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & current game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_a2cd64dc0cda879296c1af673277325f8}\label{gameView_8c_a2cd64dc0cda879296c1af673277325f8} 
+\index{gameView.c@{gameView.c}!drawMouse@{drawMouse}}
+\index{drawMouse@{drawMouse}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawMouse()}{drawMouse()}}
+{\footnotesize\ttfamily int draw\+Mouse (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Draws the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x axis mouse position \\
+\hline
+{\em y} & y axis mouse position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise ~\newline
+ 
+\end{DoxyReturn}
+\Hypertarget{gameView_8c_a500f0c839b86947f33bf610de02c30f8}\label{gameView_8c_a500f0c839b86947f33bf610de02c30f8} 
+\index{gameView.c@{gameView.c}!drawSky@{drawSky}}
+\index{drawSky@{drawSky}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{drawSky()}{drawSky()}}
+{\footnotesize\ttfamily int draw\+Sky (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the game\textquotesingle{}s sky. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{gameView_8c_aff34686e06f0ba7f22cb72b479293534}\label{gameView_8c_aff34686e06f0ba7f22cb72b479293534} 
+\index{gameView.c@{gameView.c}!datetime@{datetime}}
+\index{datetime@{datetime}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{datetime}{datetime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDatetime}{Datetime}} datetime\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{gameView_8c_a7226a6c7e29d62f313d11c832e2cb63d}\label{gameView_8c_a7226a6c7e29d62f313d11c832e2cb63d} 
+\index{gameView.c@{gameView.c}!hasLeftClick@{hasLeftClick}}
+\index{hasLeftClick@{hasLeftClick}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{hasLeftClick}{hasLeftClick}}
+{\footnotesize\ttfamily bool has\+Left\+Click\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{gameView_8c_aa67e8d07bcd4acc14f9a1b7a4dfc252c}\label{gameView_8c_aa67e8d07bcd4acc14f9a1b7a4dfc252c} 
+\index{gameView.c@{gameView.c}!mouse\_pos\_x@{mouse\_pos\_x}}
+\index{mouse\_pos\_x@{mouse\_pos\_x}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_pos\_x}{mouse\_pos\_x}}
+{\footnotesize\ttfamily int mouse\+\_\+pos\+\_\+x\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{gameView_8c_ac827681d3bc82ad20c22c21132afe04a}\label{gameView_8c_ac827681d3bc82ad20c22c21132afe04a} 
+\index{gameView.c@{gameView.c}!mouse\_pos\_y@{mouse\_pos\_y}}
+\index{mouse\_pos\_y@{mouse\_pos\_y}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_pos\_y}{mouse\_pos\_y}}
+{\footnotesize\ttfamily int mouse\+\_\+pos\+\_\+y}
+
+\Hypertarget{gameView_8c_a8c698380dc32cd8b5a19a84da1ab2ad9}\label{gameView_8c_a8c698380dc32cd8b5a19a84da1ab2ad9} 
+\index{gameView.c@{gameView.c}!x\_res@{x\_res}}
+\index{x\_res@{x\_res}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{x\_res}{x\_res}}
+{\footnotesize\ttfamily uint16\+\_\+t x\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{gameView_8c_a1188c1e5fe37db7b55bdad91f71e26c0}\label{gameView_8c_a1188c1e5fe37db7b55bdad91f71e26c0} 
+\index{gameView.c@{gameView.c}!y\_res@{y\_res}}
+\index{y\_res@{y\_res}!gameView.c@{gameView.c}}
+\doxysubsubsection{\texorpdfstring{y\_res}{y\_res}}
+{\footnotesize\ttfamily uint16\+\_\+t y\+\_\+res}
+

@@ -1,0 +1,105 @@
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/timer.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}drivers/gpu.\+h"{}}\newline
+{\ttfamily \#include "{}drivers/keyboard.\+h"{}}\newline
+{\ttfamily \#include "{}drivers/mouse.\+h"{}}\newline
+{\ttfamily \#include "{}drivers/rtclock.\+h"{}}\newline
+{\ttfamily \#include "{}models/\+Game.\+h"{}}\newline
+{\ttfamily \#include "{}controller/controller\+Keyboard.\+h"{}}\newline
+{\ttfamily \#include "{}utils/utils.\+h"{}}\newline
+{\ttfamily \#include "{}controller/controller\+Mouse.\+h"{}}\newline
+{\ttfamily \#include "{}viewer/game\+View.\+h"{}}\newline
+{\ttfamily \#include "{}images/cats/cat0.\+xpm"{}}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_ac92ca5ab87034a348decad7ee8d4bd1b}{FPS}}~60
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\item 
+int() \mbox{\hyperlink{main_8c_a33bde23e0d2bbde847401c5ac6fb62e0}{proj\+\_\+main\+\_\+loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}}
+\item 
+struct packet \mbox{\hyperlink{main_8c_a3b2e64ffb96c650d6525c99be01c7331}{mouse\+\_\+packet}}
+\item 
+bool \mbox{\hyperlink{main_8c_a9324389a5cdc532c6417a87ccafe18ce}{finished}}
+\item 
+int \mbox{\hyperlink{main_8c_aa67e8d07bcd4acc14f9a1b7a4dfc252c}{mouse\+\_\+pos\+\_\+x}} =0
+\item 
+int \mbox{\hyperlink{main_8c_ac827681d3bc82ad20c22c21132afe04a}{mouse\+\_\+pos\+\_\+y}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8c_ac92ca5ab87034a348decad7ee8d4bd1b}\label{main_8c_ac92ca5ab87034a348decad7ee8d4bd1b} 
+\index{main.c@{main.c}!FPS@{FPS}}
+\index{FPS@{FPS}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{FPS}{FPS}}
+{\footnotesize\ttfamily \#define FPS~60}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a33bde23e0d2bbde847401c5ac6fb62e0}\label{main_8c_a33bde23e0d2bbde847401c5ac6fb62e0} 
+\index{main.c@{main.c}!proj\_main\_loop@{proj\_main\_loop}}
+\index{proj\_main\_loop@{proj\_main\_loop}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{proj\_main\_loop()}{proj\_main\_loop()}}
+{\footnotesize\ttfamily int() proj\+\_\+main\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a9324389a5cdc532c6417a87ccafe18ce}\label{main_8c_a9324389a5cdc532c6417a87ccafe18ce} 
+\index{main.c@{main.c}!finished@{finished}}
+\index{finished@{finished}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily bool finished\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a3b2e64ffb96c650d6525c99be01c7331}\label{main_8c_a3b2e64ffb96c650d6525c99be01c7331} 
+\index{main.c@{main.c}!mouse\_packet@{mouse\_packet}}
+\index{mouse\_packet@{mouse\_packet}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_packet}{mouse\_packet}}
+{\footnotesize\ttfamily struct packet mouse\+\_\+packet\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_aa67e8d07bcd4acc14f9a1b7a4dfc252c}\label{main_8c_aa67e8d07bcd4acc14f9a1b7a4dfc252c} 
+\index{main.c@{main.c}!mouse\_pos\_x@{mouse\_pos\_x}}
+\index{mouse\_pos\_x@{mouse\_pos\_x}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_pos\_x}{mouse\_pos\_x}}
+{\footnotesize\ttfamily int mouse\+\_\+pos\+\_\+x =0}
+
+\Hypertarget{main_8c_ac827681d3bc82ad20c22c21132afe04a}\label{main_8c_ac827681d3bc82ad20c22c21132afe04a} 
+\index{main.c@{main.c}!mouse\_pos\_y@{mouse\_pos\_y}}
+\index{mouse\_pos\_y@{mouse\_pos\_y}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_pos\_y}{mouse\_pos\_y}}
+{\footnotesize\ttfamily int mouse\+\_\+pos\+\_\+y =0}
+
+\Hypertarget{main_8c_aa1de7a5557e9d96b83cf03f73c92163f}\label{main_8c_aa1de7a5557e9d96b83cf03f73c92163f} 
+\index{main.c@{main.c}!scancode@{scancode}}
+\index{scancode@{scancode}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{scancode}{scancode}}
+{\footnotesize\ttfamily uint8\+\_\+t scancode\hspace{0.3cm}{\ttfamily [extern]}}
+

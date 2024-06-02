@@ -1,0 +1,47 @@
+\doxysection{Game.\+h}
+\hypertarget{Game_8h_source}{}\label{Game_8h_source}\index{models/Game.h@{models/Game.h}}
+\mbox{\hyperlink{Game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ GAME\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ GAME\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../models/Room.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../drivers/utils\_drivers.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../drivers/rtclock.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cloud_8h}{Cloud.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Datetime_8h}{Datetime.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a2c2c87fb79768cd6e3d922df6f500cac}{MENU\_STATE}},}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285ae07d0fb3d06a8c0fe90def87455acb2d}{GAME\_STATE}},}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a8f7c27d86416781b338db5e83e5bc98e}{PET\_STATE}},}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a636f2948e51dd85e1cbbb6503ad6bbf5}{INSTRUCTIONS\_STATE}},}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285a340ef8f4b595ca5849dc26e6f45b44d1}{LEAVE\_STATE}},}
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structRoom}{Room}}\ *\mbox{\hyperlink{structGame_a3d33227cedf7f86bd22d81c8716cdfc4}{room}};}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{Game_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \mbox{\hyperlink{structGame_ad9fc2a8710ee56916f79314b91112ed0}{state}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGame_a7e1d6c5119f472ac156ad3f1d2449509}{counter}};}
+\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{structGame}{Game}};}
+\DoxyCodeLine{00042\ \mbox{\hyperlink{structGame}{Game}}*\ \mbox{\hyperlink{Game_8h_a2e2c951a9633896ad4506f9e69475e5b}{createNewGame}}();}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Game_8h_ac6f1c791e766ba56f4c4df48cdaa28b7}{deleteGame}}(\mbox{\hyperlink{structGame}{Game}}*\ game);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Game_8h_a8c8dad7e3909c74db13e96e4223f7320}{control\_game}}(\mbox{\hyperlink{structGame}{Game}}\ *game);}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Game_8h_a739492ba70d531d18b0e5080efd959f5}{control\_player}}(\mbox{\hyperlink{structGame}{Game}}*\ game);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Game_8h_a1ae134faab2ad00f9b5d83a36ed0fa2d}{control\_cat}}(\mbox{\hyperlink{structGame}{Game}}*\ game,\ \mbox{\hyperlink{structEntity}{Entity}}*\ cat);}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Game_8h_ad8412320b3fd3f1ce9e63fb41d895ce9}{moveEntity}}(\mbox{\hyperlink{structEntity}{Entity}}*\ entity,\ \mbox{\hyperlink{structRoom}{Room}}*\ room);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Game_8h_af575de97af74ae3a94cf06746ed5db45}{updateGameTime}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GAME\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

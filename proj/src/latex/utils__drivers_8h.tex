@@ -1,0 +1,101 @@
+\doxysection{drivers/utils\+\_\+drivers.h File Reference}
+\hypertarget{utils__drivers_8h}{}\label{utils__drivers_8h}\index{drivers/utils\_drivers.h@{drivers/utils\_drivers.h}}
+
+
+This file contains utilitary functions.  
+
+
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for utils\+\_\+drivers.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{utils__drivers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils__drivers_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t() \mbox{\hyperlink{utils__drivers_8h_abafa1143e74844fd7ba93aafc4336bfe}{bcd\+\_\+to\+\_\+binary}} (uint8\+\_\+t bcd)
+\begin{DoxyCompactList}\small\item\em Turns a binary coded decimal to binary. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils__drivers_8h_afdbf08e1b6d820edb9ea19a167061110}{get\+Random\+Int}} (int lower\+\_\+bound, int upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Generates a random integer between lower\+\_\+bound and upper bound. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{utils__drivers_8h_af7da9411225515a9dd227658dc8dbc44}{get\+Random\+Float}} (float lower\+\_\+bound, float upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Generates a random float between lower\+\_\+bound and upper\+\_\+bound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains utilitary functions. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils__drivers_8h_abafa1143e74844fd7ba93aafc4336bfe}\label{utils__drivers_8h_abafa1143e74844fd7ba93aafc4336bfe} 
+\index{utils\_drivers.h@{utils\_drivers.h}!bcd\_to\_binary@{bcd\_to\_binary}}
+\index{bcd\_to\_binary@{bcd\_to\_binary}!utils\_drivers.h@{utils\_drivers.h}}
+\doxysubsubsection{\texorpdfstring{bcd\_to\_binary()}{bcd\_to\_binary()}}
+{\footnotesize\ttfamily uint8\+\_\+t() bcd\+\_\+to\+\_\+binary (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bcd }\end{DoxyParamCaption})}
+
+
+
+Turns a binary coded decimal to binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bcd} & binary coded decimal to transform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the binary number 
+\end{DoxyReturn}
+\Hypertarget{utils__drivers_8h_af7da9411225515a9dd227658dc8dbc44}\label{utils__drivers_8h_af7da9411225515a9dd227658dc8dbc44} 
+\index{utils\_drivers.h@{utils\_drivers.h}!getRandomFloat@{getRandomFloat}}
+\index{getRandomFloat@{getRandomFloat}!utils\_drivers.h@{utils\_drivers.h}}
+\doxysubsubsection{\texorpdfstring{getRandomFloat()}{getRandomFloat()}}
+{\footnotesize\ttfamily float get\+Random\+Float (\begin{DoxyParamCaption}\item[{float}]{lower\+\_\+bound,  }\item[{float}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+Generates a random float between lower\+\_\+bound and upper\+\_\+bound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+\_\+bound} & lower bound \\
+\hline
+{\em upper\+\_\+bound} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random float 
+\end{DoxyReturn}
+\Hypertarget{utils__drivers_8h_afdbf08e1b6d820edb9ea19a167061110}\label{utils__drivers_8h_afdbf08e1b6d820edb9ea19a167061110} 
+\index{utils\_drivers.h@{utils\_drivers.h}!getRandomInt@{getRandomInt}}
+\index{getRandomInt@{getRandomInt}!utils\_drivers.h@{utils\_drivers.h}}
+\doxysubsubsection{\texorpdfstring{getRandomInt()}{getRandomInt()}}
+{\footnotesize\ttfamily int get\+Random\+Int (\begin{DoxyParamCaption}\item[{int}]{lower\+\_\+bound,  }\item[{int}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+Generates a random integer between lower\+\_\+bound and upper bound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+\_\+bound} & lower bound \\
+\hline
+{\em upper\+\_\+bound} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random integer 
+\end{DoxyReturn}

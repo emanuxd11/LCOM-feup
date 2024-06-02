@@ -1,0 +1,219 @@
+\doxysection{models/\+Game.c File Reference}
+\hypertarget{Game_8c}{}\label{Game_8c}\index{models/Game.c@{models/Game.c}}
+{\ttfamily \#include "{}../models/\+Game.\+h"{}}\newline
+{\ttfamily \#include "{}../models/\+Room.\+h"{}}\newline
+{\ttfamily \#include "{}../utils/utils.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}Cat\+Info.\+h"{}}\newline
+Include dependency graph for Game.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Game_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Game_8c_a2e2c951a9633896ad4506f9e69475e5b}{create\+New\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Game_8c_ac6f1c791e766ba56f4c4df48cdaa28b7}{delete\+Game}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Deletes allocated memory space for previously created game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8c_a8c8dad7e3909c74db13e96e4223f7320}{control\+\_\+game}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Manages game states and calls entity control functions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8c_a739492ba70d531d18b0e5080efd959f5}{control\+\_\+player}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Controls player\textquotesingle{}s movement direction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Game_8c_a1ae134faab2ad00f9b5d83a36ed0fa2d}{control\+\_\+cat}} (\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}game, \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}cat)
+\item 
+void \mbox{\hyperlink{Game_8c_af575de97af74ae3a94cf06746ed5db45}{update\+Game\+Time}} ()
+\begin{DoxyCompactList}\small\item\em updates game time with RTC\textquotesingle{}s time \end{DoxyCompactList}\item 
+Position \mbox{\hyperlink{Game_8c_a5b9b30106365480802c605830dfdb989}{future\+Pos}} (\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity, \mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}room)
+\item 
+void \mbox{\hyperlink{Game_8c_ad8412320b3fd3f1ce9e63fb41d895ce9}{move\+Entity}} (\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity, \mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}room)
+\begin{DoxyCompactList}\small\item\em Moves entity to previously defined (future)position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{Game_8c_a704ef657b00dd7e0af8f18e9a90724cc}{w\+Is\+Down}}
+\item 
+bool \mbox{\hyperlink{Game_8c_a0cb009fa48e65890ad8ce4bb12b7dcee}{a\+Is\+Down}}
+\item 
+bool \mbox{\hyperlink{Game_8c_a266cd2f49a82d44289287f6d2d23ed42}{s\+Is\+Down}}
+\item 
+bool \mbox{\hyperlink{Game_8c_ad4057e0956581c0f94a8b498f8a5e9eb}{d\+Is\+Down}}
+\item 
+bool \mbox{\hyperlink{Game_8c_a943b2a289c10ff610a4aa640214bebfa}{esc\+Was\+Pressed}}
+\item 
+bool \mbox{\hyperlink{Game_8c_a760b01346d7e17bdabf3fe54d73c1bf4}{e\+Was\+Pressed}}
+\item 
+\mbox{\hyperlink{structDatetime}{Datetime}} \mbox{\hyperlink{Game_8c_aff34686e06f0ba7f22cb72b479293534}{datetime}}
+\item 
+\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Game_8c_ab5dba3244238ff70e6ca880d195a2250}{selected\+Cat}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Game_8c_a1ae134faab2ad00f9b5d83a36ed0fa2d}\label{Game_8c_a1ae134faab2ad00f9b5d83a36ed0fa2d} 
+\index{Game.c@{Game.c}!control\_cat@{control\_cat}}
+\index{control\_cat@{control\_cat}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{control\_cat()}{control\_cat()}}
+{\footnotesize\ttfamily int control\+\_\+cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game,  }\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{cat }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+{\em cat} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{Game_8c_a8c8dad7e3909c74db13e96e4223f7320}\label{Game_8c_a8c8dad7e3909c74db13e96e4223f7320} 
+\index{Game.c@{Game.c}!control\_game@{control\_game}}
+\index{control\_game@{control\_game}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{control\_game()}{control\_game()}}
+{\footnotesize\ttfamily int control\+\_\+game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Manages game states and calls entity control functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & current game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns 0 
+\end{DoxyReturn}
+\Hypertarget{Game_8c_a739492ba70d531d18b0e5080efd959f5}\label{Game_8c_a739492ba70d531d18b0e5080efd959f5} 
+\index{Game.c@{Game.c}!control\_player@{control\_player}}
+\index{control\_player@{control\_player}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{control\_player()}{control\_player()}}
+{\footnotesize\ttfamily int control\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Controls player\textquotesingle{}s movement direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & current game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns 0 
+\end{DoxyReturn}
+\Hypertarget{Game_8c_a2e2c951a9633896ad4506f9e69475e5b}\label{Game_8c_a2e2c951a9633896ad4506f9e69475e5b} 
+\index{Game.c@{Game.c}!createNewGame@{createNewGame}}
+\index{createNewGame@{createNewGame}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{createNewGame()}{createNewGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*} create\+New\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new game. 
+
+\begin{DoxyReturn}{Returns}
+pointer to game 
+\end{DoxyReturn}
+\Hypertarget{Game_8c_ac6f1c791e766ba56f4c4df48cdaa28b7}\label{Game_8c_ac6f1c791e766ba56f4c4df48cdaa28b7} 
+\index{Game.c@{Game.c}!deleteGame@{deleteGame}}
+\index{deleteGame@{deleteGame}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{deleteGame()}{deleteGame()}}
+{\footnotesize\ttfamily void delete\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGame}{Game}} \texorpdfstring{$\ast$}{*}}]{game }\end{DoxyParamCaption})}
+
+
+
+Deletes allocated memory space for previously created game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & pointer to game to be deleted \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Game_8c_a5b9b30106365480802c605830dfdb989}\label{Game_8c_a5b9b30106365480802c605830dfdb989} 
+\index{Game.c@{Game.c}!futurePos@{futurePos}}
+\index{futurePos@{futurePos}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{futurePos()}{futurePos()}}
+{\footnotesize\ttfamily Position future\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity,  }\item[{\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}}]{room }\end{DoxyParamCaption})}
+
+\Hypertarget{Game_8c_ad8412320b3fd3f1ce9e63fb41d895ce9}\label{Game_8c_ad8412320b3fd3f1ce9e63fb41d895ce9} 
+\index{Game.c@{Game.c}!moveEntity@{moveEntity}}
+\index{moveEntity@{moveEntity}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{moveEntity()}{moveEntity()}}
+{\footnotesize\ttfamily void move\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{entity,  }\item[{\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}}]{room }\end{DoxyParamCaption})}
+
+
+
+Moves entity to previously defined (future)position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & entity to move \\
+\hline
+{\em room} & current room \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Game_8c_af575de97af74ae3a94cf06746ed5db45}\label{Game_8c_af575de97af74ae3a94cf06746ed5db45} 
+\index{Game.c@{Game.c}!updateGameTime@{updateGameTime}}
+\index{updateGameTime@{updateGameTime}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{updateGameTime()}{updateGameTime()}}
+{\footnotesize\ttfamily void update\+Game\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+updates game time with RTC\textquotesingle{}s time 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{Game_8c_a0cb009fa48e65890ad8ce4bb12b7dcee}\label{Game_8c_a0cb009fa48e65890ad8ce4bb12b7dcee} 
+\index{Game.c@{Game.c}!aIsDown@{aIsDown}}
+\index{aIsDown@{aIsDown}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{aIsDown}{aIsDown}}
+{\footnotesize\ttfamily bool a\+Is\+Down\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Game_8c_aff34686e06f0ba7f22cb72b479293534}\label{Game_8c_aff34686e06f0ba7f22cb72b479293534} 
+\index{Game.c@{Game.c}!datetime@{datetime}}
+\index{datetime@{datetime}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{datetime}{datetime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDatetime}{Datetime}} datetime}
+
+\Hypertarget{Game_8c_ad4057e0956581c0f94a8b498f8a5e9eb}\label{Game_8c_ad4057e0956581c0f94a8b498f8a5e9eb} 
+\index{Game.c@{Game.c}!dIsDown@{dIsDown}}
+\index{dIsDown@{dIsDown}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{dIsDown}{dIsDown}}
+{\footnotesize\ttfamily bool d\+Is\+Down\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Game_8c_a943b2a289c10ff610a4aa640214bebfa}\label{Game_8c_a943b2a289c10ff610a4aa640214bebfa} 
+\index{Game.c@{Game.c}!escWasPressed@{escWasPressed}}
+\index{escWasPressed@{escWasPressed}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{escWasPressed}{escWasPressed}}
+{\footnotesize\ttfamily bool esc\+Was\+Pressed\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Game_8c_a760b01346d7e17bdabf3fe54d73c1bf4}\label{Game_8c_a760b01346d7e17bdabf3fe54d73c1bf4} 
+\index{Game.c@{Game.c}!eWasPressed@{eWasPressed}}
+\index{eWasPressed@{eWasPressed}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{eWasPressed}{eWasPressed}}
+{\footnotesize\ttfamily bool e\+Was\+Pressed\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Game_8c_ab5dba3244238ff70e6ca880d195a2250}\label{Game_8c_ab5dba3244238ff70e6ca880d195a2250} 
+\index{Game.c@{Game.c}!selectedCat@{selectedCat}}
+\index{selectedCat@{selectedCat}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{selectedCat}{selectedCat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEntity}{Entity}}\texorpdfstring{$\ast$}{*} selected\+Cat}
+
+\Hypertarget{Game_8c_a266cd2f49a82d44289287f6d2d23ed42}\label{Game_8c_a266cd2f49a82d44289287f6d2d23ed42} 
+\index{Game.c@{Game.c}!sIsDown@{sIsDown}}
+\index{sIsDown@{sIsDown}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{sIsDown}{sIsDown}}
+{\footnotesize\ttfamily bool s\+Is\+Down\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Game_8c_a704ef657b00dd7e0af8f18e9a90724cc}\label{Game_8c_a704ef657b00dd7e0af8f18e9a90724cc} 
+\index{Game.c@{Game.c}!wIsDown@{wIsDown}}
+\index{wIsDown@{wIsDown}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{wIsDown}{wIsDown}}
+{\footnotesize\ttfamily bool w\+Is\+Down\hspace{0.3cm}{\ttfamily [extern]}}
+

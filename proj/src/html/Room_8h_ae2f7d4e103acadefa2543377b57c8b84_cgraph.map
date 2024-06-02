@@ -1,0 +1,16 @@
+<map id="newRoom" name="newRoom">
+<area shape="rect" id="Node000001" title="Creates a new room." alt="" coords="5,104,92,129"/>
+<area shape="rect" id="Node000002" href="$utils__drivers_8c.html#af7da9411225515a9dd227658dc8dbc44" title="Generates a random float between lower_bound and upper_bound." alt="" coords="140,5,271,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,102,95,71,139,40,150,34,152,39,141,44,98,75,65,105"/>
+<area shape="rect" id="Node000003" href="$utils__drivers_8c.html#afdbf08e1b6d820edb9ea19a167061110" title="Generates a random integer between lower_bound and upper bound." alt="" coords="148,55,263,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,101,150,82,152,87,90,107"/>
+<area shape="rect" id="Node000004" href="$Entity_8c.html#a4df3940ece29f088092f780035e908a8" title="Creates a cat with a random color in chosen position." alt="" coords="170,104,241,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="92,114,156,114,156,119,92,119"/>
+<area shape="rect" id="Node000006" href="$utils_8c.html#a63bc05e9634daebb8398aea689defe39" title="Generates a random number between lower_bound and upper_bound." alt="" coords="463,129,579,155"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="87,127,140,139,223,147,306,150,449,145,449,150,306,155,222,152,140,145,86,132"/>
+<area shape="rect" id="Node000007" href="$Entity_8c.html#ac0ac4a8002e4044c03d3c49c7712d4df" title="Creates a player in chosen position." alt="" coords="160,205,251,231"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="66,127,100,154,141,184,165,197,162,201,139,188,97,159,63,131"/>
+<area shape="rect" id="Node000005" href="$CatInfo_8c.html#aad66c52414a337c6d440cec838083a33" title="Creates a new CatInfo with a random color." alt="" coords="319,104,415,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="241,114,304,114,304,119,241,119"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="415,122,449,128,448,133,415,127"/>
+</map>

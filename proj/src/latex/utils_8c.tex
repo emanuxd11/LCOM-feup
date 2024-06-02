@@ -1,0 +1,82 @@
+\doxysection{utils/utils.c File Reference}
+\hypertarget{utils_8c}{}\label{utils_8c}\index{utils/utils.c@{utils/utils.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}../drivers/rtclock.\+h"{}}\newline
+Include dependency graph for utils.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{utils_8c_a63bc05e9634daebb8398aea689defe39}{random\+Numer}} (int lower\+\_\+bound, int upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em Generates a random number between lower\+\_\+bound and upper\+\_\+bound. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utils_8c_ac071c22d7e7c13a06040a9ac1049cb8e}{deg\+To\+Rad}} (double angle\+In\+Degrees)
+\begin{DoxyCompactList}\small\item\em Converts an angle in degrees to radians. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utils_8c_ae873ac372ca6bc820e71e2de3d29ad40}{rad\+To\+Deg}} (double angle\+In\+Rad)
+\begin{DoxyCompactList}\small\item\em Converts an angle in radians to an angle in degrees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8c_ac071c22d7e7c13a06040a9ac1049cb8e}\label{utils_8c_ac071c22d7e7c13a06040a9ac1049cb8e} 
+\index{utils.c@{utils.c}!degToRad@{degToRad}}
+\index{degToRad@{degToRad}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{degToRad()}{degToRad()}}
+{\footnotesize\ttfamily double deg\+To\+Rad (\begin{DoxyParamCaption}\item[{double}]{angle\+In\+Degrees }\end{DoxyParamCaption})}
+
+
+
+Converts an angle in degrees to radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle\+In\+Degrees} & angle in degrees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+angle in radians 
+\end{DoxyReturn}
+\Hypertarget{utils_8c_ae873ac372ca6bc820e71e2de3d29ad40}\label{utils_8c_ae873ac372ca6bc820e71e2de3d29ad40} 
+\index{utils.c@{utils.c}!radToDeg@{radToDeg}}
+\index{radToDeg@{radToDeg}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{radToDeg()}{radToDeg()}}
+{\footnotesize\ttfamily double rad\+To\+Deg (\begin{DoxyParamCaption}\item[{double}]{angle\+In\+Rad }\end{DoxyParamCaption})}
+
+
+
+Converts an angle in radians to an angle in degrees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle\+In\+Rad} & angle in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+angle in degrees 
+\end{DoxyReturn}
+\Hypertarget{utils_8c_a63bc05e9634daebb8398aea689defe39}\label{utils_8c_a63bc05e9634daebb8398aea689defe39} 
+\index{utils.c@{utils.c}!randomNumer@{randomNumer}}
+\index{randomNumer@{randomNumer}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{randomNumer()}{randomNumer()}}
+{\footnotesize\ttfamily int random\+Numer (\begin{DoxyParamCaption}\item[{int}]{lower\+\_\+bound,  }\item[{int}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+Generates a random number between lower\+\_\+bound and upper\+\_\+bound. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+\_\+bound} & lower bound \\
+\hline
+{\em upper\+\_\+bound} & upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+generated number 
+\end{DoxyReturn}

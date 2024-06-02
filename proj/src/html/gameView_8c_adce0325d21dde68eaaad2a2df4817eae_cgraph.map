@@ -1,0 +1,23 @@
+<map id="drawMenu" name="drawMenu">
+<area shape="rect" id="Node000001" title="Draws the game&#39;s menu." alt="" coords="5,80,96,106"/>
+<area shape="rect" id="Node000002" href="$gpu_8c.html#a8dc3b64d819195e41495b03be84f9db5" title="Draws a xpm map." alt="" coords="359,31,449,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,78,95,45,118,28,143,16,199,4,256,5,310,13,355,24,354,29,309,18,255,10,199,10,145,21,120,33,98,49,65,82"/>
+<area shape="rect" id="Node000004" href="$gameView_8c.html#a6ef35efc9ab8c5f9bff21094b4c318de" title="Draws a button in chosen position with chosen text inside." alt="" coords="171,80,268,106"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="96,90,157,90,157,96,96,96"/>
+<area shape="rect" id="Node000007" href="$gameView_8c.html#a2cd64dc0cda879296c1af673277325f8" title="Draws the mouse." alt="" coords="171,31,268,56"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="94,78,161,58,162,63,96,83"/>
+<area shape="rect" id="Node000008" href="$gpu_8c.html#a77e37cfbd6fd03aada827b76e535d41a" title="Set the screen&#39;s background to selected color." alt="" coords="513,131,677,156"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="94,103,144,114,238,126,333,134,499,141,499,146,333,140,238,132,144,120,93,108"/>
+<area shape="rect" id="Node000009" href="$gpu_8c.html#a2072f81f024b952bc79d3c50a4837af8" title="Updates front buffer." alt="" coords="144,182,295,207"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="69,104,103,131,145,160,173,174,170,179,143,165,100,136,65,108"/>
+<area shape="rect" id="Node000003" href="$gpu_8c.html#ad57866c076e7a5fd1a8706005d2676e2" title="Draws a pixel on the screen." alt="" coords="725,82,817,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,43,554,50,678,66,717,75,716,81,677,72,554,55,449,48"/>
+<area shape="poly" id="edge7_Node000004_Node000002" title=" " alt="" coords="267,78,345,57,346,62,268,83"/>
+<area shape="rect" id="Node000005" href="$gpu_8c.html#a0e0a5c15e07b25745d105cf0cc2f89bb" title="Draws a rectangle on the screen." alt="" coords="343,80,465,106"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,90,329,90,329,96,268,96"/>
+<area shape="rect" id="Node000006" href="$gpu_8c.html#a15cccee9bb5a2c9f05720adab00ea63c" title="Draws a line on the screen." alt="" coords="553,82,638,107"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="466,91,539,91,538,97,466,96"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="638,92,712,92,712,97,638,97"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="268,41,344,41,344,46,268,46"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="641,128,711,108,713,113,642,133"/>
+</map>

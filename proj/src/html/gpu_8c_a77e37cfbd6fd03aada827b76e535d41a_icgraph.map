@@ -1,0 +1,9 @@
+<map id="set_background_color" name="set_background_color">
+<area shape="rect" id="Node000001" title="Set the screen&#39;s background to selected color." alt="" coords="456,5,620,31"/>
+<area shape="rect" id="Node000002" href="$gameView_8c.html#adce0325d21dde68eaaad2a2df4817eae" title="Draws the game&#39;s menu." alt="" coords="317,5,408,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,21,408,21,408,15,442,15"/>
+<area shape="rect" id="Node000003" href="$gameView_8c.html#a604509f0b9e88021a72d4b8a6e1870bb" title=" " alt="" coords="176,5,269,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,21,270,21,270,15,304,15"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="162,21,128,21,128,15,162,15"/>
+</map>

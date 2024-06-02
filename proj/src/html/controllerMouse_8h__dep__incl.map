@@ -1,0 +1,7 @@
+<map id="controller/controllerMouse.h" name="controller/controllerMouse.h">
+<area shape="rect" id="Node000001" title="Contains all state machines functions and other functions to monitor the mouse&#39;s movement." alt="" coords="85,5,290,31"/>
+<area shape="rect" id="Node000002" href="$controllerMouse_8c.html" title=" " alt="" coords="5,79,209,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,42,122,80,119,76,163,38"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title=" " alt="" coords="234,79,301,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,38,256,76,252,80,208,42"/>
+</map>

@@ -1,0 +1,30 @@
+\doxysection{gpu.\+h}
+\hypertarget{gpu_8h_source}{}\label{gpu_8h_source}\index{drivers/gpu.h@{drivers/gpu.h}}
+\mbox{\hyperlink{gpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ \_GPU\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ \_GPU\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ INTNO\ 0x10}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../font/characters.xpm"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ int\ (\mbox{\hyperlink{gpu_8h_a3a1ab5264a30db6e7d8b05e195295a0a}{enter\_video\_mode}})(uint16\_t\ mode);}
+\DoxyCodeLine{00030\ int\ (\mbox{\hyperlink{gpu_8h_a7be1b981036e0f94df86dc8b7cda464b}{exit\_video\_mode}})();}
+\DoxyCodeLine{00037\ int\ (\mbox{\hyperlink{gpu_8h_aa75405d8892641490e5e12b6a36a4f22}{create\_vram\_buffer}})(uint16\_t\ mode);}
+\DoxyCodeLine{00047\ int\ (\mbox{\hyperlink{gpu_8h_ad57866c076e7a5fd1a8706005d2676e2}{draw\_pixel}})(uint16\_t\ mode,\ uint16\_t\ x,\ uint16\_t\ y,\ uint32\_t\ color);}
+\DoxyCodeLine{00058\ int\ (\mbox{\hyperlink{gpu_8h_a15cccee9bb5a2c9f05720adab00ea63c}{draw\_line}})(uint16\_t\ mode,\ uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ width,\ uint32\_t\ color);}
+\DoxyCodeLine{00070\ int\ (\mbox{\hyperlink{gpu_8h_a0e0a5c15e07b25745d105cf0cc2f89bb}{draw\_rectangle}})(uint16\_t\ mode,\ uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ width,\ uint16\_t\ height,uint32\_t\ color);}
+\DoxyCodeLine{00079\ int\ (\mbox{\hyperlink{gpu_8h_a8dc3b64d819195e41495b03be84f9db5}{draw\_xpm}})(xpm\_map\_t\ xpm,\ uint16\_t\ x,\ uint16\_t\ y);}
+\DoxyCodeLine{00089\ int\ (\mbox{\hyperlink{gpu_8h_a34acbdecb2579068868f8fae55cdca8f}{draw\_xpm\_single\_color}})(xpm\_map\_t\ xpm,\ uint16\_t\ x,\ uint16\_t\ y,\ uint32\_t\ color);}
+\DoxyCodeLine{00096\ int\ (\mbox{\hyperlink{gpu_8h_aa680181e61a8510be11ceb2834cc55c7}{get\_char\_xpm\_idx}})(\textcolor{keywordtype}{char}\ ch);}
+\DoxyCodeLine{00106\ int\ (\mbox{\hyperlink{gpu_8h_a6ebd4c503698eabfdb297f0b60cd9a7e}{draw\_text}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ uint16\_t\ x,\ uint16\_t\ y,\ uint32\_t\ color);}
+\DoxyCodeLine{00114\ int\ (\mbox{\hyperlink{gpu_8h_a77e37cfbd6fd03aada827b76e535d41a}{set\_background\_color}})(uint16\_t\ mode,\ uint32\_t\ color);}
+\DoxyCodeLine{00121\ int\ (\mbox{\hyperlink{gpu_8h_a2072f81f024b952bc79d3c50a4837af8}{update\_front\_buffer}})();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

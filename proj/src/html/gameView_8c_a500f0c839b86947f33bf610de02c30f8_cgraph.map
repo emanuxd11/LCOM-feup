@@ -1,0 +1,9 @@
+<map id="drawSky" name="drawSky">
+<area shape="rect" id="Node000001" title="Draws the game&#39;s sky." alt="" coords="5,5,83,31"/>
+<area shape="rect" id="Node000002" href="$gpu_8c.html#a0e0a5c15e07b25745d105cf0cc2f89bb" title="Draws a rectangle on the screen." alt="" coords="131,5,253,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,15,117,15,117,21,83,21"/>
+<area shape="rect" id="Node000003" href="$gpu_8c.html#a15cccee9bb5a2c9f05720adab00ea63c" title="Draws a line on the screen." alt="" coords="301,5,387,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,15,287,15,287,21,254,21"/>
+<area shape="rect" id="Node000004" href="$gpu_8c.html#ad57866c076e7a5fd1a8706005d2676e2" title="Draws a pixel on the screen." alt="" coords="435,5,527,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="387,15,421,15,421,21,387,21"/>
+</map>

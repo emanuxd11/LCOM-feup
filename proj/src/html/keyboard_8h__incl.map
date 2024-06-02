@@ -1,0 +1,10 @@
+<map id="drivers/keyboard.h" name="drivers/keyboard.h">
+<area shape="rect" id="Node000001" title="This file contains the necessary functions to process keyboard interrupts and sending of commands to ..." alt="" coords="5,5,148,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="45,152,130,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,33,37,64,29,84,31,103,44,124,62,142,58,145,40,127,26,105,24,83,32,62,60,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="41,79,112,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="79,31,79,65,74,65,74,31"/>
+<area shape="rect" id="Node000004" href="$i8042_8h.html" title=" " alt="" coords="136,79,207,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="93,29,146,68,143,72,90,33"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="160,106,113,145,110,141,156,102"/>
+</map>

@@ -1,3 +1,5 @@
+#pragma once
+
 static char *play_game[] = {
 /* columns rows colors chars-per-pixel */
 "266 96 2",

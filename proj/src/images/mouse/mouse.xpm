@@ -1,3 +1,5 @@
+#pragma once
+
 static char *mouse[] = {
 "16 16 3",
 "  255",

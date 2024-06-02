@@ -6,7 +6,7 @@
 #include "gpu.h"
 #include "../models/Sprite.h"
 
-extern Sprite characters[CHAR_COUNT];
+// extern Sprite characters[CHAR_COUNT];
 static char *front_buffer;
 static char *back_buffer;
 uint8_t bypp;

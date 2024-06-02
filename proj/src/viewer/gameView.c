@@ -7,11 +7,11 @@
 #include "../images/cats/cat4.xpm"
 #include "../images/character/front.xpm"
 #include "../images/scenery/cloud.xpm"
-#include "../images/logo.xpm"
-#include "../images/mouse.xpm"
-#include "../images/play_game.xpm"
-#include "../images/instructions.xpm"
-#include "../images/quit.xpm"
+#include "../images/menu/logo.xpm"
+#include "../images/mouse/mouse.xpm"
+#include "../images/menu/play_game.xpm"
+#include "../images/menu/instructions.xpm"
+#include "../images/menu/quit.xpm"
 #include "../images/state_machines/state_machine0.xpm"
 #include "../images/state_machines/state_machine1.xpm"
 #include "../images/state_machines/state_machine2.xpm"
@@ -54,41 +54,32 @@ int drawMenu(Game *game) {
   // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
 
   //drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color)
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 50 && mouse_pos_y <= 300 + 50){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 50 && mouse_pos_y <= 300 + 50) {
     if (drawButton("Play Game", 512, 300, 300, 100, BLUE) != 0) return 1;
-    if (hasLeftClick){
+    if (hasLeftClick) {
       game->state = GAME_STATE;
     }
-  } else{
+  } else {
     if (drawButton("Play Game", 512, 300, 300, 100, BLUE + 1) != 0) return 1;
   }
 
-
-
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 400 - 40 && mouse_pos_y <= 400 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 400 - 40 && mouse_pos_y <= 400 + 40) {
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE) != 0) return 1;
-    if (hasLeftClick){
+    if (hasLeftClick) {
       game->state = INSTRUCTIONS_STATE;
     }
-  }
-
-  else{
+  } else {
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE + 1) != 0) return 1;
   }
 
-
-
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 500 - 40 && mouse_pos_y <= 500 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 500 - 40 && mouse_pos_y <= 500 + 40) {
     if (drawButton("Quit", 512, 500, 300, 80, BLUE) != 0) return 1;
-    if (hasLeftClick){
+    if (hasLeftClick) {
       game->state = LEAVE_STATE;
     }
-  }
-
-  else{
+  } else {
     if (drawButton("Quit", 512, 500, 300, 80, BLUE + 1) != 0) return 1;
   }
-
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
     printf("Error drawing mouse");

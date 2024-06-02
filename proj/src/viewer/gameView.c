@@ -138,7 +138,7 @@ int drawGamePlaying(Game *game) {
   char f_str[5];
   sprintf(f_str, "%d", game->counter);
 
-  if (draw_text(f_str, 0, 0, 0));
+  if (draw_text(f_str, 0, 0, 0) != 0) return 1;
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
     printf("Error drawing mouse");

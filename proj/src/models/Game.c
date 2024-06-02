@@ -136,7 +136,7 @@ int control_cat(Game *game, Entity *cat) {
 
     cat->direction = randomNumer(1, 360);
 
-    catInfo->moveCountdown = randomNumer(100, 300);
+    catInfo->moveCountdown = randomNumer(400, 1200);
   }
 
   if (catInfo->isIdle) {

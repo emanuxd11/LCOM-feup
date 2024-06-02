@@ -27,6 +27,7 @@ typedef enum {
 typedef struct {
     Room *room;
     GameState state;
+    int counter;
 } Game;
 
 Game* createNewGame();

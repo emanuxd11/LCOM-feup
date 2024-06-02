@@ -1,0 +1,33 @@
+\doxysection{Room.\+h}
+\hypertarget{Room_8h_source}{}\label{Room_8h_source}\index{models/Room.h@{models/Room.h}}
+\mbox{\hyperlink{Room_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ ROOM\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ROOM\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../models/Entity.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../models/Cloud.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ CLOUD\_QNT\ 5}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{structEntity}{Entity}}*\ \mbox{\hyperlink{structRoom_a7ec61e34de4838161ff6b384e03fc434}{player}};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{structEntity}{Entity}}*\ cats[10];}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structEntity}{Entity}}*\ walls[4];}
+\DoxyCodeLine{00023\ \ \ \ \ Position*\ \mbox{\hyperlink{structRoom_ac801a5c0f7fd7180d19d18f2983ef0fa}{center}};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{structCloud}{Cloud}}\ clouds[\mbox{\hyperlink{Room_8h_aa10d8c966d5acfce2dd501eb91a6aa62}{CLOUD\_QNT}}];}
+\DoxyCodeLine{00025\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structRoom_aa5198987899431d0b7e4b072f08767db}{stage}};}
+\DoxyCodeLine{00026\ \}\ \mbox{\hyperlink{structRoom}{Room}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \mbox{\hyperlink{structRoom}{Room}}*\ \mbox{\hyperlink{Room_8h_ae2f7d4e103acadefa2543377b57c8b84}{newRoom}}();}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Room_8h_a28b002da223ee711da443d4dead999d7}{deleteRoom}}(\mbox{\hyperlink{structRoom}{Room}}*\ room);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Room_8h_ab882f8a1d4cea5a9a347f133e864b00c}{addCat}}(\mbox{\hyperlink{structRoom}{Room}}*\ room);\ \ \ \textcolor{comment}{//called\ after\ a\ cooldown;\ cooldown\ is\ shorter\ in\ higher\ stages}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Room_8h_a65becced2940ce3b19158d4a7e7fee46}{removeCat}}(\mbox{\hyperlink{structRoom}{Room}}*\ room\ ,\mbox{\hyperlink{structEntity}{Entity}}*\ cat);\ \ \ \textcolor{comment}{//called\ if\ the\ specified\ cat\ is\ pet\ correctly}}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Room_8h_a7b47557fc6c43316c9b27f5bf2437b5b}{advanceStage}}(\mbox{\hyperlink{structRoom}{Room}}*\ room);}
+\DoxyCodeLine{00068\ \mbox{\hyperlink{structEntity}{Entity}}*\ \mbox{\hyperlink{Room_8h_ad318c8a1d7c7980a71711da4fd852cd4}{getSelectedCat}}(\mbox{\hyperlink{structRoom}{Room}}*\ room);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROOM\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,9 @@
+<map id="newPlayer" name="newPlayer">
+<area shape="rect" id="Node000001" title="Creates a player in chosen position." alt="" coords="489,5,580,31"/>
+<area shape="rect" id="Node000002" href="$Room_8c.html#ae2f7d4e103acadefa2543377b57c8b84" title="Creates a new room." alt="" coords="355,5,441,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="476,21,442,21,442,15,476,15"/>
+<area shape="rect" id="Node000003" href="$Game_8c.html#a2e2c951a9633896ad4506f9e69475e5b" title="Creates a new game." alt="" coords="176,5,307,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="341,21,307,21,307,15,341,15"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="163,21,128,21,128,15,163,15"/>
+</map>

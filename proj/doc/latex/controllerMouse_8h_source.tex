@@ -1,0 +1,38 @@
+\doxysection{controller\+Mouse.\+h}
+\hypertarget{controllerMouse_8h_source}{}\label{controllerMouse_8h_source}\index{controller/controllerMouse.h@{controller/controllerMouse.h}}
+\mbox{\hyperlink{controllerMouse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}\ \textcolor{comment}{//have\ to\ include\ this\ so\ struct\ packet\ is\ known}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }packet\ \mbox{\hyperlink{controllerMouse_8h_a3b2e64ffb96c650d6525c99be01c7331}{mouse\_packet}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da0cb1b2c6a7db1f1084886c98909a3f36}{INIT}},}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da94ec660291079916623355f9d9231077}{DUP}},}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da1d92bb4d86226cb474963357ac146ba5}{DDOWN}},}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da2e4d5495bd9d476f78962cebe074ebbd}{VERTEX}},}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da181eb299a839b43fa70c4588357ba494}{DSIDE}},}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3da936c4a5547a9360243178f726f6b2715}{FAIL}},}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3dac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}}}
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{controllerMouse_8h_a89dc6303ad8ee54c00b71c98598b7a3d}{mouseState}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{controllerMouse_8h_a75f1acde9dc97cecc347348df8b855b6}{mouse\_is\_descending}}(int16\_t\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}});}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{controllerMouse_8h_a40e32ed3f4a4d6d632f8739325b19831}{mouse\_is\_ascending}}(uint8\_t\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}});}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{controllerMouse_8h_a7116455861cb4c1fabd1200f8dbf0764}{stateMachineInvertedV}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}},\ \textcolor{keywordtype}{int}\ x\_len);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{controllerMouse_8h_a141c010a0817b09588a6cfbd9781febb}{stateMachineV}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}},\ \textcolor{keywordtype}{int}\ x\_len);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{controllerMouse_8h_aaaa02f183c013cec09c80b81b2de27c3}{stateMachineVLine}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}},\ \textcolor{keywordtype}{int}\ y\_len);}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{controllerMouse_8h_abf9aca74f5a9d4328a1c635f0518ade6}{stateMachineHLine}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}},\ \textcolor{keywordtype}{int}\ y\_len);}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{controllerMouse_8h_a669ae41ccf5404189652fda0728f6564}{stateMachineDLine}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{controllerMouse_8h_a4831ade858b375681259613b70f164a1}{tolerance}},\ \textcolor{keywordtype}{int}\ y\_len);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{controllerMouse_8h_a7ea19b6c28d84dbed1738006f2d1bd07}{moveMouse}}(\textcolor{keywordtype}{int}\ *mouse\_x\_pos,\ \textcolor{keywordtype}{int}\ *mouse\_y\_pos);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+
+\end{DoxyCode}

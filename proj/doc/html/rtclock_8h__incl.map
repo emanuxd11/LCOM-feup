@@ -1,0 +1,14 @@
+<map id="drivers/rtclock.h" name="drivers/rtclock.h">
+<area shape="rect" id="Node000001" title="Contains some functions to operate the Real Time Clock." alt="" coords="37,5,163,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="57,152,143,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,33,46,46,23,63,9,82,8,92,12,103,32,126,58,144,55,148,28,130,7,105,3,92,4,80,19,59,43,41,69,28"/>
+<area shape="rect" id="Node000003" href="$utils__drivers_8h.html" title="This file contains utilitary functions." alt="" coords="204,79,319,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,28,224,71,221,75,125,33"/>
+<area shape="rect" id="Node000005" href="$Datetime_8h.html" title="This file contains the Datetime struct." alt="" coords="21,79,179,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="103,31,103,65,97,65,97,31"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="237,106,140,149,138,144,234,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="197,152,267,177"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="259,105,245,140,240,138,254,103"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="103,104,103,138,97,138,97,104"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="123,102,200,143,197,148,120,106"/>
+</map>

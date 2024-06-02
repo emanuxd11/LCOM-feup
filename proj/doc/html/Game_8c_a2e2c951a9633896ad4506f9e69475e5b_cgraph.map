@@ -1,0 +1,18 @@
+<map id="createNewGame" name="createNewGame">
+<area shape="rect" id="Node000001" title="Creates a new game." alt="" coords="5,104,136,129"/>
+<area shape="rect" id="Node000002" href="$Room_8c.html#ae2f7d4e103acadefa2543377b57c8b84" title="Creates a new room." alt="" coords="184,104,271,129"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,114,170,114,170,119,136,119"/>
+<area shape="rect" id="Node000003" href="$utils__drivers_8c.html#af7da9411225515a9dd227658dc8dbc44" title="Generates a random float between lower_bound and upper_bound." alt="" coords="319,5,449,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,102,273,71,317,40,329,34,331,39,320,44,277,75,243,105"/>
+<area shape="rect" id="Node000004" href="$utils__drivers_8c.html#afdbf08e1b6d820edb9ea19a167061110" title="Generates a random integer between lower_bound and upper bound." alt="" coords="327,55,441,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="268,101,329,82,331,87,269,107"/>
+<area shape="rect" id="Node000005" href="$Entity_8c.html#a4df3940ece29f088092f780035e908a8" title="Creates a cat with a random color in chosen position." alt="" coords="349,104,419,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="271,114,335,114,335,119,271,119"/>
+<area shape="rect" id="Node000007" href="$utils_8c.html#a63bc05e9634daebb8398aea689defe39" title="Generates a random number between lower_bound and upper_bound." alt="" coords="641,129,757,155"/>
+<area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="266,127,319,139,401,147,484,150,627,145,628,150,484,155,401,152,318,145,264,132"/>
+<area shape="rect" id="Node000008" href="$Entity_8c.html#ac0ac4a8002e4044c03d3c49c7712d4df" title="Creates a player in chosen position." alt="" coords="339,205,429,231"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="245,127,279,154,320,184,343,197,341,201,317,188,275,159,242,131"/>
+<area shape="rect" id="Node000006" href="$CatInfo_8c.html#aad66c52414a337c6d440cec838083a33" title="Creates a new CatInfo with a random color." alt="" coords="497,104,593,129"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="419,114,483,114,483,119,419,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="594,122,628,128,627,133,593,127"/>
+</map>

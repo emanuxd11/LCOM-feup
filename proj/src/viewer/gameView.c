@@ -1,4 +1,5 @@
 #include "gameView.h"
+#include "../models/PlayerInfo.h"
 
 #include "../images/cats/cat0.xpm"
 #include "../images/cats/cat1.xpm"
@@ -20,16 +21,24 @@
 
 #define YELLOW 62
 #define BLUE 9
+#define LIGHT_BLUE 11
 #define SKY_DAY 27
 #define SKY_NIGHT 8
-#define BROWN 20
 #define GREEN_GRASS 2
-#define LIGHT_BLUE 11
+#define CAT_BROWN 20
+#define CAT_RED 44
+#define CAT_BLUE 15
+#define CAT_GRAY 7
+#define CAT_ORANGE 52
+
 
 extern int mouse_pos_x, mouse_pos_y;
 extern uint16_t x_res, y_res;
 extern bool hasLeftClick;
 extern Datetime datetime;
+extern Entity* selectedCat;
+
+char score_string[20];
 
 
 int drawGame(Game *game) {
@@ -96,19 +105,31 @@ int drawMenu(Game *game) {
 
 int drawGamePlaying(Game *game) {
   // Background drawing
+
+  if (((PlayerInfo*) game->room->player->typeInfo)->isPetting) {
+    if (drawPetting(game) != 0) return 1;
+    if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
+      printf("Error drawing mouse");
+      return 1;
+    }
+    return update_front_buffer();
+  }
+
   if (drawGrass()) return 1;
   if (drawSky()) return 1;
   if (drawClouds(game->room->clouds)) return 1;
 
-  if (draw_text("ABCDEFGHIJKLMNOPQRSTUVWXYZ\n0123456789\n0 1 2 3 4 5 6 7 8 9", 80, 200, 0) != 0) return 1;
-
   // Cats drawing
+
   for (int i = 0; i < 10; i++) {
     if (drawCat(game->room->cats[i]) != 0) return 1;
   }
 
   // Player drawing
   if (draw_xpm((xpm_map_t) front, game->room->player->position->x, game->room->player->position->y) != 0) return 1;
+
+  sprintf(score_string, "%d", game->counter);
+  if (draw_text(score_string, 0, 0, 0) != 0) return 1;
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
     printf("Error drawing mouse");
@@ -170,28 +191,39 @@ int drawSky() {
 
 int drawCat(Entity *entity) {
   // TODO switch case to get cat type
-
   switch (((CatInfo*) entity->typeInfo)->color)
   {
-  case ORANGE_CAT:
-    return draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y);
+  case RED_CAT:
+    if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    break;
 
-  case WHITE_CAT:
-    return draw_xpm((xpm_map_t) cat1, entity->position->x, entity->position->y);
+  case BROWN_CAT:
+    if (draw_xpm((xpm_map_t) cat1, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat1, entity->position->x, entity->position->y);
 
-  case BLACK_CAT:
-    return draw_xpm((xpm_map_t) cat2, entity->position->x, entity->position->y);
+  case BLUE_CAT:
+    if (draw_xpm((xpm_map_t) cat2, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat2, entity->position->x, entity->position->y);
   
   case GRAY_CAT:
-    return draw_xpm((xpm_map_t) cat3, entity->position->x, entity->position->y);
+    if (draw_xpm((xpm_map_t) cat3, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat3, entity->position->x, entity->position->y);
   
-  case BROWN_CAT:
-    return draw_xpm((xpm_map_t) cat4, entity->position->x, entity->position->y);
+  case ORANGE_CAT:
+    if (draw_xpm((xpm_map_t) cat4, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat4, entity->position->x, entity->position->y);
   
   default:
     return 1;
   }
 
+  if (((CatInfo*)entity->typeInfo)->isSelected) return draw_rectangle(0x105, entity->position->x, entity->position->y, 10, 10, YELLOW);
+
+  return 0;
 }
 
 int drawInstructions(){
@@ -243,4 +275,40 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
 
 int drawMouse(int x, int y) {
   return draw_xpm((xpm_map_t) mouse, x, y);
+}
+
+int drawPetting(Game* game) {
+  gid_t catColor;
+
+  switch (((CatInfo*) selectedCat->typeInfo)->color) {
+    case RED_CAT: // type of cat
+      catColor = CAT_RED; // cat specific color
+      break;
+    
+    case BROWN_CAT:
+      catColor = CAT_BROWN;
+      break;
+
+    case BLUE_CAT:
+      catColor = CAT_BLUE;
+      break;
+
+    case GRAY_CAT:
+      catColor = CAT_GRAY;
+      break;
+
+    case ORANGE_CAT:
+      catColor = CAT_ORANGE;
+      break;
+    
+    default:
+      return 1;
+  }
+
+  if (set_background_color(0x105, catColor) != 0) return 1;
+
+  //place holder: will maybe draw a black cat face outline
+  if (draw_rectangle(0x105, 100, 100, 200, 200, YELLOW) != 0) return 1;
+
+  return 0;
 }

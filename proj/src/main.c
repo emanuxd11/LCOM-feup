@@ -1,3 +1,4 @@
+
 #include <lcom/lcf.h>
 #include <lcom/timer.h>
 
@@ -24,6 +25,7 @@
 extern uint8_t scancode;
 extern struct packet mouse_packet;
 extern bool finished;
+extern enum CatColor selectedCatType;
 int mouse_pos_x=0, mouse_pos_y=0;
 
 
@@ -133,9 +135,7 @@ int (proj_main_loop)() {
                 //packet is read
                 finished = false;
                 moveMouse(&mouse_pos_x, &mouse_pos_y);
-              }
-              if(game->state == GAME_STATE){
-                stateMachineDLine(30,90);
+                petting_helper_on_mouse_int(game);
               }
 
           }

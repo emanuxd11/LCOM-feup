@@ -1,0 +1,15 @@
+<map id="mouse_is_ascending" name="mouse_is_ascending">
+<area shape="rect" id="Node000001" title="Checks if mouse is moving with positive displacements in the mouse packets, allowing a certain tolera..." alt="" coords="397,104,555,129"/>
+<area shape="rect" id="Node000002" href="$controllerMouse_8c.html#a669ae41ccf5404189652fda0728f6564" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="189,5,336,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="444,99,400,71,348,44,317,33,318,28,350,40,403,66,447,94"/>
+<area shape="rect" id="Node000004" href="$controllerMouse_8c.html#aad4b3ceb147d34a37cca0c2f741abdf4" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="189,55,336,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="407,103,318,83,319,77,408,98"/>
+<area shape="rect" id="Node000005" href="$controllerMouse_8c.html#a7116455861cb4c1fabd1200f8dbf0764" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="176,104,349,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="383,119,350,119,350,114,383,114"/>
+<area shape="rect" id="Node000006" href="$controllerMouse_8c.html#a141c010a0817b09588a6cfbd9781febb" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="203,153,322,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="408,135,319,156,318,151,407,130"/>
+<area shape="rect" id="Node000007" href="$controllerMouse_8c.html#aaaa02f183c013cec09c80b81b2de27c3" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="189,203,336,228"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="446,139,402,166,350,192,315,205,313,200,348,188,399,162,443,135"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="175,21,128,21,128,15,175,15"/>
+</map>

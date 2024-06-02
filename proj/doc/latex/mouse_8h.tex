@@ -1,0 +1,189 @@
+\doxysection{drivers/mouse.h File Reference}
+\hypertarget{mouse_8h}{}\label{mouse_8h}\index{drivers/mouse.h@{drivers/mouse.h}}
+
+
+This file contains the necessary functions to process interrupts, parse mouse packets and sending of commands to the KBC.  
+
+
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}i8042.\+h"{}}\newline
+Include dependency graph for mouse.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{mouse_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{mouse_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{mouse_8h_a20285aed4b3ef45812cd967532dd09db}{mouse\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes mouse interrupts using irq\+\_\+reenable and irq\+\_\+exclusive policy. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubcribes mouse interrupts. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{mouse_8h_a210374b50462acdedab00df64d5cea3c}{mouse\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Reads status register when an interrupt occurs and checks for timeout and parity errors, if none are found, it calls a function to read a byte to be placed in the mouse packet struct. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8h_ab814784256e934abee308b68ac413719}{kbc\+\_\+restore\+\_\+mouse}} ()
+\begin{DoxyCompactList}\small\item\em Disables data reporting from the mouse. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8h_a1bf906cc319e1b099f92b7c622f494fb}{issue\+\_\+cmd\+\_\+to\+\_\+mouse}} (uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em First the 0x\+D4 command is issued to the status port of the kbc, then command cmd is sent to the kbc output buffer, then 10 attempts are made to read the KBC\textquotesingle{}s output buffer to check if the command was acknowledged(\+ACK) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8h_addafa059c296f73e62410c2c60e11aa4}{read\+\_\+data\+\_\+from\+\_\+\+KBC\+\_\+mouse}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Reads the KBC\textquotesingle{}s status byte to check if KBC\textquotesingle{}S output buffer is full, if so, its contents are placed in \textquotesingle{}data\textquotesingle{} parameter and checked for errors and correspondance to mouse data. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8h_a7740bd988610d35f2a3c2c1c0c7fb798}{read\+\_\+byte\+\_\+to\+\_\+mouse\+\_\+packet}} ()
+\begin{DoxyCompactList}\small\item\em Upon an interrupt this function is called, it reads a byte from the KBC and then places it in the mouse packet struct. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mouse_8h_afee51d28c7388082c76862f11f44fedc}{array\+\_\+to\+\_\+packet}} ()
+\begin{DoxyCompactList}\small\item\em Buids the mouse packet. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mouse_8h_adfa7d6c9b92a1a2a14cb567591204033}{issue\+\_\+cmd\+\_\+to\+\_\+\+KBC}} (uint8\+\_\+t port, uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em Reads the KBC status bit and checks if output buffer is empty, if so this function issues a command \textquotesingle{}cmd\textquotesingle{} to port \textquotesingle{}port\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the necessary functions to process interrupts, parse mouse packets and sending of commands to the KBC. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mouse_8h_afee51d28c7388082c76862f11f44fedc}\label{mouse_8h_afee51d28c7388082c76862f11f44fedc} 
+\index{mouse.h@{mouse.h}!array\_to\_packet@{array\_to\_packet}}
+\index{array\_to\_packet@{array\_to\_packet}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{array\_to\_packet()}{array\_to\_packet()}}
+{\footnotesize\ttfamily void array\+\_\+to\+\_\+packet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Buids the mouse packet. 
+
+\Hypertarget{mouse_8h_adfa7d6c9b92a1a2a14cb567591204033}\label{mouse_8h_adfa7d6c9b92a1a2a14cb567591204033} 
+\index{mouse.h@{mouse.h}!issue\_cmd\_to\_KBC@{issue\_cmd\_to\_KBC}}
+\index{issue\_cmd\_to\_KBC@{issue\_cmd\_to\_KBC}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{issue\_cmd\_to\_KBC()}{issue\_cmd\_to\_KBC()}}
+{\footnotesize\ttfamily int issue\+\_\+cmd\+\_\+to\+\_\+\+KBC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Reads the KBC status bit and checks if output buffer is empty, if so this function issues a command \textquotesingle{}cmd\textquotesingle{} to port \textquotesingle{}port\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & port taht will receive the command \\
+\hline
+{\em cmd} & command to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{mouse_8h_a1bf906cc319e1b099f92b7c622f494fb}\label{mouse_8h_a1bf906cc319e1b099f92b7c622f494fb} 
+\index{mouse.h@{mouse.h}!issue\_cmd\_to\_mouse@{issue\_cmd\_to\_mouse}}
+\index{issue\_cmd\_to\_mouse@{issue\_cmd\_to\_mouse}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{issue\_cmd\_to\_mouse()}{issue\_cmd\_to\_mouse()}}
+{\footnotesize\ttfamily int issue\+\_\+cmd\+\_\+to\+\_\+mouse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+First the 0x\+D4 command is issued to the status port of the kbc, then command cmd is sent to the kbc output buffer, then 10 attempts are made to read the KBC\textquotesingle{}s output buffer to check if the command was acknowledged(\+ACK) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & command to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon acknowledgement, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{mouse_8h_ab814784256e934abee308b68ac413719}\label{mouse_8h_ab814784256e934abee308b68ac413719} 
+\index{mouse.h@{mouse.h}!kbc\_restore\_mouse@{kbc\_restore\_mouse}}
+\index{kbc\_restore\_mouse@{kbc\_restore\_mouse}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_restore\_mouse()}{kbc\_restore\_mouse()}}
+{\footnotesize\ttfamily int kbc\+\_\+restore\+\_\+mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disables data reporting from the mouse. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{mouse_8h_a210374b50462acdedab00df64d5cea3c}\label{mouse_8h_a210374b50462acdedab00df64d5cea3c} 
+\index{mouse.h@{mouse.h}!mouse\_ih@{mouse\_ih}}
+\index{mouse\_ih@{mouse\_ih}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_ih()}{mouse\_ih()}}
+{\footnotesize\ttfamily void() mouse\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads status register when an interrupt occurs and checks for timeout and parity errors, if none are found, it calls a function to read a byte to be placed in the mouse packet struct. 
+
+\Hypertarget{mouse_8h_a20285aed4b3ef45812cd967532dd09db}\label{mouse_8h_a20285aed4b3ef45812cd967532dd09db} 
+\index{mouse.h@{mouse.h}!mouse\_subscribe\_int@{mouse\_subscribe\_int}}
+\index{mouse\_subscribe\_int@{mouse\_subscribe\_int}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe\_int()}{mouse\_subscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes mouse interrupts using irq\+\_\+reenable and irq\+\_\+exclusive policy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & hook id bit position of mouse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}\label{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3} 
+\index{mouse.h@{mouse.h}!mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}}
+\index{mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe\_int()}{mouse\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubcribes mouse interrupts. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{mouse_8h_a7740bd988610d35f2a3c2c1c0c7fb798}\label{mouse_8h_a7740bd988610d35f2a3c2c1c0c7fb798} 
+\index{mouse.h@{mouse.h}!read\_byte\_to\_mouse\_packet@{read\_byte\_to\_mouse\_packet}}
+\index{read\_byte\_to\_mouse\_packet@{read\_byte\_to\_mouse\_packet}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{read\_byte\_to\_mouse\_packet()}{read\_byte\_to\_mouse\_packet()}}
+{\footnotesize\ttfamily int read\+\_\+byte\+\_\+to\+\_\+mouse\+\_\+packet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Upon an interrupt this function is called, it reads a byte from the KBC and then places it in the mouse packet struct. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{mouse_8h_addafa059c296f73e62410c2c60e11aa4}\label{mouse_8h_addafa059c296f73e62410c2c60e11aa4} 
+\index{mouse.h@{mouse.h}!read\_data\_from\_KBC\_mouse@{read\_data\_from\_KBC\_mouse}}
+\index{read\_data\_from\_KBC\_mouse@{read\_data\_from\_KBC\_mouse}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{read\_data\_from\_KBC\_mouse()}{read\_data\_from\_KBC\_mouse()}}
+{\footnotesize\ttfamily int read\+\_\+data\+\_\+from\+\_\+\+KBC\+\_\+mouse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Reads the KBC\textquotesingle{}s status byte to check if KBC\textquotesingle{}S output buffer is full, if so, its contents are placed in \textquotesingle{}data\textquotesingle{} parameter and checked for errors and correspondance to mouse data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

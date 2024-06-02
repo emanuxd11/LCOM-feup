@@ -1,0 +1,7 @@
+<map id="drivers/gpu.h" name="drivers/gpu.h">
+<area shape="rect" id="Node000001" title="This file contains all the essential functins to operate MINIX in video mode." alt="" coords="58,5,165,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,76,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,33,64,71,60,67,98,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,79,266,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,29,164,67,160,71,121,33"/>
+</map>

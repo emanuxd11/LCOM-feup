@@ -1,0 +1,7 @@
+<map id="stateMachineInvertedV" name="stateMachineInvertedV">
+<area shape="rect" id="Node000001" title="When called, a state machine is initiated and verifies if the movement made with the mouse constitute..." alt="" coords="5,31,179,56"/>
+<area shape="rect" id="Node000002" href="$controllerMouse_8c.html#a40e32ed3f4a4d6d632f8739325b19831" title="Checks if mouse is moving with positive displacements in the mouse packets, allowing a certain tolera..." alt="" coords="231,5,388,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,31,217,26,217,31,179,36"/>
+<area shape="rect" id="Node000003" href="$controllerMouse_8c.html#a75f1acde9dc97cecc347348df8b855b6" title="Checks if mouse is moving with negative displacements in the mouse packets, allowing a certain tolera..." alt="" coords="227,55,392,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,50,213,54,213,59,178,56"/>
+</map>

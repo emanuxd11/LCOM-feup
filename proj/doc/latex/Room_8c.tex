@@ -1,0 +1,72 @@
+\doxysection{models/\+Room.c File Reference}
+\hypertarget{Room_8c}{}\label{Room_8c}\index{models/Room.c@{models/Room.c}}
+{\ttfamily \#include "{}Room.\+h"{}}\newline
+{\ttfamily \#include "{}../utils/utils.\+h"{}}\newline
+{\ttfamily \#include "{}../drivers/utils\+\_\+drivers.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}Cat\+Info.\+h"{}}\newline
+Include dependency graph for Room.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Room_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Room_8c_ae2f7d4e103acadefa2543377b57c8b84}{new\+Room}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Room_8c_a28b002da223ee711da443d4dead999d7}{delete\+Room}} (\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}room)
+\begin{DoxyCompactList}\small\item\em Deletes a previously created room. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Room_8c_ad318c8a1d7c7980a71711da4fd852cd4}{get\+Selected\+Cat}} (\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}room)
+\begin{DoxyCompactList}\small\item\em Returns the cat selected by the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Room_8c_a28b002da223ee711da443d4dead999d7}\label{Room_8c_a28b002da223ee711da443d4dead999d7} 
+\index{Room.c@{Room.c}!deleteRoom@{deleteRoom}}
+\index{deleteRoom@{deleteRoom}!Room.c@{Room.c}}
+\doxysubsubsection{\texorpdfstring{deleteRoom()}{deleteRoom()}}
+{\footnotesize\ttfamily void delete\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}}]{room }\end{DoxyParamCaption})}
+
+
+
+Deletes a previously created room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Room_8c_ad318c8a1d7c7980a71711da4fd852cd4}\label{Room_8c_ad318c8a1d7c7980a71711da4fd852cd4} 
+\index{Room.c@{Room.c}!getSelectedCat@{getSelectedCat}}
+\index{getSelectedCat@{getSelectedCat}!Room.c@{Room.c}}
+\doxysubsubsection{\texorpdfstring{getSelectedCat()}{getSelectedCat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEntity}{Entity}} \texorpdfstring{$\ast$}{*} get\+Selected\+Cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*}}]{room }\end{DoxyParamCaption})}
+
+
+
+Returns the cat selected by the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Entity\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{Room_8c_ae2f7d4e103acadefa2543377b57c8b84}\label{Room_8c_ae2f7d4e103acadefa2543377b57c8b84} 
+\index{Room.c@{Room.c}!newRoom@{newRoom}}
+\index{newRoom@{newRoom}!Room.c@{Room.c}}
+\doxysubsubsection{\texorpdfstring{newRoom()}{newRoom()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structRoom}{Room}} \texorpdfstring{$\ast$}{*} new\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new room. 
+
+\begin{DoxyReturn}{Returns}
+pointer to created room 
+\end{DoxyReturn}

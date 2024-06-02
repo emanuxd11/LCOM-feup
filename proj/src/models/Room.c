@@ -1,21 +1,17 @@
 #include "Room.h"
 #include "../utils/utils.h"
 #include "../drivers/utils_drivers.h"
+#include <math.h>
+#include "CatInfo.h"
 
 Room* newRoom(){
     Room *room = (Room*) malloc(sizeof(Room));
     room->player = newPlayer(100, 100);
     room->center = newPosition(512, 371);
-
-    int catX, catY;
+    room->n_cats = 0;
 
     for (int i = 0; i < 10; i++){
-
-        catX = randomNumer(30, 1000);
-        catY = randomNumer(30, 700);
-        
-        room->cats[i] = newCat(catX, catY);
-   
+        if (addCat(room) != 0) return NULL;
     }
 
     int cloud_x_offset = 0;
@@ -32,6 +28,9 @@ Room* newRoom(){
 
     return room;
 }
+
+
+
 
 void deleteRoom(Room* room) {
     deleteEntity(room->player);
@@ -50,4 +49,58 @@ void deleteRoom(Room* room) {
 
 
     free(room);
+}
+
+Entity* getSelectedCat(Room* room) {
+    
+    Entity* currCat;
+    Entity* closestCat;
+    double distToPlayer;
+    double minDistToPlayer = SELECT_RADIUS;
+    
+    for (int i = 0; i < 10; i++) {
+        currCat = room->cats[i];
+        if (currCat == NULL) continue;
+
+        ((CatInfo*)currCat->typeInfo)->isSelected = false;
+        distToPlayer = sqrt(pow(room->player->position->x - currCat->position->x, 2)
+                            + pow(room->player->position->y - currCat->position->y, 2));
+        
+        if (distToPlayer >= SELECT_RADIUS) continue;
+        if (distToPlayer < minDistToPlayer) {
+            minDistToPlayer = distToPlayer;
+            closestCat = currCat;
+        }
+    }
+    ((CatInfo*)closestCat->typeInfo)->isSelected = true;
+    return closestCat;
+}
+
+
+int addCat(Room* room){
+    if (room == NULL) return 1;
+    if (room->n_cats >= 10) return 0;
+
+    while(true){
+        int catX = randomNumer(30, 1000);
+        int catY = randomNumer(300, 700);
+        Position pos;
+        pos.x = catX;
+        pos.y = catY;
+        Entity* cat = newCat(catX, catY);
+        bool hasCollision = false;
+        for (int i = 0; i < room->n_cats; i++){
+            CollisionType col = checkCollision(pos, cat, room->cats[i]);
+            if (col != NO_COLLISION){
+                hasCollision = true;
+                break;
+            } 
+        }
+        if (!hasCollision){
+            room->cats[room->n_cats] = newCat(catX, catY);
+            room->n_cats++;
+            break;
+        }
+    }
+    return 0;
 }

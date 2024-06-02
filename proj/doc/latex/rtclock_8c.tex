@@ -1,0 +1,53 @@
+\doxysection{drivers/rtclock.c File Reference}
+\hypertarget{rtclock_8c}{}\label{rtclock_8c}\index{drivers/rtclock.c@{drivers/rtclock.c}}
+{\ttfamily \#include "{}rtclock.\+h"{}}\newline
+Include dependency graph for rtclock.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{rtclock_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{rtclock_8c_a05e4bc7b0a1d6a1f938e245f31f886fc}{rtc\+\_\+get\+\_\+out}} (uint8\+\_\+t value\+\_\+idx, uint8\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em Writes value\+\_\+idx (year, month, day hours, seconds, or minutes selector) to the RTC address register, then the RTC\textquotesingle{}s output is placed in output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structDatetime}{Datetime}}() \mbox{\hyperlink{rtclock_8c_ac72d03e3f3dd28ef271d17f47ea0ff63}{rtc\+\_\+read\+\_\+datetime}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current date in datetime format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rtclock_8c_a05e4bc7b0a1d6a1f938e245f31f886fc}\label{rtclock_8c_a05e4bc7b0a1d6a1f938e245f31f886fc} 
+\index{rtclock.c@{rtclock.c}!rtc\_get\_out@{rtc\_get\_out}}
+\index{rtc\_get\_out@{rtc\_get\_out}!rtclock.c@{rtclock.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_get\_out()}{rtc\_get\_out()}}
+{\footnotesize\ttfamily int() rtc\+\_\+get\+\_\+out (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value\+\_\+idx,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{output }\end{DoxyParamCaption})}
+
+
+
+Writes value\+\_\+idx (year, month, day hours, seconds, or minutes selector) to the RTC address register, then the RTC\textquotesingle{}s output is placed in output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value\+\_\+idx} & selector \\
+\hline
+{\em output} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{rtclock_8c_ac72d03e3f3dd28ef271d17f47ea0ff63}\label{rtclock_8c_ac72d03e3f3dd28ef271d17f47ea0ff63} 
+\index{rtclock.c@{rtclock.c}!rtc\_read\_datetime@{rtc\_read\_datetime}}
+\index{rtc\_read\_datetime@{rtc\_read\_datetime}!rtclock.c@{rtclock.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_read\_datetime()}{rtc\_read\_datetime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDatetime}{Datetime}}() rtc\+\_\+read\+\_\+datetime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current date in datetime format. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{structDatetime}{Datetime} 
+\end{DoxyReturn}

@@ -1,0 +1,15 @@
+<map id="control_cat" name="control_cat">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,100,81"/>
+<area shape="rect" id="Node000002" href="$Game_8c.html#ad8412320b3fd3f1ce9e63fb41d895ce9" title="Moves entity to previously defined (future)position." alt="" coords="157,31,255,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,58,143,51,144,56,100,64"/>
+<area shape="rect" id="Node000007" href="$utils_8c.html#a63bc05e9634daebb8398aea689defe39" title="Generates a random number between lower_bound and upper_bound." alt="" coords="148,80,264,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="100,73,135,79,134,84,100,79"/>
+<area shape="rect" id="Node000003" href="$Game_8c.html#a5b9b30106365480802c605830dfdb989" title=" " alt="" coords="312,31,396,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,41,298,41,298,46,255,46"/>
+<area shape="rect" id="Node000004" href="$Entity_8c.html#aeac4ea4e057b4b88c1965010d32b36cb" title="Calculates a future position based on the entity&#39;s speed without collisions in mind." alt="" coords="447,5,557,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="396,34,433,27,434,32,397,39"/>
+<area shape="rect" id="Node000006" href="$Entity_8c.html#aad5d1aecce31825fa995df516eb3a476" title="Checks if entityA in cposA (candidate position) would collide with entity B." alt="" coords="444,55,560,80"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="397,47,431,53,430,58,396,53"/>
+<area shape="rect" id="Node000005" href="$utils_8c.html#ac071c22d7e7c13a06040a9ac1049cb8e" title="Converts an angle in degrees to radians." alt="" coords="608,5,693,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="557,15,594,15,594,21,557,21"/>
+</map>

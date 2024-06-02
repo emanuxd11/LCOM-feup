@@ -1,0 +1,7 @@
+<map id="control_cat" name="control_cat">
+<area shape="rect" id="Node000001" title=" " alt="" coords="335,5,429,31"/>
+<area shape="rect" id="Node000002" href="$Game_8c.html#a8c8dad7e3909c74db13e96e4223f7320" title="Manages game states and calls entity control functions." alt="" coords="176,5,287,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="321,21,287,21,287,15,321,15"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="162,21,128,21,128,15,162,15"/>
+</map>

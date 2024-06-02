@@ -1,0 +1,16 @@
+<map id="checkCollision" name="checkCollision">
+<area shape="rect" id="Node000001" title="Checks if entityA in cposA (candidate position) would collide with entity B." alt="" coords="775,31,891,56"/>
+<area shape="rect" id="Node000002" href="$Game_8c.html#a5b9b30106365480802c605830dfdb989" title=" " alt="" coords="643,31,727,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="761,46,727,46,727,41,761,41"/>
+<area shape="rect" id="Node000003" href="$Game_8c.html#ad8412320b3fd3f1ce9e63fb41d895ce9" title="Moves entity to previously defined (future)position." alt="" coords="497,31,595,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="629,46,595,46,595,41,629,41"/>
+<area shape="rect" id="Node000004" href="$Game_8c.html#a1ae134faab2ad00f9b5d83a36ed0fa2d" title=" " alt="" coords="345,5,439,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="483,36,439,28,440,23,484,31"/>
+<area shape="rect" id="Node000007" href="$Game_8c.html#a739492ba70d531d18b0e5080efd959f5" title="Controls player&#39;s movement direction." alt="" coords="335,55,449,80"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="484,56,450,61,449,56,483,50"/>
+<area shape="rect" id="Node000005" href="$Game_8c.html#a8c8dad7e3909c74db13e96e4223f7320" title="Manages game states and calls entity control functions." alt="" coords="176,31,287,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="331,30,287,37,287,32,331,25"/>
+<area shape="rect" id="Node000006" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,31,128,56"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="162,46,128,46,128,41,162,41"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="321,59,287,54,287,49,322,54"/>
+</map>

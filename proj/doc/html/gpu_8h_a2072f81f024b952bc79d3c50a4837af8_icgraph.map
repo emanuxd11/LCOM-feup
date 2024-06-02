@@ -1,0 +1,15 @@
+<map id="update_front_buffer" name="update_front_buffer">
+<area shape="rect" id="Node000001" title="Updates front buffer." alt="" coords="507,55,657,80"/>
+<area shape="rect" id="Node000002" href="$gameView_8c.html#a8adb5e586a102b3d2b152ebcf77ec411" title="Draw all elements needed for gameplay." alt="" coords="317,5,459,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="518,54,438,33,440,28,519,49"/>
+<area shape="rect" id="Node000005" href="$gameView_8c.html#afb080b065468eb6c4415f60db741f8f8" title="Draws the game&#39;s instructions." alt="" coords="323,55,453,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="493,70,453,70,453,65,493,65"/>
+<area shape="rect" id="Node000006" href="$gameView_8c.html#adce0325d21dde68eaaad2a2df4817eae" title="Draws the game&#39;s menu." alt="" coords="343,104,433,129"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="519,86,435,108,433,103,518,81"/>
+<area shape="rect" id="Node000003" href="$gameView_8c.html#a604509f0b9e88021a72d4b8a6e1870bb" title=" " alt="" coords="176,55,269,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,37,267,57,266,52,331,32"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a33bde23e0d2bbde847401c5ac6fb62e0" title=" " alt="" coords="5,55,128,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="162,70,128,70,128,65,162,65"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="309,70,270,70,270,65,309,65"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="331,103,266,83,267,78,333,97"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="draw_xpm" name="draw_xpm">
+<area shape="rect" id="Node000001" title="Draws a xpm map." alt="" coords="5,5,96,31"/>
+<area shape="rect" id="Node000002" href="$gpu_8c.html#ad57866c076e7a5fd1a8706005d2676e2" title="Draws a pixel on the screen." alt="" coords="144,5,236,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,15,130,15,130,21,96,21"/>
+</map>

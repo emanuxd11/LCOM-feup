@@ -1,0 +1,12 @@
+<map id="drivers/gpu.h" name="drivers/gpu.h">
+<area shape="rect" id="Node000001" title="This file contains all the essential functins to operate MINIX in video mode." alt="" coords="96,5,203,31"/>
+<area shape="rect" id="Node000002" href="$gpu_8c.html" title=" " alt="" coords="5,79,112,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,41,75,81,72,76,122,37"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title=" " alt="" coords="116,152,183,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,45,152,152,147,152,147,45"/>
+<area shape="rect" id="Node000004" href="$gameView_8h.html" title="This file contains the functions responsible for drawing everything in the game." alt="" coords="187,79,338,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="181,36,246,76,243,81,178,40"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="234,114,169,154,166,150,231,109"/>
+<area shape="rect" id="Node000005" href="$gameView_8c.html" title=" " alt="" coords="207,152,356,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="272,117,281,151,276,153,267,118"/>
+</map>

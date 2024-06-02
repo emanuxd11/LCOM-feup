@@ -1,0 +1,203 @@
+\doxysection{drivers/keyboard.h File Reference}
+\hypertarget{keyboard_8h}{}\label{keyboard_8h}\index{drivers/keyboard.h@{drivers/keyboard.h}}
+
+
+This file contains the necessary functions to process keyboard interrupts and sending of commands to the KBC.  
+
+
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}i8042.\+h"{}}\newline
+Include dependency graph for keyboard.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{keyboard_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{keyboard_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{keyboard_8h_a4ac9231a99a664d6a9f0b69767e0d707}{kbd\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes keyboard interrupts using irq\+\_\+reenable and irq\+\_\+exclusive policy. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aee0a7b54ee426fade9c780418d110fe0}{kbd\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes keyboard interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aacdfe25286cffb6670a868f73094c25e}{verify\+\_\+obf}} (uint8\+\_\+t status\+\_\+reg)
+\begin{DoxyCompactList}\small\item\em Verifies if output buffer is full. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a4e56c504e951bf3730db6e026cb29325}{verify\+\_\+timeout}} (uint8\+\_\+t status\+\_\+reg)
+\begin{DoxyCompactList}\small\item\em Verifies if there was a timeout error. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_ac703adf02f38e31d6ef20740c8b0c66f}{verify\+\_\+parity}} (uint8\+\_\+t status\+\_\+reg)
+\begin{DoxyCompactList}\small\item\em Verifies if there was a parity error in the status register. \end{DoxyCompactList}\item 
+bool() \mbox{\hyperlink{keyboard_8h_a50abe966f978e27a6415bab0b6312f7b}{is\+\_\+make}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}})
+\begin{DoxyCompactList}\small\item\em Verifies if a scan code is a make code. \end{DoxyCompactList}\item 
+uint8\+\_\+t() \mbox{\hyperlink{keyboard_8h_a32429032b3ac23a625a6e1eb58a8ef8b}{scan\+\_\+n\+\_\+bytes}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}})
+\begin{DoxyCompactList}\small\item\em Check if a byte is the first or second one of the scan code. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a47a14ca3f1f28d95f047df9bc622c11e}{read\+\_\+keyboard\+\_\+buffer}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}code)
+\begin{DoxyCompactList}\small\item\em Reads status register to check for erros and if OBF is full, then a scan code is read and placed in code. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a9ca8ff761d6f9da3a1d1a99dcda26d49}{enable\+\_\+interrupts}} ()
+\begin{DoxyCompactList}\small\item\em Enables keyboard interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the necessary functions to process keyboard interrupts and sending of commands to the KBC. 
+
+\begin{DoxyDate}{Date}
+2024-\/06-\/02 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{keyboard_8h_a9ca8ff761d6f9da3a1d1a99dcda26d49}\label{keyboard_8h_a9ca8ff761d6f9da3a1d1a99dcda26d49} 
+\index{keyboard.h@{keyboard.h}!enable\_interrupts@{enable\_interrupts}}
+\index{enable\_interrupts@{enable\_interrupts}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{enable\_interrupts()}{enable\_interrupts()}}
+{\footnotesize\ttfamily int() enable\+\_\+interrupts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables keyboard interrupts. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_a50abe966f978e27a6415bab0b6312f7b}\label{keyboard_8h_a50abe966f978e27a6415bab0b6312f7b} 
+\index{keyboard.h@{keyboard.h}!is\_make@{is\_make}}
+\index{is\_make@{is\_make}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{is\_make()}{is\_make()}}
+{\footnotesize\ttfamily bool() is\+\_\+make (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+
+
+
+Verifies if a scan code is a make code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scancode} & scan code to be analysed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if so, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_a4ac9231a99a664d6a9f0b69767e0d707}\label{keyboard_8h_a4ac9231a99a664d6a9f0b69767e0d707} 
+\index{keyboard.h@{keyboard.h}!kbd\_subscribe\_int@{kbd\_subscribe\_int}}
+\index{kbd\_subscribe\_int@{kbd\_subscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_subscribe\_int()}{kbd\_subscribe\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes keyboard interrupts using irq\+\_\+reenable and irq\+\_\+exclusive policy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & hook id bit position of keyboard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_aee0a7b54ee426fade9c780418d110fe0}\label{keyboard_8h_aee0a7b54ee426fade9c780418d110fe0} 
+\index{keyboard.h@{keyboard.h}!kbd\_unsubscribe\_int@{kbd\_unsubscribe\_int}}
+\index{kbd\_unsubscribe\_int@{kbd\_unsubscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_unsubscribe\_int()}{kbd\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes keyboard interrupts. 
+
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_a47a14ca3f1f28d95f047df9bc622c11e}\label{keyboard_8h_a47a14ca3f1f28d95f047df9bc622c11e} 
+\index{keyboard.h@{keyboard.h}!read\_keyboard\_buffer@{read\_keyboard\_buffer}}
+\index{read\_keyboard\_buffer@{read\_keyboard\_buffer}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{read\_keyboard\_buffer()}{read\_keyboard\_buffer()}}
+{\footnotesize\ttfamily int() read\+\_\+keyboard\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{code }\end{DoxyParamCaption})}
+
+
+
+Reads status register to check for erros and if OBF is full, then a scan code is read and placed in code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & scancode content \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 upon success, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_a32429032b3ac23a625a6e1eb58a8ef8b}\label{keyboard_8h_a32429032b3ac23a625a6e1eb58a8ef8b} 
+\index{keyboard.h@{keyboard.h}!scan\_n\_bytes@{scan\_n\_bytes}}
+\index{scan\_n\_bytes@{scan\_n\_bytes}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{scan\_n\_bytes()}{scan\_n\_bytes()}}
+{\footnotesize\ttfamily uint8\+\_\+t() scan\+\_\+n\+\_\+bytes (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scancode }\end{DoxyParamCaption})}
+
+
+
+Check if a byte is the first or second one of the scan code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scancode} & bye to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if it\textquotesingle{}s the first byte, 2 if it\textquotesingle{}s the second 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_aacdfe25286cffb6670a868f73094c25e}\label{keyboard_8h_aacdfe25286cffb6670a868f73094c25e} 
+\index{keyboard.h@{keyboard.h}!verify\_obf@{verify\_obf}}
+\index{verify\_obf@{verify\_obf}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{verify\_obf()}{verify\_obf()}}
+{\footnotesize\ttfamily int() verify\+\_\+obf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{status\+\_\+reg }\end{DoxyParamCaption})}
+
+
+
+Verifies if output buffer is full. 
+
+\begin{DoxyReturn}{Returns}
+0 if so, 1 otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_ac703adf02f38e31d6ef20740c8b0c66f}\label{keyboard_8h_ac703adf02f38e31d6ef20740c8b0c66f} 
+\index{keyboard.h@{keyboard.h}!verify\_parity@{verify\_parity}}
+\index{verify\_parity@{verify\_parity}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{verify\_parity()}{verify\_parity()}}
+{\footnotesize\ttfamily int() verify\+\_\+parity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{status\+\_\+reg }\end{DoxyParamCaption})}
+
+
+
+Verifies if there was a parity error in the status register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+\_\+reg} & register to be analysed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there\textquotesingle{}s an error, 0 otherwise 
+\end{DoxyReturn}
+\Hypertarget{keyboard_8h_a4e56c504e951bf3730db6e026cb29325}\label{keyboard_8h_a4e56c504e951bf3730db6e026cb29325} 
+\index{keyboard.h@{keyboard.h}!verify\_timeout@{verify\_timeout}}
+\index{verify\_timeout@{verify\_timeout}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{verify\_timeout()}{verify\_timeout()}}
+{\footnotesize\ttfamily int() verify\+\_\+timeout (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{status\+\_\+reg }\end{DoxyParamCaption})}
+
+
+
+Verifies if there was a timeout error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+\_\+reg} & register to be analysed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there\textquotesingle{}s an error, 0 otherwise 
+\end{DoxyReturn}

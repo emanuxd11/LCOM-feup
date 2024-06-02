@@ -1,0 +1,11 @@
+<map id="updateGameTime" name="updateGameTime">
+<area shape="rect" id="Node000001" title="updates game time with RTC&#39;s time" alt="" coords="5,31,144,56"/>
+<area shape="rect" id="Node000002" href="$rtclock_8c.html#ac72d03e3f3dd28ef271d17f47ea0ff63" title="Returns the current date in datetime format." alt="" coords="192,31,333,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,41,178,41,178,46,144,46"/>
+<area shape="rect" id="Node000003" href="$utils__drivers_8c.html#abafa1143e74844fd7ba93aafc4336bfe" title="Turns a binary coded decimal to binary." alt="" coords="381,5,495,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,30,367,25,368,31,334,36"/>
+<area shape="rect" id="Node000004" href="$rtclock_8c.html#a05e4bc7b0a1d6a1f938e245f31f886fc" title="Writes value_idx (year, month, day hours, seconds, or minutes selector) to the RTC address register,..." alt="" coords="391,55,485,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="334,50,377,56,377,62,333,56"/>
+<area shape="rect" id="Node000005" href="$utils__drivers_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="543,55,641,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="486,65,529,65,529,70,486,70"/>
+</map>

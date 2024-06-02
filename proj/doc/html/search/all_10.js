@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['s_5fbreak_0',['S_BREAK',['../controllerKeyboard_8h.html#a85b3c65b8b6c952e08c252e9737b74f9',1,'controllerKeyboard.h']]],
+  ['s_5fmake_1',['S_MAKE',['../controllerKeyboard_8h.html#ac2c2b345d42f2a5b5a028028eb8c5680',1,'controllerKeyboard.h']]],
+  ['scan_5fn_5fbytes_2',['scan_n_bytes',['../keyboard_8c.html#a32429032b3ac23a625a6e1eb58a8ef8b',1,'scan_n_bytes(uint8_t scancode):&#160;keyboard.c'],['../keyboard_8h.html#a32429032b3ac23a625a6e1eb58a8ef8b',1,'scan_n_bytes(uint8_t scancode):&#160;keyboard.c']]],
+  ['scancode_3',['scancode',['../main_8c.html#aa1de7a5557e9d96b83cf03f73c92163f',1,'scancode:&#160;keyboard.c'],['../keyboard_8c.html#aa1de7a5557e9d96b83cf03f73c92163f',1,'scancode:&#160;keyboard.c']]],
+  ['seconds_4',['seconds',['../structDatetime.html#a02dcf594c10ce4c7e847fe6b7d43a4f6',1,'Datetime']]],
+  ['select_5fradius_5',['SELECT_RADIUS',['../utils_8h.html#aa8f1bce449e719f615efae8ac6b02ca0',1,'utils.h']]],
+  ['selectedcat_6',['selectedCat',['../Game_8c.html#ab5dba3244238ff70e6ca880d195a2250',1,'Game.c']]],
+  ['set_5fbackground_5fcolor_7',['set_background_color',['../gpu_8c.html#a77e37cfbd6fd03aada827b76e535d41a',1,'set_background_color(uint16_t mode, uint32_t color):&#160;gpu.c'],['../gpu_8h.html#a77e37cfbd6fd03aada827b76e535d41a',1,'set_background_color(uint16_t mode, uint32_t color):&#160;gpu.c']]],
+  ['sisdown_8',['sisdown',['../controllerKeyboard_8c.html#a266cd2f49a82d44289287f6d2d23ed42',1,'sIsDown:&#160;controllerKeyboard.c'],['../Game_8c.html#a266cd2f49a82d44289287f6d2d23ed42',1,'sIsDown:&#160;controllerKeyboard.c']]],
+  ['sky_5fday_9',['SKY_DAY',['../gameView_8c.html#a662b69b7c154680673e5a39f513c99ce',1,'gameView.c']]],
+  ['sky_5fnight_10',['SKY_NIGHT',['../gameView_8c.html#ac618629de1879aea67e7ff4327ec0d1e',1,'gameView.c']]],
+  ['sky_5fsplit_11',['SKY_SPLIT',['../gameView_8h.html#abfeb6209a1941a48e848a61f33b86ddb',1,'gameView.h']]],
+  ['speaker_5fctrl_12',['SPEAKER_CTRL',['../group__i8254.html#ga51b3a5e3d4811ca063fe25e35560ab40',1,'i8254.h']]],
+  ['stage_13',['stage',['../structRoom.html#aa5198987899431d0b7e4b072f08767db',1,'Room']]],
+  ['state_14',['state',['../structGame.html#ad9fc2a8710ee56916f79314b91112ed0',1,'Game::state'],['../controllerMouse_8c.html#a637b450776286dbce259e346d262e716',1,'state:&#160;controllerMouse.c']]],
+  ['statemachinedline_15',['statemachinedline',['../controllerMouse_8c.html#a669ae41ccf5404189652fda0728f6564',1,'stateMachineDLine(int tolerance, int y_len):&#160;controllerMouse.c'],['../controllerMouse_8h.html#a669ae41ccf5404189652fda0728f6564',1,'stateMachineDLine(int tolerance, int y_len):&#160;controllerMouse.c']]],
+  ['statemachinehline_16',['statemachinehline',['../controllerMouse_8c.html#aad4b3ceb147d34a37cca0c2f741abdf4',1,'stateMachineHLine(int tolerance, int x_len):&#160;controllerMouse.c'],['../controllerMouse_8h.html#abf9aca74f5a9d4328a1c635f0518ade6',1,'stateMachineHLine(int tolerance, int y_len):&#160;controllerMouse.c']]],
+  ['statemachineinvertedv_17',['statemachineinvertedv',['../controllerMouse_8c.html#a7116455861cb4c1fabd1200f8dbf0764',1,'stateMachineInvertedV(int tolerance, int x_len):&#160;controllerMouse.c'],['../controllerMouse_8h.html#a7116455861cb4c1fabd1200f8dbf0764',1,'stateMachineInvertedV(int tolerance, int x_len):&#160;controllerMouse.c']]],
+  ['statemachinev_18',['statemachinev',['../controllerMouse_8c.html#a141c010a0817b09588a6cfbd9781febb',1,'stateMachineV(int tolerance, int x_len):&#160;controllerMouse.c'],['../controllerMouse_8h.html#a141c010a0817b09588a6cfbd9781febb',1,'stateMachineV(int tolerance, int x_len):&#160;controllerMouse.c']]],
+  ['statemachinevline_19',['statemachinevline',['../controllerMouse_8c.html#aaaa02f183c013cec09c80b81b2de27c3',1,'stateMachineVLine(int tolerance, int y_len):&#160;controllerMouse.c'],['../controllerMouse_8h.html#aaaa02f183c013cec09c80b81b2de27c3',1,'stateMachineVLine(int tolerance, int y_len):&#160;controllerMouse.c']]],
+  ['status_5fport_20',['STATUS_PORT',['../i8042_8h.html#a923231d2e45aaea2dbab3532b06c2311',1,'i8042.h']]],
+  ['success_21',['SUCCESS',['../controllerMouse_8h.html#a89dc6303ad8ee54c00b71c98598b7a3dac7f69f7c9e5aea9b8f54cf02870e2bf8',1,'controllerMouse.h']]]
+];

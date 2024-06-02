@@ -1,3 +1,8 @@
+/**
+ * @file Game.h
+ * @brief This file contains functions to control the movement of every game entity
+ * @date 2024-06-02
+ */
 #ifndef GAME_H
 #define GAME_H
 

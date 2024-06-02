@@ -23,9 +23,12 @@ int (draw_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint
 
 int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
-int (draw_xpm_single_color)(Sprite sprite, uint16_t x, uint16_t y, uint32_t color);
+int (draw_sprite)(Sprite sprite, uint16_t x, uint16_t y);
 
-int (get_char_xpm_idx)(char ch);
+int (draw_sprite_single_color)(Sprite sprite, uint16_t x, uint16_t y, uint32_t color);
+
+int (get_char_sprite_idx)(char ch);
+
 
 int (draw_text)(const char *text, uint16_t x, uint16_t y, uint32_t color);
 

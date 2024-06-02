@@ -49,7 +49,8 @@ int drawMenu(Game *game) {
   // Background color of the menu (YELLOW)
   if (set_background_color(0x105, YELLOW) != 0) return 1;
 
-  if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0) return 1;
+  // if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0) return 1;
+  if (draw_sprite(menu_logo, 512 - 458 / 2, 100) != 0) return 1;
 
   // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
 
@@ -227,15 +228,14 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
   }
 
   if (text[0] == 'P'){
-    if (draw_xpm((xpm_map_t) play_game, x_init, y_init) != 0) return 1;
-  }
-  
-  else if (text[0] == 'I'){
-    if (draw_xpm((xpm_map_t) instructions, x_init, y_init) != 0) return 1;
-  }
-
-  else if (text[0] == 'Q'){
-    if (draw_xpm((xpm_map_t) quit, x_init + 100, y_init) != 0) return 1;
+    // if (draw_xpm((xpm_map_t) play_game, x_init, y_init) != 0) return 1;
+    if (draw_sprite(menu_play_game, x_init, y_init) != 0) return 1;
+  } else if (text[0] == 'I'){
+    // if (draw_xpm((xpm_map_t) instructions, x_init, y_init) != 0) return 1;
+    if (draw_sprite(menu_instructions, x_init, y_init) != 0) return 1;
+  } else if (text[0] == 'Q'){
+    // if (draw_xpm((xpm_map_t) quit, x_init + 100, y_init) != 0) return 1;
+    if (draw_sprite(menu_quit, x_init + 100, y_init) != 0) return 1;
   }
 
   return 0;

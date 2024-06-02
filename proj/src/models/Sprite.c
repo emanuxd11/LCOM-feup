@@ -49,6 +49,7 @@ Sprite load_generic_sprite(xpm_map_t xpm_map) {
 }
 
 int load_char_sprites() {
+
   for (int i = 0; i < character_count; i++) {
     // xpm_image_t img; 
     // uint8_t *sprite = xpm_load(xpm_map_characters[i], XPM_INDEXED, &img);
@@ -71,6 +72,31 @@ int load_char_sprites() {
 }
 
 int load_menu_sprites() {
+
+  menu_instructions = load_generic_sprite((xpm_map_t) instructions);
+  if (menu_instructions.sprite == NULL) {
+    printf("load_menu_sprites(): error loading menu_instructions sprite\n");
+    return 1;
+  }
+
+  menu_logo = load_generic_sprite((xpm_map_t) logo);
+  if (menu_logo.sprite == NULL) {
+    printf("load_menu_sprites(): error loading menu_logo sprite\n");
+    return 1;
+  }
+
+  menu_play_game = load_generic_sprite((xpm_map_t) play_game);
+  if (menu_play_game.sprite == NULL) {
+    printf("load_menu_sprites(): error loading menu_play_game sprite\n");
+    return 1;
+  }
+
+  menu_quit = load_generic_sprite((xpm_map_t) quit);
+  if (menu_quit.sprite == NULL) {
+    printf("load_menu_sprites(): error loading menu_quit sprite\n");
+    return 1;
+  }
+
   return 0;
 }
 

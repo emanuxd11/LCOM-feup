@@ -70,7 +70,7 @@ Sprite state_machine3_sprite;
 Sprite state_machine4_sprite;
 
 
-Sprite load_generic_sprite();
+Sprite load_generic_sprite(xpm_map_t xpm_map);
 
 int load_char_sprites();
 

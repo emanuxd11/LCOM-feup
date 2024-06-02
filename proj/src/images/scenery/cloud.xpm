@@ -1,7 +1,7 @@
 #ifndef _CLOUD_XPM_
 #define _CLOUD_XPM_
 
-const int cloud_width = 52;
+static const int cloud_width = 52;
 static char *cloud0[] = {
 "52 35 3",
 "  255",

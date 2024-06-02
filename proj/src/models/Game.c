@@ -3,6 +3,7 @@
 #include "../utils/utils.h"
 #include <math.h>
 #include "CatInfo.h"
+#include "PlayerInfo.h"
 
 // keys
 extern bool wIsDown;
@@ -48,7 +49,9 @@ int control_game(Game *game) {
   if (game->state == GAME_STATE) {
       
     control_player(game);
-    selectedCat = getSelectedCat(game->room);
+
+    if (!((PlayerInfo*)game->room->player->typeInfo)->isPetting) selectedCat = getSelectedCat(game->room);
+    
     
     for (int i = 0; i < 10; i++) {
         control_cat(game, game->room->cats[i]);
@@ -56,14 +59,11 @@ int control_game(Game *game) {
 
     if (eWasPressed) {
         eWasPressed = false;
-        if (selectedCat != NULL) game->state = PET_STATE;
+        if (selectedCat != NULL) ((PlayerInfo*)game->room->player->typeInfo)->isPetting = true;
     }
       
   }
-  if (game->state == PET_STATE) {
-    // TO DO: start state machin corresponding to selectedCat and draw that cat
-    game->state = MENU_STATE;
-  }
+  
   
 
   return 0;

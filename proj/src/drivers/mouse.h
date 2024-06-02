@@ -1,5 +1,5 @@
 /**
- * @file mouse.h
+ * @file mouse.h.h
  * @brief This file contains the necessary functions to process interrupts, parse
  * mouse packets and sending of commands to the KBC
  * @date 2024-06-02

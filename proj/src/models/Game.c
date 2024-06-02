@@ -29,12 +29,6 @@ Game *createNewGame() {
   return game;
 }
 
-int addCat(Game* game){
-    if (game->room->n_cats == 10) return 0;
-    int catX = randomNumer(30, 1000);
-    int catY = randomNumer(300, 700);
-}
-
 
 void deleteGame(Game* game) {
     deleteRoom(game->room);

@@ -12,6 +12,10 @@ Room* newRoom(){
 
     int catX, catY;
 
+    for (int i = 0; i < 10; i++){
+        if (addCat(room) != 0) return 1;
+    }
+
     int cloud_x_offset = 0;
     for (int i = 0; i < CLOUD_QNT; i++) {
         Cloud cloud = {
@@ -72,4 +76,15 @@ Entity* getSelectedCat(Room* room) {
     }
     ((CatInfo*)closestCat->typeInfo)->isSelected = true;
     return closestCat;
+}
+
+
+int addCat(Room* room){
+    if (room == NULL) return 1;
+    if (room->n_cats >= 10) return 0;
+    int catX = randomNumer(30, 1000);
+    int catY = randomNumer(30, 700); 
+    room->cats[room->n_cats] = newCat(catX, catY);
+    room->n_cats++;
+    return 0;
 }

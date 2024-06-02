@@ -26,7 +26,7 @@
 #define ESC_BREAK 0x81
 #define E_BREAK 0x92
 /**
- * @brief Parses a scan code and determines which key is pressed
+ * @brief Parses a scan code and determines which key is currently pressed
  * 
  * @param scan_code 
  * @return always returns 0 

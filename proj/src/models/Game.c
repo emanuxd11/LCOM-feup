@@ -10,6 +10,7 @@ extern bool aIsDown;
 extern bool sIsDown;
 extern bool dIsDown;
 extern bool escWasPressed;
+extern bool eWasPressed;
 
 Datetime datetime;
 
@@ -26,6 +27,7 @@ void deleteGame(Game* game) {
     free(game);
 }
     
+Entity* selectedCat;
 int control_game(Game *game) {
   if (escWasPressed) {
     escWasPressed = false;
@@ -46,12 +48,21 @@ int control_game(Game *game) {
   if (game->state == GAME_STATE) {
       
     control_player(game);
-    getSelectedCat(game->room);
+    selectedCat = getSelectedCat(game->room);
     
     for (int i = 0; i < 10; i++) {
         control_cat(game, game->room->cats[i]);
     }
+
+    if (eWasPressed) {
+        eWasPressed = false;
+        if (selectedCat != NULL) game->state = PET_STATE;
+    }
       
+  }
+  if (game->state == PET_STATE) {
+    // TO DO: start state machin corresponding to selectedCat and draw that cat
+    game->state = MENU_STATE;
   }
   
 

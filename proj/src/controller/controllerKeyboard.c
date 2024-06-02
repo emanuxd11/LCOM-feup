@@ -10,6 +10,7 @@ bool dIsDown = false;
 
 // check single press (true on break code; to be turned back to false by reader function)
 bool escWasPressed = false;
+bool eWasPressed = false;
 
 int update_keys(uint8_t scan_code) {
 
@@ -48,6 +49,9 @@ int update_keys(uint8_t scan_code) {
     //single press
     case ESC_BREAK:
         escWasPressed = true;
+        break;
+    case E_BREAK:
+        eWasPressed = true;
         break;
     
     default:

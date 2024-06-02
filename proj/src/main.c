@@ -15,11 +15,12 @@
 #include "utils/utils.h"
 #include "controller/controllerMouse.h"
 #include "viewer/gameView.h"
+#include "models/Sprite.h"
 
 #include "images/cats/cat0.xpm"
 
 
-#define FPS 60
+#define FPS 30
 
 extern uint8_t scancode;
 extern struct packet mouse_packet;
@@ -47,8 +48,11 @@ int main(int argc, char *argv[]) {
 
 int (proj_main_loop)() {
 
-
   Game *game = createNewGame();
+
+  // use load_all_sprites() when done
+  load_char_sprites();
+  load_menu_sprites();
 
   uint8_t irq_set_timer;
   uint8_t irq_set_keyboard;

@@ -1,3 +1,5 @@
+#pragma once
+
 static char *logo[] = {
 "458 108 11",
 "  62",

@@ -8,11 +8,11 @@
 #include "../images/cats/cat4.xpm"
 #include "../images/character/front.xpm"
 #include "../images/scenery/cloud.xpm"
-#include "../images/logo.xpm"
-#include "../images/mouse.xpm"
-#include "../images/play_game.xpm"
-#include "../images/instructions.xpm"
-#include "../images/quit.xpm"
+#include "../images/menu/logo.xpm"
+#include "../images/mouse/mouse.xpm"
+#include "../images/menu/play_game.xpm"
+#include "../images/menu/instructions.xpm"
+#include "../images/menu/quit.xpm"
 #include "../images/state_machines/state_machine0.xpm"
 #include "../images/state_machines/state_machine1.xpm"
 #include "../images/state_machines/state_machine2.xpm"
@@ -38,6 +38,8 @@ extern bool hasLeftClick;
 extern Datetime datetime;
 extern Entity* selectedCat;
 
+char score_string[20];
+
 
 int drawGame(Game *game) {
 
@@ -56,46 +58,38 @@ int drawMenu(Game *game) {
   // Background color of the menu (YELLOW)
   if (set_background_color(0x105, YELLOW) != 0) return 1;
 
-  if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0) return 1;
+  // if (draw_xpm((xpm_map_t) logo, 512 - 458 / 2, 100) != 0) return 1;
+  if (draw_sprite(menu_logo, 512 - 458 / 2, 100) != 0) return 1;
 
   // TODO: CHANGE THIS FROM HARD CODED TO VARIOUS IN GAME DATA STRUCTURE
 
   //drawButton(const char text[], int x_center, int y_center, int width, int height, uint8_t color)
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 50 && mouse_pos_y <= 300 + 50){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 300 - 50 && mouse_pos_y <= 300 + 50) {
     if (drawButton("Play Game", 512, 300, 300, 100, BLUE) != 0) return 1;
-    if (hasLeftClick){
+    if (hasLeftClick) {
       game->state = GAME_STATE;
     }
-  } else{
+  } else {
     if (drawButton("Play Game", 512, 300, 300, 100, BLUE + 1) != 0) return 1;
   }
 
-
-
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 400 - 40 && mouse_pos_y <= 400 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 400 - 40 && mouse_pos_y <= 400 + 40) {
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE) != 0) return 1;
-    if (hasLeftClick){
+    if (hasLeftClick) {
       game->state = INSTRUCTIONS_STATE;
     }
-  }
-
-  else{
+  } else {
     if (drawButton("Instructions", 512, 400, 300, 80, BLUE + 1) != 0) return 1;
   }
 
-
-
-  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 500 - 40 && mouse_pos_y <= 500 + 40){
+  if (mouse_pos_x >= 512 - 150 && mouse_pos_x <= 512 + 150 && mouse_pos_y >= 500 - 40 && mouse_pos_y <= 500 + 40) {
     if (drawButton("Quit", 512, 500, 300, 80, BLUE) != 0) return 1;
-    if (hasLeftClick){
+    if (hasLeftClick) {
       game->state = LEAVE_STATE;
     }
-  }
-
-  else{
+  } else {
     if (drawButton("Quit", 512, 500, 300, 80, BLUE + 1) != 0) return 1;
   }
-
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
     printf("Error drawing mouse");
@@ -106,7 +100,6 @@ int drawMenu(Game *game) {
     return 1;
   }
 
-  // printf("Successfully drew menu\n");
   return 0;
 }
 
@@ -126,19 +119,17 @@ int drawGamePlaying(Game *game) {
   if (drawSky()) return 1;
   if (drawClouds(game->room->clouds)) return 1;
 
-    // Cats drawing
+  // Cats drawing
 
-    for (int i = 0; i < 10; i++) {
-        if (drawCat(game->room->cats[i]) != 0) return 1;
-    }
+  for (int i = 0; i < 10; i++) {
+    if (drawCat(game->room->cats[i]) != 0) return 1;
+  }
 
   // Player drawing
   if (draw_xpm((xpm_map_t) front, game->room->player->position->x, game->room->player->position->y) != 0) return 1;
 
-  char f_str[5];
-  sprintf(f_str, "%d", game->counter);
-
-  if (draw_text(f_str, 0, 0, 0) != 0) return 1;
+  sprintf(score_string, "%d", game->counter);
+  if (draw_text(score_string, 0, 0, 0) != 0) return 1;
 
   if (drawMouse(mouse_pos_x, mouse_pos_y) != 0) {
     printf("Error drawing mouse");
@@ -269,15 +260,14 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
   }
 
   if (text[0] == 'P'){
-    if (draw_xpm((xpm_map_t) play_game, x_init, y_init) != 0) return 1;
-  }
-  
-  else if (text[0] == 'I'){
-    if (draw_xpm((xpm_map_t) instructions, x_init, y_init) != 0) return 1;
-  }
-
-  else if (text[0] == 'Q'){
-    if (draw_xpm((xpm_map_t) quit, x_init + 100, y_init) != 0) return 1;
+    // if (draw_xpm((xpm_map_t) play_game, x_init, y_init) != 0) return 1;
+    if (draw_sprite(menu_play_game, x_init, y_init) != 0) return 1;
+  } else if (text[0] == 'I'){
+    // if (draw_xpm((xpm_map_t) instructions, x_init, y_init) != 0) return 1;
+    if (draw_sprite(menu_instructions, x_init, y_init) != 0) return 1;
+  } else if (text[0] == 'Q'){
+    // if (draw_xpm((xpm_map_t) quit, x_init + 100, y_init) != 0) return 1;
+    if (draw_sprite(menu_quit, x_init + 100, y_init) != 0) return 1;
   }
 
   return 0;

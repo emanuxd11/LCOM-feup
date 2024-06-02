@@ -4,8 +4,9 @@
 #include <stdio.h>
 
 #include "gpu.h"
+#include "../models/Sprite.h"
 
-
+// extern Sprite characters[CHAR_COUNT];
 static char *front_buffer;
 static char *back_buffer;
 uint8_t bypp;
@@ -160,19 +161,41 @@ int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   return 0;
 }
 
-int (draw_xpm_single_color)(xpm_map_t xpm, uint16_t x, uint16_t y, uint32_t color) {
-  enum xpm_image_type type = XPM_INDEXED;
-  xpm_image_t img;
-  uint8_t *sprite = xpm_load(xpm, type, &img);
+int (draw_sprite)(Sprite sprite, uint16_t x, uint16_t y) {
 
-  if (sprite == NULL) {
+  if (sprite.sprite == NULL) {
     return 1;
   }
 
-  for (int i = 0; i < img.height; i++) {
-    for (int j = 0; j < img.width; j++) {
-      if (*sprite == 255) {
-        sprite++;
+  for (int i = 0; i < sprite.height; i++) {
+    for (int j = 0; j < sprite.width; j++) {
+      if (*(sprite.sprite) == 255) {
+        sprite.sprite++;
+        continue;
+      }
+
+      if (draw_pixel(0x105, x + j, y + i, *(sprite.sprite)) != 0) {
+        return 1;
+      }
+
+      sprite.sprite++;
+    }
+  }
+
+  return 0;
+}
+
+
+int (draw_sprite_single_color)(Sprite sprite, uint16_t x, uint16_t y, uint32_t color) {
+
+  if (sprite.sprite == NULL) {
+    return 1;
+  }
+
+  for (int i = 0; i < sprite.height; i++) {
+    for (int j = 0; j < sprite.width; j++) {
+      if (*(sprite.sprite) == 255) {
+        sprite.sprite++;
         continue;
       }
 
@@ -180,14 +203,14 @@ int (draw_xpm_single_color)(xpm_map_t xpm, uint16_t x, uint16_t y, uint32_t colo
         return 1;
       }
 
-      sprite++;
+      sprite.sprite++;
     }
   }
 
   return 0;
 }
 
-int (get_char_xpm_idx)(char ch) {
+int (get_char_sprite_idx)(char ch) {
   if (ch >= 48 && ch <= 57) {
     return ch - 47 + 26;
   }
@@ -217,7 +240,7 @@ int (draw_text)(const char *text, uint16_t x, uint16_t y, uint32_t color) {
       continue;
     }
 
-    draw_xpm_single_color((xpm_map_t) characters[get_char_xpm_idx(text[i])], x + x_diff, y + y_diff, color);
+    draw_sprite_single_color(characters[get_char_sprite_idx(text[i])], x + x_diff, y + y_diff, color);
     x_diff += character_width;
   }
 

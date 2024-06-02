@@ -5,4 +5,6 @@ typedef struct {
     bool isPetting;
 } PlayerInfo;
 
+PlayerInfo* newPlayerInfo();
+
 #endif

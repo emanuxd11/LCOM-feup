@@ -29,6 +29,7 @@ void deleteGame(Game* game) {
 }
     
 Entity* selectedCat;
+
 int control_game(Game *game) {
   if (escWasPressed) {
     escWasPressed = false;
@@ -173,5 +174,12 @@ void moveEntity(Entity* entity, Room* room) {
     entity->position->y = fPos.y;
 
 }
+
+void petting_helper(Game* game) {
+  if (!((PlayerInfo*)game->room->player->typeInfo)->isPetting) return;
+
+
+}
+
 
 

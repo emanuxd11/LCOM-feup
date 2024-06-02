@@ -30,6 +30,7 @@ extern int mouse_pos_x, mouse_pos_y;
 extern uint16_t x_res, y_res;
 extern bool hasLeftClick;
 extern Datetime datetime;
+extern Entity* selectedCat;
 
 
 int drawGame(Game *game) {
@@ -198,6 +199,7 @@ int drawCat(Entity *entity) {
   
   case GRAY_CAT:
     if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    break;
     //return draw_xpm((xpm_map_t) cat3, entity->position->x, entity->position->y);
   
   case BROWN_CAT:
@@ -264,4 +266,16 @@ int drawButton(const char text[], int x_center, int y_center, int width, int hei
 
 int drawMouse(int x, int y) {
   return draw_xpm((xpm_map_t) mouse, x, y);
+}
+
+int drawPetting(Game* game) {
+  gid_t catColor;
+
+  switch (((CatInfo*) selectedCat->typeInfo)->color) {
+    case: O
+  }
+
+  //if (set_background_color(0x105))
+
+  return 0;
 }

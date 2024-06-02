@@ -1,9 +1,14 @@
+#ifndef _CHARACTERS_XPM_
+#define _CHARACTERS_XPM_
+
+#include <lcom/lcf.h>
+
 static unsigned short character_width  = 20;
 static unsigned short character_height = 20;
 
 
 /* empty character (whitespace or error) */
-static char *character_whitespace[] = {
+static char *character_whitespace_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -30,7 +35,7 @@ static char *character_whitespace[] = {
 };
 
 /* A */
-static char *letter_A[] = {
+static char *letter_A_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -59,7 +64,7 @@ static char *letter_A[] = {
 };
 
 /* B */
-static char *letter_B[] = {
+static char *letter_B_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -88,7 +93,7 @@ static char *letter_B[] = {
 };
 
 /* C */
-static char *letter_C[] = {
+static char *letter_C_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -117,7 +122,7 @@ static char *letter_C[] = {
 };
 
 /* D */
-static char *letter_D[] = {
+static char *letter_D_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -146,7 +151,7 @@ static char *letter_D[] = {
 };
 
 /* E */
-static char *letter_E[] = {
+static char *letter_E_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -175,7 +180,7 @@ static char *letter_E[] = {
 };
 
 /* F */
-static char *letter_F[] = {
+static char *letter_F_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -204,7 +209,7 @@ static char *letter_F[] = {
 };
 
 /* G */
-static char *letter_G[] = {
+static char *letter_G_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -233,7 +238,7 @@ static char *letter_G[] = {
 };
 
 /* H */
-static char *letter_H[] = {
+static char *letter_H_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -262,7 +267,7 @@ static char *letter_H[] = {
 };
 
 /* I */
-static char *letter_I[] = {
+static char *letter_I_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -291,7 +296,7 @@ static char *letter_I[] = {
 };
 
 /* J */
-static char *letter_J[] = {
+static char *letter_J_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -320,7 +325,7 @@ static char *letter_J[] = {
 };
 
 /* K */
-static char *letter_K[] = {
+static char *letter_K_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -349,7 +354,7 @@ static char *letter_K[] = {
 };
 
 /* L */
-static char *letter_L[] = {
+static char *letter_L_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -378,7 +383,7 @@ static char *letter_L[] = {
 };
 
 /* M */
-static char *letter_M[] = {
+static char *letter_M_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -407,7 +412,7 @@ static char *letter_M[] = {
 };
 
 /* N */
-static char *letter_N[] = {
+static char *letter_N_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -436,7 +441,7 @@ static char *letter_N[] = {
 };
 
 /* O */
-static char *letter_O[] = {
+static char *letter_O_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -465,7 +470,7 @@ static char *letter_O[] = {
 };
 
 /* P */
-static char *letter_P[] = {
+static char *letter_P_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -494,7 +499,7 @@ static char *letter_P[] = {
 };
 
 /* Q */
-static char *letter_Q[] = {
+static char *letter_Q_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -523,7 +528,7 @@ static char *letter_Q[] = {
 };
 
 /* R */
-static char *letter_R[] = {
+static char *letter_R_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -552,7 +557,7 @@ static char *letter_R[] = {
 };
 
 /* S */
-static char *letter_S[] = {
+static char *letter_S_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -581,7 +586,7 @@ static char *letter_S[] = {
 };
 
 /* T */
-static char *letter_T[] = {
+static char *letter_T_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -610,7 +615,7 @@ static char *letter_T[] = {
 };
 
 /* U */
-static char *letter_U[] = {
+static char *letter_U_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -639,7 +644,7 @@ static char *letter_U[] = {
 };
 
 /* V */
-static char *letter_V[] = {
+static char *letter_V_xpm[] = {
 /*   */
 "20 20 2",
 "  255",
@@ -668,7 +673,7 @@ static char *letter_V[] = {
 };
 
 /* W */
-static char *letter_W[] = {
+static char *letter_W_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -696,7 +701,7 @@ static char *letter_W[] = {
 };
 
 /* X */
-static char *letter_X[] = {
+static char *letter_X_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -724,7 +729,7 @@ static char *letter_X[] = {
 };
 
 /* Y */
-static char *letter_Y[] = {
+static char *letter_Y_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -752,7 +757,7 @@ static char *letter_Y[] = {
 };
 
 /* Z */
-static char *letter_Z[] = {
+static char *letter_Z_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -780,7 +785,7 @@ static char *letter_Z[] = {
 };
 
 /* 0 */
-static char *number_0[] = {
+static char *number_0_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -808,7 +813,7 @@ static char *number_0[] = {
 };
 
 /* 1 */
-static char *number_1[] = {
+static char *number_1_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -836,7 +841,7 @@ static char *number_1[] = {
 };
 
 /* 2 */
-static char *number_2[] = {
+static char *number_2_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -864,7 +869,7 @@ static char *number_2[] = {
 };
 
 /* 3 */
-static char *number_3[] = {
+static char *number_3_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -892,7 +897,7 @@ static char *number_3[] = {
 };
 
 /* 4 */
-static char *number_4[] = {
+static char *number_4_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -920,7 +925,7 @@ static char *number_4[] = {
 };
 
 /* 5 */
-static char *number_5[] = {
+static char *number_5_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -948,7 +953,7 @@ static char *number_5[] = {
 };
 
 /* 6 */
-static char *number_6[] = {
+static char *number_6_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -976,7 +981,7 @@ static char *number_6[] = {
 };
 
 /* 7 */
-static char *number_7[] = {
+static char *number_7_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -1004,7 +1009,7 @@ static char *number_7[] = {
 };
 
 /* 8 */
-static char *number_8[] = {
+static char *number_8_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -1032,7 +1037,7 @@ static char *number_8[] = {
 };
 
 /* 9 */
-static char *number_9[] = {
+static char *number_9_xpm[] = {
 "20 20 2",
 "  255",
 ". 0",
@@ -1060,44 +1065,49 @@ static char *number_9[] = {
 };
 
 
-static char **characters[] = {
-  character_whitespace,
-  letter_A,
-  letter_B,
-  letter_C,
-  letter_D,
-  letter_E,
-  letter_F,
-  letter_G,
-  letter_H,
-  letter_I,
-  letter_J,
-  letter_K,
-  letter_L,
-  letter_M,
-  letter_N,
-  letter_O,
-  letter_P,
-  letter_Q,
-  letter_R,
-  letter_S,
-  letter_T,
-  letter_U,
-  letter_V,
-  letter_W,
-  letter_X,
-  letter_Y,
-  letter_Z,
-  number_0,
-  number_1,
-  number_2,
-  number_3,
-  number_4,
-  number_5,
-  number_6,
-  number_7,
-  number_8,
-  number_9
+// static char **characters[] = {
+static xpm_map_t xpm_map_characters[] = {
+  (xpm_map_t) character_whitespace_xpm,
+  (xpm_map_t) letter_A_xpm,
+  (xpm_map_t) letter_B_xpm,
+  (xpm_map_t) letter_C_xpm,
+  (xpm_map_t) letter_D_xpm,
+  (xpm_map_t) letter_E_xpm,
+  (xpm_map_t) letter_F_xpm,
+  (xpm_map_t) letter_G_xpm,
+  (xpm_map_t) letter_H_xpm,
+  (xpm_map_t) letter_I_xpm,
+  (xpm_map_t) letter_J_xpm,
+  (xpm_map_t) letter_K_xpm,
+  (xpm_map_t) letter_L_xpm,
+  (xpm_map_t) letter_M_xpm,
+  (xpm_map_t) letter_N_xpm,
+  (xpm_map_t) letter_O_xpm,
+  (xpm_map_t) letter_P_xpm,
+  (xpm_map_t) letter_Q_xpm,
+  (xpm_map_t) letter_R_xpm,
+  (xpm_map_t) letter_S_xpm,
+  (xpm_map_t) letter_T_xpm,
+  (xpm_map_t) letter_U_xpm,
+  (xpm_map_t) letter_V_xpm,
+  (xpm_map_t) letter_W_xpm,
+  (xpm_map_t) letter_X_xpm,
+  (xpm_map_t) letter_Y_xpm,
+  (xpm_map_t) letter_Z_xpm,
+  (xpm_map_t) number_0_xpm,
+  (xpm_map_t) number_1_xpm,
+  (xpm_map_t) number_2_xpm,
+  (xpm_map_t) number_3_xpm,
+  (xpm_map_t) number_4_xpm,
+  (xpm_map_t) number_5_xpm,
+  (xpm_map_t) number_6_xpm,
+  (xpm_map_t) number_7_xpm,
+  (xpm_map_t) number_8_xpm,
+  (xpm_map_t) number_9_xpm
 };
 
-static short int character_count = 37;
+
+static const short int character_count = 37;
+#define CHAR_COUNT 37
+
+#endif

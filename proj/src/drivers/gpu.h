@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "../font/characters.xpm"
+#include "../models/Sprite.h"
 
 
 int (enter_video_mode)(uint16_t mode);
@@ -22,7 +23,7 @@ int (draw_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint
 
 int (draw_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y);
 
-int (draw_xpm_single_color)(xpm_map_t xpm, uint16_t x, uint16_t y, uint32_t color);
+int (draw_xpm_single_color)(Sprite sprite, uint16_t x, uint16_t y, uint32_t color);
 
 int (get_char_xpm_idx)(char ch);
 

@@ -27,34 +27,32 @@ void deleteGame(Game* game) {
 }
     
 int control_game(Game *game) {
-  if (escWasPressed) {
-    escWasPressed = false;
-    switch (game->state) {
-      case MENU_STATE:
-        game->state = LEAVE_STATE;
-        break;
-      case GAME_STATE:
-        game->state = MENU_STATE;
-        break;
-      case INSTRUCTIONS_STATE:
-        game->state = MENU_STATE;
-        break;
-      default:
-        game->state = LEAVE_STATE;
+    if (escWasPressed) {
+        escWasPressed = false;
+        switch (game->state) {
+        case MENU_STATE:
+            game->state = LEAVE_STATE;
+            break;
+        case GAME_STATE:
+            game->state = MENU_STATE;
+            break;
+        case INSTRUCTIONS_STATE:
+            game->state = MENU_STATE;
+            break;
+        default:
+            game->state = LEAVE_STATE;
+        }
     }
-  }
-  if (game->state == GAME_STATE) {
-      
-      control_player(game);
-      
-      for (int i = 0; i < 10; i++) {
-          control_cat(game, game->room->cats[i]);
-      }
-      
-  }
-  
 
-  return 0;
+    if (game->state == GAME_STATE) {
+        control_player(game);
+
+        for (int i = 0; i < 10; i++) {
+            control_cat(game, game->room->cats[i]);
+        }
+    }
+  
+    return 0;
 }
 
 int control_player(Game* game) {

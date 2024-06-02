@@ -15,6 +15,7 @@ typedef struct {
     Position* center;
     Cloud clouds[CLOUD_QNT];
     uint8_t stage;
+    uint8_t n_cats;
 } Room;
 
 

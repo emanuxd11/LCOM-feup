@@ -41,4 +41,6 @@ void moveEntity(Entity* entity, Room* room);
 
 void updateGameTime();
 
+int addCat(Game* game);
+
 #endif /* GAME_H */

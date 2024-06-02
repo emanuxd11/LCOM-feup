@@ -8,17 +8,9 @@ Room* newRoom(){
     Room *room = (Room*) malloc(sizeof(Room));
     room->player = newPlayer(100, 100);
     room->center = newPosition(512, 371);
+    room->n_cats = 0;
 
     int catX, catY;
-
-    for (int i = 0; i < 10; i++){
-
-        catX = randomNumer(30, 1000);
-        catY = randomNumer(30, 700);
-        
-        room->cats[i] = newCat(catX, catY);
-   
-    }
 
     int cloud_x_offset = 0;
     for (int i = 0; i < CLOUD_QNT; i++) {
@@ -34,6 +26,8 @@ Room* newRoom(){
 
     return room;
 }
+
+
 
 
 void deleteRoom(Room* room) {

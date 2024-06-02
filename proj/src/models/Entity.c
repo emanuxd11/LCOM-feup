@@ -70,6 +70,16 @@ CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB) {
 
     return NO_COLLISION;
 }
+
+Position candidatePos(Entity* entity) {
+    Position cPos;
+
+    double distance = entity->velocity / FRAME_RATE;
+
+    cPos.x = entity->position->x + (distance * cos(degToRad(entity->direction)));
+    cPos.y = entity->position->y - (distance * sin(degToRad(entity->direction)));
+    return cPos;
+}
 /*
 CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB) {
 

@@ -16,7 +16,7 @@
 #define D_BREAK 0xa0
 
 #define ESC_BREAK 0x81
-
+#define E_BREAK 0x92
 
 int update_keys(uint8_t scan_code);
 

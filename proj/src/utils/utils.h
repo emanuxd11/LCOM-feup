@@ -1,6 +1,7 @@
 #define FRAME_RATE 60
 #define PLAYER_V 200
 #define CAT_V 30
+#define SELECT_RADIUS 70
 
 
 

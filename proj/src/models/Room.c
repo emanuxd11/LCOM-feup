@@ -1,6 +1,8 @@
 #include "Room.h"
 #include "../utils/utils.h"
 #include "../drivers/utils_drivers.h"
+#include <math.h>
+#include "CatInfo.h"
 
 Room* newRoom(){
     Room *room = (Room*) malloc(sizeof(Room));
@@ -33,6 +35,7 @@ Room* newRoom(){
     return room;
 }
 
+
 void deleteRoom(Room* room) {
     deleteEntity(room->player);
 
@@ -50,4 +53,29 @@ void deleteRoom(Room* room) {
 
 
     free(room);
+}
+
+Entity* getSelectedCat(Room* room) {
+    
+    Entity* currCat;
+    Entity* closestCat;
+    double distToPlayer;
+    double minDistToPlayer = SELECT_RADIUS;
+    
+    for (int i = 0; i < 10; i++) {
+        currCat = room->cats[i];
+        if (currCat == NULL) continue;
+
+        ((CatInfo*)currCat->typeInfo)->isSelected = false;
+        distToPlayer = sqrt(pow(room->player->position->x - currCat->position->x, 2)
+                            + pow(room->player->position->y - currCat->position->y, 2));
+        
+        if (distToPlayer >= SELECT_RADIUS) continue;
+        if (distToPlayer < minDistToPlayer) {
+            minDistToPlayer = distToPlayer;
+            closestCat = currCat;
+        }
+    }
+    ((CatInfo*)closestCat->typeInfo)->isSelected = true;
+    return closestCat;
 }

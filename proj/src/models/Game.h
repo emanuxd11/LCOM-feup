@@ -33,16 +33,51 @@ typedef struct {
     Room *room;
     GameState state;
 } Game;
-
+/**
+ * @brief Creates a new game
+ * 
+ * @return pointer to game 
+ */
 Game* createNewGame();
+/**
+ * @brief Deletes allocated memory space for previously created game
+ * 
+ * @param game pointer to game to be deleted
+ */
 void deleteGame(Game* game);
-
+/**
+ * @brief Manages game states and calls entity control functions
+ * 
+ * @param game current game
+ * @return always returns 0 
+ */
 int control_game(Game *game);
+/**
+ * @brief Controls player's movement direction 
+ * 
+ * @param game current game
+ * @return always returns 0 
+ */
 int control_player(Game* game);
+/**
+ * @brief 
+ * 
+ * @param game 
+ * @param cat 
+ * @return int 
+ */
 int control_cat(Game* game, Entity* cat);
-
+/**
+ * @brief Moves entity to previously defined (future)position
+ * 
+ * @param entity entity to move
+ * @param room current room
+ */
 void moveEntity(Entity* entity, Room* room);
-
+/**
+ * @brief updates game time with RTC's time
+ * 
+ */
 void updateGameTime();
 
 #endif /* GAME_H */

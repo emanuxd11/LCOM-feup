@@ -1,4 +1,11 @@
-
+/**
+ * @file Entity.h
+ * @brief This file contains functions regarding the creation and collisions between game entities
+ * @date 2024-06-02
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #ifndef _ENTITY_H_
 #define _ENTITY_H_
 

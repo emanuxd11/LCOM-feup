@@ -26,8 +26,4 @@ int removeCat(Room* room ,Entity* cat);   //called if the specified cat is pet c
 
 int advanceStage(Room* room);
 
-Position candidatePos(Entity* entity, Room* room);  // returns next position according to velocity, direction and collisions
-
-void moveEntity(Entity* Entity, Room* room);        //will move entity according to candidatePos
-
 #endif /* ROOM_H */

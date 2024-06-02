@@ -114,14 +114,9 @@ void updateGameTime() {
   datetime = rtc_read_datetime();
 }
 
-Position candidatePos(Entity* entity, Room* room) {
+Position futurePos(Entity* entity, Room* room) {
 
-    Position cPos;
-
-    double distance = entity->velocity / FRAME_RATE;
-
-    cPos.x = entity->position->x + (distance * cos(degToRad(entity->direction)));
-    cPos.y = entity->position->y - (distance * sin(degToRad(entity->direction)));
+    Position cPos = candidatePos(entity);
 
     // check border
     if (cPos.x > 1024 || cPos.x < 0) cPos.x = entity->position->x;
@@ -136,41 +131,20 @@ Position candidatePos(Entity* entity, Room* room) {
         if (otherEntity == NULL
             || (entity->position->x == otherEntity->position->x && entity->position->y == otherEntity->position->y)) continue;
 
-        switch (checkCollision(cPos, entity, otherEntity)) {
-            
-            case X_COLLISION:
-                cPos.x = entity->position->x;
-                break;
-
-            case Y_COLLISION:
-                cPos.y = entity->position->y;
-                break;
-                
-            case XY_COLLISION:
-                cPos.x = entity->position->x;
-                cPos.y = entity->position->y;
-                break;
-                
-            case NO_COLLISION:
-                break;
+        if (checkCollision(cPos, entity, otherEntity) != NO_COLLISION) {
+            entity->direction = entity->direction + 180;
+            entity->velocity = 1;
+            cPos = candidatePos(entity);
         }
 
     }
 
+    // check collisions with player 
     if (entity->type != PLAYER) {
-        switch (checkCollision(cPos, entity, room->player)) {
-            case X_COLLISION:
-                cPos.x = entity->position->x;
-                break;
-            case Y_COLLISION:
-                cPos.y = entity->position->y;
-                break;
-            case XY_COLLISION:
-                cPos.x = entity->position->x;
-                cPos.y = entity->position->y;
-                break;
-            case NO_COLLISION:
-                break;
+        if (checkCollision(cPos, entity, room->player) != NO_COLLISION) {
+            entity->direction = entity->direction + 180;
+            entity->velocity = 1;
+            cPos = candidatePos(entity);
         }
 
     }
@@ -178,12 +152,14 @@ Position candidatePos(Entity* entity, Room* room) {
     return cPos;
 }
 
+
+
 void moveEntity(Entity* entity, Room* room) {
-    Position cPos = candidatePos(entity, room);
+    Position fPos = futurePos(entity, room);
 
-    //add collision checks
-
-    entity->position->x = cPos.x;
-    entity->position->y = cPos.y;
+    entity->position->x = fPos.x;
+    entity->position->y = fPos.y;
 
 }
+
+

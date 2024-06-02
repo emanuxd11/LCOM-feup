@@ -47,6 +47,7 @@ Entity *newCloud(int x, int y, double velocity);
 
 void deleteEntity(Entity* entity);
 
+Position candidatePos(Entity* entity);
 CollisionType checkCollision(Position cPosA, Entity* entityA, Entity* entityB);
 
 

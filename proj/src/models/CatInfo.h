@@ -19,6 +19,7 @@ typedef struct {
     uint8_t petCooldown;
     uint16_t moveCountdown;
     bool isIdle;
+    bool isSelected;
 } CatInfo;
 
 CatInfo* newCatInfo(); //returns new CatInfo with random color

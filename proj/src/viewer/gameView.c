@@ -180,28 +180,38 @@ int drawSky() {
 
 int drawCat(Entity *entity) {
   // TODO switch case to get cat type
-
   switch (((CatInfo*) entity->typeInfo)->color)
   {
   case ORANGE_CAT:
-    return draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y);
+    if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    break;
 
   case WHITE_CAT:
-    return draw_xpm((xpm_map_t) cat1, entity->position->x, entity->position->y);
+    if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat1, entity->position->x, entity->position->y);
 
   case BLACK_CAT:
-    return draw_xpm((xpm_map_t) cat2, entity->position->x, entity->position->y);
+    if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat2, entity->position->x, entity->position->y);
   
   case GRAY_CAT:
-    return draw_xpm((xpm_map_t) cat3, entity->position->x, entity->position->y);
+    if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    //return draw_xpm((xpm_map_t) cat3, entity->position->x, entity->position->y);
   
   case BROWN_CAT:
-    return draw_xpm((xpm_map_t) cat4, entity->position->x, entity->position->y);
+    if (draw_xpm((xpm_map_t) cat0, entity->position->x, entity->position->y) != 0) return 1;
+    break;
+    //return draw_xpm((xpm_map_t) cat4, entity->position->x, entity->position->y);
   
   default:
     return 1;
   }
 
+  if (((CatInfo*)entity->typeInfo)->isSelected) return draw_rectangle(0x105, entity->position->x, entity->position->y, 10, 10, YELLOW);
+
+  return 0;
 }
 
 int drawInstructions(){

@@ -45,11 +45,12 @@ int control_game(Game *game) {
   }
   if (game->state == GAME_STATE) {
       
-      control_player(game);
-      
-      for (int i = 0; i < 10; i++) {
-          control_cat(game, game->room->cats[i]);
-      }
+    control_player(game);
+    getSelectedCat(game->room);
+    
+    for (int i = 0; i < 10; i++) {
+        control_cat(game, game->room->cats[i]);
+    }
       
   }
   

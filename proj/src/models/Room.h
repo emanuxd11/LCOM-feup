@@ -26,4 +26,6 @@ int removeCat(Room* room ,Entity* cat);   //called if the specified cat is pet c
 
 int advanceStage(Room* room);
 
+Entity* getSelectedCat(Room* room);
+
 #endif /* ROOM_H */

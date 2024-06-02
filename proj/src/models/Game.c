@@ -20,12 +20,6 @@ Game *createNewGame() {
   game->state = GAME_STATE;
   game->room = newRoom();
   game->counter = 0;
-
-  for (int i = 0; i < 10; i++){
-
-    addCat(game);
-   
-  }
   return game;
 }
 

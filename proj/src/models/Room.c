@@ -10,10 +10,8 @@ Room* newRoom(){
     room->center = newPosition(512, 371);
     room->n_cats = 0;
 
-    int catX, catY;
-
     for (int i = 0; i < 10; i++){
-        if (addCat(room) != 0) return 1;
+        if (addCat(room) != 0) return NULL;
     }
 
     int cloud_x_offset = 0;
@@ -82,9 +80,27 @@ Entity* getSelectedCat(Room* room) {
 int addCat(Room* room){
     if (room == NULL) return 1;
     if (room->n_cats >= 10) return 0;
-    int catX = randomNumer(30, 1000);
-    int catY = randomNumer(30, 700); 
-    room->cats[room->n_cats] = newCat(catX, catY);
-    room->n_cats++;
+
+    while(true){
+        int catX = randomNumer(30, 1000);
+        int catY = randomNumer(300, 700);
+        Position pos;
+        pos.x = catX;
+        pos.y = catY;
+        Entity* cat = newCat(catX, catY);
+        bool hasCollision = false;
+        for (int i = 0; i < room->n_cats; i++){
+            CollisionType col = checkCollision(pos, cat, room->cats[i]);
+            if (col != NO_COLLISION){
+                hasCollision = true;
+                break;
+            } 
+        }
+        if (!hasCollision){
+            room->cats[room->n_cats] = newCat(catX, catY);
+            room->n_cats++;
+            break;
+        }
+    }
     return 0;
 }

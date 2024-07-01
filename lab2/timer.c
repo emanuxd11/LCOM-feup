@@ -1,125 +1,81 @@
 #include <lcom/lcf.h>
-#include <lcom/timer.h>
-
-#include <stdint.h>
 
 #include "i8254.h"
 
-#define TIMER(n) (0x40 + n)
 
-int hook_id_timer = 0;
+int timer_hook_id = 0;
 
-int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 
-  if (timer < 0 || timer > 2) return 1;
+int (timer_get_conf)(unsigned char timer, unsigned char *st) {
 
-  uint8_t current_configuration;
-
-  timer_get_conf(timer, &current_configuration);
-
-  uint8_t lsb4_current_configuration = (BIT(3) | BIT(2) | BIT(1) | BIT(0)) & current_configuration; //stores 4 LSBs of current configuration (so as to not change them)
-  
-  uint8_t control_word;
-
-  switch (timer) //timer selection
-  {
-  case 0:
-    control_word = TIMER_SEL0;
-    break;
-  
-  case 1:
-    control_word = TIMER_SEL1;
-    break;
-
-  case 2:
-    control_word = TIMER_SEL2;
-    break;
-
-  }
-
-  control_word = control_word | TIMER_LSB_MSB | lsb4_current_configuration; //final composition of control word
-
-  if (sys_outb(TIMER_CTRL, control_word) != 0) return 1;
-  uint16_t base = (TIMER_FREQ/freq);
-
-  uint8_t base_lsb;
-  uint8_t base_msb;
-
-  if(util_get_LSB(base,&base_lsb)==1)return 1;
-  if(util_get_MSB(base,&base_msb)==1)return 1;
-
-  if (sys_outb(TIMER(timer), base_lsb) != 0) return 1;
-  if (sys_outb(TIMER(timer), base_msb) != 0) return 1;
-
-  return 0;
-}
-
-int (timer_subscribe_int)(uint8_t *bit_no) {
-
-  if (bit_no == NULL) return 1;
-
-  *bit_no = BIT(hook_id_timer);
-
-  return sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id_timer);
-}
-
-int (timer_unsubscribe_int)() {
-
-  return sys_irqrmpolicy(&hook_id_timer);
-}
-
-void (timer_int_handler)() {
-
-}
-
-int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-
-  if (timer < 0 || timer > 2 || st == NULL){
+  if (timer < 0 || timer > 2 || st == NULL) {
     return 1;
   }
 
-  uint8_t command = BIT(7) | BIT(6) | BIT(5) | BIT(timer + 1);
-
-  if (sys_outb(TIMER_CTRL, command) != 0) return 1;
+  sys_outb(TIMER_CTRL, BIT(7) | BIT(6) | BIT(5) | BIT(timer + 1));
 
   if (util_sys_inb(TIMER(timer), st) != 0) return 1;
 
   return 0;
 }
 
-int (timer_display_conf)(uint8_t timer, uint8_t st,
-                        enum timer_status_field field) {
+int (timer_display_conf)(uint8_t timer, uint8_t conf, enum timer_status_field field) {
 
-  if (timer < 0 || timer > 2) return 1;
+  // if (timer < 0 || timer > 2) return 1;
 
-  union timer_status_field_val value;
+  // return timer_print_config();
+  return 0;
+}
 
-  switch(field){
-    case tsf_all:
-      value.byte = st;
-      break;
-    case tsf_initial:{
-      uint8_t bits = (st & (BIT(4) | BIT(5))) >> 4;
-      value.in_mode = bits;
-      break;
-    }
-    case tsf_mode:{
-        uint8_t bits = (st & (BIT(1) | BIT(2) | BIT(3))) >> 1;
-        if (bits >= 6){
-          value.count_mode = bits - 4;
-        }
-        else{
-          value.count_mode = bits;
-        }
-        break;
-      }
-    case tsf_base:
-      value.bcd = st & BIT(0);
-      break;
-    default:
-      break;
+int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
+
+  if (timer < 0 || timer > 2 || freq < 19) {
+    return 1;
   }
 
-  return timer_print_config(timer, field, value);
+  uint8_t old_conf, new_conf;
+  if (timer_get_conf(timer, &old_conf) != 0) {
+    return 1;
+  }
 
+  uint8_t timer_selection = TIMER_SEL0;
+  if (timer == 1) {
+    timer_selection = TIMER_SEL1;
+  } else if (timer == 2) {
+    timer_selection = TIMER_SEL2;
+  }
+  new_conf = (old_conf & 0x0F) | BIT(5) | BIT(4) | timer_selection;
+
+  uint16_t initial_val = TIMER_FREQ / freq;
+  uint8_t lsb, msb;
+  util_get_LSB(initial_val, &lsb);
+  util_get_LSB(initial_val, &msb);
+
+  sys_outb(TIMER_CTRL, new_conf); // avisar o timer que se vai escrever para lá uma config nova para o timer <timer> (new conf)
+  // escrever para o timer <timer> a nova configuração 8 bits de cada vez
+  sys_outb(TIMER(timer), lsb);
+  sys_outb(TIMER(timer), msb);
+
+  return 0;
+}
+
+void (timer_int_handler)() {
+
+  return;
+}
+
+int (timer_subscribe_int)(uint8_t *bit_no) {
+
+  if (bit_no == NULL) {
+    return 1;
+  }
+
+  *bit_no = BIT(timer_hook_id);
+
+  return sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &timer_hook_id);
+}
+
+int (timer_unsubscribe_int)() {
+
+  return sys_irqrmpolicy(&timer_hook_id);
 }

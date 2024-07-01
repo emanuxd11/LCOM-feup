@@ -3,7 +3,6 @@
 
 #include <lcom/lcf.h>
 
-
 /** @defgroup i8254 i8254
  * @{
  *
@@ -19,7 +18,6 @@
 #define TIMER_1    0x41 /**< @brief Timer 1 count register */
 #define TIMER_2    0x42 /**< @brief Timer 2 count register */
 #define TIMER_CTRL 0x43 /**< @brief Control register */
-#define TIMER(timer) TIMER_0 + timer
 
 #define SPEAKER_CTRL 0x61 /**< @brief Register for speaker control  */
 
@@ -57,4 +55,3 @@
 /**@}*/
 
 #endif /* _LCOM_I8254_H */
-

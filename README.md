@@ -2,8 +2,8 @@
 
 LCOM Project for group T02-G06.
 
-![game](proj/docs/scr1.png)
-![menu](proj/docs/scr2.png)
+![game](proj/doc/scr1.png)
+![menu](proj/doc/scr2.png)
 
 Group members:
 

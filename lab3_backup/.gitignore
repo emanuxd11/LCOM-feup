@@ -1,8 +1,0 @@
-*.o
-lab3
-*.txt
-.clang-format
-.vscode
-.gdbinit
-.vscode
-.clang-format
